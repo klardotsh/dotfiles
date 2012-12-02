@@ -1,0 +1,43 @@
+#avoid flicker
+double_buffer yes
+
+#own window to run simultanious 2 or more conkys
+own_window  yes
+own_window_transparent yes
+own_window_type override
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager 
+
+#borders
+draw_borders no
+
+#shades
+draw_shades no
+
+#position
+gap_x 5
+gap_y 1
+alignment top_left
+
+#behaviour
+update_interval 3
+
+#colour
+default_color  8f8f8f
+#default_shade_color 000000
+own_window_colour 262729
+
+#font
+use_xft yes
+xftfont ohsnap.icons:size=8
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+#to prevent window from moving
+use_spacer right
+minimum_size 1270 0
+
+#lua_load /home/j/.config/conky-cmus.lua
+
+TEXT
+Ñ ${color e0e0e0}${cpu}%${color} Æ ${color e0e0e0}${memperc}%${color} ú ${color e0e0e0}${swapperc}%${color}  ¨ R ${color e0e0e0}${fs_used_perc /}%${color} ¨ D ${color e0e0e0}${fs_used_perc /data}%${color} º ${color e0e0e0}${execi 60 /data/bin/pacman_check_updates.sh}${color} ${if_up tun0}Ø ${color e0e0e0}VPN ${color}Û ${color e0e0e0}${upspeed tun0}/s${color} Ú ${color e0e0e0}${downspeed tun0}/s${color}${else}${if_up eth0}Ø ${color e0e0e0}ETH ${color} Û ${color e0e0e0}${upspeed eth0}/s${color} Ú ${color e0e0e0}${downspeed eth0}/s${color}${else}Network Unavailable${endif}${endif}${alignr}${color 157da6}${time %H:%M [%d %b]}${color}
