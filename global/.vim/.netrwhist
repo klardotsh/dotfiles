@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/data/src/aur_dl/urbanterror-data'
+let g:netrw_dirhist_2='/home/j/.vim'
+let g:netrw_dirhist_3='/data/src/website_code/templates'
+let g:netrw_dirhist_4='/home/j/.config'
+let g:netrw_dirhist_5='/data/src/ewirepr.com/node_modules/mu2/lib/mu'
+let g:netrw_dirhist_6='/home/j/.mplayer'
+let g:netrw_dirhist_7='/home/j/.shell-fm/cache'
