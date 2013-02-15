@@ -8,7 +8,7 @@ unset record                            # required to prevent duplicates in Sent
 set sendmail    = "/usr/sbin/sendmail -C/etc/ssmtp/ssmtp_iv597.conf -oem -oi"
 
 # mailboxes
-mailboxes +INBOX +freelance +robotics +feeds +cl-comp-gigs +aur-general +arch-bbs +Drafts
+mailboxes +INBOX +robotics +feeds +freelance +lolacdanza +fressadi +cl-comp-gigs +aur-general +arch-bbs +Drafts
 
 # bindings
 macro index D "<save-message>+Trash<enter>"   "move message to the trash"
@@ -44,7 +44,8 @@ unset mime_forward                                      # forward attachments as
 set forward_format      = "Fwd: %s"                     # format for subject when forwarding
 set include                                             # include message in replies
 set forward_quote                                       # include message in forwards
-set editor              = vim                           # Fuck beep-repeatedly VI...
+set editor              = vim                           
+my_hdr CC: j@iv597.com
 
 # headers to show
 ignore *                                                # ignore all headers
@@ -55,7 +56,7 @@ set sidebar_width=20
 set sidebar_visible=yes
 set sidebar_delim='|'
 #set sidebar_sort=yes
-#source /home/j/.mutt_colors
+source /home/j/.mutt_colors
 
 color sidebar_new blue default
 bind index \Cp sidebar-prev
