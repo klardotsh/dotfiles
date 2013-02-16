@@ -41,7 +41,7 @@ alias tree='tree -CA'
 export EDITOR='vim'
 export BROWSER='elinks'
 export MANPAGER='most -s'
-export LANG='sv_SE.utf8' # Also set in /etc/locale.conf, but hey...
+export LANG='de_DE.utf8' # Also set in /etc/locale.conf, but hey...
 export PATH='/data/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl'
 export SDL_AUDIODRIVER='pulse'
 
