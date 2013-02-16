@@ -143,14 +143,19 @@ gitCheck() {
 	fi
 }
 
+sshCheck() {
+	([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]) && sshConn="$fg_bold[cyan]>" || sshConn="$fg_bold[green]>"
+}
+
 setPrompt() {
 	gitCheck
-	PROMPT="%{$fg_bold[blue]%}%3~ ${gitBranch}%{$reset_color%}> "
+	PROMPT="%{$fg_bold[blue]%}%3~ ${gitBranch}${sshConn}%{$reset_color%} "
 }
 
 precmd() {
 	setPrompt
 }
 
+sshCheck
 setPrompt
 
