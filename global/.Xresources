@@ -11,12 +11,12 @@ Xft.rgba: rgb
 URxvt.scrollBar: off                                                    
 
 ! using artwiz-latin1-fonts from AUR
-URxvt*font: -*-lime-medium-*-*-*-10-*-*-*-*-*-*-*
+URxvt*font: xft:Ubuntu Mono:size=8:antialias=false
 URxvt.boldFont: 
 URxvt.letterSpace: -2
 
 URxvt.transparent: true
-URxvt.shading: 50
+URxvt.shading: 40
 URxvt.blurRadius: 8
 
 *foreground:#a0a0a0
