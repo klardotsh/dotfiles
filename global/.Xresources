@@ -17,7 +17,7 @@ URxvt.letterSpace: -2
 
 URxvt.transparent: true
 URxvt.shading: 40
-URxvt.blurRadius: 8
+URxvt.blurRadius: 5
 
 *foreground:#a0a0a0
 *background:#1b1d1e

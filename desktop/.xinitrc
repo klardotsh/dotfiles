@@ -7,6 +7,10 @@ numlockx on &
 # Because áóéúíìùèòàâôêûîñß are cool and probably broke your ANSI term...
 setxkbmap us -variant dvorak-intl -option caps:backspace -option keypad:pointerkeys &
 
+# Merge ALL OF THE BUFFERS!
+autocutsel -fork &
+autocutsel -selection PRIMARY -fork &
+
 # Setup GTK2_RC for QT's sake
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
@@ -21,10 +25,6 @@ xset fp rehash                  # Forces a new rescan
 
 # Give URxvt some love
 xrdb -load $HOME/.Xresources &
-
-# Dual monitors, dude.
-#xrandr --output HDMI-0 --mode 1440x900 --right-of VGA-0
-redshift -l 39.8906:84.1989
 
 # Stop fucking with my displays (only one of them ever turned off...)
 xset -dpms &
@@ -43,8 +43,8 @@ imlibsetroot -x e -s f /home/j/.wallpaper &
 # My awesomesausery at work...
 conky -c $HOME/.config/conkyrc &
 
-# Works reasonably well for me. TWMN looked cooler, but OH THE BLOAT
-dunst -config $XDG_CONFIG_HOME/dunst/dunstrc &
+# As I'm using notify-osd for now, this is a necessary evil
+compton &
 
 # Because I like saving RAM. I think.
 urxvtd &
