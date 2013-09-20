@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/j/.mbsync'
+let g:netrw_dirhist_2='/home/j/.vim'
+let g:netrw_dirhist_3='/home/j/ftp/dash-new/heatmap.js-master/demo/realtime_heatmap'
+let g:netrw_dirhist_4='/home/j/.mbsync'
+let g:netrw_dirhist_5='/data/src/ewirepr/app/ewpr_data/customers/j@iv597.com'
+let g:netrw_dirhist_6='/data/src/node-openni2-github/.git'
+let g:netrw_dirhist_7='/data/src/bodhi5-ni/tests'
+let g:netrw_dirhist_8='/home/j/.config/termite'
+let g:netrw_dirhist_9='/home/j/.rtorrent'
