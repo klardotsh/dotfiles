@@ -1,0 +1,135 @@
+/* general {{{
+-----------------
+*/ 
+
+#appcontent,
+#appcontent > #content,
+#appcontent > #content > tabbox > tabpanels {
+	background: #fbfbfb !important;
+}
+     
+.tabbrowser-arrowscrollbox > .scrollbutton-up,
+.tabbrowser-arrowscrollbox > .scrollbutton-down,
+toolbarbutton#appmenu-toolbar-button,
+toolbarbutton#alltabs-button,
+.tab-icon-image,
+.tabs-closebutton-box,
+.tab-close-button,
+#urlbar dropmarker,
+#identity-box,
+#star-button,
+#go-button,
+.tab-throbber,
+.tab-throbber[progress] {
+	display: none !important;
+}
+     
+#main-window:not([disablechrome]) #navigator-toolbox[tabsontop=true] {
+/*	border-bottom: 2px solid #30303a !important;*/
+}
+
+/* }}} */
+
+
+/* tabs {{{
+--------------
+*/
+
+tab {
+	/*border-bottom: 2px solid !important;
+	border-bottom-color: #30303a !important;*/
+	/*border-bottom: none !important;*/
+}
+    
+tabs#tabbrowser-tabs, tabs#tabbrowser-tabs * {
+	-moz-appearance: none !important;
+	border-radius: 0px !important;
+	background-image: none !important;
+	margin-top: 0px !important;
+	height:16px !important;
+}
+     
+tabs#tabbrowser-tabs {
+	background: #151515 !important;
+	padding: 2px !important;
+	margin-left: -1px !important;
+	margin-right: -1px !important;
+	text-align: center !important;
+}
+     
+.tabbrowser-tab {
+	max-height: 12px !important;
+	margin-left: 2px !important;
+	margin-right: 1px !important;
+	padding-top: 0px !important;
+	padding-bottom: 8px !important;
+	border-radius: 3px !important;
+	border: none !important;
+	color: #a5a5a5 !important;
+	background: #151515 !important;
+}
+    
+.tabbrowser-tab:hover, .tabbrowser-tab:active {
+	background: #595961 !important;
+	color: #eee !important;
+	box-shadow: inset 0px 0px 2px rgba(0,0,0,0.12) !important;
+}
+     
+.tabbrowser-tab[selected=true], .tabbrowser-tab[selected=true]:hover {
+	color: #d0d0d0 !important;
+	background: #151515 !important;
+	box-shadow: inset 0px 0px 2px rgba(0,0,0,0.12) !important;
+}
+     
+.tabbrowser-tab .tab-text {
+	margin-left: 3px !important;
+	margin-right: 3px !important;
+	margin-top: -2px !important;
+	font-size: 8pt !important;
+	font-family: limey !important;
+}
+
+.tabs-newtab-button {
+	border-radius: 3px !important;
+	border: 0 !important;
+	width: 10px !important;
+	height: 8px !important;
+	margin: 2px !important;
+	padding: 4px !important;
+	background: #595961 !important;
+}
+    
+.tabs-newtab-button:hover, .tabs-newtab-button:active {
+	background: #44444d !important;
+}
+
+.tabs-newtab-button .toolbarbutton-icon {
+	list-style-image: none !important;
+}
+
+.titlebar-placeholder[type="caption-buttons"] {
+	margin-left: 10px !important;
+}
+     
+.tabbrowser-tabs:not([drag=detach]) > .tabbrowser-tab:not([pinned])[fadein] {
+	min-width: 30px !important;
+	max-width: 130px !important;
+}
+     
+/* }}} */
+
+
+/* misc {{{
+--------------
+*/
+
+notificationbox {
+	overflow-x: hidden;
+}
+     
+browser[type="content-primary"], browser[type="content-targetable"] {
+	overflow-y: scroll;
+	margin-right: -8px;
+}
+
+/* }}} */

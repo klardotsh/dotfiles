@@ -3,7 +3,7 @@
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
+HISTSIZE=10000
 SAVEHIST=10000
 
 setopt appendhistory autocd beep extendedglob notify
@@ -12,6 +12,8 @@ zstyle :compinstall filename '/home/j/.zshrc'
 
 autoload -Uz compinit && compinit
 autoload -U colors && colors
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 alias cf='cower -s'
 alias cl='cower -dd'
@@ -29,7 +31,7 @@ alias mpf='makepkg -icsf'
 
 alias t='todo.sh'
 
-alias s='sudo '
+alias sudo='sudo -E '
 
 alias df='df -h -x devtmpfs -x rootfs -x tmpfs'
 
@@ -57,19 +59,22 @@ else
 	alias diff="diff -Nuar"
 fi
 
-alias om="ompload"
+alias amix="alsamixer"
+alias aeq="alsamixer -D equal"
 
 export EDITOR='vim'
 export BROWSER='firefox'
 export MANPAGER='most -s'
 export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
 export PATH='/home/j/bin:/home/j/bin/chromeos:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl'
-export SDL_AUDIODRIVER='pulse'
+export SDL_AUDIODRIVER='alsa'
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-export BSPWM_SOCKET="/tmp/bspwm-socket"
+export XDG_CONFIG_HOME="$HOME/.config"
 
-source /home/j/bin/alarmClock.sh
-source /home/j/bin/cmusSleep.sh
+zstyle ':completion:*:sudo::' environ PATH="/sbin:/usr/sbin:$PATH" HOME="/root"
+
+[[ -f $HOME/bin/alarmClock.sh ]] && source $HOME/bin/alarmClock.sh
+[[ -f $HOME/bin/cmusSleep.sh ]] && source $HOME/bin/cmusSleep.sh
 
 sprunge() {
 	curl -F sprunge=@- sprunge.us
@@ -180,32 +185,28 @@ bindkey "^H" backward-delete-char
 
 if [ -f ~/.alert ]; then cat ~/.alert; fi
 
-# Le me, pretending to be clever. Bit more clean than most solutions I've seen, though.
-# Fixed-ish 01 June 2013 to disable the function on fuse dirs, as it was getting painfully 
-# slow on SSHFS and curlFTPfs
-gitCheck() {
+setPrompt() {
+	PROMPT=""
+	([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]) && PROMPT+="%F{white}%m "
+	PROMPT+="%F{blue}%3~"
+	# Because running this shit over an sshfs connection is torture
 	if [ ! $(stat -f -c %T .) = "fuseblk" ]; then
-		git status &> /dev/null && gitBranch="$(git branch | cut -d ' ' -f 2-) " || gitBranch=""
-		if [ -n $gitBranch ]; then
-			[ $(git status 2>/dev/null | wc -l) -gt 2 ] && gitBranch="$fg_bold[red]$gitBranch" || gitBranch="$fg[yellow]$gitBranch"
+		PROMPT+=" %F{green}"
+		# Silently fails and adds nothing to the prompt if we're not in a git repo
+		local GITSHIT=`git branch 2>/dev/null | grep '*' | cut -d ' ' -f 2`
+		if [[ ! -z $GITSHIT ]]; then
+			[[ `git status -uno -s | wc -l` == 0 ]] || PROMPT+="%F{red}"
+			PROMPT+="$GITSHIT "
 		fi
 	fi
-}
-
-sshCheck() {
-	([ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]) && sshConn="$fg_bold[red]>" || sshConn="$fg_bold[green]>"
-}
-
-setPrompt() {
-	gitCheck
-	PROMPT="%{$fg_bold[blue]%}%3~ ${gitBranch}${sshConn}%{$reset_color%}%} "
+	PROMPT+="%F{white}%f• "
 }
 
 precmd() {
 	setPrompt
 }
 
-sshCheck
 setPrompt
 
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 

@@ -1,0 +1,49 @@
+# iv597's Desktop Conky Config
+# Last major update 17 Nov 2013
+
+out_to_x no
+out_to_console yes
+
+#behaviour
+update_interval 3
+update_interval_on_battery 30
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+#to prevent window from moving
+use_spacer none
+
+# desktop indicators, if ever wanted
+#ӱ ӱ ӱ ӱ ӱ ӱ ӱ ӱ ӱ \
+
+TEXT
+\l\
+\u4\b9 ѫ \ur\br ${texeci 600 /home/j/bin/pacman_check_updates.sh} \
+\u4\b9 Ѭ \ur\br \
+I ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/INBOX} \
+R ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/robotics} \
+F ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/freelance} \
+\r\
+\u4\b9 ${texeci 60 /home/j/bin/bat-icon.sh} \ur\br \
+${battery_percent BATX}% \
+${if_match ${battery_percent BATX} <= 95}(${battery_time BATX}) ${endif}\
+${if_up wlp1s0}\u4\b9 Ҕ \ur\br \
+${if_match ${wireless_link_qual_perc wlp1s0} >= 80}ӱӱӱӱӱ\
+${else}${if_match ${wireless_link_qual_perc wlp1s0} >= 70}ӱӱӱӱӰ\
+${else}${if_match ${wireless_link_qual_perc wlp1s0} >= 55}ӱӱӱӰӰ\
+${else}${if_match ${wireless_link_qual_perc wlp1s0} >= 40}ӱӱӰӰӰ\
+${else}${if_match ${wireless_link_qual_perc wlp1s0} >= 25}ӱӰӰӰӰ\
+${else}ӰӰӰӰӰ\
+${endif}${endif}${endif}${endif}${endif} ${endif}\
+${if_up wlp0s29u1u2u1}\u4\b9 Ҕ \ur\br \
+${if_match ${wireless_link_qual_perc wlp0s29u1u2u1} >= 80}ӱӱӱӱӱ\
+${else}${if_match ${wireless_link_qual_perc wlp0s29u1u2u1} >= 70}ӱӱӱӱӰ\
+${else}${if_match ${wireless_link_qual_perc wlp0s29u1u2u1} >= 55}ӱӱӱӰӰ\
+${else}${if_match ${wireless_link_qual_perc wlp0s29u1u2u1} >= 40}ӱӱӰӰӰ\
+${else}${if_match ${wireless_link_qual_perc wlp0s29u1u2u1} >= 25}ӱӰӰӰӰ\
+${else}ӰӰӰӰӰ\
+${endif}${endif}${endif}${endif}${endif} ${endif}\
+\u4\b9 ${texeci 5 /home/j/bin/pa-muted.sh} \ur\br \
+${texeci 5 /home/j/bin/alsa-vol.sh}% \
+\u4\b9 Ѱ \ur\br ${time %d %b %H.%M}

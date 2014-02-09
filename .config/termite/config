@@ -1,0 +1,67 @@
+[options]
+resize_grip = false
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+visible_bell = false
+mouse_autohide = false
+allow_bold = false
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+font = limey 7
+scrollback_lines = 1000
+search_wrap = true
+#icon_name = terminal
+#geometry = 640x480
+
+# 0.0: opaque, 1.0: transparent
+#transparency = 0.3
+pseudo_transparency = true
+
+# "system", "on" or "off"
+cursor_blink = on
+
+# "block", "underline" or "ibeam"
+cursor_shape = ibeam
+
+# $BROWSER is used by default
+#browser = chromium
+
+# word characters used for word selection
+# (default if unset: all graphic non-punctuation/space characters)
+#word_chars = -A-Za-z0-9,./?%&#:_=+@~
+
+[colors]
+# foreground = #95969A
+# foreground = #d0d0d0
+foreground = #B2A191
+#foreground_bold = #ffffff
+#foreground_dim = #888888
+background = #000
+# background = #171717
+#background = #151515
+# cursor = #BD84B5
+#cursor = #d0d0d0
+cursor = #C7A551
+
+# if unset, will reverse foreground and background
+#highlight = #121212
+
+# colors from color0 to color254 can be set
+color0 =   #202020
+color8 =   #404040
+color1 =   #BF3F34
+color9 =   #FF6C5F
+color2 =   #707D22
+color10 =  #B8CA4B
+color3 =   #BF7A29
+color11 =  #C7A551
+color4 =   #627A92
+color12 =  #95B9DE
+color5 =   #75507B
+color13 =  #AD7FA8
+color6 =   #757978
+color14 =  #9FA590
+color7 =   #B2A191
+color15 =  #E8D0C3 
