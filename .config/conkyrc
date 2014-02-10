@@ -19,15 +19,21 @@ use_spacer none
 
 TEXT
 \l\
-\u4\b9 ѫ \ur\br ${texeci 600 /home/j/bin/pacman_check_updates.sh} \
+\fr\u4\b9 ѫ \ur\br ${texeci 600 /home/j/bin/pacman_check_updates.sh} \
 \u4\b9 Ѭ \ur\br \
 I ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/INBOX} \
 R ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/robotics} \
 F ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/freelance} \
 \r\
-\u4\b9 ${texeci 60 /home/j/bin/bat-icon.sh} \ur\br \
+\u4\b9\
+${if_match ${battery_percent BATX} <= 50}\f1${endif}\
+${if_match ${battery_percent BATX} <= 35}\f3${endif}\
+${if_match ${battery_percent BATX} <= 20}\f0\b1${endif}\
+${texeci 60 /home/j/bin/bat-icon.sh} \fr\ur\br \
+${if_match ${battery_percent BATX} <= 20}\f1\br${endif}\
 ${battery_percent BATX}% \
 ${if_match ${battery_percent BATX} <= 95}(${battery_time BATX}) ${endif}\
+\fr\
 ${if_up wlp1s0}\u4\b9 Ҕ \ur\br \
 ${if_match ${wireless_link_qual_perc wlp1s0} >= 80}ӱӱӱӱӱ\
 ${else}${if_match ${wireless_link_qual_perc wlp1s0} >= 70}ӱӱӱӱӰ\
