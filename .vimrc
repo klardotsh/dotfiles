@@ -76,6 +76,7 @@ filetype plugin indent on
 
 set foldmethod=indent
 
+""set textwidth=72
 set nowrap
 
 set hlsearch " Highlight search results...

@@ -34,8 +34,8 @@ xrdb -load $HOME/.Xresources &
 
 xautolock -locker $LOCKER -time $LOCKTIME &
 
-xrandr --output HDMI1 --auto --right-of LVDS1 &
-/home/j/bin/conky_single_screen.sh &
+xrandr --output HDMI1 --auto --right-of LVDS1
+/home/j/bin/conky_dual_screen.sh &
 
 imlibsetroot -x e -s f $WALLPAPER &
 
@@ -45,4 +45,5 @@ compton --config $HOME/.config/compton/compton.conf &
 
 /home/j/bin/offlineimap_idle.sh &
 
-exec herbstluftwm
+exec dbus-launch herbstluftwm
+#exec dbus-launch gnome-session

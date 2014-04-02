@@ -63,10 +63,11 @@ alias amix="alsamixer"
 alias aeq="alsamixer -D equal"
 
 export EDITOR='vim'
-export BROWSER='firefox'
+export BROWSER='chromium'
 export MANPAGER='most -s'
 export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
-export PATH='/home/j/bin:/home/j/bin/chromeos:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/core_perl'
+export PATH="/home/j/bin:/home/j/bin/chromeos:$HOME/.golang/bin:$HOME/.gem/ruby/2.1.0/bin:$PATH"
+export GOPATH="$HOME/.golang"
 export SDL_AUDIODRIVER='alsa'
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export XDG_CONFIG_HOME="$HOME/.config"
