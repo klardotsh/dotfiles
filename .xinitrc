@@ -35,7 +35,7 @@ xrdb -load $HOME/.Xresources &
 xautolock -locker $LOCKER -time $LOCKTIME &
 
 xrandr --output HDMI1 --auto --right-of LVDS1
-/home/j/bin/conky_dual_screen.sh &
+/home/j/bin/conky_bar.sh &
 
 imlibsetroot -x e -s f $WALLPAPER &
 

@@ -1,41 +1,42 @@
-# iv597's Desktop Conky Config
-# Last major update 17 Nov 2013
+\# iv597's Desktop Conky Config
+\# Last major update 17 Nov 2013
 
 out_to_x no
 out_to_console yes
 
-#behaviour
+\#behaviour
 update_interval 3
 update_interval_on_battery 30
 
-# Force UTF8? note that UTF8 support required XFT
+\# Force UTF8? note that UTF8 support required XFT
 override_utf8_locale yes
 
-#to prevent window from moving
+\#to prevent window from moving
 use_spacer none
 
-# desktop indicators, if ever wanted
-#ӱ ӱ ӱ ӱ ӱ ӱ ӱ ӱ ӱ \
+\# desktop indicators, if ever wanted
+\#ӱ ӱ ӱ ӱ ӱ ӱ ӱ ӱ ӱ \
 
 TEXT
-\l\
-\fr\u4\b9 ѫ \ur\br ${texeci 600 /home/j/bin/conky/pacman-count-updates.sh} \
-\u4\b9 Ѭ \ur\br \
+%{S0}\
+%{l}\
+%{F\#FFa5a5a5}%{U\#FF0587a0}%{B\#EE000000} ѫ %{U\#FF101010}%{B\#EE101010} ${texeci 600 /home/j/bin/conky/pacman-count-updates.sh} \
+%{U\#FF0587a0}%{B\#EE000000} Ѭ %{U\#FF101010}%{B\#EE101010} \
 I ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/INBOX} \
-\f4>\fr R ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/robotics} \
-\f4>\fr F ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/freelance} \
-\c\
+%{F\#FF0587a0}>%{F\#FFa5a5a5} R ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/robotics} \
+%{F\#FF0587a0}>%{F\#FFa5a5a5} F ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/freelance} \
+%{c}\
 ${texeci 10 /home/j/bin/conky/cmus-simple.sh}\
-\r\
-\u4\b9\
-${if_match ${battery_percent BATX} <= 50}\f1${endif}\
-${if_match ${battery_percent BATX} <= 35}\f3${endif}\
-${if_match ${battery_percent BATX} <= 20}\f0\b1${endif}\
- ${texeci 60 /home/j/bin/conky/bat-icon.sh} \fr\ur\br \
-${if_match ${battery_percent BATX} <= 20}\f1\br${endif}\
-${texeci 60 /home/j/bin/conky/bat-meter.sh}\fr\ur\br \
-\fr\
-\u4\b9 Ҕ \ur\br \
+%{r}\
+%{U\#FF0587a0}%{B\#EE000000}\
+${if_match ${battery_percent BATX} <= 50}%{F\#FF1467a0}${endif}\
+${if_match ${battery_percent BATX} <= 35}%{F\#FF605ea0}${endif}\
+${if_match ${battery_percent BATX} <= 20}%{F\#FF000f20}\b1${endif}\
+ ${texeci 60 /home/j/bin/conky/bat-icon.sh} %{F\#FFa5a5a5}%{U\#FF101010}%{B\#EE101010} \
+${if_match ${battery_percent BATX} <= 20}%{F\#FF1467a0}%{B\#EE101010}${endif}\
+${texeci 60 /home/j/bin/conky/bat-meter.sh}%{F\#FFa5a5a5}%{U\#FF101010}%{B\#EE101010} \
+%{F\#FFa5a5a5}\
+%{U\#FF0587a0}%{B\#EE000000} Ҕ %{U\#FF101010}%{B\#EE101010} \
 ${texeci 10 /home/j/bin/conky/wifi-strength-meter.sh} \
-\u4\b9 ӝ \ur\br ${texeci 5 /home/j/bin/conky/volume-meter.sh} \
-\u4\b9 Ѱ \ur\br ${time %d %b %H.%M} 
+%{U\#FF0587a0}%{B\#EE000000} ӝ %{U\#FF101010}%{B\#EE101010} ${texeci 5 /home/j/bin/conky/volume-meter.sh} \
+%{U\#FF0587a0}%{B\#EE000000} Ѱ %{U\#FF101010}%{B\#EE101010} ${time %d %b %H.%M} 
