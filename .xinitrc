@@ -34,8 +34,8 @@ xrdb -load $HOME/.Xresources &
 
 xautolock -locker $LOCKER -time $LOCKTIME &
 
+xrandr --output LVDS1 --mode 1366x768
 xrandr --output HDMI1 --auto --right-of LVDS1
-/home/j/bin/conky_bar.sh &
 
 imlibsetroot -x e -s f $WALLPAPER &
 
@@ -45,5 +45,7 @@ compton --config $HOME/.config/compton/compton.conf &
 
 /home/j/bin/offlineimap_idle.sh &
 
-exec dbus-launch herbstluftwm
-#exec dbus-launch gnome-session
+/home/j/bin/conky_bar.sh &
+
+#exec dbus-launch herbstluftwm
+exec dbus-launch /home/j/bin/monsterwm 
