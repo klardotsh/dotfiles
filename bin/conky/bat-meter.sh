@@ -8,5 +8,5 @@ l=$(echo  "(`cat /sys/class/power_supply/BATX/charge_now`/`cat /sys/class/power_
 [ $l -gt 50 ] && echo ӱӱӱӰӰ && exit
 [ $l -gt 40 ] && echo ӱӱӰӰӰ && exit
 [ $l -gt 20 ] && echo ӱӰӰӰӰ && exit
-echo "\f7ӰӰӰӰӰ\fr" && exit
+echo "%{F#FFa0864b}ӰӰӰӰӰ%{F#FFa5a5a5}" && exit
 
