@@ -9,4 +9,4 @@ strength=`cat /proc/net/wireless | grep ${DEVICE} | cut -d' ' -f5 | cut -d'.' -f
 [[ $strength -gt 55 ]] && echo ӱӱӱӰӰ && exit
 [[ $strength -gt 40 ]] && echo ӱӱӰӰӰ && exit
 [[ $strength -gt 25 ]] && echo ӱӰӰӰӰ && exit
-echo "\f7ӰӰӰӰӰ\fr" && exit
+echo "%{F#FFa0864b}ӰӰӰӰӰ%{F#FFa5a5a5}" && exit
