@@ -14,7 +14,7 @@ autocmd QuickFixCmdPost * nested cwindow
 syntax on
 set cursorline
 set background=dark
-colorscheme hybrid
+colorscheme shblah
 hi Normal ctermbg=none
 hi LineNr ctermbg=none
 hi NonText ctermbg=none
@@ -57,8 +57,8 @@ set hidden " Keep buffers open without needing to save them
 
 set nobackup
 
-set number
-set numberwidth=3
+"set number
+"set numberwidth=3
 set ruler
 
 set encoding=utf-8

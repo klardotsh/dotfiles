@@ -15,14 +15,17 @@ autoload -U colors && colors
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
-alias cf='cower -s'
-alias cl='cower -dd'
-alias clf='cower -ddf'
-alias cu='cower -dduf'
+#alias cf='cower -s'
+#alias cl='cower -dd'
+#alias clf='cower -ddf'
+#alias cu='cower -dduf'
 
-alias pf='pacman -Ss'
-alias pi='sudo pacman -S'
-alias pu='sudo pacman -Syu'
+#alias pf='pacman -Ss'
+#alias pi='sudo pacman -S'
+#alias pu='sudo pacman -Syu'
+alias pf='packer -Ss'
+alias pi='packer -S'
+alias pu='packer -Syu'
 alias pd='sudo pacman -R'
 alias pds='sudo pacman -Rsc'
 
@@ -63,7 +66,7 @@ alias amix="alsamixer"
 alias aeq="alsamixer -D equal"
 
 export EDITOR='vim'
-export BROWSER='chromium'
+export BROWSER='firefox'
 export MANPAGER='most -s'
 export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
 export PATH="/home/j/bin:/home/j/bin/chromeos:$HOME/.golang/bin:$HOME/.gem/ruby/2.1.0/bin:$PATH"
