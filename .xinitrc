@@ -36,6 +36,10 @@ xautolock -locker $LOCKER -time $LOCKTIME &
 
 xrandr --output LVDS1 --mode 1366x768
 xrandr --output HDMI1 --auto --right-of LVDS1
+xrandr --output VGA1 --auto --right-of LVDS1
+
+#xrandr --output LVDS1 --off
+#xrandr --output HDMI --auto
 
 imlibsetroot -x e -s f $WALLPAPER &
 
@@ -43,9 +47,11 @@ dunst -config $HOME/.config/dunst/dunstrc &
 
 compton --config $HOME/.config/compton/compton.conf &
 
-/home/j/bin/offlineimap_idle.sh &
+#/home/j/bin/offlineimap_idle.sh &
 
-/home/j/bin/conky_bar.sh &
+#/home/j/bin/conky_bar.sh &
 
-#exec dbus-launch herbstluftwm
-exec dbus-launch /home/j/bin/monsterwm 
+conky -c $HOME/.config/conkyrc &
+
+exec dbus-launch herbstluftwm
+#exec dbus-launch /home/j/bin/monsterwm 
