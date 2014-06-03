@@ -1,42 +1,36 @@
-\# iv597's Desktop Conky Config
-\# Last major update 17 Nov 2013
-
-out_to_x no
-out_to_console yes
-
-\#behaviour
-update_interval 3
-update_interval_on_battery 30
-
-\# Force UTF8? note that UTF8 support required XFT
+use_xft yes
+xftfont DejaVu Sans:size=18
+update_interval 5
+own_window no
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+minimum_size 1336 15
+maximum_width 1336
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color C5C8C6
+default_shade_color red
+default_outline_color green
+alignment top_left
+gap_x 16
+gap_y 2
+no_buffers no
+uppercase yes
 override_utf8_locale yes
-
-\#to prevent window from moving
-use_spacer none
-
-\# desktop indicators, if ever wanted
-\#ӱ ӱ ӱ ӱ ӱ ӱ ӱ ӱ ӱ \
+use_spacer yes
+background yes
 
 TEXT
-%{S0}\
-%{l}\
-%{F\#FFa5a5a5}%{U\#FF0587a0}%{B\#EE000000} ѫ %{U\#FF101010}%{B\#EE101010} ${texeci 600 /home/j/bin/conky/pacman-count-updates.sh} \
-%{U\#FF0587a0}%{B\#EE000000} Ѭ %{U\#FF101010}%{B\#EE101010} \
-I ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/INBOX} \
-%{F\#FF0587a0}>%{F\#FFa5a5a5} R ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/robotics} \
-%{F\#FF0587a0}>%{F\#FFa5a5a5} F ${texeci 30 /home/j/bin/newmail -t /home/j/.mail-new/personal/freelance} \
-%{c}\
-${texeci 10 /home/j/bin/conky/cmus-simple.sh}\
-%{r}\
-%{U\#FF0587a0}%{B\#EE000000}\
-${if_match ${battery_percent BATX} <= 50}%{F\#FF1467a0}${endif}\
-${if_match ${battery_percent BATX} <= 35}%{F\#FF605ea0}${endif}\
-${if_match ${battery_percent BATX} <= 20}%{F\#FF000f20}\b1${endif}\
- ${texeci 60 /home/j/bin/conky/bat-icon.sh} %{F\#FFa5a5a5}%{U\#FF101010}%{B\#EE101010} \
-${if_match ${battery_percent BATX} <= 20}%{F\#FF1467a0}%{B\#EE101010}${endif}\
-${texeci 60 /home/j/bin/conky/bat-meter.sh}%{F\#FFa5a5a5}%{U\#FF101010}%{B\#EE101010} \
-%{F\#FFa5a5a5}\
-%{U\#FF0587a0}%{B\#EE000000} Ҕ %{U\#FF101010}%{B\#EE101010} \
-${texeci 10 /home/j/bin/conky/wifi-strength-meter.sh} \
-%{U\#FF0587a0}%{B\#EE000000} ӝ %{U\#FF101010}%{B\#EE101010} ${texeci 5 /home/j/bin/conky/volume-meter.sh} \
-%{U\#FF0587a0}%{B\#EE000000} Ѱ %{U\#FF101010}%{B\#EE101010} ${time %d %b %H.%M} 
+${font Noto Sans:size=8}\
+${goto 16}${voffset  -9}${color 707880}${texeci 5 /home/j/bin/conky/cmus-artist.sh}\
+${goto 16}${voffset  11}${color       }${texeci 5 /home/j/bin/conky/cmus-title.sh}\
+${voffset -11}\
+${font}\
+${alignr}\
+${color 707880}V${color}${texeci 10 /home/j/bin/conky/volume-number.sh} \
+${color 707880}B${color}${battery_percent BATX} \
+${color 707880}${time %H}${color}${time %M}

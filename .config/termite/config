@@ -9,9 +9,10 @@ allow_bold = false
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
+#font = PragmataPro 7
+#font = lemon 7
 #font = limey 7
-font = lemon 7
-#font = Inconsolatazi4 8
+font = Inconsolatazi4 8
 scrollback_lines = 1000
 search_wrap = true
 #icon_name = terminal
@@ -29,12 +30,8 @@ cursor_shape = ibeam
 
 [colors]
 background = #000
-# background = #151515
-cursor = #C7A551
-
-# colors from color0 to color254 can be set
-#background = #1D1F21
 foreground = #C5C8C6
+cursor = #C7A551
 
 color0 = #282A2E
 color8 = #373B41
