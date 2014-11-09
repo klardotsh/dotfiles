@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-xrandr --output LVDS1 --auto
-xrandr --output VGA1 --right-of LVDS1 --auto
-imlibsetroot -s f -x e .wallpaper
-herbstclient add_monitor 1440x900+1366+0 2
-herbstclient reload
