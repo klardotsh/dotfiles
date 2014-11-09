@@ -1,0 +1,48 @@
+[options]
+resize_grip = false
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+visible_bell = false
+mouse_autohide = false
+allow_bold = false
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+font = Inconsolatazi4 8
+#font = lemon 7
+scrollback_lines = 1000
+search_wrap = true
+#icon_name = terminal
+#geometry = 640x480
+
+# 0.0: opaque, 1.0: transparent
+transparency = 0.9
+pseudo_transparency = true
+
+# "system", "on" or "off"
+cursor_blink = on
+
+# "block", "underline" or "ibeam"
+cursor_shape = ibeam
+
+[colors]
+foreground = #A3A3A3
+background = #151515
+
+color0 =  #303030
+color8 =  #404040
+color1 =  #E84F4F
+color9 =  #D23D3D
+color2 =  #B8D68C
+color10 = #A0CF5D
+color3 =  #E1AA5D
+color11 = #F39D21
+color4 =  #7DC1CF
+color12 = #4E9FB1
+color5 =  #9B64FB
+color13 = #8542FF
+color6 =  #6D878D
+color14 = #42717B
+color7 =  #dddddd
+color15 = #dddddd
