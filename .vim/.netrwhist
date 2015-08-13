@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/j/src/freelance/pathosethos/ee/plugins/contactology/services'
-let g:netrw_dirhist_2='/home/j/src/freelance/pathosethos/EE_DEPLOY/plugins/s3-pencilblue/include'
-let g:netrw_dirhist_3='/home/j/src/redactor'
-let g:netrw_dirhist_4='/home/j/src/freelance/pathosethos/awana_server/src/main/java/org/awana/clubportal'
