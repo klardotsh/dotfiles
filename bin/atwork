@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+${HOME}/.screenlayout/spoton.sh
+herbstclient reload
+imlibsetroot -x e -s f ${HOME}/.wallpaper
+`cat ${HOME}/.xinitrc | grep setxkbmap`
+
+# explicit sudo to avoid my -E alias which throws
+# due to my NOPASSWD settings
+$(which sudo) netctl switch-to wlp3s0-SpotOnXTreme
