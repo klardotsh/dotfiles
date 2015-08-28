@@ -13,10 +13,18 @@ ctl.equal {
 } 
 pcm.plugequal { 
 	type equal; 
-	slave.pcm "plughw:1,0"; 
+	slave.pcm "plug:dmixer"; 
 }
-pcm.equal {
-	type plug;
-	slave.pcm plugequal;
+pcm.dmixer {
+	type dmix
+	ipc_key 1024
+	slave {
+		pcm {
+			type hw
+			card PCH 
+			device 0
+		}
+		buffer_size 4096
+	}
 }
 
