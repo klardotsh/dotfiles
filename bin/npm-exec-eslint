@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# https://github.com/lencioni/dotfiles/commit/ca2c86d950feb07b2c17947eeff0e1624d865c54
+PATH=$(npm bin):$PATH eslint "$@"
