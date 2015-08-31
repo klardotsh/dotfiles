@@ -5,10 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-source /usr/share/git/completion/git-prompt.sh
+source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
+source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 
-alias ls='ls --color=auto'
 alias sudo='sudo -E '
+alias netctl='/bin/sudo netctl'
 
 export EDITOR="vim"
 export BROWSER="chromium"
@@ -22,7 +23,7 @@ export NPM_PACKAGES="${HOME}/.npm-packages"
 
 export GOPATH="${HOME}/.golang"
 
-export PATH="${MY_BINS}:${GOPATH}/bin:${NPM_PACKAGES}/bin:${GEM_DIR}/ruby/${GEM_RUBY_VER}/bin:${PATH}"
+export PATH="${MY_BINS}:${GOPATH}/bin:${NPM_PACKAGES}/bin:${GEM_DIR}/ruby/${GEM_RUBY_VER}/bin:/usr/local/bin:${PATH}"
 
 # Unset manpath so we can inherit from /etc/manpath via the `manpath` command
 unset MANPATH  # delete if you already modified MANPATH elsewhere in your configuration
@@ -73,5 +74,5 @@ set_prompt () {
 
 PROMPT_COMMAND='set_prompt'
 
-source /usr/bin/virtualenvwrapper.sh
+#source /usr/bin/virtualenvwrapper.sh
 

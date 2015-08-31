@@ -7,16 +7,13 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" The following are installed through pacman:
-" - vim-syntastic
-" - vim-systemd
-" - vim-surround
-
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'editorconfig/editorconfig-vim'
-
 Plugin 'airblade/vim-gitgutter'
+
+Plugin 'scrooloose/syntastic'
+
+Plugin 'tpope/vim-surround'
 
 Plugin 'marijnh/tern_for_vim'
 
@@ -28,6 +25,7 @@ Plugin 'markcornick/vim-vagrant'
 Plugin 'fatih/vim-go'
 
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'editorconfig/editorconfig-vim'
 
 Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -42,6 +40,12 @@ colorscheme solarized
 syntax on
 
 au BufRead,BufNewFile *.eslintrc set filetype=json
+au BufRead,BufNewFile *.tag set filetype=html
+au BufRead,BufNewFile *.js set suffixesadd+=.js
+au BufRead,BufNewFile *.jsx set suffixesadd+=.jsx
+
+au BufRead,BufNewFile *.js,*.jsx let npm_bin = system('npm bin')
+au BufRead,BufNewFile *.js,*.jsx let $PATH .= ';' . npm_bin
 
 let g:gitgutter_override_sign_column_highlight = 0
 
@@ -55,6 +59,7 @@ highlight GitGutterChangeDelete ctermfg=yellow ctermbg=none
 
 let g:syntastic_check_on_open=1
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'npm-exec-eslint'
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -72,6 +77,7 @@ set modeline
 
 set hidden
 set ruler
+set cursorline
 set nowrap
 
 set backspace=indent,eol,start
