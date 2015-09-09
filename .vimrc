@@ -24,7 +24,8 @@ Plugin 'chase/vim-ansible-yaml'
 Plugin 'markcornick/vim-vagrant'
 Plugin 'fatih/vim-go'
 
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'Yggdroot/indentLine'
 Plugin 'editorconfig/editorconfig-vim'
 
 Plugin 'chriskempson/base16-vim'
@@ -37,20 +38,25 @@ filetype plugin indent on
 set t_Co=16
 set background=light
 colorscheme solarized
-syntax on
+
+if !exists("g:syntax_on")
+	syntax enable
+endif
 
 au BufRead,BufNewFile *.eslintrc set filetype=json
 au BufRead,BufNewFile *.tag set filetype=html
 au BufRead,BufNewFile *.js set suffixesadd+=.js
 au BufRead,BufNewFile *.jsx set suffixesadd+=.jsx
 
-au BufRead,BufNewFile *.js,*.jsx let npm_bin = system('npm bin')
-au BufRead,BufNewFile *.js,*.jsx let $PATH .= ';' . npm_bin
+au BufRead,BufNewFile *.js,*.jsx,*.tag let npm_bin = system('npm bin')
+au BufRead,BufNewFile *.js,*.jsx,*.tag let $PATH .= ';' . npm_bin
+
+autocmd FileType javascript,c,cpp,java,ruby,python,rust autocmd BufWritePre <buffer> StripWhitespace
 
 let g:gitgutter_override_sign_column_highlight = 0
 
 hi Comment ctermfg=2
-
+hi SpecialKey ctermbg=none
 highlight SignColumn ctermbg=none
 highlight GitGutterAdd ctermfg=green ctermbg=none
 highlight GitGutterChange ctermfg=yellow ctermbg=none
@@ -66,6 +72,12 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+let g:indentLine_enabled = 1
+let g:indentLine_noConcealCursor=""
+let g:indentLine_char = '┆'
+set list
+set lcs=tab:┆\ 
 
 " YCM gives you popups and splits by default that some people might not
 " like, so these should tidy it up a bit for you.
