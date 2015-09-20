@@ -30,14 +30,15 @@ Plugin 'editorconfig/editorconfig-vim'
 
 Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'yosiat/oceanic-next-vim'
 
 call vundle#end()
 
 filetype plugin indent on
 
 set t_Co=16
-set background=light
-colorscheme solarized
+set background=dark
+colorscheme OceanicNext
 
 if !exists("g:syntax_on")
 	syntax enable
@@ -55,6 +56,8 @@ autocmd FileType javascript,c,cpp,java,ruby,python,rust autocmd BufWritePre <buf
 
 let g:gitgutter_override_sign_column_highlight = 0
 
+hi Normal ctermbg=none
+hi NonText ctermbg=none
 hi Comment ctermfg=2
 hi SpecialKey ctermbg=none
 highlight SignColumn ctermbg=none

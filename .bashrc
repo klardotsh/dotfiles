@@ -8,6 +8,10 @@
 source /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
 source /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 
+for i in /usr/local/etc/bash_completion.d/**; do # Whitespace-safe and recursive
+    source "$i"
+done
+
 alias sudo='sudo -E '
 alias netctl='/bin/sudo netctl'
 
