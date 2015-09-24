@@ -13,10 +13,9 @@ for i in /usr/local/etc/bash_completion.d/**; do # Whitespace-safe and recursive
 done
 
 alias sudo='sudo -E '
-alias netctl='/bin/sudo netctl'
+alias prm=". ${HOME}/src/external/prm/prm.sh"
 
 export EDITOR="vim"
-export BROWSER="chromium"
 
 export MY_BINS="${HOME}/bin"
 
