@@ -17,9 +17,9 @@ Plugin 'tpope/vim-surround'
 
 Plugin 'marijnh/tern_for_vim'
 
-"Plugin 'jelera/vim-javascript-syntax'
 "Plugin 'pangloss/vim-javascript'
 Plugin 'othree/yajs.vim'
+Plugin 'othree/es.next.syntax.vim'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'markcornick/vim-vagrant'
 Plugin 'fatih/vim-go'
@@ -31,14 +31,15 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'yosiat/oceanic-next-vim'
+Plugin 'mkarmona/colorsbox'
 
 call vundle#end()
 
 filetype plugin indent on
 
-set t_Co=16
+"set t_Co=16
 set background=dark
-colorscheme OceanicNext
+colorscheme colorsbox-stnight
 
 if !exists("g:syntax_on")
 	syntax enable
@@ -48,6 +49,7 @@ au BufRead,BufNewFile *.eslintrc set filetype=json
 au BufRead,BufNewFile *.tag set filetype=html
 au BufRead,BufNewFile *.js set suffixesadd+=.js
 au BufRead,BufNewFile *.jsx set suffixesadd+=.jsx
+au BufRead,BufNewFile *.tmux.conf set filetype=config
 
 au BufRead,BufNewFile *.js,*.jsx,*.tag let npm_bin = system('npm bin')
 au BufRead,BufNewFile *.js,*.jsx,*.tag let $PATH .= ';' . npm_bin
@@ -69,6 +71,8 @@ highlight GitGutterChangeDelete ctermfg=yellow ctermbg=none
 let g:syntastic_check_on_open=1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'npm-exec-eslint'
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
