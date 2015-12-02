@@ -8,21 +8,25 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'Shougo/vimproc.vim'
 
 Plugin 'airblade/vim-gitgutter'
-
 Plugin 'scrooloose/syntastic'
-
-Plugin 'tpope/vim-surround'
-
 Plugin 'marijnh/tern_for_vim'
 
-"Plugin 'pangloss/vim-javascript'
+Plugin 'vim-scripts/DeleteTrailingWhitespace'
+Plugin 'tpope/vim-surround'
+Plugin 'Konfekt/FastFold'
+
 Plugin 'othree/yajs.vim'
 Plugin 'othree/es.next.syntax.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'strogonoff/vim-coffee-script'
 Plugin 'chase/vim-ansible-yaml'
 Plugin 'markcornick/vim-vagrant'
 Plugin 'fatih/vim-go'
+Plugin 'hdima/python-syntax'
 
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'Yggdroot/indentLine'
@@ -72,7 +76,9 @@ let g:syntastic_check_on_open=1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'npm-exec-eslint'
 let g:syntastic_error_symbol = "✗"
+let g:syntastic_style_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_warning_symbol = "⚠"
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -96,7 +102,7 @@ set modeline
 
 set hidden
 set ruler
-set cursorline
+"set cursorline
 set nowrap
 
 set backspace=indent,eol,start
