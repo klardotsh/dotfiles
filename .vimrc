@@ -102,7 +102,7 @@ set modeline
 
 set hidden
 set ruler
-"set cursorline
+set number
 set nowrap
 
 set backspace=indent,eol,start
