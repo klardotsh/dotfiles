@@ -32,9 +32,6 @@ case "$(uname -o)" in
 	;;
 esac
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 sprunge() {
 	curl -F sprunge=@- sprunge.us
 }
@@ -55,15 +52,24 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export MANPAGER='most -s'
 export PATH="$HOME/bin:$HOME/.gem/ruby/2.1.0/bin:$PATH:$NPM_PACKAGES/bin"
 
-export PROMPT="%c %F{cyan} » %{$reset_color%}%"
+setopt PROMPT_SUBST
 
-alias pf='packer -Ss'
-alias pi='packer -S'
-alias pu='packer -Syu'
+# Currently unused
+source /usr/share/git/git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
+
+export PROMPT=" %c %F{cyan} $(__git_ps1 '» %s ')» %{$reset_color%}%"
+
+setopt no_complete_aliases
+
+alias packer='packer-color'
+alias pf='packer-color -Ss'
+alias pi='packer-color -S'
+alias pu='packer-color -Syu'
+alias pql='pacman -Ql'
+alias pqs='pacman -Qs'
 
 alias mp='makepkg -ics'
-
-alias tdo='todo.sh' # not `t` because I have a ruby timetracker at that path
 
 alias sudo='sudo -E '
 
@@ -90,85 +96,15 @@ fi
 
 zstyle ':completion:*:sudo::' environ PATH="/sbin:/usr/sbin:$PATH" HOME="/root"
 
-# Not all servers have terminfo for rxvt-256color.
-if [ "${TERM}" = 'rxvt-256color' ] && ! [ -f '/usr/share/terminfo/r/rxvt-256color' ] && ! [ -f '/lib/terminfo/r/rxvt-256color' ] && ! [ -f "${HOME}/.terminfo/r/rxvt-256color" ]; then
-	export TERM='rxvt-unicode'
-fi
-
-if [ "${TERM}" = 'xterm-termite' ] && ! [ -f '/usr/share/terminfo/x/xterm-termite' ] && ! [ -f '/lib/terminfo/r/xterm-termite' ] && ! [ -f "${HOME}/.terminfo/r/xterm-termite" ]; then
-	export TERM='xterm-256color'
-fi
-
-case $TERM in
-	rxvt*|xterm)
-		bindkey "^[[7~" beginning-of-line #Home key
-		bindkey "^[[8~" end-of-line #End key
-		bindkey "^[[3~" delete-char #Del key
-		bindkey "^[[A" history-beginning-search-backward #Up Arrow
-		bindkey "^[[B" history-beginning-search-forward #Down Arrow
-		bindkey "^[Oc" forward-word # control + right arrow
-		bindkey "^[Od" backward-word # control + left arrow
-		bindkey "^H" backward-kill-word # control + backspace
-		bindkey "^[[3^" kill-word # control + delete
-	;;
-
-	xterm-termite|xterm-256color)
-		bindkey "^[OH" beginning-of-line #Home key
-		bindkey "^[OF" end-of-line #End key
-		bindkey "${terminfo[khome]}" beginning-of-line
-		bindkey "${terminfo[kend]}" end-of-line
-		bindkey "^[[3~" delete-char #Del key
-		bindkey "^[[A" history-beginning-search-backward #Up Arrow
-		bindkey "^[[B" history-beginning-search-forward #Down Arrow
-		bindkey "^[Oc" forward-word # control + right arrow
-		bindkey "^[Od" backward-word # control + left arrow
-		bindkey "^H" backward-kill-word # control + backspace
-		bindkey "^[[3^" kill-word # control + delete
-	;;
-
-	linux)
-		bindkey "^[[1~" beginning-of-line #Home key
-		bindkey "^[[4~" end-of-line #End key
-		bindkey "^[[3~" delete-char #Del key
-		bindkey "^[[A" history-beginning-search-backward
-		bindkey "^[[B" history-beginning-search-forward
-		bindkey "^H" backward-delete-char
-	;;
-
-	screen|screen-*)
-		bindkey "^[[1~" beginning-of-line #Home key
-		bindkey "^[[4~" end-of-line #End key
-		bindkey "^[[3~" delete-char #Del key
-		bindkey "^[[A" history-beginning-search-backward #Up Arrow
-		bindkey "^[[B" history-beginning-search-forward #Down Arrow
-		bindkey "^[Oc" forward-word # control + right arrow
-		bindkey "^[Od" backward-word # control + left arrow
-		bindkey "^H" backward-kill-word # control + backspace
-		bindkey "^[[3^" kill-word # control + delete
-	;;
-esac
-
-bindkey "^H" backward-delete-char
-
-if [ -f ~/.alert ]; then cat ~/.alert; fi
-
-preexec () {
-  # Check if tmux is running
-  if [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; then
-    # Store CWD in a tmux session veriable.
-    tmux setenv TMUXCMD_$(tmux display -p "#I") "$1"
-  fi
-}
-
-precmd () {
-  echo
-  # Check if tmux is running
-  if [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; then
-    # Store CWD in a tmux session veriable.
-    tmux setenv TMUXPWD_$(tmux display -p "#I") "$PWD"
-    # Run the script that sets the tmux statusbar.
-    tmux_set_status.sh
-  fi
-}
+bindkey "^[[H" beginning-of-line #Home key
+bindkey "^[[F" end-of-line #End key
+bindkey "^[[3~" delete-char #Del key
+bindkey "^[[A" history-beginning-search-backward #Up Arrow
+bindkey "^[[B" history-beginning-search-forward #Down Arrow
+bindkey "^[Oc" forward-word # control + right arrow
+bindkey "^[Od" backward-word # control + left arrow
+bindkey "^H" backward-kill-word # control + backspace
+bindkey "^[[3^" kill-word # control + delete
 
 cd $HOME # I have no fucking clue why I need to do this but I seem to end up in ~/.virtualenvs for whatever reason if I don't
+
