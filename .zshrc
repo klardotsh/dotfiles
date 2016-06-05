@@ -40,6 +40,8 @@ sprup() {
 	cat $1 | sprunge
 }
 
+eval "$(thefuck --alias)"
+
 unset MANPATH
 
 export EDITOR='vim'
