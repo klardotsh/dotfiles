@@ -71,7 +71,7 @@ alias pu='packer-color -Syu'
 alias pql='pacman -Ql'
 alias pqs='pacman -Qs'
 
-alias mp='makepkg -ics'
+alias mp='makepkg -icsr'
 
 alias sudo='sudo -E '
 
