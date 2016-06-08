@@ -105,6 +105,9 @@ set ruler
 set number
 set nowrap
 
+set splitbelow
+set splitright
+
 set backspace=indent,eol,start
 
 set incsearch
