@@ -12,7 +12,8 @@ Plugin 'Shougo/vimproc.vim'
 
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
-Plugin 'marijnh/tern_for_vim'
+Plugin 'mtscout6/syntastic-local-eslint.vim'
+"Plugin 'marijnh/tern_for_vim'
 
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
 Plugin 'tpope/vim-surround'
@@ -74,7 +75,6 @@ highlight GitGutterChangeDelete ctermfg=yellow ctermbg=none
 
 let g:syntastic_check_on_open=1
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'npm-exec-eslint'
 let g:syntastic_error_symbol = "✗"
 let g:syntastic_style_error_symbol = "✗"
 let g:syntastic_warning_symbol = "⚠"
