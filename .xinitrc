@@ -1,11 +1,13 @@
 setxkbmap dvorak -option compose:ralt -option ctrl:nocaps
 
-xinput set-prop 11 274 1 # Tap To Click
-xinput set-prop 11 282 1 # Natural Scrolling
+xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Tapping Enabled" 1
+xinput set-prop "DLL0704:01 06CB:76AE Touchpad" "libinput Natural Scrolling Enabled" 1
 
-sxhkd &
-compton --config .config/compton/compton.conf &
+xsetroot -xcf /usr/share/icons/DMZ96/cursors/left_ptr 16
 
-setroot -z ~/.wallpaper
+xautolock -locker slock -time 10 &
 
-exec dbus-launch bspwm
+compton --config /home/j/.config/compton/compton.conf &
+
+exec dbus-launch awesome
+

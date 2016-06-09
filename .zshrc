@@ -17,6 +17,8 @@ zstyle :compinstall filename '/home/j/.zshrc'
 autoload -Uz compinit && compinit
 autoload -U colors && colors
 
+zstyle ':completion:*' menu select
+
 # zmv -  a command for renaming files by means of shell patterns.
 autoload -U zmv
 
