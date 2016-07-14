@@ -229,11 +229,12 @@ root.buttons(awful.util.table.join(
 
 -- {{{ Key bindings
 globalkeys = awful.util.table.join(
-    awful.key({                   }, "XF86AudioMute", function() awful.util.spawn('amixer set Master toggle') end),
-    awful.key({                   }, "XF86AudioRaiseVolume", function() awful.util.spawn('amixer set Master 3%+') end),
-    awful.key({                   }, "XF86AudioLowerVolume", function() awful.util.spawn('amixer set Master 3%-') end),
-    awful.key({                   }, "XF86MonBrightnessUp", function() awful.util.spawn('xbacklight -inc 5') end),
-    awful.key({                   }, "XF86MonBrightnessDown", function() awful.util.spawn('xbacklight -dec 5') end),
+    awful.key({                   }, "XF86AudioMute", function() awful.util.spawn_with_shell('ponymix toggle') end),
+    awful.key({                   }, "XF86AudioRaiseVolume", function() awful.util.spawn_with_shell('ponymix increase 2') end),
+    awful.key({                   }, "XF86AudioLowerVolume", function() awful.util.spawn_with_shell('ponymix decrease 2') end),
+    awful.key({                   }, "XF86MonBrightnessUp", function() awful.util.spawn_with_shell('xbacklight -inc 5') end),
+    awful.key({                   }, "XF86MonBrightnessDown", function() awful.util.spawn_with_shell('xbacklight -dec 5') end),
+    awful.key({ modkey,           }, "Home",   function() awful.util.spawn_with_shell('xautolock -locknow') end),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev       ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext       ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
