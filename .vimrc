@@ -10,14 +10,19 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Shougo/vimproc.vim'
 
-Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/syntastic'
 Plugin 'mtscout6/syntastic-local-eslint.vim'
-"Plugin 'marijnh/tern_for_vim'
 
 Plugin 'vim-scripts/DeleteTrailingWhitespace'
 Plugin 'tpope/vim-surround'
 Plugin 'Konfekt/FastFold'
+
+Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
+
+Plugin 'ervandew/supertab'
+Plugin 'raimondi/delimitmate'
+Plugin 'terryma/vim-multiple-cursors'
 
 Plugin 'othree/yajs.vim'
 Plugin 'othree/es.next.syntax.vim'
@@ -33,18 +38,17 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'Yggdroot/indentLine'
 Plugin 'editorconfig/editorconfig-vim'
 
-Plugin 'chriskempson/base16-vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'yosiat/oceanic-next-vim'
-Plugin 'mkarmona/colorsbox'
+Plugin 'vim-airline/vim-airline'
+
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 
 filetype plugin indent on
 
-"set t_Co=16
+set t_Co=16
 set background=dark
-colorscheme colorsbox-stnight
+colorscheme industry
 
 if !exists("g:syntax_on")
 	syntax enable
@@ -65,7 +69,7 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 hi Normal ctermbg=none
 hi NonText ctermbg=none
-hi Comment ctermfg=2
+"hi Comment ctermfg=3
 hi SpecialKey ctermbg=none
 highlight SignColumn ctermbg=none
 highlight GitGutterAdd ctermfg=green ctermbg=none
@@ -75,10 +79,10 @@ highlight GitGutterChangeDelete ctermfg=yellow ctermbg=none
 
 let g:syntastic_check_on_open=1
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_style_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_warning_symbol = "⚠"
+let g:syntastic_error_symbol = "×"
+let g:syntastic_style_error_symbol = "$"
+let g:syntastic_warning_symbol = "!"
+let g:syntastic_style_warning_symbol = "s"
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -98,7 +102,8 @@ let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
 
-set modeline
+let g:airline_powerline_fonts = 1
+set laststatus=2
 
 set hidden
 set ruler

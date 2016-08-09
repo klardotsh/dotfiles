@@ -42,7 +42,8 @@ sprup() {
 	cat $1 | sprunge
 }
 
-eval "$(thefuck --alias)"
+alias fuck='TF_CMD=$(TF_ALIAS=fuck PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1 | tail -n 1)) && eval $TF_CMD && print -s $TF_CMD'
+source /usr/bin/virtualenvwrapper_lazy.sh
 
 unset MANPATH
 
@@ -54,6 +55,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export NPM_PACKAGES="$HOME/.npm-packages"
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export MANPAGER='most -s'
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export PATH="$HOME/bin:$HOME/.gem/ruby/2.1.0/bin:$PATH:$NPM_PACKAGES/bin"
 
 setopt PROMPT_SUBST

@@ -7,7 +7,9 @@ xsetroot -xcf /usr/share/icons/DMZ96/cursors/left_ptr 16
 
 xautolock -locker slock -time 10 &
 
-compton --config /home/j/.config/compton/compton.conf &
+xrdb -merge /home/j/.Xresources
 
-exec dbus-launch awesome
+#compton --config /home/j/.config/compton/compton.conf &
+
+exec awesome
 

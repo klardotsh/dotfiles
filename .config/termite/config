@@ -9,14 +9,14 @@ allow_bold = false
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = CamingoCode 11
+font = CamingoCode for Powerline 11
 scrollback_lines = 1000
 search_wrap = true
 #icon_name = terminal
 #geometry = 640x480
 
 # 0.0: opaque, 1.0: transparent
-transparency = 0.9
+transparency = 0.0
 pseudo_transparency = true
 
 # "system", "on" or "off"
@@ -26,22 +26,42 @@ cursor_blink = on
 cursor_shape = ibeam
 
 [colors]
-foreground = #A3A3A3
-background = #151515
+# hard contrast: background = #1d2021
+background = #282828
+# soft contrast: background = #32302f
+foreground = #ebdbb2
+foreground_bold = #ebdbb2
 
-color0 =  #303030
-color8 =  #404040
-color1 =  #E84F4F
-color9 =  #D23D3D
-color2 =  #B8D68C
-color10 = #A0CF5D
-color3 =  #E1AA5D
-color11 = #F39D21
-color4 =  #7DC1CF
-color12 = #4E9FB1
-color5 =  #9B64FB
-color13 = #8542FF
-color6 =  #6D878D
-color14 = #42717B
-color7 =  #dddddd
-color15 = #dddddd
+# dark0 + gray
+color0 = #282828
+color8 = #928374
+
+# neutral_red + bright_red
+color1 = #cc241d
+color9 = #fb4934
+
+# neutral_green + bright_green
+color2 = #98971a
+color10 = #b8bb26
+
+# neutral_yellow + bright_yellow
+color3 = #d79921
+color11 = #fabd2f
+
+# neutral_blue + bright_blue
+color4 = #458588
+color12 = #83a598
+
+# neutral_purple + bright_purple
+color5 = #b16286
+color13 = #d3869b
+
+# neutral_aqua + faded_aqua
+color6 = #689d6a
+color14 = #8ec07c
+
+# light4 + light1
+color7 = #a89984
+color15 = #ebdbb2
+
+# vim: ft=dosini cms=#%s
