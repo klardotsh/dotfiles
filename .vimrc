@@ -20,6 +20,7 @@ Plugin 'Konfekt/FastFold'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'raimondi/delimitmate'
 Plugin 'terryma/vim-multiple-cursors'
@@ -35,7 +36,6 @@ Plugin 'fatih/vim-go'
 Plugin 'hdima/python-syntax'
 
 Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'Yggdroot/indentLine'
 Plugin 'editorconfig/editorconfig-vim'
 
 Plugin 'vim-airline/vim-airline'
@@ -90,12 +90,6 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-let g:indentLine_enabled = 1
-let g:indentLine_noConcealCursor=""
-let g:indentLine_char = '┆'
-set list
-set lcs=tab:┆\ 
-
 " YCM gives you popups and splits by default that some people might not
 " like, so these should tidy it up a bit for you.
 let g:ycm_add_preview_to_completeopt=0
@@ -107,13 +101,15 @@ set laststatus=2
 
 set hidden
 set ruler
-set number
+"set number
 set nowrap
 
 set splitbelow
 set splitright
 
 set backspace=indent,eol,start
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*node_modules*
 
 set incsearch
 set hlsearch
@@ -132,8 +128,8 @@ let loaded_matchparen=1
 
 set pastetoggle=<F2>
 
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
+"nnoremap <C-n> :bnext<CR>
+"nnoremap <C-p> :bprevious<CR>
 nnoremap <C-e> :bufdo edit<Space>
 
 let mapleader=","
