@@ -79,10 +79,10 @@ highlight GitGutterChangeDelete ctermfg=yellow ctermbg=none
 
 let g:syntastic_check_on_open=1
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_error_symbol = "×"
-let g:syntastic_style_error_symbol = "$"
-let g:syntastic_warning_symbol = "!"
-let g:syntastic_style_warning_symbol = "s"
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_style_error_symbol = '✠'
+let g:syntastic_warning_symbol = '∆'
+let g:syntastic_style_warning_symbol = '≈'
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
