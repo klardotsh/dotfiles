@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="045e", ATTRS{idProduct}=="07a5", RUN+="/usr/bin/sudo -u j /home/j/bin/consistent-keyboards.sh"
