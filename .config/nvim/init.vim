@@ -10,6 +10,7 @@ Plug 'VundleVim/Vundle.vim'
 Plug 'Shougo/vimproc.vim'
 
 Plug 'neomake/neomake'
+Plug 'jaawerth/neomake-local-eslint-first'
 
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'tpope/vim-surround'
@@ -61,7 +62,8 @@ au BufRead,BufNewFile *.js,*.jsx,*.tag let npm_bin = system('npm bin')
 au BufRead,BufNewFile *.js,*.jsx,*.tag let $PATH .= ';' . npm_bin
 
 autocmd FileType javascript,c,cpp,java,ruby,python,rust autocmd BufWritePre <buffer> StripWhitespace
-autocmd! BufWritePost * Neomake
+autocmd! BufRead *.js,*.html,*.py,*.sh Neomake
+autocmd! BufWritePost *.js,*.html,*.py,*.sh Neomake
 
 let g:gitgutter_override_sign_column_highlight = 0
 
@@ -75,7 +77,7 @@ highlight GitGutterChange ctermfg=yellow ctermbg=none
 highlight GitGutterDelete ctermfg=red ctermbg=none
 highlight GitGutterChangeDelete ctermfg=yellow ctermbg=none
 
-let g:neomake_javascript_enabled_makers = ['eslint']
+" let g:neomake_javascript_enabled_makers = ['eslint']
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
