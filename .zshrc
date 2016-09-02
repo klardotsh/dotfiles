@@ -47,7 +47,7 @@ source /usr/bin/virtualenvwrapper_lazy.sh
 
 unset MANPATH
 
-export EDITOR='vim'
+export EDITOR='nvim'
 export BROWSER='chromium'
 export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
@@ -56,7 +56,7 @@ export NPM_PACKAGES="$HOME/.npm-packages"
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export MANPAGER='most -s'
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
-export PATH="$HOME/bin:$HOME/.gem/ruby/2.1.0/bin:$PATH:$NPM_PACKAGES/bin"
+export PATH="$HOME/bin:$HOME/.gem/ruby/2.3.0/bin:$PATH:$NPM_PACKAGES/bin"
 
 setopt PROMPT_SUBST
 
@@ -67,6 +67,9 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 export PROMPT=" %c %F{cyan} $(__git_ps1 '» %s ')» %{$reset_color%}%"
 
 setopt no_complete_aliases
+
+alias e='nvim'
+alias vim='nvim'
 
 alias packer='packer-color'
 alias pf='packer-color -Ss'

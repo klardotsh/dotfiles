@@ -1,54 +1,51 @@
 " Josh Klar [iv597] vimrc
-" 2015 Rewrite Edition
+" 2016 nvim Rewrite Edition
 
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'Shougo/vimproc.vim'
+Plug 'VundleVim/Vundle.vim'
+Plug 'Shougo/vimproc.vim'
 
-Plugin 'scrooloose/syntastic'
-Plugin 'mtscout6/syntastic-local-eslint.vim'
+Plug 'neomake/neomake'
 
-Plugin 'vim-scripts/DeleteTrailingWhitespace'
-Plugin 'tpope/vim-surround'
-Plugin 'Konfekt/FastFold'
+Plug 'vim-scripts/DeleteTrailingWhitespace'
+Plug 'tpope/vim-surround'
+Plug 'Konfekt/FastFold'
 
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'ervandew/supertab'
-Plugin 'raimondi/delimitmate'
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ervandew/supertab'
+Plug 'raimondi/delimitmate'
 
-Plugin 'othree/yajs.vim'
-Plugin 'othree/es.next.syntax.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'strogonoff/vim-coffee-script'
-Plugin 'chase/vim-ansible-yaml'
-Plugin 'markcornick/vim-vagrant'
-Plugin 'fatih/vim-go'
-Plugin 'hdima/python-syntax'
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'strogonoff/vim-coffee-script'
+Plug 'chase/vim-ansible-yaml'
+Plug 'markcornick/vim-vagrant'
+Plug 'fatih/vim-go'
+Plug 'hdima/python-syntax'
 
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'editorconfig/editorconfig-vim'
 
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 
-Plugin 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on
 
 set t_Co=16
 set background=dark
-colorscheme industry
+colorscheme lucario
 
 if !exists("g:syntax_on")
 	syntax enable
@@ -64,10 +61,11 @@ au BufRead,BufNewFile *.js,*.jsx,*.tag let npm_bin = system('npm bin')
 au BufRead,BufNewFile *.js,*.jsx,*.tag let $PATH .= ';' . npm_bin
 
 autocmd FileType javascript,c,cpp,java,ruby,python,rust autocmd BufWritePre <buffer> StripWhitespace
+autocmd! BufWritePost * Neomake
 
 let g:gitgutter_override_sign_column_highlight = 0
 
-hi Normal ctermbg=none
+hi Normal ctermbg=none ctermfg=none
 hi NonText ctermbg=none
 "hi Comment ctermfg=3
 hi SpecialKey ctermbg=none
@@ -77,12 +75,7 @@ highlight GitGutterChange ctermfg=yellow ctermbg=none
 highlight GitGutterDelete ctermfg=red ctermbg=none
 highlight GitGutterChangeDelete ctermfg=yellow ctermbg=none
 
-let g:syntastic_check_on_open=1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_style_error_symbol = '✠'
-let g:syntastic_warning_symbol = '∆'
-let g:syntastic_style_warning_symbol = '≈'
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -98,6 +91,8 @@ set completeopt-=preview
 
 let g:airline_powerline_fonts = 1
 set laststatus=2
+
+set undofile
 
 set hidden
 set ruler
@@ -128,9 +123,12 @@ let loaded_matchparen=1
 
 set pastetoggle=<F2>
 
-"nnoremap <C-n> :bnext<CR>
-"nnoremap <C-p> :bprevious<CR>
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
 nnoremap <C-e> :bufdo edit<Space>
+
+"let g:ctrlp_working_path_mode = 0
+let g:ctrlp_map = '<C-t>'
 
 let mapleader=","
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
