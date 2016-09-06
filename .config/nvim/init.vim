@@ -15,14 +15,14 @@ Plug 'jaawerth/neomake-local-eslint-first'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'tpope/vim-surround'
 Plug 'Konfekt/FastFold'
+Plug 'scrooloose/nerdcommenter'
+Plug 'jiangmiao/auto-pairs'
+Plug 'ervandew/supertab'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 Plug 'ctrlpvim/ctrlp.vim'
-
-Plug 'jiangmiao/auto-pairs'
-Plug 'ervandew/supertab'
 
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
