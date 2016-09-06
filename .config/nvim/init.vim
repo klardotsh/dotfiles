@@ -20,18 +20,22 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'jiangmiao/auto-pairs'
 Plug 'ervandew/supertab'
-Plug 'raimondi/delimitmate'
 
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'strogonoff/vim-coffee-script'
+
 Plug 'chase/vim-ansible-yaml'
 Plug 'markcornick/vim-vagrant'
 Plug 'fatih/vim-go'
+
 Plug 'hdima/python-syntax'
+Plug 'davidhalter/jedi-vim'
 
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'editorconfig/editorconfig-vim'
