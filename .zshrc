@@ -97,6 +97,8 @@ alias egrep='egrep --colour=auto'
 alias ls='ls --color=auto --human-readable --group-directories-first --classify'
 alias tree='tree -CA'
 
+alias gitlog="git log --format='%Cred%h%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset%C(yellow)%d%Creset' --no-merges"
+
 if command -v colordiff > /dev/null 2>&1; then
 	alias diff="colordiff -Nuar"
 else
