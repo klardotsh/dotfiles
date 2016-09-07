@@ -125,6 +125,11 @@ set ignorecase
 set autoindent
 set smartindent
 
+" Let plugins show effects after 500ms, not 4s
+set updatetime=500
+" Disable mouse click to go to position
+set mouse-=a
+
 let loaded_matchparen=1
 
 set pastetoggle=<F2>
