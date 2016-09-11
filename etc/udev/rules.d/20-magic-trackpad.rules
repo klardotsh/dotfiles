@@ -1,1 +1,0 @@
-ACTION=="add", ATTRS{address}=="a0:99:9b:1e:ca:ad", RUN+="/usr/bin/sudo -u j /home/j/bin/xinput-magictrackpad.sh"

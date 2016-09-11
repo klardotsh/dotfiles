@@ -1,1 +1,0 @@
-ACTION=="add", SUBSYSTEMS=="usb", ATTRS{idVendor}=="0x046d", ATTRS{idProduct}=="0xc52b", RUN+="/usr/bin/sudo -u j /home/j/bin/xinput-t650.sh"
