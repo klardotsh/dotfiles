@@ -1,6 +1,3 @@
-set background=dark
-colorscheme lucario
-
 if !exists("g:syntax_on")
 	syntax enable
 endif

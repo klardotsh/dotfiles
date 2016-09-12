@@ -12,3 +12,7 @@ let loaded_matchparen=1
 
 " Let plugins show effects after 500ms, not 4s
 set updatetime=500
+
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ }
