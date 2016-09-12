@@ -7,8 +7,6 @@ nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
 nnoremap <C-e> :bufdo edit<Space>
 
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
 let g:ctrlp_map = '<C-t>'
 
 let mapleader=","

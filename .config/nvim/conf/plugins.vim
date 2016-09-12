@@ -6,15 +6,14 @@ Plug 'Shougo/vimproc.vim'
 Plug 'neomake/neomake'
 Plug 'jaawerth/neomake-local-eslint-first'
 
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --racer-completer' }
+Plug 'ervandew/supertab'
+
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'tpope/vim-surround'
 Plug 'Konfekt/FastFold'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jiangmiao/auto-pairs'
-
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'carlitux/deoplete-ternjs'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
