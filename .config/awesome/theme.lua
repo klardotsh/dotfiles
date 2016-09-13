@@ -4,22 +4,22 @@
 
 theme = {}
 
-theme.font          = "Noto Sans 10"
+theme.font          = "Noto Sans UI 10"
 
-theme.bg_normal     = "#222222"
-theme.bg_focus      = "#535d6c"
-theme.bg_urgent     = "#ff0000"
+theme.bg_normal     = "#1a1a1a"
+theme.bg_focus      = theme.bg_normal
+theme.bg_urgent     = "#d68787"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#aaaaaa"
-theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#ffffff"
+theme.fg_normal     = "#808070"
+theme.fg_focus      = "#a8a897"
+theme.fg_urgent     = "#ebdbb2"
+theme.fg_minimize   = "#a89984"
 
-theme.border_width  = 2
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
+theme.border_width  = 3
+theme.border_normal = "#282828"
+theme.border_focus  = "#928374"
 theme.border_marked = "#91231c"
 
 theme.useless_gap_width = 15
@@ -75,7 +75,7 @@ theme.titlebar_maximized_button_focus_inactive  = "/usr/share/awesome/themes/def
 theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
--- theme.wallpaper = "/home/j/.wallpaper"
+theme.wallpaper = "/home/j/.wallpaper"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"
@@ -95,7 +95,7 @@ theme.awesome_icon = "/usr/share/awesome/icons/awesome16.png"
 
 -- Define the icon theme for application icons. If not set then the icons 
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = nil
+theme.icon_theme = "Paper"
 
 return theme
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
