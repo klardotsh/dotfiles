@@ -9,5 +9,5 @@ set splitright
 
 set clipboard+=unnamedplus
 
-let g:seoul256_background = 236
+let g:seoul256_background = 233
 colo seoul256

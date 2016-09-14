@@ -1,6 +1,7 @@
 let g:airline_powerline_fonts = 1
 
-let g:deoplete#enable_at_startup = 1
+let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
+let g:neomake_javascript_enabled_makers = ['eslint']
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
