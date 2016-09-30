@@ -10,5 +10,4 @@ source $HOME/.config/nvim/conf/keys.vim
 source $HOME/.config/nvim/conf/ui.vim
 
 set completeopt-=preview
-set undofile
 set backspace=indent,eol,start

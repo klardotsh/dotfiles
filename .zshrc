@@ -47,6 +47,7 @@ source /usr/bin/virtualenvwrapper_lazy.sh
 
 unset MANPATH
 
+export GPG_TTY=$(tty)
 export EDITOR='nvim'
 export BROWSER='chromium'
 export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
@@ -56,7 +57,9 @@ export NPM_PACKAGES="$HOME/.npm-packages"
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export MANPAGER='most -s'
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
-export PATH="$HOME/bin:$HOME/.gem/ruby/2.3.0/bin:$PATH:$NPM_PACKAGES/bin"
+export GOPATH="$HOME/.go"
+export PATH="$HOME/bin:$GOPATH/bin:$HOME/.gem/ruby/2.3.0/bin:$PATH:$NPM_PACKAGES/bin"
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 setopt PROMPT_SUBST
 

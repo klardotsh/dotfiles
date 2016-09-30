@@ -39,6 +39,8 @@ Plug 'davidhalter/jedi-vim'
 
 Plug 'rust-lang/rust.vim'
 
+Plug 'peterhoeg/vim-qml'
+
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'editorconfig/editorconfig-vim'
 
