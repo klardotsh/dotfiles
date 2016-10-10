@@ -77,7 +77,7 @@ alias vim='nvim'
 alias packer='packer-color'
 alias pf='packer-color -Ss'
 alias pi='packer-color -S'
-alias pu='packer-color -Syu'
+alias pu='packer-color -Syu --ignore linux-zen --ignore linux-zen-headers'
 alias pql='pacman -Ql'
 alias pqs='pacman -Qs'
 
