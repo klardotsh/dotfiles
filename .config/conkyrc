@@ -1,0 +1,45 @@
+out_to_x no
+out_to_console yes
+
+use_xft yes
+xftfont CamingoCode:size=11
+
+own_window yes
+own_window_type override
+own_window_class conky
+own_window_transparent no
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+minimum_size 1920 22
+maximum_width 1920
+
+alignment tl
+gap_x 0
+gap_y 0
+
+draw_shades no
+draw_outline no
+draw_borders no
+
+
+
+#behaviour
+update_interval 3
+update_interval_on_battery 30
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+#to prevent window from moving
+use_spacer none
+
+# desktop indicators, if ever wanted
+#ӱ ӱ ӱ ӱ ӱ ӱ ӱ ӱ ӱ \
+
+TEXT
+P » ${texeci 600 /home/j/bin/conky/pacman-count-updates.sh} \
+%{r}\
+B » ${battery_percent}% \
+${if_match ${battery_percent} <= 50}» ${battery_time} ${endif}\
+W » ${wireless_essid wlp1s0} » ${wireless_link_qual_perc wlp1s0}% \
+« ${time %d %b %H:%M}
