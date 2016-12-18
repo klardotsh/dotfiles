@@ -48,18 +48,32 @@ source /usr/bin/virtualenvwrapper_lazy.sh
 unset MANPATH
 
 export GPG_TTY=$(tty)
+export TERMINAL='termite'
 export EDITOR='nvim'
 export BROWSER='chromium'
 export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
+
+export XMODIFIERS=@im=ibus
+
+export GTK_CSD=0
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+export GTK_IM_MODULE=ibus
+
+export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_IM_MODULE=ibus
+
 export XDG_CONFIG_HOME="$HOME/.config"
-export NPM_PACKAGES="$HOME/.npm-packages"
+
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 export MANPAGER='most -s'
+
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+
+export NPM_PACKAGES="$HOME/.npm-packages"
 export GOPATH="$HOME/.go"
-export PATH="$HOME/bin:$GOPATH/bin:$HOME/.gem/ruby/2.3.0/bin:$PATH:$NPM_PACKAGES/bin"
-export QT_QPA_PLATFORMTHEME=qt5ct
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
+export PATH="$HOME/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.gem/ruby/2.3.0/bin:$PATH:$NPM_PACKAGES/bin"
 
 setopt PROMPT_SUBST
 
@@ -67,7 +81,7 @@ setopt PROMPT_SUBST
 source /usr/share/git/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 
-export PROMPT=" %c %F{cyan} $(__git_ps1 '» %s ')» %{$reset_color%}%"
+export PROMPT=" %c %F{cyan} \$(__git_ps1 '» %s ')» %{$reset_color%}%"
 
 setopt no_complete_aliases
 
@@ -121,4 +135,3 @@ bindkey "^H" backward-kill-word # control + backspace
 bindkey "^[[3^" kill-word # control + delete
 
 cd $HOME # I have no fucking clue why I need to do this but I seem to end up in ~/.virtualenvs for whatever reason if I don't
-
