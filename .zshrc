@@ -1,9 +1,6 @@
 # iv597's ZSH configuration
-# Non-Copyright 2012-14ish, All Awesomeness Reserved
-#
-# This file has historically been a bit of a clusterfuck, if the
-# copyright header didn't tip you off to the age of this file already. I
-# make no guarantees as to how efficient this duct-taped file is.
+# Maintained 2012-17 (and counting)
+# Released under the [Unlicense](http://unlicense.org/)
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
@@ -83,6 +80,8 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 
 export PROMPT=" %c %F{cyan} \$(__git_ps1 '» %s ')» %{$reset_color%}%"
 
+precmd() { print "" }
+
 setopt no_complete_aliases
 
 alias e='nvim'
@@ -91,7 +90,7 @@ alias vim='nvim'
 alias packer='packer-color'
 alias pf='packer-color -Ss'
 alias pi='packer-color -S'
-alias pu='packer-color -Syu --ignore linux-zen --ignore linux-zen-headers'
+alias pu='packer-color -Syu'
 alias pql='pacman -Ql'
 alias pqs='pacman -Qs'
 
@@ -133,5 +132,3 @@ bindkey "^[Oc" forward-word # control + right arrow
 bindkey "^[Od" backward-word # control + left arrow
 bindkey "^H" backward-kill-word # control + backspace
 bindkey "^[[3^" kill-word # control + delete
-
-cd $HOME # I have no fucking clue why I need to do this but I seem to end up in ~/.virtualenvs for whatever reason if I don't
