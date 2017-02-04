@@ -8,6 +8,7 @@ source $HOME/.config/nvim/conf/ftypetriggers.vim
 source $HOME/.config/nvim/conf/syntax.vim
 source $HOME/.config/nvim/conf/keys.vim
 source $HOME/.config/nvim/conf/ui.vim
+source $HOME/.config/nvim/conf/indent.vim
 
 set completeopt-=preview
 set backspace=indent,eol,start

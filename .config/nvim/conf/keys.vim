@@ -24,3 +24,4 @@ vmap Q gq
 nmap Q gqap
 
 autocmd FileType javascript nnoremap <silent> <buffer> <Leader>d :TernDef<CR>
+autocmd FileType rust nnoremap <Leader>d :YcmCompleter GoTo<CR>
