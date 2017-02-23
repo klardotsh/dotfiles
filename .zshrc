@@ -70,11 +70,10 @@ export NPM_PACKAGES="$HOME/.npm-packages"
 export GOPATH="$HOME/.go"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
-export PATH="$HOME/bin:$HOME/.cargo/bin:$GOPATH/bin:$HOME/.gem/ruby/2.3.0/bin:$PATH:$NPM_PACKAGES/bin"
+export PATH="$HOME/bin:$HOME/.cargo/bin:${GOPATH}/bin:${NPM_PACKAGES}/bin:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 
 setopt PROMPT_SUBST
 
-# Currently unused
 source /usr/share/git/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 
@@ -87,10 +86,9 @@ setopt no_complete_aliases
 alias e='nvim'
 alias vim='nvim'
 
-alias packer='packer-color'
-alias pf='packer-color -Ss'
-alias pi='packer-color -S'
-alias pu='packer-color -Syu'
+alias pf='owlman search'
+alias pi='owlman install'
+alias pu='owlman update'
 alias pql='pacman -Ql'
 alias pqs='pacman -Qs'
 
