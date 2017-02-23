@@ -2,6 +2,7 @@ let g:airline_powerline_fonts = 1
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
 
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
