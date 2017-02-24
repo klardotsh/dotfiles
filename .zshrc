@@ -86,9 +86,10 @@ setopt no_complete_aliases
 alias e='nvim'
 alias vim='nvim'
 
-alias pf='owlman search'
-alias pi='owlman install'
-alias pu='owlman update'
+alias packer='packer-color'
+alias pf='packer-color -Ss'
+alias pi='packer-color -S'
+alias pu='packer-color -Syu'
 alias pql='pacman -Ql'
 alias pqs='pacman -Qs'
 
