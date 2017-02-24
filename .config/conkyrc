@@ -2,7 +2,7 @@ out_to_x no
 out_to_console yes
 
 use_xft yes
-xftfont CamingoCode:size=11
+xftfont Iosevka Term:size=11
 
 own_window yes
 own_window_type override
@@ -41,5 +41,5 @@ P » ${texeci 600 /home/j/bin/conky/pacman-count-updates.sh} \
 %{r}\
 B » ${battery_percent}% \
 ${if_match ${battery_percent} <= 50}» ${battery_time} ${endif}\
-W » ${wireless_essid wlp1s0} » ${wireless_link_qual_perc wlp1s0}% \
+W » ${wireless_essid wlp4s0} » ${wireless_link_qual_perc wlp4s0}% \
 « ${time %d %b %H:%M}
