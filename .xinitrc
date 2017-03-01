@@ -5,7 +5,8 @@ xrdb -merge /home/j/.Xresources
 
 xautolock -locker slock -time 10 &
 
-xbanish &
+systemctl --user start xbanish
+systemctl --user start mplugd
 
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
@@ -15,4 +16,7 @@ compton -b -C --vsync drm --shadow-exclude 'bounding_shaped' --no-fading-openclo
 /usr/lib/notify-osd/notify-osd &
 $HOME/bin/conky_bar.sh &
 
-exec herbstluftwm
+herbstluftwm
+
+systemctl --user stop xbanish
+systemctl --user stop mplugd

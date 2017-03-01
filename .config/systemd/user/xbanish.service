@@ -1,0 +1,7 @@
+[Unit]
+Description=Hide the cursor while typing
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/xbanish

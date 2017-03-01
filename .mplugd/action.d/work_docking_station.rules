@@ -1,0 +1,12 @@
+[rule on_displays_connected]
+on_type=OutputChangeNotify
+on_name*=DP1-2
+on_connected=1
+on_crtc=0
+true_exec=/home/j/.screenlayout/work.sh
+
+[rule on_displays_disconnected]
+on_type=OutputChangeNotify
+on_name*=DP1-2
+on_connected=0
+true_exec=/home/j/.screenlayout/internal.sh
