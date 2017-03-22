@@ -9,6 +9,8 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
 let g:neomake_javascript_enabled_makers = ['eslint']
 
+let g:neomake_elixir_enabled_makers = ['mix', 'credo']
+
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1

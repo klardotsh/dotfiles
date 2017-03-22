@@ -1,6 +1,7 @@
 filetype off
 filetype plugin indent on
 
+autocmd! BufRead *.fs,*.fsi,*.fsx set filetype=fsharp
 au BufRead,BufNewFile *.eslintrc set filetype=json
 au BufRead,BufNewFile *.tag set filetype=html
 au BufRead,BufNewFile *.js set suffixesadd+=.js

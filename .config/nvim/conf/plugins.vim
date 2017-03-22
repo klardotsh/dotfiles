@@ -42,9 +42,12 @@ Plug 'othree/es.next.syntax.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'moll/vim-node'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'ternjs/tern_for_vim', { 'do': 'yarn' }
 Plug 'othree/jspc.vim'
 Plug 'jaawerth/neomake-local-eslint-first'
+
+"" JSON5
+Plug 'GutenYe/json5.vim'
 
 "" Go
 Plug 'fatih/vim-go'
@@ -56,10 +59,8 @@ Plug 'davidhalter/jedi-vim'
 "" Rust
 Plug 'rust-lang/rust.vim'
 
-"" F#
-Plug 'fsharp/vim-fsharp', {
-      \ 'for': 'fsharp',
-      \ 'do':  'make fsautocomplete',
-      \}
+"" Elixir
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
 
 call plug#end()
