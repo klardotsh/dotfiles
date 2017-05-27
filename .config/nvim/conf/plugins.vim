@@ -2,7 +2,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'VundleVim/Vundle.vim'
 Plug 'Shougo/vimproc.vim'
-Plug 'neomake/neomake'
+Plug 'w0rp/ale'
+
+Plug 'pbrisbin/vim-mkdir'
 
 " Auto- and Tab-Completion
 Plug 'Shougo/deoplete.nvim'
@@ -35,16 +37,18 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'cespare/vim-toml'
 Plug 'chase/vim-ansible-yaml'
 Plug 'markcornick/vim-vagrant'
+Plug 'Matt-Deacalion/vim-systemd-syntax'
 
 "" JavaScript
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
 Plug 'moll/vim-node'
 Plug 'ternjs/tern_for_vim', { 'do': 'yarn' }
 Plug 'othree/jspc.vim'
-Plug 'jaawerth/neomake-local-eslint-first'
+
+"" TypeScript
+Plug 'HerringtonDarkholme/yats.vim'
+"Plug 'mhartington/nvim-typescript'
 
 "" JSON5
 Plug 'GutenYe/json5.vim'

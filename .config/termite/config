@@ -15,10 +15,6 @@ search_wrap = true
 #icon_name = terminal
 #geometry = 640x480
 
-# 0.0: opaque, 1.0: transparent
-transparency = 0.0
-pseudo_transparency = false
-
 # "system", "on" or "off"
 cursor_blink = on
 
@@ -27,8 +23,8 @@ cursor_shape = ibeam
 
 [colors]
 # hard contrast
-background = #1d2021
-#background = #282828
+#background = rgba(29, 32, 33, 0.65)
+background = #282828
 # soft contrast:
 #background = #32302f
 foreground = #ebdbb2

@@ -6,10 +6,9 @@ let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
 
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
-let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
-let g:neomake_javascript_enabled_makers = ['eslint']
-
-let g:neomake_elixir_enabled_makers = ['mix', 'credo']
+let g:ale_linters = {'javascript': ['eslint']}
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -17,7 +16,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-let g:rustfmt_autosave = 0
+let g:rustfmt_autosave = 1
 
 let loaded_matchparen=1
 

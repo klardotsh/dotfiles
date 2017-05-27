@@ -8,5 +8,12 @@
 	# These yanked straight outta https://hackernoon.com/lesser-known-git-commands-151a1918a60#.47hyswh0f
 	please = push --force-with-lease
 	shorty = status --short --branch
+
+	# http://gitready.com/intermediate/2009/02/18/temporarily-ignoring-files.html#comment-247215295
+	ignore = !git update-index --assume-unchanged
+	unignore = !git update-index --no-assume-unchanged
+	ignored = !git ls-files -v | grep ^[a-z]
 [fetch]
 	prune = true
+[rerere]
+	enabled = 1

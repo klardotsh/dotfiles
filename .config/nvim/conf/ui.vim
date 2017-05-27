@@ -22,10 +22,10 @@ hi StatusLineNC ctermfg=235 ctermbg=237
 hi Search ctermbg=58 ctermfg=15
 hi Default ctermfg=1
 hi clear SignColumn
-hi SignColumn ctermbg=235
+hi SignColumn ctermbg=None
 hi GitGutterAdd ctermbg=235 ctermfg=245
 hi GitGutterChange ctermbg=235 ctermfg=245
 hi GitGutterDelete ctermbg=235 ctermfg=245
 hi GitGutterChangeDelete ctermbg=235 ctermfg=245
 set fillchars=vert:\ ,stl:\ ,stlnc:\ 
-
+set guicursor=a:ver25
