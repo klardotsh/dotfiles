@@ -59,6 +59,7 @@ Plug 'fatih/vim-go'
 "" Python
 Plug 'hdima/python-syntax'
 Plug 'davidhalter/jedi-vim'
+Plug 'fisadev/vim-isort'
 
 "" Rust
 Plug 'rust-lang/rust.vim'

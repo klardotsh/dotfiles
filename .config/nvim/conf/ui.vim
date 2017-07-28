@@ -28,4 +28,4 @@ hi GitGutterChange ctermbg=235 ctermfg=245
 hi GitGutterDelete ctermbg=235 ctermfg=245
 hi GitGutterChangeDelete ctermbg=235 ctermfg=245
 set fillchars=vert:\ ,stl:\ ,stlnc:\ 
-set guicursor=a:ver25
+"set guicursor=a:ver25
