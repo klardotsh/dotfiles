@@ -23,8 +23,8 @@ cursor_shape = ibeam
 
 [colors]
 # hard contrast
-#background = rgba(29, 32, 33, 0.65)
-background = #282828
+background = rgba(29, 32, 33, 0.9)
+#background = #282828
 # soft contrast:
 #background = #32302f
 foreground = #ebdbb2
