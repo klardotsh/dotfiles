@@ -12,7 +12,9 @@ Plug 'sebastianmarkow/deoplete-rust'
 Plug 'ervandew/supertab'
 
 " Interface
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf',  { 'dir': '~/.fzf' }
+Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
 
 " Git Support
@@ -23,6 +25,7 @@ Plug 'tpope/vim-fugitive'
 " Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/seoul256.vim'
+Plug 'arcticicestudio/nord-vim'
 
 " Misc
 Plug 'editorconfig/editorconfig-vim'
@@ -38,6 +41,7 @@ Plug 'cespare/vim-toml'
 Plug 'chase/vim-ansible-yaml'
 Plug 'markcornick/vim-vagrant'
 Plug 'Matt-Deacalion/vim-systemd-syntax'
+Plug 'NLKNguyen/cloudformation-syntax.vim'
 
 "" JavaScript
 Plug 'othree/yajs.vim'
@@ -52,6 +56,10 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 "" JSON5
 Plug 'GutenYe/json5.vim'
+
+"" Protobuf-esque
+Plug 'uarun/vim-protobuf'
+Plug 'peter-edge/vim-capnp'
 
 "" Go
 Plug 'fatih/vim-go'

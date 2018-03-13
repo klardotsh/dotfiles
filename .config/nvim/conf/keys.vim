@@ -7,7 +7,8 @@ nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
 nnoremap <C-e> :bufdo edit<Space>
 
-let g:ctrlp_map = '<C-t>'
+"let g:ctrlp_map = '<C-t>'
+map <C-t> :Files<CR>
 
 let mapleader=","
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
