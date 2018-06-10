@@ -9,7 +9,7 @@ allow_bold = false
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Iosevka Term 12
+font = Iosevka Term 11
 scrollback_lines = 1000
 search_wrap = true
 #icon_name = terminal
@@ -22,69 +22,37 @@ cursor_blink = on
 cursor_shape = ibeam
 
 [colors]
-# hard contrast
+# Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
+# Copyright (c) 2016-present Sven Greb <code@svengreb.de>
+
+# Project:    Nord Termite
+# Repository: https://github.com/arcticicestudio/nord-termite
+# License:    MIT
+
+[colors]
+foreground = #D8DEE9
 background = rgba(29, 32, 33, 0.9)
-#background = #282828
-# soft contrast:
-#background = #32302f
-foreground = #ebdbb2
-foreground_bold = #ebdbb2
+#background = rgba(46, 52, 64, 0.9)
+#2E3440
+foreground_bold = #D8DEE9
+cursor = #D8DEE9
+cursor_foreground = #2E3440
+highlight = #4C566A
 
-# dark0 + gray
-color0 = #282828
-color8 = #928374
-
-# neutral_red + bright_red
-color1 = #cc241d
-color9 = #fb4934
-
-# neutral_green + bright_green
-color2 = #98971a
-color10 = #b8bb26
-
-# neutral_yellow + bright_yellow
-color3 = #d79921
-color11 = #fabd2f
-
-# neutral_blue + bright_blue
-color4 = #458588
-color12 = #83a598
-
-# neutral_purple + bright_purple
-color5 = #b16286
-color13 = #d3869b
-
-# neutral_aqua + faded_aqua
-color6 = #689d6a
-color14 = #8ec07c
-
-# light4 + light1
-color7 = #a89984
-color15 = #ebdbb2
-
-#[colors]
-## Seoul256
-##background = #3a3a3a
-#background = #1a1a1a
-#foreground = #d0d0d0
-#color0 = #4e4e4e
-#color1 = #d68787
-#color2 = #5f865f
-#color3 = #d8af5f
-#color4 = #85add4
-#color5 = #d7afaf
-#color6 = #87afaf
-#color7 = #d0d0d0
-#color8 = #626262
-#color9 = #d75f87
-#color10 = #87af87
-#color11 = #ffd787
-#color12 = #add4fb
-#color13 = #ffafaf
-#color14 = #87d7d7
-#color15 = #e4e4e4
-#cursor = #d0d0d0
-##cursorColor2 = #3a3a3a
-#colorBD = #e4e4e4
-
+color0  = #3B4252
+color1  = #BF616A
+color2  = #A3BE8C
+color3  = #EBCB8B
+color4  = #81A1C1
+color5  = #B48EAD
+color6  = #88C0D0
+color7  = #E5E9F0
+color8  = #4C566A
+color9  = #BF616A
+color10 = #A3BE8C
+color11 = #EBCB8B
+color12 = #81A1C1
+color13 = #B48EAD
+color14 = #8FBCBB
+color15 = #ECEFF4
 # vim: ft=dosini cms=#%s
