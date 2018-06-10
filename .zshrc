@@ -48,17 +48,18 @@ export PROMPT=" %c %F{cyan} \$(__git_ps1 '» %s ')» %{$reset_color%}%"
 
 precmd() { print "" }
 
+eval "$(pipenv --completion)"
 eval "$(direnv hook zsh)"
+eval $(dircolors ~/.dir_colors)
 
 setopt no_complete_aliases
 
 alias e='nvim'
 alias vim='nvim'
 
-alias packer='packer-color'
-alias pf='packer-color -Ss'
-alias pi='packer-color -S'
-alias pu='packer-color -Syu'
+alias pf='pacaur -Ss'
+alias pi='pacaur -S'
+alias pu='pacaur -Syu'
 alias pql='pacman -Ql'
 alias pqs='pacman -Qs'
 
@@ -101,3 +102,5 @@ bindkey "^[Oc" forward-word # control + right arrow
 bindkey "^[Od" backward-word # control + left arrow
 bindkey "^H" backward-kill-word # control + backspace
 bindkey "^[[3^" kill-word # control + delete
+
+export PATH=/home/j/.local/bin:$PATH
