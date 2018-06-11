@@ -44,7 +44,7 @@ setopt PROMPT_SUBST
 source /usr/share/git/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 
-export PROMPT=" %c %F{cyan} \$(__git_ps1 '» %s ')» %{$reset_color%}%"
+export PROMPT="(%m) %c %F{cyan} \$(__git_ps1 '» %s ')» %{$reset_color%}%"
 
 precmd() { print "" }
 
