@@ -108,7 +108,7 @@ globalkeys = awful.util.table.join(
     awful.key({                   }, "XF86MonBrightnessDown", function() awful.util.spawn_with_shell('light -U 2') end),
     awful.key({ modkey,           }, "Home",   function() awful.util.spawn_with_shell('/bin/sudo /home/j/bin/lock_screen.sh') end),
     awful.key({ modkey,           }, "Insert",   function() awful.util.spawn_with_shell('yubikey-oath-dmenu') end),
-    awful.key({ modkey,           }, "space",   function() awful.util.spawn_with_shell('rofi -modi combi -show combi -combi-modi drun,run -font "CamingoCode 11" -bw 0 -separtor-style solid') end),
+    awful.key({ modkey,           }, "space",   function() awful.util.spawn_with_shell('rofi -modi combi -show combi -combi-modi window,drun,run -font "CamingoCode 11" -bw 0 -separtor-style solid') end),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -244,4 +244,11 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+client.connect_signal("request::activate", function(c, context, hints)
+	if c.minimized then
+	c.minimized = false
+	end
+	awful.ewmh.activate(c, context, hints)
+end)
 -- }}}

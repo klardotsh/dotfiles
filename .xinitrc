@@ -10,8 +10,8 @@ xrdb -merge /home/j/.Xresources
 autocutsel -fork &
 autocutsel -selection PRIMARY -fork &
 
-ibus-daemon &
-compton -b -C --vsync drm --shadow-exclude 'bounding_shaped' --no-fading-openclose
+#ibus-daemon &
+compton -C --vsync drm --shadow-exclude 'bounding_shaped' --no-fading-openclose &
 #/usr/lib/notify-osd/notify-osd &
 #$HOME/bin/conky_bar.sh &
 
