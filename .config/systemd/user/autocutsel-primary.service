@@ -1,0 +1,7 @@
+[Unit]
+Description=Merge the various X11 clipboards
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/autocutsel -selection PRIMARY

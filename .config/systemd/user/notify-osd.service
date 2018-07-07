@@ -1,0 +1,7 @@
+[Unit]
+Description=Pretty Notifcation Daemon
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/lib/notify-osd/notify-osd

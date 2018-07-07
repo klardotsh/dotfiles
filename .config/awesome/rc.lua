@@ -7,40 +7,11 @@ require("awful.autofocus")
 -- Theme handling library
 local beautiful = require("beautiful")
 
--- Notification library
-local naughty = require("naughty")
-
 local lain = require("lain")
-
--- {{{ Error handling
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
-if awesome.startup_errors then
-    naughty.notify({ preset = naughty.config.presets.critical,
-                     title = "Oops, there were errors during startup!",
-                     text = awesome.startup_errors })
-end
-
--- Handle runtime errors after startup
-do
-    local in_error = false
-    awesome.connect_signal("debug::error", function (err)
-        -- Make sure we don't go into an endless error loop
-        if in_error then return end
-        in_error = true
-
-        naughty.notify({ preset = naughty.config.presets.critical,
-                         title = "Oops, an error happened!",
-                         text = err })
-        in_error = false
-    end)
-end
--- }}}
 
 -- {{{ Local extensions
 local sharedtags = require("awesome-sharedtags")
 -- }}}
-
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
@@ -130,7 +101,10 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Control", "Shift"   }, "q", awesome.quit),
+    awful.key({ modkey, "Control", "Shift"   }, "q", function()
+		awful.util.spawn("systemctl --user stop polybar")
+		return awesome.quit()
+	end),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
@@ -252,3 +226,5 @@ client.connect_signal("request::activate", function(c, context, hints)
 	awful.ewmh.activate(c, context, hints)
 end)
 -- }}}
+
+awful.util.spawn("systemctl --user start polybar")

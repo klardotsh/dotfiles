@@ -1,0 +1,7 @@
+[Unit]
+Description=Status Bar
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/polybar %H
