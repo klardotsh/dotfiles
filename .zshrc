@@ -59,6 +59,7 @@ alias vim='nvim'
 
 alias pf='pacaur -Ss'
 alias pi='pacaur -S'
+alias pii='pacaur -Sy'
 alias pu='pacaur -Syu'
 alias pql='pacman -Ql'
 alias pqs='pacman -Qs'

@@ -77,7 +77,7 @@ globalkeys = awful.util.table.join(
     awful.key({                   }, "XF86AudioLowerVolume", function() awful.util.spawn_with_shell('ponymix decrease 2') end),
     awful.key({                   }, "XF86MonBrightnessUp", function() awful.util.spawn_with_shell('light -A 2') end),
     awful.key({                   }, "XF86MonBrightnessDown", function() awful.util.spawn_with_shell('light -U 2') end),
-    awful.key({ modkey,           }, "Home",   function() awful.util.spawn_with_shell('/bin/sudo /home/j/bin/lock_screen.sh') end),
+    awful.key({ modkey,           }, "Home",   function() awful.util.spawn_with_shell('slock') end),
     awful.key({ modkey,           }, "Insert",   function() awful.util.spawn_with_shell('yubikey-oath-dmenu') end),
     awful.key({ modkey,           }, "space",   function() awful.util.spawn_with_shell('rofi -modi combi -show combi -combi-modi window,drun,run -font "CamingoCode 11" -bw 0 -separtor-style solid') end),
 

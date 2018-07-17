@@ -1,7 +1,10 @@
 export DISPLAY=:0
 
-xrandr --output eDP1 --auto
-xrandr --output DP1-1 --auto --right-of eDP1
-xrandr --output DP1-2 --auto --right-of DP1-1
+systemctl --user stop polybar
 
-herbstclient reload
+xrandr --output eDP-1 --auto
+xrandr --output DP-2 --auto --right-of eDP-1
+
+sleep 1
+
+systemctl --user start polybar

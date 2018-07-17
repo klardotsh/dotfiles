@@ -7,7 +7,7 @@ export GPG_TTY=$(tty)
 export TERMINAL='termite'
 export EDITOR='nvim'
 export BROWSER='xdg-open'
-export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
+export LANG='en_CA.utf8' # Also set in /etc/locale.conf, but hey...
 
 export XMODIFIERS=@im=ibus
 

@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 _SYSTEMD_MANGED_SERVICES=(
-	"xss-lock"
 	"xbanish"
 	"compton"
 	"notify-osd"
