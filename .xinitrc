@@ -6,6 +6,7 @@ _SYSTEMD_MANGED_SERVICES=(
 	"notify-osd"
 	"autocutsel"
 	"autocutsel-primary"
+	"ibus-daemon"
 )
 
 xsetroot -xcf /usr/share/icons/DMZ96/cursors/left_ptr 16

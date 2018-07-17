@@ -1,0 +1,7 @@
+[Unit]
+Description=Make keyboards work somewhat sanely
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/ibus-daemon
