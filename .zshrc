@@ -31,6 +31,8 @@ case "$(uname -o)" in
 	;;
 esac
 
+source /usr/share/fzf/key-bindings.zsh
+
 sprunge() {
 	curl -F sprunge=@- sprunge.us
 }
@@ -85,6 +87,10 @@ alias tree='tree -CA'
 
 alias gitlog="git log --format='%Cred%h%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset%C(yellow)%d%Creset' --no-merges"
 alias gitlogsprint="gitlog --since '2 weeks' --author 'Josh Klar'"
+
+alias gl="gitlog"
+alias gls="gitlogsprint"
+alias gca="git commit --amend --no-edit"
 
 if command -v colordiff > /dev/null 2>&1; then
 	alias diff="colordiff -Nuar"
