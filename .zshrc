@@ -59,10 +59,10 @@ setopt no_complete_aliases
 alias e='nvim'
 alias vim='nvim'
 
-alias pf='pacaur -Ss'
-alias pi='pacaur -S'
-alias pii='pacaur -Sy'
-alias pu='pacaur -Syu'
+alias pf='aurman -Ss'
+alias pi='aurman -S'
+alias pii='aurman -Sy'
+alias pu='aurman -Syu'
 alias pql='pacman -Ql'
 alias pqs='pacman -Qs'
 
