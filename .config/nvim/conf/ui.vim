@@ -4,13 +4,16 @@ set hidden
 set ruler
 set nowrap
 
+set list listchars=tab:»·,trail:·,nbsp:·
+
 set splitbelow
 set splitright
 
 set clipboard+=unnamedplus
 
 set background=dark
-colorscheme nord
+"colorscheme nord
+colorscheme base16-atelier-savanna
 
 hi Normal ctermbg=None
 
@@ -22,7 +25,7 @@ hi StatusLineNC ctermfg=235 ctermbg=237
 hi Search ctermbg=58 ctermfg=15
 hi Default ctermfg=1
 hi Comment ctermfg=102
-hi clear SignColumn
+"hi clear SignColumn
 hi SignColumn ctermbg=None
 hi GitGutterAdd ctermbg=235 ctermfg=245
 hi GitGutterChange ctermbg=235 ctermfg=245

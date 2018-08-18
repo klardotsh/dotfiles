@@ -7,10 +7,11 @@ let g:deoplete#sources#rust#racer_binary='/usr/bin/racer'
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 let g:ale_linters = {'javascript': ['eslint']}
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '--'
+let g:ale_sign_error = '😡'
+let g:ale_sign_warning = '😞'
 let g:ale_python_flake8_executable = 'python'
 let g:ale_python_flake8_args = '-m flake8'
+let g:ale_python_flake8_auto_pipenv = 1
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -33,3 +34,11 @@ set updatetime=500
 let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ }
+
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+    \ 'python': ['pyls'],
+    \ }

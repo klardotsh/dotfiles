@@ -2,12 +2,12 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'VundleVim/Vundle.vim'
 Plug 'Shougo/vimproc.vim'
-Plug 'w0rp/ale'
+Plug 'elebow/ale', { 'branch': 'auto-pipenv-option-for-python-linters' }
 
 Plug 'pbrisbin/vim-mkdir'
 
 " Auto- and Tab-Completion
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'sebastianmarkow/deoplete-rust'
 Plug 'ervandew/supertab'
 
@@ -21,11 +21,11 @@ Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
-
 " Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/seoul256.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'chriskempson/base16-vim'
 
 " Misc
 Plug 'editorconfig/editorconfig-vim'
@@ -36,6 +36,11 @@ Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Language Support
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
 "" Various configuration formats
 Plug 'cespare/vim-toml'
 Plug 'chase/vim-ansible-yaml'
@@ -44,11 +49,9 @@ Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'NLKNguyen/cloudformation-syntax.vim'
 
 "" JavaScript
-Plug 'othree/yajs.vim'
-Plug 'othree/es.next.syntax.vim'
 Plug 'moll/vim-node'
 Plug 'ternjs/tern_for_vim', { 'do': 'yarn' }
-Plug 'othree/jspc.vim'
+Plug 'jelera/vim-javascript-syntax'
 
 "" TypeScript
 Plug 'HerringtonDarkholme/yats.vim'
@@ -66,7 +69,6 @@ Plug 'fatih/vim-go'
 
 "" Python
 Plug 'hdima/python-syntax'
-Plug 'davidhalter/jedi-vim'
 Plug 'fisadev/vim-isort'
 
 "" Rust
