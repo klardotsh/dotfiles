@@ -11,6 +11,8 @@ setopt appendhistory autocd beep extendedglob notify promptsubst hist_ignore_dup
 bindkey -v # You can't stop here, you're in Vim country!...
 zstyle :compinstall filename '/home/j/.zshrc'
 
+fpath+=~/.zfunc
+
 autoload -Uz compinit && compinit
 autoload -U colors && colors
 
@@ -85,6 +87,7 @@ alias egrep='egrep --colour=auto'
 alias ls='ls --color=auto --human-readable --group-directories-first --classify'
 alias tree='tree -CA'
 
+alias git="echo UPDATESTARTUPTTY | gpg-connect-agent >/dev/null && /usr/bin/git"
 alias gitlog="git log --format='%Cred%h%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset%C(yellow)%d%Creset' --no-merges"
 alias gitlogsprint="gitlog --since '2 weeks' --author 'Josh Klar'"
 
@@ -97,6 +100,9 @@ if command -v colordiff > /dev/null 2>&1; then
 else
 	alias diff="diff -Nuar"
 fi
+
+alias poetry="/usr/bin/python -m poetry"
+alias poetry2="/usr/bin/python2 -m poetry"
 
 zstyle ':completion:*:sudo::' environ PATH="/sbin:/usr/sbin:$PATH" HOME="/root"
 
