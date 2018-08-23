@@ -1,7 +1,7 @@
 [user]
-	email = j@iv597.com
+	email = josh@klar.sh
 	name = Josh Klar
-	signingkey = j@iv597.com
+	signingkey = josh@klar.sh
 [commit]
 	gpgsign = true
 [alias]
