@@ -4,4 +4,5 @@ Description=Make keyboards work somewhat sanely
 [Service]
 Type=simple
 Environment=DISPLAY=:0
+Environment=IBUS_ENABLE_CTRL_SHIFT_U=1
 ExecStart=/usr/bin/ibus-daemon

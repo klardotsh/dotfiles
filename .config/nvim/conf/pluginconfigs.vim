@@ -9,9 +9,10 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:ale_linters = {'javascript': ['eslint']}
 let g:ale_sign_error = '😡'
 let g:ale_sign_warning = '😞'
-let g:ale_python_flake8_executable = 'python'
-let g:ale_python_flake8_args = '-m flake8'
+"let g:ale_python_flake8_executable = 'python'
+"let g:ale_python_flake8_args = '-m flake8'
 let g:ale_python_flake8_auto_pipenv = 1
+let g:ale_python_auto_pipenv = 1
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
