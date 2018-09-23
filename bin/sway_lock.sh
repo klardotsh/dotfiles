@@ -7,7 +7,10 @@ if [ -z "$XDG_RUNTIME_DIR" ] && [ -z "$SWAYSOCK"]; then
 	export SWAYSOCK=$(find $XDG_RUNTIME_DIR -iname sway*sock)
 fi
 
-grim /home/$USER/.lockscreen.png
-convert -blur 0x6 /home/$USER/.lockscreen.png /home/$USER/.lockscreen.png
+grim -o eDP-1 /home/$USER/.lockscreen.edp.png
+grim -o DP-2 /home/$USER/.lockscreen.dp.png
 
-swaylock -i /home/$USER/.lockscreen.png
+convert -blur 0x6 /home/$USER/.lockscreen.edp.png /home/$USER/.lockscreen.edp.png
+convert -blur 0x6 /home/$USER/.lockscreen.dp.png /home/$USER/.lockscreen.dp.png
+
+swaylock -i eDP-1:/home/$USER/.lockscreen.edp.png -i DP-2:/home/$USER/.lockscreen.dp.png

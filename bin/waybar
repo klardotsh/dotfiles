@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+
+export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pidof sway).sock
+
+/usr/bin/waybar
