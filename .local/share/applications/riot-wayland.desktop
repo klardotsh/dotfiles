@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Riot (Wayland-friendly)
+Comment=A feature-rich client for Matrix.org
+Exec="/home/j/bin/riot-desktop-wayland"
+Terminal=false
+Type=Application
+Icon=riot
+StartupWMClass="Riot"
+Categories=Network;InstantMessaging;Chat;IRCClient
