@@ -117,3 +117,10 @@ bindkey "^H" backward-kill-word # control + backspace
 bindkey "^[[3^" kill-word # control + delete
 
 export PATH=/home/j/.local/bin:$PATH
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/sls.zsh ]] && . /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/sls.zsh
