@@ -1,0 +1,6 @@
+font=Open Sans 11
+markup=1
+max-visible=5
+default-timeout=7000
+output=eDP-1
+background-color=#171c19e8
