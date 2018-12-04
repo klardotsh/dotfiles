@@ -1,6 +1,16 @@
-# iv597's ZSH configuration
-# Maintained 2012-17 (and counting)
+# klardotsh's ZSH configuration
+# Maintained 2012-18 (and counting)
 # Released under the [Unlicense](http://unlicense.org/)
+
+# Honestly this file (and zshenv) are total disasters, but I'm too lazy (and
+# backlogged on other work) to bother cleaning it up. My shells are slow to
+# start (not oh-my-zsh slow, but slow), buggy, clunky, etc. from all the shit
+# I've bolted on.
+#
+# I'm also not sure how much longer I feel like using ZSH anyway - lately,
+# Elvish (https://elv.sh/) has caught my eye. Alas... too busy to switch.
+#
+# Consider this file to be in maintenance mode for at least the time being.
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
@@ -61,10 +71,10 @@ setopt no_complete_aliases
 alias e='nvim'
 alias vim='nvim'
 
-alias pf='aurman -Ss'
-alias pi='aurman -S'
-alias pii='aurman -Sy'
-alias pu='aurman -Syu'
+alias pf='yay -Ss'
+alias pi='yay -S'
+alias pii='yay -Sy'
+alias pu='yay -Syu'
 alias pql='pacman -Ql'
 alias pqs='pacman -Qs'
 
