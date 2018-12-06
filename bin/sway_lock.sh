@@ -9,8 +9,10 @@ fi
 
 grim -o eDP-1 /home/$USER/.lockscreen.edp.png
 grim -o DP-2 /home/$USER/.lockscreen.dp.png
+grim -o HDMI-A-1 /home/$USER/.lockscreen.hdmia1.png
 
 convert -blur 0x6 /home/$USER/.lockscreen.edp.png /home/$USER/.lockscreen.edp.png
 convert -blur 0x6 /home/$USER/.lockscreen.dp.png /home/$USER/.lockscreen.dp.png
+convert -blur 0x6 /home/$USER/.lockscreen.hdmia1.png /home/$USER/.lockscreen.hdmia1.png
 
-swaylock -i eDP-1:/home/$USER/.lockscreen.edp.png -i DP-2:/home/$USER/.lockscreen.dp.png
+swaylock -i eDP-1:/home/$USER/.lockscreen.edp.png -i DP-2:/home/$USER/.lockscreen.dp.png -i HDMI-A-1:/home/$USER/.lockscreen.hdmia1.png

@@ -45,6 +45,10 @@ input 1133:16641:Logitech_Rechargeable_Touchpad_T650 tap enabled
 input 1133:16641:Logitech_Rechargeable_Touchpad_T650 tap_button_map lrm
 
 ### Key bindings
+bindsym XF86AudioRaiseVolume exec ponymix inc 2
+bindsym XF86AudioLowerVolume exec ponymix dec 2
+bindsym XF86AudioMute exec ponymix toggle
+
 #
 # Basics:
 #
