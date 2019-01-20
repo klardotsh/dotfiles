@@ -9,6 +9,10 @@ _SYSTEMD_MANGED_SERVICES=(
 	"ibus-daemon"
 )
 
+if [[ $(hostname) == "gravity" ]]; then
+	xrandr --output HDMI-A-0 --auto --below DisplayPort-2
+fi
+
 xsetroot -xcf /usr/share/icons/DMZ96/cursors/left_ptr 16
 xrdb -merge /home/j/.Xresources
 
