@@ -3,10 +3,6 @@ source /usr/bin/virtualenvwrapper_lazy.sh
 
 unset MANPATH
 
-# Work around Vega 56 artifacting
-# https://bugs.freedesktop.org/show_bug.cgi?id=104602
-export R600_DEBUG=nir
-
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="/run/user/$(id -u)/gnupg/S.gpg-agent.ssh"
 export TERMINAL='termite'
