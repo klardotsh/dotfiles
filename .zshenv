@@ -2,7 +2,7 @@ unset MANPATH
 
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="/run/user/$(id -u)/gnupg/S.gpg-agent.ssh"
-export TERMINAL='termite'
+export TERMINAL='kitty'
 export EDITOR='nvim'
 export BROWSER='xdg-open'
 export LANG='en_CA.utf8' # Also set in /etc/locale.conf, but hey...
