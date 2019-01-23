@@ -14,14 +14,15 @@ This is my by far most heavily-used machine. It's my daily driver at work, and
 sees a fair bit of use at home as well. Hardware-wise, it's a Dell XPS 13 (9370)
 with an i5-8250U, 16GB RAM, and an internal panel resolution of 1920x1080. At
 work, it's plugged into a Pluggable USB-C dock, various peripherals, and a
-curved Dell 3440x1440 monitor. Software-wise, it runs AwesomeWM (Xorg) on Arch
-Linux.
+curved Dell 3440x1440 monitor. Software-wise, it runs Sway (Wayland) on Arch
+Linux - though I may end up back on i3 (Xorg) to match the desktop (below).
 
 ### gravity
-This is my gaming desktop (i5-6600K, 32GB RAM, GTX 1070, 3440x1440), running
-AwesomeWM (Xorg) on Arch Linux. It was named after the fantastic Bullet For My
-Valentine album I had playing when I realized this machine, at the time, had no
-hostname, several months after being installed. Oops.
+This is The Beast, my desktop. Ryzen 2700X at 4.2GHz, 32GB DDR4-3200, Vega 56,
+3440x1440+2560x1080 screens. Running i3 (Xorg) on Arch Linux. It was named after
+the fantastic Bullet For My Valentine album I had playing when I realized this
+machine, at the time, had no hostname, several months after being installed.
+Oops.
 
 Other interesting software on this rig are mostly related to gaming and/or
 streaming: Lutris, DXVK, OBS, etc. Yes, I can run just about any Windows game on
