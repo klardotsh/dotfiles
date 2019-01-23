@@ -13,6 +13,11 @@
 	ignore = !git update-index --assume-unchanged
 	unignore = !git update-index --no-assume-unchanged
 	ignored = !git ls-files -v | grep ^[a-z]
+
+	# And now either my own stuff, or stuff I adopted from sources I've long since forgotten
+	lol = log --format='%Cred%h%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset%C(yellow)%d%Creset' --no-merges
+	# "cram" a file into the last commit. This is my "oh shit, forgot a migration" button
+	cram = commit --amend --no-edit
 [fetch]
 	prune = true
 [rerere]

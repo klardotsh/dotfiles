@@ -1,16 +1,6 @@
 # klardotsh's ZSH configuration
-# Maintained 2012-18 (and counting)
+# Maintained 2012-19 (and counting)
 # Released under the [Unlicense](http://unlicense.org/)
-
-# Honestly this file (and zshenv) are total disasters, but I'm too lazy (and
-# backlogged on other work) to bother cleaning it up. My shells are slow to
-# start (not oh-my-zsh slow, but slow), buggy, clunky, etc. from all the shit
-# I've bolted on.
-#
-# I'm also not sure how much longer I feel like using ZSH anyway - lately,
-# Elvish (https://elv.sh/) has caught my eye. Alas... too busy to switch.
-#
-# Consider this file to be in maintenance mode for at least the time being.
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
@@ -36,22 +26,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
-# Fix for tmux on linux.
-case "$(uname -o)" in
-	'GNU/Linux')
-		export EVENT_NOEPOLL=1
-	;;
-esac
-
 source /usr/share/fzf/key-bindings.zsh
-
-sprunge() {
-	curl -F sprunge=@- sprunge.us
-}
-
-sprup() {
-	cat $1 | sprunge
-}
 
 setopt PROMPT_SUBST
 
@@ -62,8 +37,22 @@ export PROMPT="(%m) %c %F{cyan} \$(__git_ps1 '» %s ')» %{$reset_color%}%"
 
 precmd() { print "" }
 
-eval "$(pipenv --completion)"
-eval "$(direnv hook zsh)"
+# This block is the output, as of 23 Jan 2019, of:
+# eval "$(pipenv --completion)"
+#
+# If stuff breaks, it's because I hardcoded this blob for term startup speed.
+# Fun fact: my shells spawn WAY faster now. Avg 0.2s, down from 0.5s when
+# this was an eval
+
+#compdef pipenv
+_pipenv() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _PIPENV_COMPLETE=complete-zsh  pipenv)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_pipenv" ]]; then
+  autoload -U compinit && compinit
+  compdef _pipenv pipenv
+fi
+
 eval $(dircolors ~/.dir_colors)
 
 setopt no_complete_aliases
@@ -97,13 +86,17 @@ alias egrep='egrep --colour=auto'
 alias ls='ls --color=auto --human-readable --group-directories-first --classify'
 alias tree='tree -CA'
 
+# This is a disgusting hack to ensure running "git commit" will bring up the PGP key unlock
+# on the correct terminal (and not in fucking Narnia or whatever, where it tends to go if
+# left to its own devices). Realistically this should be something smarter, that understands
+# what types of git commands will actually (potentially) bring up a PGP window. Even better,
+# this hack should be moved to a wrapper script that git can call as "gpg" - be it by $PATH
+# hackery or something else. Because I'm lazy, this stays for now.
 alias git="echo UPDATESTARTUPTTY | gpg-connect-agent >/dev/null && /usr/bin/git"
-alias gitlog="git log --format='%Cred%h%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset%C(yellow)%d%Creset' --no-merges"
-alias gitlogsprint="gitlog --since '2 weeks' --author 'Josh Klar'"
 
-alias gl="gitlog"
-alias gls="gitlogsprint"
-alias gca="git commit --amend --no-edit"
+alias gl="git lol"
+alias gls="git lol --since '2 weeks' --author 'Josh Klar'"
+alias gca="git cram" # Muscle memory dies hard - this is NOT git commit -a
 
 if command -v colordiff > /dev/null 2>&1; then
 	alias diff="colordiff -Nuar"
