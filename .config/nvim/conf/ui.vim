@@ -12,8 +12,7 @@ set splitright
 set clipboard+=unnamedplus
 
 set background=dark
-"colorscheme nord
-colorscheme base16-atelier-savanna
+colorscheme gruvbox
 
 hi Normal ctermbg=None
 
