@@ -1,0 +1,19 @@
+set virtual_spoolfile = yes
+set folder = ~/.mail
+source ~/.mailboxes
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+set realname="Josh Klar"
+set strict_threads = yes
+set sort = threads
+set sort_aux = reverse-last-date-received
+set uncollapse_jump
+set sort_re
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+#set index_format="%4C %3M%Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
+set date_format = "%d %b"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+
+color normal default default
