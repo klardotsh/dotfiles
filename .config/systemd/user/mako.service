@@ -1,0 +1,7 @@
+[Unit]
+Description=Notification Daemon
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/home/j/bin/mako

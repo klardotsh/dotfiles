@@ -7,4 +7,4 @@
 # break if sway ever changes their socket paths.
 export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pidof sway).sock
 
-/usr/bin/waybar
+/usr/bin/mako
