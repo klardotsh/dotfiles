@@ -23,8 +23,14 @@ gaps inner 5
 
 ### Output configuration
 output * bg /home/j/.wallpaper fill
+
+# Laptop
 output eDP-1 scale 1.25 position 0,0
 output DP-2 position 1920,0
+
+# Desktop
+output HDMI-A-1 position 293,0
+output DP-3 position 0,1081
 
 ### Input configuration
 input 1:1:AT_Translated_Set_2_keyboard xkb_layout dvorak
@@ -127,6 +133,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 bindsym $mod+Control+left move workspace to output left
 bindsym $mod+Control+right move workspace to output right
+bindsym $mod+Control+up move workspace to output up
+bindsym $mod+Control+down move workspace to output down
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
 #
