@@ -14,6 +14,9 @@
 	unignore = !git update-index --no-assume-unchanged
 	ignored = !git ls-files -v | grep ^[a-z]
 
+	# https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html
+	ll = log --graph --format=\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
+
 	# And now either my own stuff, or stuff I adopted from sources I've long since forgotten
 	lol = log --format='%Cred%h%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset%C(yellow)%d%Creset' --no-merges
 	# "cram" a file into the last commit. This is my "oh shit, forgot a migration" button
@@ -29,3 +32,5 @@
 	required = true
 [push]
 	default = current
+[gpg]
+	program = /home/j/bin/gpg
