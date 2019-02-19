@@ -26,7 +26,7 @@ env_overrides = {
     'NPM_PACKAGES': "~/.npm-packages",
     'QT_IM_MODULE': 'ibus',
     'QT_QPA_PLATFORMTHEME': 'qt5ct',
-    'SSH_AUTH_SOCK': "/run/user/$(id -u)/gnupg/S.gpg-agent.ssh",
+    'SSH_AUTH_SOCK': "/run/user/{}/gnupg/S.gpg-agent.ssh".format($(id -u).strip()),
     'TERMINAL': 'kitty',
     'VI_MODE': True,
     'XMODIFIERS': '@im=ibus',
