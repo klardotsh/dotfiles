@@ -69,6 +69,10 @@ bindsym $mod+end kill
 # start your launcher
 bindsym $mod+Space exec $menu
 
+bindsym $mod+s exec ss_full.sh
+bindsym $mod+Shift+s exec ss_window.sh
+
+
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.
@@ -147,7 +151,7 @@ bindsym $mod+b splith
 bindsym $mod+v splitv
 
 # Switch the current container between different layout styles
-bindsym $mod+s layout stacking
+bindsym $mod+Alt+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
