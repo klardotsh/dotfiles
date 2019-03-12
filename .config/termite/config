@@ -23,7 +23,7 @@ cursor_shape = ibeam
 # gruvbox, from https://github.com/morhetz/gruvbox-contrib/blob/master/termite/gruvbox-dark
 
 # hard contrast: background = #1d2021
- background = rgba(29, 32, 33, 0.9)
+ background = rgba(29, 32, 33, 0.8)
 # default: background = #282828
 # background = rgba(40, 40, 40, 0.9)
 # soft contrast: background = #32302f

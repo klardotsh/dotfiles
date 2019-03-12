@@ -11,6 +11,9 @@ export MOZ_USE_XINPUT2=1 # Pixel-perfect trackpads <3
 export IBUS_ENABLE_CTRL_SHIFT_U=1
 export XMODIFIERS=@im=ibus
 
+# This hack necessary for reasons I'll never understand. Under Wayland specifically,
+# GTK themes are evidently only configured through envvars? Whatever, this fixes it.
+export GTK_THEME=$(cat .config/gtk-3.0/settings.ini | grep gtk-theme-name | cut -d'=' -f2)
 export GTK_CSD=0
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export GTK_IM_MODULE=ibus

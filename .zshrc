@@ -98,6 +98,23 @@ alias gl="git lol"
 alias gls="git lol --since '2 weeks' --author 'Josh Klar'"
 alias gca="git cram" # Muscle memory dies hard - this is NOT git commit -a
 
+# https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html
+fzf_git_log() {
+    local commits=$(
+      git lol --color=always "$@" |
+        fzf --ansi --no-sort --height 100% \
+            --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+                       xargs -I@ sh -c 'git show --color=always @'"
+      )
+    if [[ -n $commits ]]; then
+        local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
+        git show $hashes
+    fi
+}
+
+alias gll='fzf_git_log'
+
+
 if command -v colordiff > /dev/null 2>&1; then
 	alias diff="colordiff -Nuar"
 else
@@ -127,3 +144,12 @@ export PATH=/home/j/.local/bin:$PATH
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/sls.zsh ]] && . /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/sls.zsh
+
+# Base16 Shell
+# git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+base16_black-metal

@@ -26,6 +26,7 @@ Plug 'morhetz/gruvbox'
 Plug 'junegunn/seoul256.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'chriskempson/base16-vim'
+Plug 'metalelf0/base16-black-metal-scheme'
 
 " Misc
 Plug 'editorconfig/editorconfig-vim'

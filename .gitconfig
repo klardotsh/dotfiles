@@ -34,3 +34,8 @@
 	default = current
 [gpg]
 	program = /home/j/bin/gpg
+
+# These flipped because base16-black-metal flips them
+[color "diff"]
+	old = green bold
+	new = red bold

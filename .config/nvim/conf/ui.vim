@@ -12,7 +12,7 @@ set splitright
 set clipboard+=unnamedplus
 
 set background=dark
-colorscheme gruvbox
+colorscheme base16-black-metal
 
 hi Normal ctermbg=None
 
