@@ -163,3 +163,5 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
+
+for_window [class="^.*"] border pixel 1
