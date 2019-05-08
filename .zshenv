@@ -5,7 +5,7 @@ export SSH_AUTH_SOCK="/run/user/$(id -u)/gnupg/S.gpg-agent.ssh"
 export TERMINAL='kitty'
 export EDITOR='nvim'
 export BROWSER='xdg-open'
-export LANG='en_CA.utf8' # Also set in /etc/locale.conf, but hey...
+export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
 
 export MOZ_USE_XINPUT2=1 # Pixel-perfect trackpads <3
 export IBUS_ENABLE_CTRL_SHIFT_U=1

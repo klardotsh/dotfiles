@@ -21,12 +21,15 @@ set $menu rofi -modi combi -show combi -combi-modi drun,run -font "Noto Sans 11"
 gaps outer 8
 gaps inner 8
 
+# Hide cursor after 5s of mouse movement
+seat seat0 hide_cursor 5000
+
 ### Output configuration
 output * bg /home/j/.wallpaper fill
 
 # Laptop
-output eDP-1 scale 1.25 position 1180,1440
-output DP-2 position 0,0
+output eDP-1 scale 1.25 position 0,0
+output DP-2 position 1980,0
 
 # Desktop
 output HDMI-A-1 position 293,0
