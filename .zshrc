@@ -59,6 +59,7 @@ setopt no_complete_aliases
 
 alias e='nvim'
 alias vim='nvim'
+alias m='mosh'
 
 alias pf='yay -Ss'
 alias pi='yay -S'
