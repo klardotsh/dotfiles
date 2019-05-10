@@ -8,6 +8,8 @@ export BROWSER='xdg-open'
 export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
 
 export MOZ_USE_XINPUT2=1 # Pixel-perfect trackpads <3
+export MOZ_ENABLE_WAYLAND=1
+
 export IBUS_ENABLE_CTRL_SHIFT_U=1
 export XMODIFIERS=@im=ibus
 
