@@ -1,0 +1,8 @@
+#!/bin/sh
+
+UID=$(pwd -P)
+UID=${UID##*/}
+
+if [ -d "/home/${UID}/.config/sv" ]; then
+	exec setsid chpst -u"${UID}" runsvdir /home/${UID}/.config/sv
+fi

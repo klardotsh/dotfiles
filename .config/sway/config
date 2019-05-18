@@ -223,5 +223,4 @@ client.background       $base07
 
 for_window [title="^.*"] border pixel 1
 
-exec systemctl --user start waybar
-exec systemctl --user start mako
+exec sway_services.sh

@@ -5,6 +5,6 @@
 # to work (services complain about no sway socket). Instead, hard code
 # a path that should generally always work. This service file will, thus,
 # break if sway ever changes their socket paths.
-export SWAYSOCK=/run/user/$(id -u)/sway-ipc.$(id -u).$(pidof sway).sock
+export SWAYSOCK="${XDG_RUNTIME_DIR}/$(ls ${XDG_RUNTIME_DIR} | grep sway | head -n 1)"
 
-/usr/bin/mako
+/usr/bin/mako $@

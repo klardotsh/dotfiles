@@ -1,5 +1,7 @@
 unset MANPATH
 
+export IS_VOID=`[ $(lsb_release -sc 2&>1 || echo 'n/a') = 'void' ] && echo 1`
+
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="/run/user/$(id -u)/gnupg/S.gpg-agent.ssh"
 export TERMINAL='kitty'
@@ -40,3 +42,11 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export PYENV_ROOT=$(pyenv root)
 
 export PATH="$HOME/bin:$HOME/.cargo/bin:${GOPATH}/bin:${NPM_PACKAGES}/bin:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+
+if test -z "${XDG_RUNTIME_DIR}"; then
+	export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
+	if ! test -d "${XDG_RUNTIME_DIR}"; then
+		mkdir "${XDG_RUNTIME_DIR}"
+		chmod 0700 "${XDG_RUNTIME_DIR}"
+	fi
+fi

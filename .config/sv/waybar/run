@@ -1,0 +1,4 @@
+#!/bin/sh
+
+. ${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/sway_services.env
+exec setsid /home/j/bin/waybar

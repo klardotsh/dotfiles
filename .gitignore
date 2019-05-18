@@ -1,3 +1,5 @@
 .config/gtk-3.0/bookmarks
 .config/gtk-2.0/gtkfilechooser.ini
 .config/nvim/.netrwhist
+etc/sv/j/supervise
+.config/sv/**/supervise

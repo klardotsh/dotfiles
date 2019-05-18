@@ -61,12 +61,22 @@ alias e='nvim'
 alias vim='nvim'
 alias m='mosh'
 
-alias pf='yay -Ss'
-alias pi='yay -S'
-alias pii='yay -Sy'
-alias pu='yay -Syu'
-alias pql='pacman -Ql'
-alias pqs='pacman -Qs'
+if [ "${IS_VOID}" = "1" ]; then
+	alias pf='xbps-query -Rs'
+	alias pff='xlocate'
+	alias pffi='xlocate -S'
+	alias pi='sudo xbps-install -S'
+	alias pu='sudo xbps-install -Su'
+	alias pql='xbps-query -f'
+	alias pqs='xbps-query -s'
+else
+	alias pf='yay -Ss'
+	alias pi='yay -S'
+	alias pii='yay -Sy'
+	alias pu='yay -Syu'
+	alias pql='pacman -Ql'
+	alias pqs='pacman -Qs'
+fi
 
 alias mp='makepkg -icsr'
 
