@@ -62,6 +62,7 @@ alias vim='nvim'
 alias m='mosh'
 
 if [ "${IS_VOID}" = "1" ]; then
+	alias sway='ck-launch-session dbus-launch --sh-syntax --exit-with-session /usr/bin/sway'
 	alias pf='xbps-query -Rs'
 	alias pff='xlocate'
 	alias pffi='xlocate -S'

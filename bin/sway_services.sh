@@ -6,7 +6,7 @@ if [ which systemctl 2&>1 >/dev/null ]; then
 	systemctl --user start waybar
 	systemctl --user start mako
 else
+	SVDIR=${XDG_CONFIG_HOME}/sv sv start swaybg
 	SVDIR=${XDG_CONFIG_HOME}/sv sv start waybar
 	SVDIR=${XDG_CONFIG_HOME}/sv sv start mako
-	SVDIR=${XDG_CONFIG_HOME}/sv sv start swaybg
 fi
