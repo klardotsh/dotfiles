@@ -1,6 +1,6 @@
 unset MANPATH
 
-export IS_VOID=`[ $(lsb_release -sc 2&>1 || echo 'n/a') = 'void' ] && echo 1`
+export IS_VOID=`[ $(lsb_release -sc 2>&1 || echo 'n/a') = 'void' ] && echo 1`
 
 if test -z "${XDG_RUNTIME_DIR}"; then
 	export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-if [ which systemctl 2&>1 >/dev/null ]; then
+if [ which systemctl 2>&1 >/dev/null ]; then
 	systemctl --user stop waybar
 	systemctl --user stop mako
 else
