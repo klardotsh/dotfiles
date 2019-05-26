@@ -2,7 +2,7 @@
 
 export > ${XDG_RUNTIME_DIR}/sway_services.env
 
-if [ which systemctl 2>&1 >/dev/null ]; then
+if [ -x /bin/systemctl ]; then
 	systemctl --user start waybar
 	systemctl --user start mako
 else
