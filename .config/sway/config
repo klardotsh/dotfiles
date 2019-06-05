@@ -32,9 +32,9 @@ output eDP-1 scale 1.25 position 0,0
 output DP-2 position 1980,0
 
 # Desktop
-output HDMI-A-1 position 5361,0
+output HDMI-A-1 position 3441,0
 output DP-2 position 0,0
-output DP-3 position 3441,0 scale 1.5
+output DP-3 position 1298,1441 scale 1.25
 
 ### Input configuration
 input 1:1:AT_Translated_Set_2_keyboard xkb_layout dvorak
