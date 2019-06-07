@@ -21,11 +21,10 @@ Linux and, at different points, either AwesomeWM (Xorg), i3 (Xorg), or sway
 
 ### gravity
 This is The Beast, my desktop. Ryzen 2700X at 4.2GHz, 32GB DDR4-3200, Vega 56,
-3440x1440+2560x1080 screens. Running mostly sway (Wayland), with occasional
-fallbacks to i3 (Xorg) as needed, on Arch Linux. It was named after the
-fantastic Bullet For My Valentine album I had playing when I realized this
-machine, at the time, had no hostname, several months after being installed.
-Oops.
+3440x1440+2560x1080 screens. Running Sway on Void Linux (glibc). It was named
+after the fantastic Bullet For My Valentine album I had playing when I realized
+this machine, at the time, had no hostname, several months after being
+installed.  Oops.
 
 Other interesting software on this rig are mostly related to gaming and/or
 streaming: Lutris, DXVK, OBS, etc.
