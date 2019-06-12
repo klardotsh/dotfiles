@@ -37,7 +37,7 @@ Software:
   far nicer than dealing with JACK, especially given the machine is used for
   non-music purposes as well
 
-### rain
+### spoonman
 
 This is my primary laptop, a Dell XPS 9370 FHD 16GB, mostly used at work.
 
