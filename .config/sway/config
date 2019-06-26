@@ -32,9 +32,15 @@ output eDP-1 scale 1.25 position 0,0
 output DP-2 position 1980,0
 
 # Desktop
-output HDMI-A-1 position 3441,0
-output DP-2 position 0,0
-output DP-3 position 1298,1441 scale 1.25
+# Dell 34" - 3440x1440
+output DP-1 position 0,0
+# "Orion Communications Co" 12" touchscreen - 1600x1200
+output HDMI-A-1 position 475,1441
+# LG 25" x2 - 2560x1080
+output DP-5 position 3440,0
+output DP-4 position 6000,0
+# Optoma Projector - 1920x1080
+output DP-2 position 8560,0
 
 ### Input configuration
 input 1:1:AT_Translated_Set_2_keyboard xkb_layout dvorak
@@ -46,6 +52,13 @@ input 1739:30383:DELL07E6:00_06CB:76AF_Touchpad middle_emulation enabled
 input 1739:30383:DELL07E6:00_06CB:76AF_Touchpad natural_scroll enabled
 input 1739:30383:DELL07E6:00_06CB:76AF_Touchpad tap enabled
 input 1739:30383:DELL07E6:00_06CB:76AF_Touchpad tap_button_map lrm
+
+input 1452:613:Apple_Inc._Magic_Trackpad_2 accel_profile adaptive
+input 1452:613:Apple_Inc._Magic_Trackpad_2 dwt on
+input 1452:613:Apple_Inc._Magic_Trackpad_2 middle_emulation enabled
+input 1452:613:Apple_Inc._Magic_Trackpad_2 natural_scroll enabled
+input 1452:613:Apple_Inc._Magic_Trackpad_2 tap enabled
+input 1452:613:Apple_Inc._Magic_Trackpad_2 tap_button_map lrm
 
 input 1133:16641:Logitech_Rechargeable_Touchpad_T650 accel_profile adaptive
 input 1133:16641:Logitech_Rechargeable_Touchpad_T650 dwt on
@@ -66,8 +79,8 @@ input 9610:8214:HAILUCK_CO.,LTD_Usb_Touch_Mouse tap_button_map lrm
 input 1046:49512:TSTP_MTouch map_to_output DP-3
 
 ### Key bindings
-bindsym XF86AudioRaiseVolume exec ponymix inc 2
-bindsym XF86AudioLowerVolume exec ponymix dec 2
+#bindsym XF86AudioRaiseVolume exec ponymix inc 2
+#bindsym XF86AudioLowerVolume exec ponymix dec 2
 bindsym XF86AudioMute exec ponymix toggle
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
@@ -78,7 +91,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 # start a terminal
 bindsym $mod+Return exec $term
 
-bindsym $mod+home exec sway_lock.sh
+bindsym $mod+home exec sway_lock
 
 # kill focused window
 bindsym $mod+end kill
