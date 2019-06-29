@@ -10,13 +10,14 @@ _SYSTEMD_MANGED_SERVICES=(
 )
 
 if [[ $(hostname) == "gravity" ]]; then
-	xrandr --output HDMI-A-0 --auto --below DisplayPort-2
+	${HOME}/.screenlayout/default.sh
 	setroot -z .wallpaper -z .wallpaper
+	xset -dpms
 else
 	setroot -z .wallpaper
 fi
 
-xsetroot -xcf /usr/share/icons/DMZ96/cursors/left_ptr 16
+xsetroot -xcf /usr/share/icons/capitaine-cursors/cursors/left_ptr 16
 xrdb -merge /home/j/.Xresources
 
 systemctl --user start $_SYSTEMD_MANGED_SERVICES

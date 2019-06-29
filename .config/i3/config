@@ -15,7 +15,7 @@ set $menu rofi_launcher.sh
 gaps outer 5
 gaps inner 5
 
-font pango:PragmataPro 12
+font pango:Noto Sans UI 12
 
 ### Key bindings
 bindsym XF86AudioRaiseVolume exec ponymix inc 2

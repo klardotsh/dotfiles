@@ -5,4 +5,4 @@ etc/sv/j/supervise
 .config/sv/**/supervise
 .config/systemd/**/*.wants
 .config/systemd/user/pulseaudio.socket
-.config/pulse
+.gnupg/

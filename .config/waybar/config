@@ -1,5 +1,5 @@
 {
-    "layer": "top", // Waybar at top layer
+    "layer": "bottom", // Waybar at top layer
     "position": "top", // Waybar at the bottom of your screen
     "height": 24, // Waybar height
     // "width": 1366, // Waybar width

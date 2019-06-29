@@ -4,4 +4,4 @@ Description=Compositor
 [Service]
 Type=simple
 Environment=DISPLAY=:0
-ExecStart=/usr/bin/compton -C --vsync opengl-oml --shadow-exclude 'bounding_shaped' --no-fading-openclose
+ExecStart=/usr/bin/compton -C --vsync=opengl-oml --shadow-exclude 'bounding_shaped' --no-fading-openclose
