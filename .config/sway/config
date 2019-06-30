@@ -82,8 +82,8 @@ input 9610:8214:HAILUCK_CO.,LTD_Usb_Touch_Mouse tap_button_map lrm
 input 1046:49512:TSTP_MTouch map_to_output DP-3
 
 ### Key bindings
-#bindsym XF86AudioRaiseVolume exec ponymix inc 2
-#bindsym XF86AudioLowerVolume exec ponymix dec 2
+bindsym XF86AudioRaiseVolume exec ponymix inc 2
+bindsym XF86AudioLowerVolume exec ponymix dec 2
 bindsym XF86AudioMute exec ponymix toggle
 bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
