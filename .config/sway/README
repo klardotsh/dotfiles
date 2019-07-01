@@ -1,0 +1,3 @@
+symlink the correct config (I'm using format "$(hostname).config" here) to
+"config", or set up an alias/wrapper script to call "sway -c
+/path/to/here/$(hostname).config"
