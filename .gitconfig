@@ -3,7 +3,7 @@
 	name = Josh Klar
 	signingkey = josh@klar.sh
 [commit]
-	gpgsign = false
+	gpgsign = true
 [alias]
 	# These yanked straight outta https://hackernoon.com/lesser-known-git-commands-151a1918a60#.47hyswh0f
 	please = push --force-with-lease
