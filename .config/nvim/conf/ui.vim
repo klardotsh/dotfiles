@@ -14,6 +14,21 @@ set clipboard+=unnamedplus
 set background=dark
 colorscheme base16-black-metal
 
+if !exists("g:syntax_on")
+	syntax enable
+endif
+
+let g:gitgutter_override_sign_column_highlight = 0
+
+hi Normal ctermbg=none ctermfg=none
+hi NonText ctermbg=none
+hi SpecialKey ctermbg=none
+highlight SignColumn ctermbg=none
+"highlight GitGutterAdd ctermfg=green ctermbg=none
+"highlight GitGutterChange ctermfg=yellow ctermbg=none
+highlight GitGutterDelete ctermfg=red ctermbg=none
+highlight GitGutterChangeDelete ctermfg=yellow ctermbg=none
+
 hi Normal ctermbg=None
 
 " https://gist.github.com/paulrouget/ad44d1a907a668d012d23b0c1bdf72f9

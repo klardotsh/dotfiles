@@ -133,9 +133,6 @@ else
 	alias diff="diff -Nuar"
 fi
 
-alias poetry="/usr/bin/python -m poetry"
-alias poetry2="/usr/bin/python2 -m poetry"
-
 zstyle ':completion:*:sudo::' environ PATH="/sbin:/usr/sbin:$PATH" HOME="/root"
 
 bindkey "^[[H" beginning-of-line #Home key

@@ -1,8 +1,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
 Plug 'Shougo/vimproc.vim'
-Plug 'elebow/ale', { 'branch': 'auto-pipenv-option-for-python-linters' }
+Plug 'w0rp/ale'
 
 Plug 'pbrisbin/vim-mkdir'
 
@@ -36,12 +35,6 @@ Plug 'Konfekt/FastFold'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'ntpeters/vim-better-whitespace'
 
-" Language Support
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
 "" Various configuration formats
 Plug 'cespare/vim-toml'
 Plug 'chase/vim-ansible-yaml'
@@ -63,7 +56,6 @@ Plug 'GutenYe/json5.vim'
 
 "" Protobuf-esque
 Plug 'uarun/vim-protobuf'
-Plug 'peter-edge/vim-capnp'
 
 "" Go
 Plug 'fatih/vim-go'
