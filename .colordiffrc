@@ -1,8 +1,0 @@
-plain=off
-
-# These flipped because base16-black-metal flips them
-newtext=darkred
-oldtext=darkgreen
-
-diffstuff=darkcyan
-cvsstuff=cyan

@@ -12,7 +12,7 @@ set splitright
 set clipboard+=unnamedplus
 
 set background=dark
-colorscheme base16-black-metal
+colorscheme nord
 
 if !exists("g:syntax_on")
 	syntax enable
