@@ -19,7 +19,17 @@ if !exists("g:syntax_on")
 	syntax enable
 endif
 
-let g:lightline = { 'colorscheme': 'gotham' }
+let g:lightline = {
+      \ 'colorscheme': 'gotham',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
+
 let g:gitgutter_override_sign_column_highlight = 0
 
 highlight SignColumn ctermbg=none

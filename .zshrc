@@ -133,7 +133,7 @@ else
 	alias diff="diff -Nuar"
 fi
 
-zstyle ':completion:*:sudo::' environ PATH="/sbin:/usr/sbin:$PATH" HOME="/root"
+zstyle ':completion:*:sudo::' environ PATH="/sbin:/usr/sbin:$PATH"
 
 bindkey "^[[H" beginning-of-line #Home key
 bindkey "^[[F" end-of-line #End key
@@ -145,20 +145,9 @@ bindkey "^[Od" backward-word # control + left arrow
 bindkey "^H" backward-kill-word # control + backspace
 bindkey "^[[3^" kill-word # control + delete
 
-export PATH=/home/j/.local/bin:$PATH
-
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
 [[ -f /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/sls.zsh ]] && . /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/sls.zsh
-
-# Base16 Shell
-# git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
-
-base16_black-metal
