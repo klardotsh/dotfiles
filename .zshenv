@@ -35,7 +35,7 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export GTK_IM_MODULE=ibus
 #export GDK_BACKEND=wayland
 
-#export QT_QPA_PLATFORM=wayland-egl
+export QT_QPA_PLATFORM=wayland-egl
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_IM_MODULE=ibus
 
