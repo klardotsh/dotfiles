@@ -8,6 +8,8 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 let g:ale_linters = {'javascript': ['eslint']}
 let g:ale_fixers = {
+\   'go': ['gofmt'],
+\   'python': ['black', 'isort'],
 \   'javascript': ['prettier'],
 \   'jsx': ['prettier'],
 \   'typescript': ['prettier'],
@@ -16,6 +18,7 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '😡'
 let g:ale_sign_warning = '😞'
+let g:ale_python_black_auto_pipenv = 1
 let g:ale_python_flake8_auto_pipenv = 1
 let g:ale_python_auto_pipenv = 1
 let g:ale_echo_msg_error_str = 'E'
