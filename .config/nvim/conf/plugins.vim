@@ -59,7 +59,7 @@ Plug 'GutenYe/json5.vim'
 Plug 'uarun/vim-protobuf'
 
 "" Go
-Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go'
 
 "" Python
 Plug 'hdima/python-syntax'
