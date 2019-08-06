@@ -53,7 +53,7 @@ if [[ "$(basename -- ${(%):-%x})" != "_pipenv" ]]; then
   compdef _pipenv pipenv
 fi
 
-eval $(dircolors ~/.dir_colors)
+cat ${XDG_CONFIG_HOME}/wpg/sequences
 
 setopt no_complete_aliases
 

@@ -5,6 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Interface / Misc
 Plug 'Konfekt/FastFold'
+Plug 'deviantfero/wpgtk.vim'
 Plug 'editorconfig/editorconfig-vim' " Force buffer to use editorconfig settings
 Plug 'ervandew/supertab'
 Plug 'itchyny/lightline.vim'
@@ -14,7 +15,6 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
-Plug 'whatyouhide/vim-gotham' "  Current colorscheme ONLY goes here
 
 " Automatically create any non-existent directories before writing the buffer.
 " > :e this/does/not/exist/file.txt
@@ -70,7 +70,7 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ }
 let g:lightline = {
-      \ 'colorscheme': 'gotham',
+      \ 'colorscheme': 'seoul256',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -105,7 +105,7 @@ autocmd FileType javascript nnoremap <silent> <buffer> <Leader>d :TernDef<CR>
 autocmd FileType rust nnoremap <Leader>d :YcmCompleter GoTo<CR>
 autocmd! BufWritePre *.c,*.cpp,*.h,*.hpp,*.py,*.hy,*.js,*.jsx,*.ts,*.css,*.scss,*.sass,*.fs,*.fsi,*.fsx,*.rs,*.md,*.toml,*.ini,*.json,*.html,*.service,*.timer,*.yaml DeleteTrailingWhitespace
 
-colorscheme gotham
+colorscheme wpgtkAlt
 
 filetype off
 filetype plugin indent on
