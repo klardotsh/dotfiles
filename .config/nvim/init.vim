@@ -105,16 +105,9 @@ autocmd FileType javascript nnoremap <silent> <buffer> <Leader>d :TernDef<CR>
 autocmd FileType rust nnoremap <Leader>d :YcmCompleter GoTo<CR>
 autocmd! BufWritePre *.c,*.cpp,*.h,*.hpp,*.py,*.hy,*.js,*.jsx,*.ts,*.css,*.scss,*.sass,*.fs,*.fsi,*.fsx,*.rs,*.md,*.toml,*.ini,*.json,*.html,*.service,*.timer,*.yaml DeleteTrailingWhitespace
 
-colorscheme wpgtkAlt
 
 filetype off
 filetype plugin indent on
-
-highlight GitGutterAdd ctermfg=green ctermbg=none
-highlight GitGutterChange ctermfg=yellow ctermbg=none
-highlight GitGutterChangeDelete ctermfg=yellow ctermbg=none
-highlight GitGutterDelete ctermfg=red ctermbg=none
-highlight SignColumn ctermbg=none
 
 imap <silent> <Home> <C-O><Home>
 
@@ -171,7 +164,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
-set list listchars=tab:»·,trail:·,nbsp:·
+set list listchars=tab:»\ ,trail:·,nbsp:·
 set mouse-=a " Disable mouse click to go to position
 set noexpandtab
 set nowrap
@@ -191,3 +184,15 @@ set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*node_modules*
 
 vmap Q gq
+
+
+colorscheme wpgtkAlt
+
+highlight GitGutterAdd ctermfg=green ctermbg=none
+highlight GitGutterChange ctermfg=yellow ctermbg=none
+highlight GitGutterChangeDelete ctermfg=yellow ctermbg=none
+highlight GitGutterDelete ctermfg=red ctermbg=none
+highlight SignColumn ctermbg=none
+" 'listchars' and whatever - tabs/spaces indents
+highlight NonText ctermfg=darkgray
+
