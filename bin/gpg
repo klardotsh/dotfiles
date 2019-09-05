@@ -1,8 +1,9 @@
 #!/usr/bin/env sh
 
-# This is a disgusting hack to ensure running "git commit" will bring up the PGP key unlock
-# on the correct terminal (and not in fucking Narnia or whatever, where it tends to go if
-# left to its own devices). Use with `git config --global gpg.program /this/script/path.sh
+# This is a disgusting hack to ensure running "git commit" will bring up the
+# PGP key unlock on the correct terminal (and not in fucking Narnia or
+# whatever, where it tends to go if left to its own devices). Use with `git
+# config --global gpg.program /this/script/path.sh
 
 echo UPDATESTARTUPTTY | gpg-connect-agent >/dev/null
-/usr/bin/gpg $@
+/usr/bin/gpg2 $@
