@@ -1,11 +1,12 @@
-font=Open Sans 11
+font=Noto Sans UI 11
 markup=1
 max-visible=5
 default-timeout=7000
-output=DP-1
-# background-color=#171c19e8
 padding=10
 ignore-timeout=1
+layer=overlay
+
+border-radius=5
 
 # https://github.com/Eluminae/base16-mako/blob/master/colors/base16-black-metal.config
 ## Base16 Black Metal
@@ -13,6 +14,7 @@ ignore-timeout=1
 #
 # You can use these variables anywhere in the mako configuration file.
 
+# background-color=#171c19e8
 background-color=#222222
 text-color=#c1c1c1
 border-color=#c1c1c1

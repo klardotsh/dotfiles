@@ -26,8 +26,6 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
-source /usr/share/fzf/key-bindings.zsh
-
 setopt PROMPT_SUBST
 
 source /usr/share/git/git-prompt.sh
@@ -62,6 +60,8 @@ alias vim='nvim'
 alias m='mosh'
 
 if [ "${IS_VOID}" = "1" ]; then
+	source /usr/share/doc/fzf/key-bindings.zsh
+
 	alias sway='ck-launch-session dbus-launch --sh-syntax --exit-with-session /usr/bin/sway'
 	alias pf='xbps-query -Rs'
 	alias pff='xlocate'
@@ -71,6 +71,8 @@ if [ "${IS_VOID}" = "1" ]; then
 	alias pql='xbps-query -f'
 	alias pqs='xbps-query -s'
 else
+	source /usr/share/fzf/key-bindings.zsh
+
 	alias pf='yay -Ss'
 	alias pi='yay -S'
 	alias pii='yay -Sy'

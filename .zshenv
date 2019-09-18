@@ -1,5 +1,3 @@
-unset MANPATH
-
 export IS_VOID=`[ $(lsb_release -sc 2>&1 || echo 'n/a') = 'void' ] && echo 1`
 
 if test -z "${XDG_RUNTIME_DIR}"; then
@@ -27,13 +25,9 @@ export MOZ_ENABLE_WAYLAND=1
 export IBUS_ENABLE_CTRL_SHIFT_U=1
 export XMODIFIERS=@im=ibus
 
-# This hack necessary for reasons I'll never understand. Under Wayland specifically,
-# GTK themes are evidently only configured through envvars? Whatever, this fixes it.
-export GTK_THEME=$(cat .config/gtk-3.0/settings.ini | grep gtk-theme-name | cut -d'=' -f2)
 export GTK_CSD=0
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export GTK_IM_MODULE=ibus
-#export GDK_BACKEND=wayland
 
 export QT_QPA_PLATFORM=wayland-egl
 export QT_QPA_PLATFORMTHEME=qt5ct
@@ -43,16 +37,18 @@ export BEMENU_BACKEND=wayland
 export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
 
-export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+export MANPATH="$NPM_PACKAGES/share/man:${MANPATH}"
 export MANPAGER='most -s'
 
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
-export NPM_PACKAGES="$HOME/.npm-packages"
-export GOPATH="$HOME/.go"
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+hash npm 2>/dev/null && export NPM_PACKAGES="$HOME/.npm-packages" && export NODEJS_PATH="${NPM_PACKAGES}/bin"
+hash go 2>/dev/null && export GOPATH="$HOME/.go" && export GOLANG_PATH="${GOPATH}/bin"
+hash rustc 2>/dev/null && export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src" && export RUST_PATH="${HOME}/.cargo/bin"
+hash ruby 2>/dev/null && export RUBY_PATH="$(ruby -e 'print Gem.user_dir')/bin"
 
 # Hackaround for pipenv to auto-install pythons as needed
-export PYENV_ROOT=$(pyenv root)
+hash pyenv 2>/dev/null && export PYENV_ROOT=$(pyenv root)
 
-export PATH="$HOME/bin:$HOME/.cargo/bin:${GOPATH}/bin:${NPM_PACKAGES}/bin:$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export PERSONAL_PATH="${HOME}/bin"
+export PATH="${PERSONAL_PATH}:${RUST_PATH}:${GOLANG_PATH}:${NODEJS_PATH}:${RUBY_PATH}:${PATH}"
