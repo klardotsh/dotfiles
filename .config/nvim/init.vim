@@ -70,7 +70,7 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ }
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': '16color',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
