@@ -137,6 +137,8 @@ fi
 
 zstyle ':completion:*:sudo::' environ PATH="/sbin:/usr/sbin:$PATH"
 
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
 bindkey "^[[H" beginning-of-line #Home key
 bindkey "^[[F" end-of-line #End key
 bindkey "^[[3~" delete-char #Del key
