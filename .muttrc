@@ -6,6 +6,7 @@ auto_view text/html
 alternative_order text/plain text/enriched text/html
 
 set realname="Josh Klar"
+set from="josh@klar.sh"
 set strict_threads = yes
 set sort = threads
 set sort_aux = reverse-last-date-received
@@ -15,5 +16,6 @@ set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 #set index_format="%4C %3M%Z %{%b %d} %-15.15L (%?l?%4l&%4c?) %s"
 set date_format = "%d %b"
 set index_format = "[%Z]  %D  %-20.20F  %s"
+set sidebar_visible = "yes"
 
 color normal default default
