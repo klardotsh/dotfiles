@@ -62,7 +62,7 @@ alias m='mosh'
 if [ "${IS_VOID}" = "1" ]; then
 	source /usr/share/doc/fzf/key-bindings.zsh
 
-	alias sway='ck-launch-session dbus-launch --sh-syntax --exit-with-session /usr/bin/sway'
+	alias sway='dbus-launch --sh-syntax --exit-with-session /usr/bin/sway'
 	alias pf='xbps-query -Rs'
 	alias pff='xlocate'
 	alias pffi='xlocate -S'
@@ -70,6 +70,12 @@ if [ "${IS_VOID}" = "1" ]; then
 	alias pu='sudo xbps-install -Su'
 	alias pql='xbps-query -f'
 	alias pqs='xbps-query -s'
+elif [ "${IS_GENTOO}" = "1" ]; then
+	alias sway='dbus-launch --sh-syntax --exit-with-session /usr/bin/sway'
+
+	alias pf='emerge --search'
+	alias pi='sudo emerge -av'
+	alias pu='sudo emerge -av --update --deep --with-bdeps=y --newuse @world'
 else
 	source /usr/share/fzf/key-bindings.zsh
 
@@ -80,6 +86,8 @@ else
 	alias pql='pacman -Ql'
 	alias pqs='pacman -Qs'
 fi
+
+alias dbus_sway='dbus-launch --sh-syntax --exit-with-session /usr/bin/sway'
 
 alias mp='makepkg -icsr'
 

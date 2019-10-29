@@ -1,4 +1,5 @@
 export IS_VOID=`[ $(lsb_release -sc 2>&1 || echo 'n/a') = 'void' ] && echo 1`
+export IS_GENTOO=`[ $(lsb_release -si 2>&1 || echo 'n/a') = 'Gentoo' ] && echo 1`
 
 if test -z "${XDG_RUNTIME_DIR}"; then
 	export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
@@ -28,6 +29,7 @@ export XMODIFIERS=@im=ibus
 export GTK_CSD=0
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export GTK_IM_MODULE=ibus
+export GDK_BACKEND=wayland
 
 export QT_QPA_PLATFORM=wayland-egl
 export QT_QPA_PLATFORMTHEME=qt5ct
