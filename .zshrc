@@ -56,6 +56,7 @@ cat ${XDG_CONFIG_HOME}/wpg/sequences
 setopt no_complete_aliases
 
 alias e='nvim'
+alias v='nvim'
 alias vim='nvim'
 alias m='mosh'
 
@@ -71,6 +72,8 @@ if [ "${IS_VOID}" = "1" ]; then
 	alias pql='xbps-query -f'
 	alias pqs='xbps-query -s'
 elif [ "${IS_GENTOO}" = "1" ]; then
+	source /usr/share/zsh/site-contrib/fzf.zsh
+
 	alias sway='dbus-launch --sh-syntax --exit-with-session /usr/bin/sway'
 
 	alias pf='emerge --search'
@@ -163,3 +166,6 @@ bindkey "^[[3^" kill-word # control + delete
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/sls.zsh ]] && . /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/sls.zsh
+
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
