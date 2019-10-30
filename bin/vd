@@ -1,0 +1,3 @@
+PIPENV_VENV=$(cd /home/j/src/visidata; pipenv --venv)
+
+PYTHONPATH="/home/j/src/visidata/:${PYTHONPATH}" ${PIPENV_VENV}/bin/python /home/j/src/visidata/bin/vd $@

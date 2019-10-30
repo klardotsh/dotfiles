@@ -1,0 +1,3 @@
+PIPENV_VENV=$(cd /home/j/src/wpgtk; pipenv --venv)
+
+PYTHONPATH="/home/j/src/wpgtk/:${PYTHONPATH}" ${PIPENV_VENV}/bin/python -m wpgtk $@
