@@ -186,8 +186,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*node_modules*
 vmap Q gq
 
 
-"colorscheme wpgtkAlt
-colorscheme wpgtk
+colorscheme wpgtkAlt
+"colorscheme wpgtk
 
 highlight GitGutterAdd ctermfg=green ctermbg=none
 highlight GitGutterChange ctermfg=yellow ctermbg=none
