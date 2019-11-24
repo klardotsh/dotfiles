@@ -78,7 +78,7 @@ elif [ "${IS_GENTOO}" = "1" ]; then
 
 	alias pf='emerge --search'
 	alias pi='sudo emerge -av'
-	alias pu='sudo emerge -av --update --deep --with-bdeps=y --newuse @world'
+	alias pu='sudo emerge -av --update --deep --with-bdeps=y --newuse --autounmask-keep-masks @world'
 else
 	source /usr/share/fzf/key-bindings.zsh
 
