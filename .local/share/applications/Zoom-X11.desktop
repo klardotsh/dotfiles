@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Zoom (Force X11)
+Comment=Zoom Video Conference
+Exec=/home/j/bin/zoom %U
+Icon=Zoom
+Terminal=false
+Type=Application
+Encoding=UTF-8
+Categories=Network;
+StartupWMClass=Zoom
+MimeType=x-scheme-handler/zoommtg;application/x-zoom;
+X-KDE-Protocols=zoommtg
+Name[en_US]=Zoom (Force X11)
