@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Discord (Force X11)
+Exec="/home/j/bin/discord"
+Terminal=false
+Type=Application
+Icon=discord
+StartupWMClass="Discord"
+Categories=Network;InstantMessaging;Chat
