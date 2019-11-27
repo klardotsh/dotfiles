@@ -10,7 +10,9 @@ While almost all of my dotfiles are universal across my devices, there's a few
 references to specific hostnames. Here's the magical decoding ring, and details
 about the rigs themselves:
 
-### gravity
+### antarctica
+
+> Formerly named `gravity`
 
 This is my beast of a desktop/server combo, used for (in no particular order)
 F/OSS development, music production, gaming, streaming said games, and storing
@@ -34,11 +36,8 @@ Hardware:
     * [Akai MPK Mini mkII](https://www.akaipro.com/mpk-mini-mkii)
 
 Software:
-- Arch Linux ([realtime kernel](https://wiki.archlinux.org/index.php/Realtime_kernel_patchset))
+- Gentoo Linux
 - Usually `sway`, `waybar`, and `mako`, for a Wayland environment
-- Sometimes I'll fall back to `i3`, `polybar`, and `notify-osd`, for an Xorg
-  environment (most commonly this means I'm streaming, since OBS doesn't usually
-  play nicely with wlroots compositors, though this is [very slowly changing](https://hg.sr.ht/~scoopta/wlrobs))
 - All audio is handled by JACK through a [fairly cheap Behringer
   interface](https://www.amazon.com/dp/B00QHURUBE) at 96kHz and "good enough"
   latency.
@@ -63,8 +62,22 @@ Software:
 
 This is my primary laptop, a Dell XPS 9370 FHD 16GB, mostly used at work.
 
-The software stack is kept almost identical to `gravity`'s casual/development
+The software stack is kept almost identical to `antarctica`'s casual/development
 stacks: `sway`, `waybar`, `mako`, etc.
+
+It currently runs Void Linux.
+
+### villain
+
+Lenovo Yoga C630 WOS - a Qualcomm SD850-based laptop with 8GB RAM, relying
+heavily on the kernel development done by Linaro and others over at [their
+GitHub org](https://github.com/aarch64-laptops/build). This machine is very much
+a work in progress, unstable, and mostly a tinkerer's project/toy rig (it still
+lacks WiFi, audio, reliable USB-C video, and OpenGL ES 3.3 support for
+Alacritty, forcing me to currently use Termite).
+
+This machine runs Gentoo, but most of its specialty configs (including
+`/etc/portage/patches` tree) haven't made it into this repo yet.
 
 ### glados
 
@@ -74,6 +87,6 @@ honest) and Arch Linux. This machine probably averages a few weeks of uptime a
 year at best, it's truly a niche sidearm machine (though for a stretch of
 several months it was my primary personal laptop, thus the Arch partition).
 
-In Arch, the software stack is kept almost identical to `gravity`'s
+In Arch, the software stack is kept almost identical to `antarctica`'s
 casual/development stacks: `sway`, `waybar`, `mako`, etc. In ChromeOS, it's
 all stock aside from having a root shell available.

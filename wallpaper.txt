@@ -1,3 +1,2 @@
-gravity: https://wallhaven.cc/w/965qzx
-spoonman: https://wallhaven.cc/w/qd615r
-glados: https://alpha.wallhaven.cc/wallpaper/729453
+# was previously used in https://www.reddit.com/r/unixporn/comments/1u2sul/archhlwm_same_shit_different_daymonthalmost_year/
+http://hdwallpapersbackgrounds.us/backgrounds-image/wallpapers-hd-4s-1920x1080/hd-wallpapers-desktop-6568i587w-4s-1920x1080.jpg

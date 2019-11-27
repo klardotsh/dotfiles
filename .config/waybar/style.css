@@ -1,63 +1,57 @@
+/* Based on https://gitlab.com/numenra/dotfiles/raw/9f41e4ea343c1083de06321633e0e2af5c1f65b4/sway/.config/waybar/style.css */
+@import "/home/j/.cache/wal/colors-waybar.css";
+
 * {
     border: none;
     border-radius: 0;
-    font-family: "Noto Sans UI";
-    font-size: 13px;
-    min-height: 0;
-	padding-left: 4px;
-	padding-right: 8px;
-	padding-top: 4px;
+    font-family: "Ubuntu Condensed", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 12pt;
+    min-height: 22pt;
+    padding-left: 4pt;
+    padding-right: 6pt;
 }
 
 window#waybar {
     background: transparent;
-    color: white;
+    color: @foreground;
 }
-
-#window {
-    font-weight: bold;
-    font-family: "Noto Sans UI";
-}
-/*
-#workspaces {
-    padding: 0 5px;
-}
-*/
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0;
     background: transparent;
-    color: white;
-    border-top: 0; /*0px solid transparent;*/
+    color: @foreground;
+    border-bottom: 3px solid transparent;
 }
 
 #workspaces button.focused {
-    color: #c9545d;
-    /*border-top: 2px solid #c9545d;*/
+    background: transparent;
+    border-bottom: 3px solid @color15;
 }
 
 #mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
+    background: transparent;
+    border-bottom: 3px solid @color15;
 }
 
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode {
-    padding: 0 3px;
-    margin: 0 2px;
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode, #custom-temp, #custom-root, #custom-home, #custom-backup, #custom-scratch, #custom-main {
+    padding: 0 6px;
+    margin: 0 3px;
 }
 
 #clock {
-    font-weight: bold;
+    background-color: transparent;
+    border-bottom: 3px solid @color1;
+    color: @foreground;
 }
 
 #battery {
-}
-
-#battery icon {
-    color: red;
+    background-color: #ffffff;
+    color: black;
 }
 
 #battery.charging {
+    color: white;
+    background-color: #26A65B;
 }
 
 @keyframes blink {
@@ -68,6 +62,7 @@ window#waybar {
 }
 
 #battery.warning:not(.charging) {
+    background: #f53c3c;
     color: white;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -77,28 +72,75 @@ window#waybar {
 }
 
 #cpu {
+    background: transparent;
+    border-bottom: 3px solid @color5;
+    color: @foreground;
 }
 
 #memory {
+    background: transparent;
+    border-bottom: 3px solid @color7;
+    color: @foreground;
 }
 
 #network {
+    background: transparent;
+    border-bottom: 3px solid @color16;
+    color: @foreground
 }
 
 #network.disconnected {
-    background: #f53c3c;
+    background: transparent;
+    color: crimson;
 }
 
 #pulseaudio {
+    background: transparent;
+    border-bottom: 3px solid @color15;
+    color: @foreground;
 }
 
 #pulseaudio.muted {
+    background: #90b1b1;
+    color: #2a5c45;
 }
 
 #custom-spotify {
-    color: rgb(102, 220, 105);
+    background: #66cc99;
+    color: #2a5c45;
 }
 
 #tray {
+    background-color: transparent;
+    border-bottom: 3px solid @color15;
 }
 
+#custom-root {
+    background: transparent;
+    border-bottom: 4px solid @color9;
+}
+
+#custom-temp {
+    background: transparent;
+    border-bottom: 3px solid @color5;
+}
+
+#custom-home {
+    background: transparent;
+    border-bottom: 4px solid @color9;
+}
+
+#custom-main {
+    background: transparent;
+    border-bottom: 3px solid @color10;
+}
+
+#custom-backup {
+    background: transparent;
+    border-bottom: 3px solid @color10;
+}
+
+#custom-scratch {
+    background: transparent;
+    border-bottom: 3px solid @color11;
+}
