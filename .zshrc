@@ -77,8 +77,10 @@ elif [ "${IS_GENTOO}" = "1" ]; then
 	alias sway='dbus-launch --sh-syntax --exit-with-session /usr/bin/sway'
 
 	alias pf='emerge --search'
-	alias pi='sudo emerge -av'
-	alias pu='sudo emerge -av --update --deep --with-bdeps=y --newuse --autounmask-keep-masks @world'
+	# some packages (notably nodejs) behave in strange ways when $HOME is
+	# preserved with my "sudo -E" alias, bypass
+	alias pi='/usr/bin/sudo emerge -av'
+	alias pu='/usr/bin/sudo emerge -av --update --deep --with-bdeps=y --newuse --autounmask-keep-masks @world'
 else
 	source /usr/share/fzf/key-bindings.zsh
 
