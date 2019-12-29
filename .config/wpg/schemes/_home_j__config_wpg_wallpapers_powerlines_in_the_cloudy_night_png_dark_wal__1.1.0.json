@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/j/.config/wpg/wallpapers/powerlines_in_the_cloudy_night.png",
+    "alpha": "100",
+
+    "special": {
+        "background": "#090c12",
+        "foreground": "#ffcad3",
+        "cursor": "#ffcad3"
+    },
+    "colors": {
+        "color0": "#090c12",
+        "color1": "#993847",
+        "color2": "#474A51",
+        "color3": "#493445",
+        "color4": "#394955",
+        "color5": "#703747",
+        "color6": "#293446",
+        "color7": "#d1989f",
+        "color8": "#192134",
+        "color9": "#d43b52",
+        "color10": "#525c73",
+        "color11": "#663b5e",
+        "color12": "#406077",
+        "color13": "#9c3c57",
+        "color14": "#2e4162",
+        "color15": "#ffcad3"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/j/.config/wpg/wallpapers/ultrawide160.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#020C1B",
+        "foreground": "#d1faff",
+        "cursor": "#d1faff"
+    },
+    "colors": {
+        "color0": "#020C1B",
+        "color1": "#496472",
+        "color2": "#25546B",
+        "color3": "#265571",
+        "color4": "#1D638D",
+        "color5": "#2C6A8E",
+        "color6": "#42679F",
+        "color7": "#9ebdd0",
+        "color8": "#03204b",
+        "color9": "#5285a0",
+        "color10": "#267094",
+        "color11": "#27709c",
+        "color12": "#1a83c2",
+        "color13": "#2d8dc4",
+        "color14": "#4782dd",
+        "color15": "#d1faff"
+    }
+}

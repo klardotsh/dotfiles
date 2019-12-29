@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/j/.config/wpg/wallpapers/green_skyscrapers_blur.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#0A0C12",
+        "foreground": "#f3fcef",
+        "cursor": "#f3fcef"
+    },
+    "colors": {
+        "color0": "#0A0C12",
+        "color1": "#48564F",
+        "color2": "#55655A",
+        "color3": "#778775",
+        "color4": "#394645",
+        "color5": "#5C6D62",
+        "color6": "#677669",
+        "color7": "#b8bfb5",
+        "color8": "#1b2132",
+        "color9": "#537966",
+        "color10": "#628f70",
+        "color11": "#8ebf87",
+        "color12": "#416360",
+        "color13": "#6a9a7b",
+        "color14": "#77a77e",
+        "color15": "#f3fcef"
+    }
+}
