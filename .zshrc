@@ -81,6 +81,7 @@ elif [ "${IS_GENTOO}" = "1" ]; then
 	# preserved with my "sudo -E" alias, bypass
 	alias pi='/usr/bin/sudo emerge -av'
 	alias pu='/usr/bin/sudo emerge -av --update --deep --with-bdeps=y --newuse --autounmask-keep-masks @world'
+	alias puu='sudo emerge --sync && pu'
 else
 	source /usr/share/fzf/key-bindings.zsh
 
@@ -93,6 +94,7 @@ else
 fi
 
 alias dbus_sway='dbus-launch --sh-syntax --exit-with-session /usr/bin/sway'
+alias nmap-quickscan='sudo nmap -sV -T4 -O -F --version-light'
 
 alias mp='makepkg -icsr'
 
@@ -141,7 +143,6 @@ fzf_git_log() {
 
 alias gll='fzf_git_log'
 
-
 if command -v colordiff > /dev/null 2>&1; then
 	alias diff="colordiff -Nuar"
 else
@@ -162,12 +163,5 @@ bindkey "^[Od" backward-word # control + left arrow
 bindkey "^H" backward-kill-word # control + backspace
 bindkey "^[[3^" kill-word # control + delete
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/sls.zsh ]] && . /home/j/src/lumen/healthchecker/node_modules/tabtab/.completions/sls.zsh
-
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
+(cat ~/.config/wpg/sequences &)
+source ~/.config/wpg/colors-tty.sh

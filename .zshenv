@@ -39,8 +39,10 @@ export BEMENU_BACKEND=wayland
 export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
 
+export XDG_CURRENT_DESKTOP=sway
+
 export MANPATH="$NPM_PACKAGES/share/man:${MANPATH}"
-export MANPAGER='most -s'
+hash most 2>/dev/null && export MANPAGER='most -s'
 
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export _JAVA_AWT_WM_NONREPARTENTING=1
