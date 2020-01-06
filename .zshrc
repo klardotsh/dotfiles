@@ -55,6 +55,9 @@ cat ${XDG_CONFIG_HOME}/wpg/sequences
 
 setopt no_complete_aliases
 
+alias todo="todo.sh -d ${HOME}/.todo/todo.cfg"
+alias t='todo'
+
 alias e='nvim'
 alias v='nvim'
 alias vim='nvim'
