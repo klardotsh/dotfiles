@@ -41,6 +41,8 @@ export SDL_VIDEODRIVER=wayland
 
 export XDG_CURRENT_DESKTOP=sway
 
+export AWS_SDK_LOAD_CONFIG=true
+
 export MANPATH="$NPM_PACKAGES/share/man:${MANPATH}"
 hash most 2>/dev/null && export MANPAGER='most -s'
 

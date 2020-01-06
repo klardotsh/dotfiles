@@ -163,5 +163,9 @@ bindkey "^[Od" backward-word # control + left arrow
 bindkey "^H" backward-kill-word # control + backspace
 bindkey "^[[3^" kill-word # control + delete
 
+aws-assume() {
+	export AWS_PROFILE=$1
+}
+
 (cat ~/.config/wpg/sequences &)
 source ~/.config/wpg/colors-tty.sh
