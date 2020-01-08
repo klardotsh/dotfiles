@@ -6,6 +6,5 @@ etc/sv/j/supervise
 .config/systemd/**/*.wants
 .config/systemd/user/pulseaudio.socket
 .gnupg/
-.config/sway/config
 .config/wpg/wallpapers
 .config/wpg/samples
