@@ -170,5 +170,9 @@ aws-assume() {
 	export AWS_PROFILE=$1
 }
 
+glowpage() {
+	glow -s dark $@ | less
+}
+
 (cat ~/.config/wpg/sequences &)
 source ~/.config/wpg/colors-tty.sh

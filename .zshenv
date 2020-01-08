@@ -46,6 +46,8 @@ export AWS_SDK_LOAD_CONFIG=true
 export MANPATH="$NPM_PACKAGES/share/man:${MANPATH}"
 hash most 2>/dev/null && export MANPAGER='most -s'
 
+export LESS=-r
+
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export _JAVA_AWT_WM_NONREPARTENTING=1
 
