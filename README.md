@@ -58,14 +58,17 @@ Software:
     * My Push 2 is enabled by
       [DrivenByMoss](https://github.com/git-moss/DrivenByMoss)
 
-### spoonman
+### devotee
+
+> Formerly `spoonman` among others
 
 This is my primary laptop, a Dell XPS 9370 FHD 16GB, mostly used at work.
 
 The software stack is kept almost identical to `antarctica`'s casual/development
 stacks: `sway`, `waybar`, `mako`, etc.
 
-It currently runs Void Linux.
+It currently runs Void Linux. The hostname inspiration is from [a Panic At The
+Disco song](https://www.youtube.com/watch?v=r5dNcKTcnPA).
 
 ### villain
 
@@ -81,12 +84,11 @@ This machine runs Gentoo, but most of its specialty configs (including
 
 ### glados
 
-Samsung Chromebook Pro dual-booted between ChromeOS (convenient Netflix machine
-and glorified PDF reader mostly used for FIRST game manuals, if we're being
-honest) and Arch Linux. This machine probably averages a few weeks of uptime a
-year at best, it's truly a niche sidearm machine (though for a stretch of
-several months it was my primary personal laptop, thus the Arch partition).
+Samsung Chromebook Pro with coreboot and Void Linux. This machine probably
+averages a few weeks of uptime a year at best, it's truly a niche sidearm
+machine (though for a stretch of several months it was my primary personal
+laptop, for whatever reason).
 
-In Arch, the software stack is kept almost identical to `antarctica`'s
-casual/development stacks: `sway`, `waybar`, `mako`, etc. In ChromeOS, it's
-all stock aside from having a root shell available.
+The software stack is kept almost identical to `antarctica`'s casual/development
+stacks: `sway`, `waybar`, `mako`, etc. The hostname predates the music theme,
+and is of course a Portal reference.
