@@ -19,7 +19,7 @@ ln -sf ~/src/mine/dotfiles/.tmux.conf ~/
 ln -sf ~/src/mine/dotfiles/.zshenv ~/
 ln -sf ~/src/mine/dotfiles/.zshrc ~/
 
-curl -L -o ~/.wallpaper $(cat wallpaper.txt | egrep -v "^#")
+curl -L -o ~/.wallpaper $(cat ~/src/mine/dotfiles/wallpaper.txt | egrep -v "^#")
 
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
