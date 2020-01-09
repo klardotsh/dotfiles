@@ -62,6 +62,7 @@ alias e='nvim'
 alias v='nvim'
 alias vim='nvim'
 alias m='mosh'
+alias mux='tmux.sh $(hostname)'
 
 if [ "${IS_VOID}" = "1" ]; then
 	source /usr/share/doc/fzf/key-bindings.zsh
