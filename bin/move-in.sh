@@ -6,6 +6,9 @@ git clone ssh://git@git.klar.sh:2222/klardotsh/dotfiles ~/src/mine/dotfiles
 mkdir -p ~/.local/share
 ln -sf ~/src/mine/dotfiles/.local/share/applications ~/.local/share/
 
+mkdir -p ~/.icons
+ln -sf ~/src/mine/dotfiles/.icons/default ~/.icons/
+
 ln -sf ~/src/mine/dotfiles/bin ~/
 ln -sf ~/src/mine/dotfiles/.config ~/
 ln -sf ~/src/mine/dotfiles/.dir_colors ~/
