@@ -118,14 +118,6 @@ alias egrep='egrep --colour=auto'
 alias ls='ls --color=auto --human-readable --group-directories-first --classify'
 alias tree='tree -CA'
 
-# This is a disgusting hack to ensure running "git commit" will bring up the PGP key unlock
-# on the correct terminal (and not in fucking Narnia or whatever, where it tends to go if
-# left to its own devices). Realistically this should be something smarter, that understands
-# what types of git commands will actually (potentially) bring up a PGP window. Even better,
-# this hack should be moved to a wrapper script that git can call as "gpg" - be it by $PATH
-# hackery or something else. Because I'm lazy, this stays for now.
-alias git="echo UPDATESTARTUPTTY | gpg-connect-agent >/dev/null && /usr/bin/git"
-
 alias gl="git lol"
 alias gls="git lol --since '2 weeks' --author 'Josh Klar'"
 alias gca="git cram" # Muscle memory dies hard - this is NOT git commit -a
