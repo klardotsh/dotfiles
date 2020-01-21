@@ -34,3 +34,5 @@
 	default = current
 [gpg]
 	program = /home/j/bin/gpg
+[url "git@gitlab.com:"]
+	insteadOf = https://gitlab.com/

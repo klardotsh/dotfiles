@@ -63,6 +63,7 @@ alias v='nvim'
 alias vim='nvim'
 alias m='mosh'
 alias mux='tmux.sh $(hostname)'
+alias glowpage='glow -p'
 
 if [ "${IS_VOID}" = "1" ]; then
 	source /usr/share/doc/fzf/key-bindings.zsh
@@ -163,9 +164,7 @@ aws-assume() {
 	export AWS_PROFILE=$1
 }
 
-glowpage() {
-	glow -s dark $@ | less
-}
+eval $(thefuck --alias)
 
 (cat ~/.config/wpg/sequences &)
 source ~/.config/wpg/colors-tty.sh
