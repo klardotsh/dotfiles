@@ -1,7 +1,0 @@
-[Unit]
-Description=A status bar
-
-[Service]
-Type=simple
-Restart=always
-ExecStart=/home/j/bin/waybar

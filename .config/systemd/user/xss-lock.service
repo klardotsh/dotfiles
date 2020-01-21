@@ -1,7 +1,0 @@
-[Unit]
-Description=Screen Locker
-
-[Service]
-Type=simple
-Environment=DISPLAY=:0
-ExecStart=/usr/bin/xss-lock slock

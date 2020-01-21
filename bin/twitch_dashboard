@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-firefox -new-instance -P AppMode https://www.twitch.tv/klardotsh/dashboard/live $@
