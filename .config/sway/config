@@ -85,6 +85,7 @@ bindsym $mod+end kill
 
 # start your launcher
 bindsym $mod+Space exec $menu
+bindsym $mod+o exec --no-startup-id rofi-ykman
 
 bindsym $mod+s exec ss_full.sh
 bindsym $mod+Shift+s exec ss_window.sh
