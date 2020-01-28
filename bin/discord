@@ -1,2 +1,0 @@
-#GDK_BACKEND=x11 /usr/bin/discord $@
-GDK_BACKEND=x11 flatpak run com.discordapp.Discord $@

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Mindustry (chroot)
+Exec="/home/j/bin/chroot_mindustry"
+Terminal=false
+Type=Application
+Icon=mindustry
+StartupWMClass="Mindustry"
+Categories=Game

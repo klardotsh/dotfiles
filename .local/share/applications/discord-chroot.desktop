@@ -1,6 +1,6 @@
 [Desktop Entry]
-Name=Discord (Force X11)
-Exec="/home/j/bin/discord"
+Name=Discord (chroot, x11)
+Exec="/home/j/bin/chroot_discord"
 Terminal=false
 Type=Application
 Icon=discord

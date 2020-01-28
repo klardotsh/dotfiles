@@ -10,6 +10,7 @@ mkdir -p ~/.icons
 ln -sf ~/src/mine/dotfiles/.icons/default ~/.icons/
 
 ln -sf ~/src/mine/dotfiles/bin ~/
+ln -sf ~/src/mine/dotfiles/.alsoftrc ~/
 ln -sf ~/src/mine/dotfiles/.config ~/
 ln -sf ~/src/mine/dotfiles/.dir_colors ~/
 ln -sf ~/src/mine/dotfiles/.gitconfig ~/

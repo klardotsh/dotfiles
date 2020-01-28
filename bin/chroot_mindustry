@@ -1,0 +1,1 @@
+SDL_VIDEODRIVER= xbps-uunshare -b /run:/run -b /home/j:/home/j -b /usr/share/fonts:/usr/share/fonts ~/void-glibc -- /usr/bin/java -jar ~/games/Mindustry.jar
