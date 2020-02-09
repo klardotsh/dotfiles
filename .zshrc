@@ -68,7 +68,6 @@ alias glowpage='glow -p'
 if [ "${IS_VOID}" = "1" ]; then
 	source /usr/share/doc/fzf/key-bindings.zsh
 
-	alias sway='dbus-launch --sh-syntax --exit-with-session /usr/bin/sway'
 	alias pf='xbps-query -Rs'
 	alias pff='xlocate'
 	alias pffi='xlocate -S'
@@ -79,14 +78,12 @@ if [ "${IS_VOID}" = "1" ]; then
 elif [ "${IS_GENTOO}" = "1" ]; then
 	source /usr/share/zsh/site-contrib/fzf.zsh
 
-	alias sway='dbus-launch --sh-syntax --exit-with-session /usr/bin/sway'
-
-	alias pf='emerge --search'
+	alias pf='eix -r'
 	# some packages (notably nodejs) behave in strange ways when $HOME is
 	# preserved with my "sudo -E" alias, bypass
 	alias pi='/usr/bin/sudo emerge -av'
 	alias pu='/usr/bin/sudo emerge -av --update --deep --with-bdeps=y --newuse --autounmask-keep-masks @world'
-	alias puu='sudo emerge --sync && pu'
+	alias puu='/usr/bin/sudo eix-sync'
 else
 	source /usr/share/fzf/key-bindings.zsh
 
@@ -98,7 +95,6 @@ else
 	alias pqs='pacman -Qs'
 fi
 
-alias dbus_sway='dbus-launch --sh-syntax --exit-with-session /usr/bin/sway'
 alias nmap-quickscan='sudo nmap -sV -T4 -O -F --version-light'
 
 alias mp='makepkg -icsr'

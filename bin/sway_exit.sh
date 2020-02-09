@@ -8,7 +8,6 @@ elif [ -x /bin/sv ]; then
 	SVDIR=${XDG_CONFIG_HOME}/sv sv stop mako
 	SVDIR=${XDG_CONFIG_HOME}/sv sv stop swaybg
 else
-	pulseaudio -k
 	killall waybar
 	killall mako
 fi

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Discord (chroot, x11)
-Exec="/home/j/bin/chroot_discord"
-Terminal=false
-Type=Application
-Icon=discord
-StartupWMClass="Discord"
-Categories=Network;InstantMessaging;Chat

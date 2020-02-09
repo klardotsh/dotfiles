@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Steam (chroot)
-Exec="/home/j/bin/chroot_steam"
-Terminal=false
-Type=Application
-Icon=steam
-StartupWMClass="Steam"
-Categories=Game

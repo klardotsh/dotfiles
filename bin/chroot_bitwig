@@ -1,1 +1,0 @@
-xbps-uunshare -b /data:/data -b /run:/run -b /home/j:/home/j -b /usr/share/fonts:/usr/share/fonts ~/void-glibc /usr/bin/bitwig-studio $@
