@@ -1,0 +1,6 @@
+# required by steam-launcher (argument)
+>=games-util/steam-launcher-1.0.0.59-r3 ValveSteamLicense
+# required by discord-bin (argument)
+>=net-im/discord-bin-0.0.9-r1 all-rights-reserved
+# required by bitwig-studio (argument)
+>=media-sound/bitwig-studio-3.1 Bitwig

@@ -1,0 +1,5 @@
+# package.use# required by dev-lang/spidermonkey-60.5.2_p0-r2::gentoo
+# required by sys-auth/polkit-0.115-r4::gentoo
+# required by sys-auth/elogind-241.4::gentoo[policykit]
+# required by sys-apps/dbus-1.12.16::gentoo[elogind]
+dev-lang/python sqlite
