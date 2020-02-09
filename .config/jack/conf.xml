@@ -29,7 +29,7 @@ it will be overwritten next time jackdbus saves.
    <option name="playback">hw:U192k,0</option>
    <option name="rate">96000</option>
    <option name="period">512</option>
-   <option name="nperiods">2</option>
+   <option name="nperiods">3</option>
    <option name="hwmeter">false</option>
    <option name="duplex">true</option>
    <option name="softmode">true</option>
