@@ -55,3 +55,8 @@ sys-apps/yarn ~amd64 ~arm64
 dev-python/parver ~amd64 ~arm64
 dev-python/invoke ~amd64 ~arm64
 dev-python/arpeggio ~amd64 ~arm64
+
+dev-python/awscli ~amd64 ~arm64
+dev-python/botocore ~amd64 ~arm64
+dev-python/s3transfer ~amd64 ~arm64
+dev-python/setuptools ~amd64 ~arm64
