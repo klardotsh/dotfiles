@@ -1,57 +1,57 @@
 dev-libs/libressl
 
-sys-kernel/gentoo-sources ~amd64
-sys-fs/zfs-kmod ~amd64
-sys-fs/zfs ~amd64
+sys-kernel/gentoo-sources ~amd64 ~arm64
+sys-fs/zfs-kmod ~amd64 ~arm64
+sys-fs/zfs ~amd64 ~arm64
 
-media-sound/pulsemixer ~amd64
+media-sound/pulsemixer ~amd64 ~arm64
 
-dev-lang/python:3.8 ~amd64
+dev-lang/python:3.8 ~amd64 ~arm64
 
-gui-apps/waybar ~amd64
-gui-apps/grim ~amd64
-gui-apps/slurp ~amd64
+gui-apps/waybar ~amd64 ~arm64
+gui-apps/grim ~amd64 ~arm64
+gui-apps/slurp ~amd64 ~arm64
 
-www-client/firefox ~amd64
-dev-libs/nss ~amd64
-dev-libs/nspr ~amd64
-dev-util/cbindgen ~amd64
-virtual/rust ~amd64
-dev-lang/rust ~amd64
+www-client/firefox ~amd64 ~arm64
+dev-libs/nss ~amd64 ~arm64
+dev-libs/nspr ~amd64 ~arm64
+dev-util/cbindgen ~amd64 ~arm64
+virtual/rust ~amd64 ~arm64
+dev-lang/rust ~amd64 ~arm64
 
-net-libs/nodejs ~amd64
-net-libs/http-parser ~amd64
+net-libs/nodejs ~amd64 ~arm64
+net-libs/http-parser ~amd64 ~arm64
 
-games-util/steam-launcher ~amd64
-net-im/discord-bin ~amd64
-dev-libs/olm ~amd64
+games-util/steam-launcher ~amd64 ~arm64
+net-im/discord-bin ~amd64 ~arm64
+dev-libs/olm ~amd64 ~arm64
 
-media-sound/bitwig-studio::audio-overlay ~amd64
+media-sound/bitwig-studio::audio-overlay ~amd64 ~arm64
 
-dev-python/pynvim ~amd64
+dev-python/pynvim ~amd64 ~arm64
 
-app-misc/fzf ~amd64
-app-shells/thefuck ~amd64
+app-misc/fzf ~amd64 ~arm64
+app-shells/thefuck ~amd64 ~arm64
 
-gui-libs/wlroots:0/10 ~amd64
-<gui-wm/sway-1.5 ~amd64
+gui-libs/wlroots:0/10 ~amd64 ~arm64
+<gui-wm/sway-1.5 ~amd64 ~arm64
 
-mail-client/alot ~amd64
-dev-python/urwidtrees ~amd64
+mail-client/alot ~amd64 ~arm64
+dev-python/urwidtrees ~amd64 ~arm64
 
-net-news/newsboat ~amd64
+net-news/newsboat ~amd64 ~arm64
 
-dev-db/pgcli ~amd64
-dev-python/prompt_toolkit ~amd64
-dev-python/python-sqlparse ~amd64
-dev-python/cli_helpers ~amd64
-dev-python/pgspecial ~amd64
-dev-python/tabulate ~amd64
-dev-python/terminaltables ~amd64
+dev-db/pgcli ~amd64 ~arm64
+dev-python/prompt_toolkit ~amd64 ~arm64
+dev-python/python-sqlparse ~amd64 ~arm64
+dev-python/cli_helpers ~amd64 ~arm64
+dev-python/pgspecial ~amd64 ~arm64
+dev-python/tabulate ~amd64 ~arm64
+dev-python/terminaltables ~amd64 ~arm64
 
-sys-apps/yarn ~amd64
+sys-apps/yarn ~amd64 ~arm64
 
->=dev-python/pipenv-2018.11.26 ~amd64
-dev-python/parver ~amd64
-dev-python/invoke ~amd64
-dev-python/arpeggio ~amd64
+>=dev-python/pipenv-2018.11.26 ~amd64 ~arm64
+dev-python/parver ~amd64 ~arm64
+dev-python/invoke ~amd64 ~arm64
+dev-python/arpeggio ~amd64 ~arm64
