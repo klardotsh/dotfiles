@@ -16,6 +16,8 @@ www-client/firefox ~amd64
 dev-libs/nss ~amd64
 dev-libs/nspr ~amd64
 dev-util/cbindgen ~amd64
+virtual/rust ~amd64
+dev-lang/rust ~amd64
 
 net-libs/nodejs ~amd64
 net-libs/http-parser ~amd64
