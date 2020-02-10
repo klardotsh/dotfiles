@@ -1,6 +1,6 @@
 dev-libs/libressl
 
-<sys-kernel/gentoo-sources-5.5 ~amd64
+sys-kernel/gentoo-sources ~amd64
 sys-fs/zfs-kmod ~amd64
 sys-fs/zfs ~amd64
 
@@ -48,3 +48,8 @@ dev-python/tabulate ~amd64
 dev-python/terminaltables ~amd64
 
 sys-apps/yarn ~amd64
+
+>=dev-python/pipenv-2018.11.26 ~amd64
+dev-python/parver ~amd64
+dev-python/invoke ~amd64
+dev-python/arpeggio ~amd64
