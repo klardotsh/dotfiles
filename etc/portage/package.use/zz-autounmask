@@ -253,3 +253,6 @@
 # required by @selected
 # required by @world (argument)
 >=x11-libs/libpciaccess-0.16 abi_x86_32
+# required by media-sound/ncmpcpp-0.8.2-r1::gentoo
+# required by ncmpcpp (argument)
+>=dev-libs/boost-1.72.0-r1 icu
