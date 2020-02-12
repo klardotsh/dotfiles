@@ -160,6 +160,7 @@ elif [ "${IS_GENTOO}" = "1" ]; then
 	alias pi='/usr/bin/sudo emerge -av'
 	alias pu='/usr/bin/sudo emerge -av --update --deep --with-bdeps=y --newuse --autounmask-keep-masks @world'
 	alias puu='/usr/bin/sudo eix-sync'
+	alias apply-unmask='sudo etc-update --automode -3 /etc/portage/package.use/zz-autounmask'
 else
 	source /usr/share/fzf/key-bindings.zsh
 
