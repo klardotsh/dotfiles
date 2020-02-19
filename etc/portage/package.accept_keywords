@@ -64,3 +64,5 @@ dev-python/setuptools ~amd64 ~arm64
 media-fonts/iosevka ~amd64 ~arm64
 
 <=app-admin/terraform-0.12.20 ~amd64 ~arm64
+
+app-editors/kakoune ~amd64 ~arm64
