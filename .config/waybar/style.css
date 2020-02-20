@@ -1,11 +1,30 @@
 /* Based on https://gitlab.com/numenra/dotfiles/raw/9f41e4ea343c1083de06321633e0e2af5c1f65b4/sway/.config/waybar/style.css */
-@import "/home/j/.cache/wal/colors-waybar.css";
+@define-color foreground #f1f1f1;
+@define-color background #212121;
+@define-color cursor #f1f1f1;
+
+@define-color color0  #212121;
+@define-color color1  #c30771;
+@define-color color2  #10a778;
+@define-color color3  #a89c14;
+@define-color color4  #008ec4;
+@define-color color5  #523c79;
+@define-color color6  #20a5ba;
+@define-color color7  #e0e0e0;
+@define-color color8  #212121;
+@define-color color9  #fb007a;
+@define-color color10 #5fd7af;
+@define-color color11 #f3e430;
+@define-color color12 #20bbfc;
+@define-color color13 #6855de;
+@define-color color14 #4fb8cc;
+@define-color color15 #f1f1f1;
 
 * {
     border: none;
     border-radius: 0;
-    font-family: "Ubuntu Condensed", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 12pt;
+    font-family: "Manrope", "Ubuntu Condensed", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 11pt;
     min-height: 22pt;
     padding-left: 4pt;
     padding-right: 6pt;
@@ -45,13 +64,15 @@ window#waybar {
 }
 
 #battery {
-    background-color: #ffffff;
-    color: black;
+    background: transparent;
+    border-bottom: 3px solid @color16;
+    color: @foreground
 }
 
 #battery.charging {
-    color: white;
-    background-color: #26A65B;
+    background: transparent;
+    border-bottom: 3px solid @color1;
+    color: @foreground
 }
 
 @keyframes blink {

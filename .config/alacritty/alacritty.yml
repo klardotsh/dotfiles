@@ -77,7 +77,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: Iosevka Term
+    family: PragmataPro
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -175,7 +175,7 @@ visual_bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.65
+background_opacity: 0.8
 
 # Mouse bindings
 #
@@ -487,3 +487,31 @@ key_bindings:
   - { key: F11,      mods: Super,   chars: "\x1b[23;3~"                      }
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                      }
   - { key: NumpadEnter,             chars: "\n"                              }
+
+# Colors (Pencil Dark)
+colors:
+  # Default Colors
+  primary:
+    background: '0x212121'
+    foreground: '0xf1f1f1'
+  # Normal colors
+  normal:
+    black:   '0x212121'
+    red:     '0xc30771'
+    green:   '0x10a778'
+    yellow:  '0xa89c14'
+    blue:    '0x008ec4'
+    magenta: '0x523c79'
+    cyan:    '0x20a5ba'
+    white:   '0xe0e0e0'
+  # Bright colors
+  bright:
+    black:   '0x212121'
+    red:     '0xfb007a'
+    green:   '0x5fd7af'
+    yellow:  '0xf3e430'
+    blue:    '0x20bbfc'
+    magenta: '0x6855de'
+    cyan:    '0x4fb8cc'
+    white:   '0xf1f1f1'
+

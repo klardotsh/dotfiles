@@ -238,5 +238,3 @@ aws-assume() {
 }
 
 eval $(thefuck --alias)
-
-[ -f ~/.cache/wal/colors-tty.sh ] && source ~/.cache/wal/colors-tty.sh
