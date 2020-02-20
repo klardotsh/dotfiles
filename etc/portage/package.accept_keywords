@@ -66,3 +66,5 @@ media-fonts/iosevka ~amd64 ~arm64
 <=app-admin/terraform-0.12.20 ~amd64 ~arm64
 
 app-editors/kakoune ~amd64 ~arm64
+
+www-client/qutebrowser ~amd64 ~arm64
