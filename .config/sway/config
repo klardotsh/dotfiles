@@ -1,7 +1,35 @@
 # Read `man 5 sway` for a complete reference.
 
 ### Variables
-#
+set $color-foreground '#ded8d7'
+set $color-background '#152733'
+set $color-cursorColor '#ded8d7'
+
+set $base00 '#24455b'
+set $base01 '#ff777a'
+set $base02 '#d97a9b'
+set $base03 '#ffba95'
+set $base04 '#4684ae'
+set $base05 '#325f7d'
+set $base06 '#c7bcba'
+set $base07 '#dfd9d8'
+set $base08 '#24455b'
+set $base09 '#ff777a'
+set $base0A '#d97a9b'
+set $base0B '#ffba95'
+set $base0C '#4584ae'
+set $base0D '#325f7d'
+set $base0E '#c7bcba'
+set $base0F '#ded8d7'
+
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base06
+client.focused_inactive $base01 $base01 $base05 $base03 $base04
+client.unfocused        $base01 $base00 $base05 $base01 $base00
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim

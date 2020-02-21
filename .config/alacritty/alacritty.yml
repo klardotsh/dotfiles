@@ -175,7 +175,7 @@ visual_bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.75
+background_opacity: 1
 
 # Mouse bindings
 #
@@ -488,31 +488,53 @@ key_bindings:
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                      }
   - { key: NumpadEnter,             chars: "\n"                              }
 
-# insignificato, terminal.sexy
+# stolen from https://www.reddit.com/r/unixporn/comments/ch3e7b/aqua_vilebloom/
+# background modified to "feel" more right? #152733 -> #0e1921
+#
+# *.foreground: #ded8d7
+# *.background: #152733
+# *.cursorColor: #ded8d7
+#
+# *.color0: #24455b
+# *.color1: #ff777a
+# *.color2: #d97a9b
+# *.color3: #ffba95
+# *.color4: #4684ae
+# *.color5: #325f7d
+# *.color6: #c7bcba
+# *.color7: #dfd9d8
+# *.color8: #24455b
+# *.color9: #ff777a
+# *.color10: #d97a9b
+# *.color11: #ffba95
+# *.color12: #4584ae
+# *.color13: #325f7d
+# *.color14: #c7bcba
+# *.color15: #ded8d7
+
 colors:
-  # Default colors
   primary:
-    background: '0x000000'
-    foreground: '0xaeafb0'
+    #background: '0x152733'
+    background: '0x0e1921'
+    foreground: '0xded8d7'
+    cursor: '0xded8d7'
 
-  # Normal colors
   normal:
-    black:   '0x3d3e3d'
-    red:     '0x755a5b'
-    green:   '0x68755a'
-    yellow:  '0x756e5a'
-    blue:    '0x5b6976'
-    magenta: '0x755b76'
-    cyan:    '0x5b7674'
-    white:   '0x808080'
+    black:   '0x24455b'
+    red:     '0xff777a'
+    green:   '0xd97a9b'
+    yellow:  '0xffba95'
+    blue:    '0x4684ae'
+    magenta: '0x325f7d'
+    cyan:    '0xc7bcba'
+    white:   '0xdfd9d8'
 
-  # Bright colors
   bright:
-    black:   '0x5a5b5c'
-    red:     '0xa37679'
-    green:   '0x87a376'
-    yellow:  '0xa39b76'
-    blue:    '0x758ba3'
-    magenta: '0x9f76a3'
-    cyan:    '0x75a3a1'
-    white:   '0xaeafb0'
+    black:   '0x24455b'
+    red:     '0xff777a'
+    green:   '0xd97a9b'
+    yellow:  '0xffba95'
+    blue:    '0x4584ae'
+    magenta: '0x325f7d'
+    cyan:    '0xc7bcba'
+    white:   '0xded8d7'

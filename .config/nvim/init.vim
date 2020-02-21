@@ -5,8 +5,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Interface / Misc
 Plug 'Konfekt/FastFold'
-Plug 'deviantfero/wpgtk.vim'
-Plug 'reedes/vim-colors-pencil'
 Plug 'w0ng/vim-hybrid'
 Plug 'editorconfig/editorconfig-vim' " Force buffer to use editorconfig settings
 Plug 'ervandew/supertab'
@@ -17,6 +15,7 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
+Plug 'noahfrederick/vim-noctu'
 
 " Automatically create any non-existent directories before writing the buffer.
 " > :e this/does/not/exist/file.txt
@@ -64,7 +63,7 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ }
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'srcery_drk',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -194,7 +193,7 @@ set tabstop=4
 set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*node_modules*
 
-colorscheme hybrid
+colorscheme noctu
 
 highlight Normal ctermbg=none
 highlight GitGutterAdd ctermfg=green ctermbg=none
@@ -204,4 +203,4 @@ highlight GitGutterDelete ctermfg=red ctermbg=none
 highlight SignColumn ctermbg=none
 " 'listchars' and whatever - tabs/spaces indents
 highlight NonText ctermfg=darkgray
-
+highlight Comment ctermfg=darkgray

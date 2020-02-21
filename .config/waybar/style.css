@@ -1,24 +1,27 @@
-/* Based on https://gitlab.com/numenra/dotfiles/raw/9f41e4ea343c1083de06321633e0e2af5c1f65b4/sway/.config/waybar/style.css */
-@define-color background #000000;
-@define-color foreground #aeafb0;
-@define-color cursor #aeafb0;
+/* stolen from https://www.reddit.com/r/unixporn/comments/ch3e7b/aqua_vilebloom/
+ * background modified to "feel" more right? #152733 -> #0e1921
+ */
 
-@define-color color0 #3d3e3d;
-@define-color color1 #755a5b;
-@define-color color2 #68755a;
-@define-color color3 #756e5a;
-@define-color color4 #5b6976;
-@define-color color5 #755b76;
-@define-color color6 #5b7674;
-@define-color color7 #808080;
-@define-color color8 #5a5b5c;
-@define-color color9 #a37679;
-@define-color color10 #87a376;
-@define-color color11 #a39b76;
-@define-color color12 #758ba3;
-@define-color color13 #9f76a3;
-@define-color color14 #75a3a1;
-@define-color color15 #aeafb0;
+@define-color foreground #ded8d7;
+@define-color background #152733;
+@define-color cursor #ded8d7;
+
+@define-color color0 #24455b;
+@define-color color1 #ff777a;
+@define-color color2 #d97a9b;
+@define-color color3 #ffba95;
+@define-color color4 #4684ae;
+@define-color color5 #325f7d;
+@define-color color6 #c7bcba;
+@define-color color7 #dfd9d8;
+@define-color color8 #24455b;
+@define-color color9 #ff777a;
+@define-color color10 #d97a9b;
+@define-color color11 #ffba95;
+@define-color color12 #4584ae;
+@define-color color13 #325f7d;
+@define-color color14 #c7bcba;
+@define-color color15 #ded8d7;
 
 * {
     border: none;
