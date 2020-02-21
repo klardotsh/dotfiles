@@ -7,6 +7,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Konfekt/FastFold'
 Plug 'deviantfero/wpgtk.vim'
 Plug 'reedes/vim-colors-pencil'
+Plug 'w0ng/vim-hybrid'
 Plug 'editorconfig/editorconfig-vim' " Force buffer to use editorconfig settings
 Plug 'ervandew/supertab'
 Plug 'itchyny/lightline.vim'
@@ -63,7 +64,7 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ }
 let g:lightline = {
-      \ 'colorscheme': 'selenized_dark',
+      \ 'colorscheme': 'jellybeans',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -193,7 +194,7 @@ set tabstop=4
 set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*node_modules*
 
-colorscheme pencil
+colorscheme hybrid
 
 highlight Normal ctermbg=none
 highlight GitGutterAdd ctermfg=green ctermbg=none
