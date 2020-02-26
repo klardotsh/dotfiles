@@ -68,3 +68,6 @@ media-fonts/iosevka ~amd64 ~arm64
 app-editors/kakoune ~amd64 ~arm64
 
 www-client/qutebrowser ~amd64 ~arm64
+dev-python/pypeg2 ~amd64 ~arm64
+dev-python/pyyaml ~amd64 ~arm64
+dev-qt/qtnetwork::libressl ~amd64

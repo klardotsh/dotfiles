@@ -1,3 +1,4 @@
 dev-libs/openssl
 net-libs/nodejs::gentoo
 >=net-libs/nodejs-11
+dev-qt/qtnetwork::gentoo

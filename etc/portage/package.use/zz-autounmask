@@ -258,3 +258,50 @@
 >=dev-libs/boost-1.72.0-r1 icu
 # 
 >=dev-python/setuptools-44.0.0 -python_targets_python3_8
+# required by www-client/qutebrowser-1.8.1::gentoo
+# required by qutebrowser (argument)
+>=dev-python/pyyaml-5.1 libyaml
+# required by dev-python/PyQtWebEngine-5.13.2::gentoo
+# required by www-client/qutebrowser-1.8.1::gentoo
+# required by qutebrowser (argument)
+>=dev-python/PyQt5-5.13.2 sql network widgets declarative gui printsupport multimedia webchannel
+# required by dev-python/PyQtWebEngine-5.13.2::gentoo
+# required by www-client/qutebrowser-1.8.1::gentoo
+# required by qutebrowser (argument)
+>=dev-qt/qtwebengine-5.13.2 widgets
+# required by dev-qt/qtwebengine-5.13.2::gentoo
+# required by dev-python/PyQtWebEngine-5.13.2::gentoo
+# required by www-client/qutebrowser-1.8.1::gentoo
+# required by qutebrowser (argument)
+>=dev-qt/qtwebchannel-5.13.2 qml
+# required by dev-qt/qtwebengine-5.13.2::gentoo
+# required by dev-python/PyQtWebEngine-5.13.2::gentoo
+# required by www-client/qutebrowser-1.8.1::gentoo
+# required by qutebrowser (argument)
+>=dev-libs/libxml2-2.9.9-r3 icu
+# required by dev-qt/qtwebengine-5.13.2::gentoo
+# required by dev-python/PyQtWebEngine-5.13.2::gentoo
+# required by www-client/qutebrowser-1.8.1::gentoo
+# required by qutebrowser (argument)
+>=media-libs/libvpx-1.7.0-r1 svc
+# required by dev-qt/qtwebengine-5.13.2::gentoo
+# required by dev-python/PyQtWebEngine-5.13.2::gentoo
+# required by www-client/qutebrowser-1.8.1::gentoo
+# required by qutebrowser (argument)
+>=sys-libs/zlib-1.2.11-r2 minizip
+# required by dev-qt/qtwayland-5.13.2-r1::gentoo
+>=dev-qt/qtgui-5.13.2 egl
+# required by dev-qt/qtcore-5.13.2-r2::gentoo
+# required by dev-qt/qtxml-5.13.2::gentoo
+# required by dev-python/PyQt5-5.13.2::gentoo
+# required by dev-python/PyQtWebEngine-5.13.2::gentoo
+# required by www-client/qutebrowser-1.8.3::gentoo
+# required by qutebrowser (argument)
+>=dev-libs/libpcre2-10.33-r1 pcre16
+# required by dev-python/PyQt5-5.13.2::gentoo[multimedia]
+# required by dev-python/PyQtWebEngine-5.13.2::gentoo
+# required by www-client/qutebrowser-1.8.3::gentoo
+# required by qutebrowser (argument)
+>=dev-qt/qtmultimedia-5.13.2-r1 widgets
+# required by sys-devel/llvmgold-9::gentoo
+>=sys-devel/llvm-9.0.1 gold
