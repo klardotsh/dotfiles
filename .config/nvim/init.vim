@@ -16,6 +16,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'noahfrederick/vim-noctu'
+Plug 'deviantfero/wpgtk.vim'
 
 " Automatically create any non-existent directories before writing the buffer.
 " > :e this/does/not/exist/file.txt
@@ -63,7 +64,7 @@ let g:LanguageClient_serverCommands = {
     \ 'python': ['pyls'],
     \ }
 let g:lightline = {
-      \ 'colorscheme': 'srcery_drk',
+      \ 'colorscheme': 'wal',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -193,7 +194,7 @@ set tabstop=4
 set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*node_modules*
 
-colorscheme noctu
+colorscheme wpgtk
 
 highlight Normal ctermbg=none
 highlight GitGutterAdd ctermfg=green ctermbg=none

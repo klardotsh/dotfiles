@@ -3,14 +3,14 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-env:
+env: {}
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: xterm-256color
+  # TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
@@ -487,54 +487,3 @@ key_bindings:
   - { key: F11,      mods: Super,   chars: "\x1b[23;3~"                      }
   - { key: F12,      mods: Super,   chars: "\x1b[24;3~"                      }
   - { key: NumpadEnter,             chars: "\n"                              }
-
-# stolen from https://www.reddit.com/r/unixporn/comments/ch3e7b/aqua_vilebloom/
-# background modified to "feel" more right? #152733 -> #0e1921
-#
-# *.foreground: #ded8d7
-# *.background: #152733
-# *.cursorColor: #ded8d7
-#
-# *.color0: #24455b
-# *.color1: #ff777a
-# *.color2: #d97a9b
-# *.color3: #ffba95
-# *.color4: #4684ae
-# *.color5: #325f7d
-# *.color6: #c7bcba
-# *.color7: #dfd9d8
-# *.color8: #24455b
-# *.color9: #ff777a
-# *.color10: #d97a9b
-# *.color11: #ffba95
-# *.color12: #4584ae
-# *.color13: #325f7d
-# *.color14: #c7bcba
-# *.color15: #ded8d7
-
-colors:
-  primary:
-    #background: '0x152733'
-    background: '0x0e1921'
-    foreground: '0xded8d7'
-    cursor: '0xded8d7'
-
-  normal:
-    black:   '0x24455b'
-    red:     '0xff777a'
-    green:   '0xd97a9b'
-    yellow:  '0xffba95'
-    blue:    '0x4684ae'
-    magenta: '0x325f7d'
-    cyan:    '0xc7bcba'
-    white:   '0xdfd9d8'
-
-  bright:
-    black:   '0x24455b'
-    red:     '0xff777a'
-    green:   '0xd97a9b'
-    yellow:  '0xffba95'
-    blue:    '0x4584ae'
-    magenta: '0x325f7d'
-    cyan:    '0xc7bcba'
-    white:   '0xded8d7'

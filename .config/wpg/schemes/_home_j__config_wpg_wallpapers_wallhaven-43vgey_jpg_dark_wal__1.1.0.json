@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/j/.config/wpg/wallpapers/wallhaven-43vgey.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#141414",
+        "foreground": "#deddd4",
+        "cursor": "#deddd4"
+    },
+    "colors": {
+        "color0": "#141414",
+        "color1": "#6d3c38",
+        "color2": "#57534e",
+        "color3": "#9b7e57",
+        "color4": "#40424b",
+        "color5": "#564239",
+        "color6": "#798175",
+        "color7": "#a2a09a",
+        "color8": "#2d2c2d",
+        "color9": "#a64c43",
+        "color10": "#867a62",
+        "color11": "#d5ae67",
+        "color12": "#525875",
+        "color13": "#845b47",
+        "color14": "#9cc290",
+        "color15": "#deddd4"
+    }
+}

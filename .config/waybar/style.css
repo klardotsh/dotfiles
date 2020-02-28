@@ -1,27 +1,4 @@
-/* stolen from https://www.reddit.com/r/unixporn/comments/ch3e7b/aqua_vilebloom/
- * background modified to "feel" more right? #152733 -> #0e1921
- */
-
-@define-color foreground #ded8d7;
-@define-color background #152733;
-@define-color cursor #ded8d7;
-
-@define-color color0 #24455b;
-@define-color color1 #ff777a;
-@define-color color2 #d97a9b;
-@define-color color3 #ffba95;
-@define-color color4 #4684ae;
-@define-color color5 #325f7d;
-@define-color color6 #c7bcba;
-@define-color color7 #dfd9d8;
-@define-color color8 #24455b;
-@define-color color9 #ff777a;
-@define-color color10 #d97a9b;
-@define-color color11 #ffba95;
-@define-color color12 #4584ae;
-@define-color color13 #325f7d;
-@define-color color14 #c7bcba;
-@define-color color15 #ded8d7;
+@import "/home/j/.cache/wal/colors-waybar.css";
 
 * {
     border: none;
