@@ -18,6 +18,8 @@ dev-libs/nspr ~amd64 ~arm64
 dev-util/cbindgen ~amd64 ~arm64
 virtual/rust ~amd64 ~arm64
 dev-lang/rust ~amd64 ~arm64
+media-libs/libvpx ~amd64 ~arm64
+media-libs/libwebp ~amd64 ~arm64
 
 net-libs/nodejs ~amd64 ~arm64
 net-libs/http-parser ~amd64 ~arm64
@@ -71,3 +73,7 @@ www-client/qutebrowser ~amd64 ~arm64
 dev-python/pypeg2 ~amd64 ~arm64
 dev-python/pyyaml ~amd64 ~arm64
 dev-qt/qtnetwork::libressl ~amd64
+
+app-crypt/keybase ~amd64 ~arm64
+
+net-im/slack-bin ~amd64

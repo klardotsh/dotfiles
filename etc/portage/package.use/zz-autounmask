@@ -305,3 +305,9 @@
 >=dev-qt/qtmultimedia-5.13.2-r1 widgets
 # required by sys-devel/llvmgold-9::gentoo
 >=sys-devel/llvm-9.0.1 gold
+# required by media-libs/mesa-19.3.4::gentoo[libglvnd]
+# required by x11-base/xorg-server-1.20.7::gentoo[-minimal]
+# required by www-client/firefox-73.0.1::gentoo[pgo]
+# required by @selected
+# required by @world (argument)
+>=media-libs/libglvnd-1.3.1 abi_x86_32
