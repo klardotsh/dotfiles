@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/j/.config/wpg/wallpapers/hc0zlrh.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#edaaa9",
+        "foreground": "#010101",
+        "cursor": "#010101"
+    },
+    "colors": {
+        "color0": "#edaaa9",
+        "color1": "#965255",
+        "color2": "#2B5565",
+        "color3": "#4E484D",
+        "color4": "#386171",
+        "color5": "#6A4E52",
+        "color6": "#24424D",
+        "color7": "#0F191E",
+        "color8": "#cf9594",
+        "color9": "#7c2529",
+        "color10": "#114052",
+        "color11": "#43253e",
+        "color12": "#184a5d",
+        "color13": "#5a262e",
+        "color14": "#0f323f",
+        "color15": "#010101"
+    }
+}

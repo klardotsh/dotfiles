@@ -194,7 +194,7 @@ set tabstop=4
 set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*node_modules*
 
-colorscheme wpgtk
+colorscheme wpgtkAlt
 
 highlight Normal ctermbg=none
 highlight GitGutterAdd ctermfg=green ctermbg=none
