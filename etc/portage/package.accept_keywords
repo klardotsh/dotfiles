@@ -76,4 +76,4 @@ dev-qt/qtnetwork::libressl ~amd64
 
 app-crypt/keybase ~amd64 ~arm64
 
-net-im/slack-bin ~amd64
+net-im/slack-bin ~amd64 ~arm64
