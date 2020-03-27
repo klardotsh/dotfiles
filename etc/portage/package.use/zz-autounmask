@@ -315,3 +315,9 @@
 
 >=dev-python/pyyaml-5.3 -python_targets_python3_8
 =dev-python/prompt_toolkit-2.0.10-r1 -python_targets_python3_8
+# required by games-strategy/wesnoth-1.14.11::gentoo[-dedicated]
+# required by wesnoth (argument)
+>=media-libs/sdl2-image-2.0.4 png
+# required by games-puzzle/pingus-0.7.6-r2::gentoo
+# required by pingus (argument)
+>=media-libs/sdl-image-1.2.12-r2 png

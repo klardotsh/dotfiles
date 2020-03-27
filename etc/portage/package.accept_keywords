@@ -77,3 +77,14 @@ dev-qt/qtnetwork::libressl ~amd64
 app-crypt/keybase ~amd64 ~arm64
 
 net-im/slack-bin ~amd64 ~arm64
+
+net-misc/postman-bin ~amd64 ~arm64
+net-im/zoom ~amd64 ~arm64
+net-im/zoom-bin ~amd64 ~arm64
+
+media-fonts/jetbrains-mono ~amd64 ~arm64
+
+mail-client/aerc ~amd64 ~arm64
+
+games-puzzle/pingus ~amd64 ~arm64
+games-strategy/wesnoth ~amd64 ~arm64

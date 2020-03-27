@@ -4,4 +4,7 @@
 >=net-im/discord-bin-0.0.9-r1 all-rights-reserved
 # required by bitwig-studio (argument)
 >=media-sound/bitwig-studio-3.1 Bitwig
+net-im/slack all-rights-reserved
 net-im/slack-bin all-rights-reserved
+net-im/zoom ZOOM all-rights-reserved
+net-im/zoom-bin ZOOM
