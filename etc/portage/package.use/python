@@ -3,3 +3,4 @@
 # required by sys-auth/elogind-241.4::gentoo[policykit]
 # required by sys-apps/dbus-1.12.16::gentoo[elogind]
 dev-lang/python sqlite
+dev-lang/python:2.7 tk

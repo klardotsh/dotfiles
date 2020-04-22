@@ -4,4 +4,3 @@ net-libs/nodejs::gentoo
 dev-qt/qtnetwork::gentoo
 
 # this seems to break, jorgicio has a functional package instead
-net-im/zoom::gentoo

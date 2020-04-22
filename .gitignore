@@ -1,3 +1,4 @@
 .config
 etc/sv/j/supervise
 .gnupg/
+.local

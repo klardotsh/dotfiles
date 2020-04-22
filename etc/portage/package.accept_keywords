@@ -88,3 +88,14 @@ mail-client/aerc ~amd64 ~arm64
 
 games-puzzle/pingus ~amd64 ~arm64
 games-strategy/wesnoth ~amd64 ~arm64
+
+=dev-libs/libtasn1-4.16.0 ~amd64 ~arm64
+media-video/pipewire ~amd64 ~arm64
+
+dev-python/pylzma ~amd64 ~arm64
+
+games-action/multimc5 ~amd64 ~arm64
+
+sys-apps/proot ~amd64 ~arm64
+
+sys-apps/earlyoom ~amd64 ~arm64
