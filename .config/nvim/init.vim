@@ -48,8 +48,10 @@ Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'NLKNguyen/cloudformation-syntax.vim'
 Plug 'cespare/vim-toml'
 Plug 'chase/vim-ansible-yaml'
+Plug 'tarekbecker/vim-yaml-formatter'
 Plug 'markcornick/vim-vagrant'
 Plug 'uarun/vim-protobuf'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
@@ -137,6 +139,9 @@ let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:rustfmt_autosave = 1
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
+let g:yaml_formatter_indent_collection=1
 let loaded_matchparen=1
 let mapleader=","
 
