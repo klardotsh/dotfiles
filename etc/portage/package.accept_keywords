@@ -99,3 +99,6 @@ games-action/multimc5 ~amd64 ~arm64
 sys-apps/proot ~amd64 ~arm64
 
 sys-apps/earlyoom ~amd64 ~arm64
+
+dev-qt/qtdiag ~amd64 ~arm64
+dev-vcs/git-lfs ~amd64 ~arm64

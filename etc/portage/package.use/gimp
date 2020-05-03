@@ -1,0 +1,4 @@
+media-libs/babl introspection
+media-libs/libmypaint gegl introspection
+media-libs/gegl introspection raw svg tiff v4l webp
+media-gfx/gimp vector-icons webp
