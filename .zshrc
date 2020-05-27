@@ -237,4 +237,6 @@ aws-assume() {
 	export AWS_PROFILE=$1
 }
 
+eval "$(direnv hook zsh)"
 eval $(thefuck --alias)
+eval $(opam env)

@@ -27,3 +27,4 @@ curl -L -o ~/.wallpaper $(cat ~/src/mine/dotfiles/wallpaper.txt | egrep -v "^#")
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +qall
+nvim '+CocInstall coc-json'
