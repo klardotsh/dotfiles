@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/j/src/mine/void-packages-for-upstream/srcpkgs/hindent'
+let g:netrw_dirhist_0='/home/j/src/mine/resonator/scotty-hspec-wai'
+let g:netrw_dirhist_9='/home/j/src/mine/void-packages-for-upstream/srcpkgs/reason-language-server'
+let g:netrw_dirhist_8='/home/j/src/reason-language-server/esy.lock'
+let g:netrw_dirhist_7='/home/j/src/xb/farmers-market/common/src/cargowise/generated/NativeWorkflow'
+let g:netrw_dirhist_6='/home/j/src/xb/uva-workflows/src/sql/generated'
+let g:netrw_dirhist_5='/home/j/src/mine/home-gitea-server'
+let g:netrw_dirhist_4='/home/j/.weechat/python/matrix'
+let g:netrw_dirhist_3='/etc/portage/package.use'
+let g:netrw_dirhist_2='/home/j/src/lxb/uva-engine/gradle'

@@ -9,6 +9,8 @@ Plug 'w0ng/vim-hybrid'
 Plug 'editorconfig/editorconfig-vim' " Force buffer to use editorconfig settings
 Plug 'ervandew/supertab'
 Plug 'itchyny/lightline.vim'
+
+Plug 'junegunn/vim-emoji'
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
@@ -17,6 +19,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'noahfrederick/vim-noctu'
 Plug 'deviantfero/wpgtk.vim'
+Plug 'yuttie/comfortable-motion.vim'
 
 " Automatically create any non-existent directories before writing the buffer.
 " > :e this/does/not/exist/file.txt
@@ -27,11 +30,19 @@ Plug 'pbrisbin/vim-mkdir'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
-" Language Server Protocol / Linting
+" Language Server Protocol
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-pairs', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+
+" Linting & Fixing
 Plug 'dense-analysis/ale'
 
 " Language support (how many of these are still needed with cocs?)
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'HerringtonDarkholme/yats.vim' " TypeScript
 Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go'
@@ -41,6 +52,8 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'moll/vim-node'
 Plug 'rust-lang/rust.vim'
 Plug 'slashmili/alchemist.vim' " Elixir-related
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'neovimhaskell/haskell-vim'
 
 " Config formats support
 Plug 'GutenYe/json5.vim'
@@ -56,15 +69,9 @@ Plug 'hashivim/vim-terraform'
 call plug#end()
 
 let g:ctrlp_custom_ignore = {
-	\'dir': '\v[\/](\.git|node_modules|\.sass-cache|bower_components|dist)$'
+	\'dir': '\v[\/](\.git|node_modules|\.sass-cache|bower_components|dist|\.stack-work)$'
 	\}
 
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-    \ 'python': ['pyls'],
-    \ }
 let g:lightline = {
       \ 'colorscheme': 'wal',
       \ 'active': {
@@ -76,6 +83,51 @@ let g:lightline = {
       \ },
       \ }
 
+" comfy-scroll config - pulled from vim.reaper
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+let g:comfortable_motion_friction = 50.0
+let g:comfortable_motion_air_drag = 1.0
+
+" coc overrides - pulled from vim.reaper
+
+" Define Error Symbols and colors
+let g:coc_status_warning_sign = ''
+let g:coc_status_error_sign = ''
+hi CocWarningSign ctermfg=blue
+hi CocErrorSign ctermfg=red
+hi CocInfoSign ctermfg=yellow
+hi CocHintSign ctermfg=green
+
+" Transparent popup window
+hi! Pmenu ctermbg=black
+hi! PmenuSel ctermfg=2
+hi! PmenuSel ctermbg=0
+
+" fzf config -from vim.reaper
+"let g:fzf_colors =
+"\ { 'fg':      ['bg', 'Normal'],
+"\ 'bg':      ['bg', 'Normal'],
+"\ 'hl':      ['fg', 'Comment'],
+"\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"\ 'bg+':     ['fg', 'CursorLine', 'CursorColumn'],
+"\ 'hl+':     ['fg', 'Statement'],
+"\ 'info':    ['fg', 'PreProc'],
+"\ 'border':  ['fg', 'Ignore'],
+"\ 'prompt':  ['fg', 'Conditional'],
+"\ 'pointer': ['fg', 'Exception'],
+"\ 'marker':  ['fg', 'Keyword'],
+"\ 'spinner': ['fg', 'Label'],
+"\ 'header':  ['fg', 'Comment'] }
+
+" Hide status bar while using fzf commands
+if has('nvim') || has('gui_running')
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 | autocmd WinLeave <buffer> set laststatus=2
+endif
+
+" Centered floating window for fzf
+let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
 
 if !exists("g:syntax_on")
 	syntax enable
@@ -97,6 +149,8 @@ au BufRead,BufNewFile *.tmux.conf set filetype=config
 au FileType markdown set textwidth=80
 au FileType py set textwidth=80
 
+" for [jsonc](https://code.visualstudio.com/docs/languages/json) support
+autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd FileType javascript nnoremap <silent> <buffer> <Leader>d :TernDef<CR>
 autocmd FileType rust nnoremap <Leader>d :YcmCompleter GoTo<CR>
 autocmd! BufWritePre *.c,*.cpp,*.h,*.hpp,*.py,*.hy,*.js,*.jsx,*.ts,*.css,*.scss,*.sass,*.fs,*.fsi,*.fsx,*.rs,*.md,*.toml,*.ini,*.json,*.html,*.service,*.timer,*.yaml DeleteTrailingWhitespace
@@ -129,8 +183,17 @@ let g:ale_fixers = {
 \   'jsx': ['prettier', 'eslint'],
 \   'typescript': ['prettier', 'eslint'],
 \   'css': ['prettier'],
+\   'haskell': ['hindent', 'stylish-haskell'],
+\   'ocaml': ['ocamlformat'],
 \}
 
+" have to kill ghc and a few other defaults that throw errors on non-stdlib
+" imports
+let g:ale_linters ={
+\   'haskell': ['hlint', 'hdevtools', 'hfmt'],
+\}
+
+let g:cabal_indent_section = 4
 let g:gitgutter_override_sign_column_highlight = 0
 let g:go_def_mapping_enabled = 0 " disable vim-go :GoDef short cut (gd) - this is handled by LanguageClient [LC]
 let g:go_highlight_build_constraints = 1
@@ -156,17 +219,17 @@ nnoremap ; :
 nnoremap <C-e> :bufdo edit<Space>
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
-nnoremap <Leader><Enter> :call LanguageClient_contextMenu()<CR>
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
-nnoremap <silent> <Leader>d :call LanguageClient#textDocument_definition()<CR>
 
+nmap <Leader>cd <Plug>(coc-definition)
+nmap <Leader>ct <Plug>(coc-type-definition)
+nmap <Leader>ci <Plug>(coc-implementation)
+nmap <Leader>crn <Plug>(coc-rename)
+nnoremap <Leader>cc :<C-u>CocList commands<CR>
+
+" First try to go to first real character of line, then allow going to
+" beginning of line
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 set autoindent
 set background=dark
@@ -174,7 +237,7 @@ set backspace=indent,eol,start
 set clipboard+=unnamedplus
 set cmdheight=2 " Better display for messages
 set completeopt-=preview
-set fillchars=vert:\ ,stl:\ ,stlnc:\ 
+set fillchars=vert:\ ,stl:\ ,stlnc:\
 set hidden
 set hlsearch
 set ignorecase
@@ -207,6 +270,10 @@ highlight GitGutterChange ctermfg=yellow ctermbg=none
 highlight GitGutterChangeDelete ctermfg=yellow ctermbg=none
 highlight GitGutterDelete ctermfg=red ctermbg=none
 highlight SignColumn ctermbg=none
+" not a huge fan of the 80col ruler, so hide it
+highlight ColorColumn ctermbg=none
 " 'listchars' and whatever - tabs/spaces indents
 highlight NonText ctermfg=darkgray
-highlight Comment ctermfg=darkgray
+highlight Comment ctermfg=darkgray ctermbg=none
+
+source $HOME/.config/nvim/functions.vim
