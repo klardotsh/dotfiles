@@ -1,4 +1,4 @@
 #!/bin/sh
 
 . ${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/sway_services.env
-exec setsid /usr/bin/waybar
+LANG=C exec setsid /usr/bin/waybar
