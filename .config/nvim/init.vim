@@ -19,6 +19,7 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'noahfrederick/vim-noctu'
 Plug 'deviantfero/wpgtk.vim'
+Plug 'morhetz/gruvbox'
 Plug 'yuttie/comfortable-motion.vim'
 
 " Automatically create any non-existent directories before writing the buffer.
@@ -68,6 +69,7 @@ Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
+let g:gruvbox_termcolors=16
 let g:ctrlp_custom_ignore = {
 	\'dir': '\v[\/](\.git|node_modules|\.sass-cache|bower_components|dist|\.stack-work)$'
 	\}
@@ -227,6 +229,17 @@ nmap <Leader>ci <Plug>(coc-implementation)
 nmap <Leader>crn <Plug>(coc-rename)
 nnoremap <Leader>cc :<C-u>CocList commands<CR>
 
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 " First try to go to first real character of line, then allow going to
 " beginning of line
 noremap <expr> <silent> <Home> col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
@@ -262,7 +275,7 @@ set tabstop=4
 set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*node_modules*
 
-colorscheme wpgtkAlt
+colorscheme gruvbox
 
 highlight Normal ctermbg=none
 highlight GitGutterAdd ctermfg=green ctermbg=none

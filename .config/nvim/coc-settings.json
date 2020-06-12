@@ -1,4 +1,6 @@
 {
+  "coc.preferences.hoverTarget": "echo",
+  "signature.target": "echo",
   "languageserver": {
     "haskell": {
       "args": [

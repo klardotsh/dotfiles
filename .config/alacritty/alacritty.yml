@@ -130,9 +130,6 @@ font:
 # Keep the log file after quitting Alacritty.
 #persistent_logging: false
 
-# If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
-
 # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
@@ -165,33 +162,7 @@ visual_bell:
 # The value `0.0` is completely transparent and `1.0` is opaque.
 background_opacity: 0.95
 
-colors:
-  # Default colors
-  primary:
-    background: '#101010'
-    foreground: '#b9b9b9'
-
-  # Normal colors
-  normal:
-    black:   '#101010'
-    red:     '#7c7c7c'
-    green:   '#8e8e8e'
-    yellow:  '#a0a0a0'
-    blue:    '#686868'
-    magenta: '#747474'
-    cyan:    '#868686'
-    white:   '#b9b9b9'
-
-  # Bright colors
-  bright:
-    black:   '#525252'
-    red:     '#7c7c7c'
-    green:   '#8e8e8e'
-    yellow:  '#a0a0a0'
-    blue:    '#686868'
-    magenta: '#747474'
-    cyan:    '#868686'
-    white:   '#f7f7f7'
+draw_bold_text_with_bright_colors: false
 
 # Mouse bindings
 #
