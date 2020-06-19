@@ -19,7 +19,6 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
 Plug 'noahfrederick/vim-noctu'
 Plug 'deviantfero/wpgtk.vim'
-Plug 'morhetz/gruvbox'
 Plug 'yuttie/comfortable-motion.vim'
 
 " Automatically create any non-existent directories before writing the buffer.
@@ -69,7 +68,6 @@ Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
-let g:gruvbox_termcolors=16
 let g:ctrlp_custom_ignore = {
 	\'dir': '\v[\/](\.git|node_modules|\.sass-cache|bower_components|dist|\.stack-work)$'
 	\}
@@ -275,7 +273,7 @@ set tabstop=4
 set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*node_modules*
 
-colorscheme gruvbox
+colorscheme wpgtkAlt
 
 highlight Normal ctermbg=none
 highlight GitGutterAdd ctermfg=green ctermbg=none

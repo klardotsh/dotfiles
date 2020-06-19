@@ -21,6 +21,8 @@
 	lol = log --format='%Cred%h%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset%C(yellow)%d%Creset' --no-merges
 	# "cram" a file into the last commit. This is my "oh shit, forgot a migration" button
 	cram = commit --amend --no-edit
+	# default branch = "main"
+	initt = !git init && echo "ref: refs/heads/main" > .git/HEAD
 [fetch]
 	prune = true
 [rerere]

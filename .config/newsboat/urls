@@ -1,6 +1,7 @@
 "query:Unread Articles:unread = \"yes\""
 https://lobste.rs/rss
 https://m.signalvnoise.com/feed/
+https://daringfireball.net/feeds/main
 https://www.arp242.net/feed.xml
 https://drewdevault.com/feed.xml
 https://nolanlawson.com/wp-atom.php
