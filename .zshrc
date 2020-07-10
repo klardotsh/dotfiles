@@ -240,3 +240,11 @@ aws-assume() {
 eval "$(direnv hook zsh)"
 eval $(thefuck --alias)
 eval $(opam env)
+
+available-fonts() {
+	fc-list | grep $1 | cut -d':' -f 2 | sort -u
+}
+
+available-mono-fonts() {
+	available-fonts 'Mono'
+}
