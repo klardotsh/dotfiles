@@ -5,90 +5,56 @@ that has an exportable text-based config (that I've bothered to actually
 configure). I'm planning to restructure the repo a bit to handle device-specific
 configs in a more sane manner, but for now, here ya go.
 
-## Devices
-While almost all of my dotfiles are universal across my devices, there's a few
-references to specific hostnames. Here's the magical decoding ring, and details
-about the rigs themselves:
+In general, everything is standardized across all machines. There are very
+rarely exceptions, and those exceptions tend to be handled with either something
+along the lines of `include <hostname>.conf`, or by an outright duplicate config
+file. Everything runs Sway, Waybar, Mako, Alacritty, Rofi, Firefox, Neovim, and
+(with one exception) PulseAudio + pulsemixer. Most heavy lifting happens on
+`antarctica` and is accessed with heavy use of `mosh` and `abduco` (a session
+management / TUI detachment utility that does the only thing I cared about from
+`tmux`).
 
-### antarctica
+The hostnames you may stumble across are generally named after music:
 
-> Formerly named `gravity`
+- `antarctica`, named after the [Modest Mouse album "The Moon and
+  Antarctica"](https://en.wikipedia.org/wiki/The_Moon_%26_Antarctica), is my
+  desktop and primary machine. Inside is an AMD Ryzen 2700X, 32GB RAM, and an
+  obscene amount of storage. It runs Void Linux x86\_64-musl.
 
-This is my beast of a desktop/server combo, used for (in no particular order)
-F/OSS development, music production, gaming, streaming said games, and storing
-tons of data.
+- `devotee`, named after the [Panic! at the Disco song "LA
+  Devotee"](https://en.wikipedia.org/wiki/LA_Devotee), is my laptop, a Dell XPS
+  13 9370 with an Intel i5-8250U, 16GB RAM, 256GB NVME, and the lower-DPI 1080p
+  screen. It runs Void Linux x86\_64-musl.
 
-Hardware:
-- AMD Ryzen 2700X at ~4.0GHz overclock
-- 32GB DDR4-3200
-- Combined total of ~9TB usable storage across several SSDs and a 3x3TB ZFS
-  RAID-Z1 array
-- Dell 34" UltraSharp (3440x1440)
-- Lots of instruments/MIDI controllers (this list changes more often than this
-  README, stuff comes and goes):
-    * [Ableton Push 2](https://www.ableton.com/en/push/)
-    * [Conductive Labs NDLR](https://conductivelabs.com/)
-    * [Akai Professional MPK249](https://www.akaipro.com/mpk249)
-    * [Expressive E Touché](https://www.expressivee.com/buy-touche)
-    * [Novation Launchpad MKII](https://novationmusic.com/launch/launchpad)
-    * [Sixty Four Pixels' Le Strum](https://six4pix.com/product/lestrum/)
-    * [ROLI Seaboard Block](https://roli.com/products/blocks/seaboard-block)
-    * [Akai MPK Mini mkII](https://www.akaipro.com/mpk-mini-mkii)
+- `villain`, named after the [Queens of the Stone Age album
+  "Villains"](https://en.wikipedia.org/wiki/Villains_(Queens_of_the_Stone_Age_album)),
+  is a bit of a toy machine at the moment, a Lenovo Yoga C630 WOS laptop powered
+  by a Qualcomm Snapdragon 850, 8GB RAM, and 128GB of eMMC storage. Thanks to
+  the [aarch64-laptops](https://github.com/aarch64-laptops/build) project, it
+  kinda-sorta runs Void Linux aarch64-musl.
 
-Software:
-- Gentoo Linux
-- Usually `sway`, `waybar`, and `mako`, for a Wayland environment
-- All audio is handled by JACK through a [fairly cheap Behringer
-  interface](https://www.amazon.com/dp/B00QHURUBE) at 96kHz and "good enough"
-  latency.
-- For gaming: Steam w/native lib overrides, Lutris to manage Guild Wars 2, and
-  MultiMC to manage a million instances of Minecraft
-- For music production:
-    * Bitwig Studio 3.0
-    * Native VSTi: [Helm](https://tytel.org/helm/),
-      [Vital](https://vital.audio/), [Cadmium](https://lhiaudio.com/), [Hive
-      2](https://u-he.com/products/hive/),
-      [Diva](https://u-he.com/products/diva/),
-      [Surge](https://surge-synthesizer.github.io/),
-      [ZynAddSubFX](http://zynaddsubfx.sourceforge.net/)
-    * Other Native VSTs: [The whole AirWindows set](http://www.airwindows.com/),
-      [Arch's vst-plugins group](https://www.archlinux.org/groups/x86_64/vst-plugins/)
-    * I stopped bothering with Windows VSTs, but for the rare case I need one,
-      [Airwave](https://github.com/psycha0s/airwave) is basically my only hope.
-    * My Push 2 is enabled by
-      [DrivenByMoss](https://github.com/git-moss/DrivenByMoss)
+- `vermillion`, named after the [Slipknot song of almost the same name, except I
+  can't spell](https://en.wikipedia.org/wiki/Vermilion_(song)), is a rarely-used
+  2017 Samsung Chromebook Pro, running [Mr. Chromebox's coreboot
+  firmware](https://mrchromebox.tech/) and Void Linux x86\_64-musl. It is unique
+  in that it is the only machine running
+  [sndio](https://en.wikipedia.org/wiki/Sndio) instead of PulseAudio or similar.
+  This would be even more noteworthy if the machine actually had reliable sound
+  support in the kernel at all...
 
-### devotee
+To replicate the theming here, since `~/.local/share/themes` is not tracked,
+you'll want to pull this repo, import the current wallpaper (tracked in
+wallpaper.txt) and the current colorscheme (tracked in colorscheme.txt) into
+[wpgtk](https://github.com/deviantfero/wpgtk), and... hope for the best? I
+always use color 1 as the primary color, giving the red highlights, and
+otherwise run mostly a stock wpgtk config.
 
-> Formerly `spoonman` among others
-
-This is my primary laptop, a Dell XPS 9370 FHD 16GB, mostly used at work.
-
-The software stack is kept almost identical to `antarctica`'s casual/development
-stacks: `sway`, `waybar`, `mako`, etc.
-
-It currently runs Void Linux. The hostname inspiration is from [a Panic At The
-Disco song](https://www.youtube.com/watch?v=r5dNcKTcnPA).
-
-### villain
-
-Lenovo Yoga C630 WOS - a Qualcomm SD850-based laptop with 8GB RAM, relying
-heavily on the kernel development done by Linaro and others over at [their
-GitHub org](https://github.com/aarch64-laptops/build). This machine is very much
-a work in progress, unstable, and mostly a tinkerer's project/toy rig (it still
-lacks WiFi, audio, reliable USB-C video, and OpenGL ES 3.3 support for
-Alacritty, forcing me to currently use Termite).
-
-This machine runs Gentoo, but most of its specialty configs (including
-`/etc/portage/patches` tree) haven't made it into this repo yet.
-
-### glados
-
-Samsung Chromebook Pro with coreboot and Void Linux. This machine probably
-averages a few weeks of uptime a year at best, it's truly a niche sidearm
-machine (though for a stretch of several months it was my primary personal
-laptop, for whatever reason).
-
-The software stack is kept almost identical to `antarctica`'s casual/development
-stacks: `sway`, `waybar`, `mako`, etc. The hostname predates the music theme,
-and is of course a Portal reference.
+Fonts-wise, to exactly replicate the setup, you'll need to buy
+[PragmataPro](https://fsd.it/shop/fonts/pragmatapro/) and [FSD
+Emoji](https://fsd.it/shop/fonts/fsd-emoji/), two wonderful fonts by Fabrizio
+Schiavi, and download the free font [PT
+Sans](https://company.paratype.com/pt-sans-pt-serif), which is included with the
+`google-fonts-ttf` package on Void Linux (many other distributions ship a
+similar or identical bundle). You'll also need Font Awesome v4 (which is
+packaged as `font-awesome` on Void Linux and a few other distributions). This
+Waybar config explicitly will **not** work correctly with Font Awesome v5.
