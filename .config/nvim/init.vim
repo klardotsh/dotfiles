@@ -162,7 +162,9 @@ imap <silent> <Home> <C-O><Home>
 
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
-let g:ale_completion_enabled = 1
+" disable ALE's completion because it fights with coc.nvim, which understands
+" most formats better than ALE anyway
+let g:ale_completion_enabled = 0
 let g:ale_completion_tsserver_autoimport = 1
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
