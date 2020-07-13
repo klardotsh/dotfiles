@@ -1,0 +1,40 @@
+net-misc/spice-gtk python usbredir -gstreamer
+# required by net-firewall/firewalld-0.7.1-r3::gentoo[iptables,nftables]
+# required by app-emulation/libvirt-6.2.0-r2::gentoo[firewalld]
+# required by app-emulation/libvirt (argument)
+>=net-firewall/nftables-0.9.3-r1 xtables
+# required by net-firewall/firewalld-0.7.1-r3::gentoo[python_single_target_python3_7]
+# required by app-emulation/libvirt-6.2.0-r2::gentoo[firewalld]
+# required by app-emulation/libvirt (argument)
+>=dev-python/python-slip-0.6.5 dbus
+# required by dev-lang/spidermonkey-60.5.2_p0-r4::gentoo
+# required by sys-auth/polkit-0.116-r1::gentoo
+# required by sys-auth/elogind-243.7::gentoo[policykit]
+# required by sys-apps/dbus-1.12.18::gentoo[elogind]
+# required by dev-python/dbus-python-1.2.16::gentoo
+# required by dev-python/python-slip-0.6.5::gentoo[dbus]
+# required by net-firewall/firewalld-0.7.1-r3::gentoo[python_single_target_python3_7]
+# required by app-emulation/libvirt-6.2.0-r2::gentoo[firewalld]
+# required by app-emulation/libvirt (argument)
+>=dev-lang/python-2.7.18:2.7 sqlite
+# required by app-editors/neovim-0.4.3::gentoo
+# required by neovim (argument)
+>=dev-lua/lpeg-1.0.1 luajit
+# required by app-editors/neovim-0.4.3::gentoo
+# required by neovim (argument)
+>=dev-lua/luv-1.32.0.0 luajit
+# required by app-editors/neovim-0.4.3::gentoo
+# required by neovim (argument)
+>=dev-lua/mpack-1.0.4 luajit
+# required by media-libs/mesa-20.0.8::gentoo[libglvnd]
+# required by x11-libs/gtk+-3.24.20::gentoo[X]
+# required by x11-themes/adwaita-icon-theme-3.32.0::gentoo
+>=media-libs/libglvnd-1.3.1 X
+# required by x11-wm/openbox-3.6.1-r3::gentoo
+# required by openbox (argument)
+>=x11-libs/pango-1.42.4-r2 X
+# required by x11-libs/gtk+-3.24.20::gentoo
+# required by x11-themes/adwaita-icon-theme-3.32.0::gentoo
+>=x11-libs/cairo-1.16.0-r3 X
+# required by x11-libs/libva-vdpau-driver-0.7.4-r5::gentoo
+>=x11-libs/libva-2.5.0-r1 X
