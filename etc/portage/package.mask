@@ -1,7 +1,4 @@
-dev-libs/openssl
-net-libs/nodejs::gentoo
->=net-libs/nodejs-11
-dev-qt/qtnetwork::gentoo
+# sticking to LTS of Node only
+>=net-libs/nodejs-13.0.0
 
-# can't download Go sources apparently
-=dev-vcs/git-lfs-2.6.1::gentoo
+app-shells/fzf::nest

@@ -1,13 +1,10 @@
-# required by steam-launcher (argument)
->=games-util/steam-launcher-1.0.0.59-r3 ValveSteamLicense
 # required by discord-bin (argument)
->=net-im/discord-bin-0.0.9-r1 all-rights-reserved
+>=net-im/discord-bin-0.0.10 all-rights-reserved
 # required by bitwig-studio (argument)
->=media-sound/bitwig-studio-3.1 Bitwig
-net-im/slack all-rights-reserved
-net-im/slack-bin all-rights-reserved
-net-im/zoom ZOOM all-rights-reserved
-net-im/zoom-bin ZOOM
-
-# required by google-chrome (argument)
->=www-client/google-chrome-81.0.4044.113 google-chrome
+>=media-sound/bitwig-studio-3.1.2 Bitwig
+# required by net-im/zoom (argument)
+>=net-im/zoom-5.1.422789.0705 all-rights-reserved
+# required by steam-launcher (argument)
+>=games-util/steam-launcher-1.0.0.64 ValveSteamLicense
+# required by bluez-firmware (argument)
+>=sys-firmware/bluez-firmware-1.2 bluez-firmware

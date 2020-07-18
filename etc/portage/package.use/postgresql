@@ -1,0 +1,4 @@
+# I almost never need to spin up a psql server on bare metal - it'll almost
+# always live in Docker or RDS or something
+dev-db/postgresql -server
+dev-db/postgresql llvm

@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+export PATH_TO_DOTFILES=${PATH_TO_DOTFILES:-"${HOME}/src/mine/dotfiles"}
+
+# deletes files at target to ensure they are *always* in sync... use with care :)
+
+rm -rf ${PATH_TO_DOTFILES}/etc/portage/{$(hostname).make.conf,package.*,repos.conf}
+
+cp -av /etc/portage/make.conf ${PATH_TO_DOTFILES}/etc/portage/$(hostname).make.conf
+cp -av /etc/portage/package.* ${PATH_TO_DOTFILES}/etc/portage/
+cp -av /etc/portage/repos.conf ${PATH_TO_DOTFILES}/etc/portage/

@@ -2,4 +2,4 @@
 # * Either switch to USE=clang or temporarily set USE=-pgo.
 # * ERROR: www-client/firefox-73.0.1::gentoo failed (pretend phase):
 # *   USE=pgo without USE=clang is currently known to be broken.
-www-client/firefox pgo lto custom-cflags custom-optimization hwaccel startup-notification clang
+www-client/firefox pgo lto custom-cflags custom-optimization hwaccel startup-notification

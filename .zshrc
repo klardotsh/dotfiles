@@ -2,7 +2,6 @@
 # Maintained 2012-19 (and counting)
 # Released under the [Unlicense](http://unlicense.org/)
 
-export IS_VOID=`[ $(lsb_release -sc 2>&1 || echo 'n/a') = 'void' ] && echo 1`
 export IS_GENTOO=`[ $(lsb_release -si 2>&1 || echo 'n/a') = 'Gentoo' ] && echo 1`
 
 if test -z "${XDG_RUNTIME_DIR}"; then
@@ -152,7 +151,7 @@ if [ "${IS_VOID}" = "1" ]; then
 	alias pql='xbps-query -f'
 	alias pqs='xbps-query -s'
 elif [ "${IS_GENTOO}" = "1" ]; then
-	source /usr/share/zsh/site-contrib/fzf.zsh
+	source /usr/share/fzf/key-bindings.zsh
 
 	alias pf='eix -r'
 	# some packages (notably nodejs) behave in strange ways when $HOME is

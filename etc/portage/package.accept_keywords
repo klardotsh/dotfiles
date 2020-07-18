@@ -1,104 +1,81 @@
-dev-libs/libressl
+*/*::haskell ~amd64 ~arm64
 
-sys-kernel/gentoo-sources ~amd64 ~arm64
+# limit kernel on amd64 to 5.6 because of zfs
+<sys-kernel/gentoo-sources-5.7.0 ~amd64
+# I apparently can't uncomment this or it applies on ~amd64 as well???
+#sys-kernel/gentoo-sources ~arm64
 sys-fs/zfs-kmod ~amd64 ~arm64
 sys-fs/zfs ~amd64 ~arm64
 
-media-sound/pulsemixer ~amd64 ~arm64
-
-dev-lang/python:3.8 ~amd64 ~arm64
-
-gui-apps/waybar ~amd64 ~arm64
-gui-apps/grim ~amd64 ~arm64
-gui-apps/slurp ~amd64 ~arm64
-
-www-client/firefox ~amd64 ~arm64
-dev-libs/nss ~amd64 ~arm64
-dev-libs/nspr ~amd64 ~arm64
-dev-util/cbindgen ~amd64 ~arm64
-virtual/rust ~amd64 ~arm64
-dev-lang/rust ~amd64 ~arm64
-media-libs/libvpx ~amd64 ~arm64
-media-libs/libwebp ~amd64 ~arm64
-
-net-libs/nodejs ~amd64 ~arm64
-net-libs/http-parser ~amd64 ~arm64
-
-games-util/steam-launcher ~amd64 ~arm64
-net-im/discord-bin ~amd64 ~arm64
-dev-libs/olm ~amd64 ~arm64
-
-media-sound/bitwig-studio::audio-overlay ~amd64 ~arm64
-
-dev-python/pynvim ~amd64 ~arm64
-
-app-misc/fzf ~amd64 ~arm64
-app-shells/thefuck ~amd64 ~arm64
-
-gui-libs/wlroots:0/10 ~amd64 ~arm64
+<=app-admin/terraform-0.12.28 ~amd64 ~arm64
 <gui-wm/sway-1.5 ~amd64 ~arm64
-
-mail-client/alot ~amd64 ~arm64
-dev-python/urwidtrees ~amd64 ~arm64
-
-net-news/newsboat ~amd64 ~arm64
-
-dev-db/pgcli ~amd64 ~arm64
-dev-python/prompt_toolkit ~amd64 ~arm64
-dev-python/python-sqlparse ~amd64 ~arm64
-dev-python/cli_helpers ~amd64 ~arm64
-dev-python/pgspecial ~amd64 ~arm64
-dev-python/tabulate ~amd64 ~arm64
-dev-python/terminaltables ~amd64 ~arm64
-
-sys-apps/yarn ~amd64 ~arm64
-
+=dev-libs/libtasn1-4.16.0 ~amd64 ~arm64
+=media-libs/libsdl2-2.0.12-r1 ~amd64 ~arm64
 >=dev-python/pipenv-2018.11.26 ~amd64 ~arm64
-dev-python/parver ~amd64 ~arm64
-dev-python/invoke ~amd64 ~arm64
+app-admin/aws-vault ~amd64 ~arm64
+app-crypt/keybase ~amd64 ~arm64
+app-editors/kakoune ~amd64 ~arm64
+app-misc/abduco ~amd64 ~arm64
+app-shells/fzf ~amd64 ~arm64
+app-shells/thefuck ~amd64 ~arm64
+dev-db/pgcli ~amd64 ~arm64
+dev-lang/rust ~amd64 ~arm64
+dev-libs/nspr ~amd64 ~arm64
+dev-libs/nss ~amd64 ~arm64
+dev-libs/olm ~amd64 ~arm64
 dev-python/arpeggio ~amd64 ~arm64
-
 dev-python/awscli ~amd64 ~arm64
 dev-python/botocore ~amd64 ~arm64
+dev-python/cli_helpers ~amd64 ~arm64
+dev-python/invoke ~amd64 ~arm64
+dev-python/parver ~amd64 ~arm64
+dev-python/pgspecial ~amd64 ~arm64
+dev-python/prompt_toolkit ~amd64 ~arm64
+dev-python/pylzma ~amd64 ~arm64
+dev-python/pynvim ~amd64 ~arm64
+dev-python/pypeg2 ~amd64 ~arm64
+dev-python/python-sqlparse ~amd64 ~arm64
+dev-python/pyyaml ~amd64 ~arm64
+dev-python/rsa ~amd64 ~arm64
 dev-python/s3transfer ~amd64 ~arm64
 dev-python/setuptools ~amd64 ~arm64
-
-media-fonts/iosevka ~amd64 ~arm64
-
-<=app-admin/terraform-0.12.20 ~amd64 ~arm64
-
-app-editors/kakoune ~amd64 ~arm64
-
-www-client/qutebrowser ~amd64 ~arm64
-dev-python/pypeg2 ~amd64 ~arm64
-dev-python/pyyaml ~amd64 ~arm64
-dev-qt/qtnetwork::libressl ~amd64
-
-app-crypt/keybase ~amd64 ~arm64
-
-net-im/slack-bin ~amd64 ~arm64
-
-net-misc/postman-bin ~amd64 ~arm64
-net-im/zoom ~amd64 ~arm64
-net-im/zoom-bin ~amd64 ~arm64
-
-media-fonts/jetbrains-mono ~amd64 ~arm64
-
-mail-client/aerc ~amd64 ~arm64
-
-games-puzzle/pingus ~amd64 ~arm64
-games-strategy/wesnoth ~amd64 ~arm64
-
-=dev-libs/libtasn1-4.16.0 ~amd64 ~arm64
-media-video/pipewire ~amd64 ~arm64
-
-dev-python/pylzma ~amd64 ~arm64
-
-games-action/multimc5 ~amd64 ~arm64
-
-sys-apps/proot ~amd64 ~arm64
-
-sys-apps/earlyoom ~amd64 ~arm64
-
-dev-qt/qtdiag ~amd64 ~arm64
+dev-python/tabulate ~amd64 ~arm64
+dev-python/terminaltables ~amd64 ~arm64
+dev-python/urwidtrees ~amd64 ~arm64
+dev-util/cbindgen ~amd64 ~arm64
 dev-vcs/git-lfs ~amd64 ~arm64
+games-action/multimc5 ~amd64 ~arm64
+games-puzzle/pingus ~amd64 ~arm64
+games-simulation/openrct2 ~amd64 ~arm64
+games-strategy/wesnoth ~amd64 ~arm64
+games-util/steam-launcher ~amd64 ~arm64
+gui-apps/grim ~amd64 ~arm64
+gui-apps/slurp ~amd64 ~arm64
+gui-apps/waybar ~amd64 ~arm64
+gui-libs/wlroots:0/10 ~amd64 ~arm64
+mail-client/aerc ~amd64 ~arm64
+mail-client/alot ~amd64 ~arm64
+media-fonts/iosevka ~amd64 ~arm64
+media-fonts/paratype ~amd64 ~arm64
+media-fonts/twemoji-color-font ~amd64 ~arm64
+media-libs/libvpx ~amd64 ~arm64
+media-libs/libwebp ~amd64 ~arm64
+media-sound/bitwig-studio::audio-overlay ~amd64 ~arm64
+media-sound/bluez-alsa ~amd64 ~arm64
+media-sound/pulsemixer ~amd64 ~arm64
+media-video/pipewire ~amd64 ~arm64
+net-im/discord-bin ~amd64 ~arm64
+net-im/slack-bin ~amd64 ~arm64
+net-im/zoom ~amd64 ~arm64
+net-libs/http-parser ~amd64 ~arm64
+net-libs/nodejs ~amd64 ~arm64
+net-misc/postman-bin ~amd64 ~arm64
+net-news/newsboat ~amd64 ~arm64
+net-p2p/tremc ~amd64 ~arm64
+sci-visualization/visidata ~amd64 ~arm64
+sys-apps/earlyoom ~amd64 ~arm64
+sys-apps/proot ~amd64 ~arm64
+sys-apps/yarn ~amd64 ~arm64
+virtual/rust ~amd64 ~arm64
+www-client/firefox ~amd64 ~arm64
+www-client/qutebrowser ~amd64 ~arm64
