@@ -1,40 +1,55 @@
-" Josh Klar [klardotsh] vimrc
-" 2019 Edition
+" klardotsh's vimrc, 2020 edition
+" released under CC0 (https://creativecommons.org/publicdomain/zero/1.0/)
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Colorschemes
+Plug 'deviantfero/wpgtk.vim'
+Plug 'jeffkreeftmeijer/vim-dim'
+Plug 'noahfrederick/vim-noctu'
+Plug 'w0ng/vim-hybrid'
+
 " Interface / Misc
 Plug 'Konfekt/FastFold'
-Plug 'w0ng/vim-hybrid'
 Plug 'editorconfig/editorconfig-vim' " Force buffer to use editorconfig settings
 Plug 'ervandew/supertab'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-Plug 'junegunn/vim-emoji'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'vim-scripts/DeleteTrailingWhitespace'
+Plug 'yuttie/comfortable-motion.vim'
+
+" the junegunn section
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'ntpeters/vim-better-whitespace'
+Plug 'junegunn/vim-emoji'
+
+" the tpope section
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/DeleteTrailingWhitespace'
-Plug 'noahfrederick/vim-noctu'
-Plug 'deviantfero/wpgtk.vim'
-Plug 'yuttie/comfortable-motion.vim'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
 
 " Automatically create any non-existent directories before writing the buffer.
 " > :e this/does/not/exist/file.txt
 " > :w
 Plug 'pbrisbin/vim-mkdir'
 
-" Git Integration (ish)
+" Show +/-/~ reports in gutter
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
 
 " Language Server Protocol
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-pairs', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-rls', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 
@@ -42,18 +57,16 @@ Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 Plug 'dense-analysis/ale'
 
 " Language support (how many of these are still needed with cocs?)
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'HerringtonDarkholme/yats.vim' " TypeScript
-Plug 'elixir-lang/vim-elixir'
 Plug 'fatih/vim-go'
 Plug 'fisadev/vim-isort' " Python-related
 Plug 'hdima/python-syntax'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'jelera/vim-javascript-syntax'
 Plug 'moll/vim-node'
-Plug 'rust-lang/rust.vim'
-Plug 'slashmili/alchemist.vim' " Elixir-related
-Plug 'reasonml-editor/vim-reason-plus'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'rust-lang/rust.vim'
 
 " Config formats support
 Plug 'GutenYe/json5.vim'
@@ -61,27 +74,12 @@ Plug 'Matt-Deacalion/vim-systemd-syntax'
 Plug 'NLKNguyen/cloudformation-syntax.vim'
 Plug 'cespare/vim-toml'
 Plug 'chase/vim-ansible-yaml'
-Plug 'tarekbecker/vim-yaml-formatter'
-Plug 'markcornick/vim-vagrant'
-Plug 'uarun/vim-protobuf'
 Plug 'hashivim/vim-terraform'
+Plug 'markcornick/vim-vagrant'
+Plug 'tarekbecker/vim-yaml-formatter'
+Plug 'uarun/vim-protobuf'
 
 call plug#end()
-
-let g:ctrlp_custom_ignore = {
-	\'dir': '\v[\/](\.git|node_modules|\.sass-cache|bower_components|dist|\.stack-work)$'
-	\}
-
-let g:lightline = {
-      \ 'colorscheme': 'wal',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
 
 " comfy-scroll config - pulled from vim.reaper
 noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
@@ -104,38 +102,13 @@ hi! Pmenu ctermbg=black
 hi! PmenuSel ctermfg=2
 hi! PmenuSel ctermbg=0
 
-" fzf config -from vim.reaper
-"let g:fzf_colors =
-"\ { 'fg':      ['bg', 'Normal'],
-"\ 'bg':      ['bg', 'Normal'],
-"\ 'hl':      ['fg', 'Comment'],
-"\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-"\ 'bg+':     ['fg', 'CursorLine', 'CursorColumn'],
-"\ 'hl+':     ['fg', 'Statement'],
-"\ 'info':    ['fg', 'PreProc'],
-"\ 'border':  ['fg', 'Ignore'],
-"\ 'prompt':  ['fg', 'Conditional'],
-"\ 'pointer': ['fg', 'Exception'],
-"\ 'marker':  ['fg', 'Keyword'],
-"\ 'spinner': ['fg', 'Label'],
-"\ 'header':  ['fg', 'Comment'] }
-
-" Hide status bar while using fzf commands
-if has('nvim') || has('gui_running')
-  autocmd! FileType fzf
-  autocmd  FileType fzf set laststatus=0 | autocmd WinLeave <buffer> set laststatus=2
-endif
-
-" Centered floating window for fzf
-let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
-
 if !exists("g:syntax_on")
 	syntax enable
 endif
 
 augroup rainbow_lisp
-  autocmd!
-  autocmd FileType hy,lisp,clojure,scheme RainbowParentheses
+	autocmd!
+	autocmd FileType hy,lisp,clojure,scheme RainbowParentheses
 augroup END
 
 au BufRead *.fs,*.fsi,*.fsx set filetype=fsharp
@@ -151,9 +124,7 @@ au FileType py set textwidth=80
 
 " for [jsonc](https://code.visualstudio.com/docs/languages/json) support
 autocmd FileType json syntax match Comment +\/\/.\+$+
-autocmd FileType javascript nnoremap <silent> <buffer> <Leader>d :TernDef<CR>
-autocmd FileType rust nnoremap <Leader>d :YcmCompleter GoTo<CR>
-autocmd! BufWritePre *.c,*.cpp,*.h,*.hpp,*.py,*.hy,*.js,*.jsx,*.ts,*.css,*.scss,*.sass,*.fs,*.fsi,*.fsx,*.rs,*.md,*.toml,*.ini,*.json,*.html,*.service,*.timer,*.yaml DeleteTrailingWhitespace
+autocmd! BufWritePre *.c,*.cpp,*.h,*.hpp,*.py,*.hy,*.js,*.jsx,*.ts,*.css,*.scss,*.sass,*.hs,*.re,*.ml,*.fs,*.fsi,*.fsx,*.rs,*.md,*.toml,*.ini,*.json,*.html,*.service,*.timer,*.yaml DeleteTrailingWhitespace
 
 filetype off
 filetype plugin indent on
@@ -162,9 +133,73 @@ imap <silent> <Home> <C-O><Home>
 
 let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
-" disable ALE's completion because it fights with coc.nvim, which understands
-" most formats better than ALE anyway
-let g:ale_completion_enabled = 0
+" fzf config -from vim.reaper
+let g:fzf_colors ={
+\	'fg':      ['bg', 'Normal'],
+\	'bg':      ['bg', 'Normal'],
+\	'hl':      ['fg', 'Comment'],
+\	'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+\	'bg+':     ['fg', 'CursorLine', 'CursorColumn'],
+\	'hl+':     ['fg', 'Statement'],
+\	'info':    ['fg', 'PreProc'],
+\	'border':  ['fg', 'Ignore'],
+\	'prompt':  ['fg', 'Conditional'],
+\	'pointer': ['fg', 'Exception'],
+\	'marker':  ['fg', 'Keyword'],
+\	'spinner': ['fg', 'Label'],
+\	'header':  ['fg', 'Comment'],
+\}
+
+" Centered floating window for fzf
+let g:fzf_layout = { 'window': 'call CreateCenteredFloatingWindow()' }
+
+" basically all of this was yanked straight out of vim.reaper, too
+"let g:airline_theme='wpgtk'
+let g:airline_theme='term'
+let g:airline_powerline_fonts = 0
+let g:airline_symbols = {}
+let g:airline_skip_empty_sections = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols_branch = ''
+let g:airline_powerline_fonts = 1
+let g:airline_symbols.crypt = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.modified = ' '
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+"extensions
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#unicode#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#vista#enabled = 1
+let g:airline#extensions#hunks#enabled = 1
+"extension settings
+let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+let airline#extensions#coc#warning_symbol = ':'
+let airline#extensions#coc#error_symbol = ':'
+"let g:airline#extensions#hunks#hunk_symbols = [':', ':', ':']
+let g:airline#extensions#hunks#hunk_symbols = ['+', '~', '-']
+let g:airline#extensions#branch#format = 2
+
+
+" ¯\_(ツ)_/¯ this chunk is a cobbled up disaster of whatever I've accumulated
+" since the last burn-to-the-ground rewrite (2016ish?)
 let g:ale_completion_tsserver_autoimport = 1
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
@@ -189,12 +224,17 @@ let g:ale_fixers = {
 \   'ocaml': ['ocamlformat'],
 \}
 
+" disable ALE's completion because it fights with coc.nvim, which understands
+" most formats better than ALE anyway.
+let g:ale_completion_enabled = 0
+
 " have to kill ghc and a few other defaults that throw errors on non-stdlib
 " imports
 let g:ale_linters ={
 \   'haskell': ['hlint', 'hdevtools', 'hfmt'],
 \}
 
+" This is what I call the 'util folder' of let bindings...
 let g:cabal_indent_section = 4
 let g:gitgutter_override_sign_column_highlight = 0
 let g:go_def_mapping_enabled = 0 " disable vim-go :GoDef short cut (gd) - this is handled by LanguageClient [LC]
@@ -203,10 +243,14 @@ let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'typescript', 'javascript', 'sql']
+let g:markdown_minlines = 100
+let g:markdown_syntax_conceal = 0
 let g:rustfmt_autosave = 1
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 let g:yaml_formatter_indent_collection=1
+
 let loaded_matchparen=1
 let mapleader=","
 
@@ -233,11 +277,11 @@ nnoremap <Leader>cc :<C-u>CocList commands<CR>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
 endfunction
 
 " First try to go to first real character of line, then allow going to
@@ -275,8 +319,13 @@ set tabstop=4
 set updatetime=300 " Smaller updatetime for CursorHold & CursorHoldI
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*node_modules*
 
-colorscheme wpgtkAlt
+colorscheme dim
 
+" at this point I barely remember where many of these came from - broadly
+" speaking, colorschemes LOVE doing absolutely insane shit with colors,
+" roughly akin to melting down a box of crayons onto your screen (often
+" because the theme wasn't tested on, or explicitly is not designed for, 16
+" color mode and/or cterm). this is the part where I override that stuff.
 highlight Normal ctermbg=none
 highlight GitGutterAdd ctermfg=green ctermbg=none
 highlight GitGutterChange ctermfg=yellow ctermbg=none
@@ -288,5 +337,8 @@ highlight ColorColumn ctermbg=none
 " 'listchars' and whatever - tabs/spaces indents
 highlight NonText ctermfg=darkgray
 highlight Comment ctermfg=darkgray ctermbg=none
+highlight CocFloating ctermbg=0
+highlight Pmenu ctermbg=0 ctermfg=none
+highlight PmenuSel ctermbg=0 ctermfg=9
 
 source $HOME/.config/nvim/functions.vim

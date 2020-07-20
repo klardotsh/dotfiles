@@ -1,27 +1,26 @@
 {
-  "coc.preferences.hoverTarget": "echo",
-  "signature.target": "echo",
-  "languageserver": {
-    "haskell": {
-      "args": [
-        "--lsp"
-      ],
-      "command": "hie-wrapper",
-      "filetypes": [
-        "hs",
-        "lhs",
-        "haskell"
-      ],
-      "initializationOptions": {
-        "languageServerHaskell": {}
-      },
-      "rootPatterns": [
-        "*.cabal",
-        "stack.yaml",
-        "cabal.project",
-        "package.yaml"
-      ]
-    }
-  },
-  "suggest.noselect": true
+	"coc.preferences.hoverTarget": "echo",
+	"signature.target": "echo",
+	"languageserver": {
+		"haskell": {
+			"command": "haskell-language-server-wrapper",
+			"args": ["--lsp"],
+			"rootPatterns": [
+				"*.cabal",
+				"stack.yaml",
+				"cabal.project",
+				"package.yaml"
+			],
+			"filetypes": [
+				"hs",
+				"lhs",
+				"haskell"
+			],
+			"initializationOptions": {
+				"languageServerHaskell": {
+				}
+			}
+		}
+	},
+	"suggest.noselect": true
 }
