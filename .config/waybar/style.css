@@ -12,13 +12,13 @@
 
 window#waybar {
 	background: transparent;
-	color: @foreground;
+	color: #bea492;
 }
 
 #workspaces button {
 	padding: 0;
 	background: transparent;
-	color: @foreground;
+	color: #bea492;
 	border-bottom: 3px solid transparent;
 }
 
@@ -43,19 +43,19 @@ window#waybar {
 #clock {
 	background-color: transparent;
 	border-bottom: 3px solid @color1;
-	color: @foreground;
+	color: #bea492;
 }
 
 #battery {
 	background: transparent;
 	border-bottom: 3px solid @color16;
-	color: @foreground
+	color: #bea492
 }
 
 #battery.charging {
 	background: transparent;
 	border-bottom: 3px solid @color1;
-	color: @foreground
+	color: #bea492
 }
 
 @keyframes blink {
@@ -78,19 +78,19 @@ window#waybar {
 #cpu {
 	background: transparent;
 	border-bottom: 3px solid @color5;
-	color: @foreground;
+	color: #bea492;
 }
 
 #memory {
 	background: transparent;
 	border-bottom: 3px solid @color7;
-	color: @foreground;
+	color: #bea492;
 }
 
 #network {
 	background: transparent;
 	border-bottom: 3px solid @color16;
-	color: @foreground
+	color: #bea492
 }
 
 #network.disconnected {
@@ -101,7 +101,7 @@ window#waybar {
 #pulseaudio {
 	background: transparent;
 	border-bottom: 3px solid @color15;
-	color: @foreground;
+	color: #bea492;
 }
 
 #pulseaudio.muted {

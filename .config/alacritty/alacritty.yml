@@ -65,7 +65,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: PragmataPro Mono
+    family: Iosevka Term
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -157,45 +157,43 @@ draw_bold_text_with_bright_colors: false
 visual_bell:
   animation: EaseOutExpo
   duration: 0
-  color: '0xffffff'
+  # use bright black here so it's not a complete blinding FFFFFF thing
+  color: '0x817267'
 
 # Background opacity
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.9
+background_opacity: 0.95
 
-# bitmute from xcolors.net, then modified
+# x-erosion by earsplit
 colors:
   # Default colors
   primary:
-    # background: '0x000000'
-    # foreground: '0xffffff'
-    #background: '#282828'
-    background: '#101010'
-    foreground: '#aeaeae'
+    background: '0x181512'
+    foreground: '0xbea492'
 
   # Normal colors
   normal:
-    black:   '0x282828'
-    red:     '0xb76969'
-    green:   '0x719d72'
-    yellow:  '0x909858'
-    blue:    '0x68668f'
-    magenta: '0x966894'
-    cyan:    '0x688891'
-    white:   '0x8e8e8e'
+    black:   '0x332d29'
+    red:     '0x8c644c'
+    green:   '0x746c48'
+    yellow:  '0x908a66'
+    blue:    '0x646a6d'
+    magenta: '0x605655'
+    cyan:    '0x4b5c5e'
+    white:   '0x504339'
 
   # Bright colors
   bright:
-    black:   '0x494949'
-    red:     '0xb87e7e'
-    green:   '0x839d84'
-    yellow:  '0x919864'
-    blue:    '0x73718f'
-    magenta: '0x987397'
-    cyan:    '0x758c93'
-    white:   '0xaeaeae'
+    black:   '0x817267'
+    red:     '0x9f7155'
+    green:   '0x857b52'
+    yellow:  '0x9c956e'
+    blue:    '0x71777a'
+    magenta: '0x656565'
+    cyan:    '0x556d70'
+    white:   '0x9a875f'
 
 # Mouse bindings
 #
