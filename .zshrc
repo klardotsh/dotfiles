@@ -74,7 +74,7 @@ hash ruby 2>/dev/null && export RUBY_PATH="$(ruby -e 'print Gem.user_dir')/bin"
 # Hackaround for pipenv to auto-install pythons as needed
 hash pyenv 2>/dev/null && export PYENV_ROOT=$(pyenv root)
 
-export PERSONAL_PATH="${HOME}/bin"
+export PERSONAL_PATH="${HOME}/bin:${HOME}/.local/bin"
 export PATH="${PERSONAL_PATH}:${RUST_PATH}:${GOLANG_PATH}:${NODEJS_PATH}:${RUBY_PATH}:${PATH}"
 
 # Lines configured by zsh-newuser-install
@@ -126,7 +126,11 @@ if [[ "$(basename -- ${(%):-%x})" != "_pipenv" ]]; then
   compdef _pipenv pipenv
 fi
 
-cat ${XDG_CONFIG_HOME}/wpg/sequences
+# I maintain alacritty's colorscheme independently of pywal, mostly because
+# color0 should not be used as background...
+if [[ "${TERM}" != *"alacritty"* ]]; then
+	cat ${XDG_CONFIG_HOME}/wpg/sequences
+fi
 
 setopt no_complete_aliases
 

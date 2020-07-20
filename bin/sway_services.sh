@@ -10,5 +10,5 @@ elif [ -x /bin/sv ]; then
 	SVDIR=${XDG_CONFIG_HOME}/sv sv start mako
 else
 	mako &
-	jack_control start && pulseaudio -d && waybar &
+	waybar &
 fi
