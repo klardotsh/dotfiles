@@ -79,3 +79,7 @@ sys-apps/yarn ~amd64 ~arm64
 virtual/rust ~amd64 ~arm64
 www-client/firefox ~amd64 ~arm64
 www-client/qutebrowser ~amd64 ~arm64
+app-misc/yq ~amd64 ~arm64
+x11-misc/pywal ~amd64 ~arm64
+mail-client/neomutt ~amd64 ~arm64
+dev-haskell/stylish-haskell ~amd64 ~arm64
