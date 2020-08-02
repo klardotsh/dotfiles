@@ -50,8 +50,8 @@ gaps inner 8
 seat seat0 hide_cursor 5000
 
 ### Output configuration
-# output * bg /home/j/.wallpaper fill
-output * bg '#181512' solid_color
+output * bg /home/j/.wallpaper fill
+#output * bg '#181512' solid_color
 
 ### Input configuration
 input 1:1:AT_Translated_Set_2_keyboard xkb_layout dvorak

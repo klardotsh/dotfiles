@@ -67,6 +67,7 @@ Plug 'moll/vim-node'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rust-lang/rust.vim'
+Plug 'digitaltoad/vim-pug'
 
 " Config formats support
 Plug 'GutenYe/json5.vim'
