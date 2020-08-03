@@ -1,0 +1,6 @@
+# required by dev-lang/rust-1.45.0::gentoo
+# required by virtual/rust-1.45.0::gentoo
+# required by x11-terms/alacritty-0.4.3::gentoo
+# required by @selected
+# required by @world (argument)
+>=net-misc/curl-7.71.0 http2

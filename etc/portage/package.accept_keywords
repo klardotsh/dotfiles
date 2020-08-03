@@ -83,3 +83,6 @@ app-misc/yq ~amd64 ~arm64
 x11-misc/pywal ~amd64 ~arm64
 mail-client/neomutt ~amd64 ~arm64
 dev-haskell/stylish-haskell ~amd64 ~arm64
+app-admin/entr ~amd64 ~arm64
+media-libs/harfbuzz ~amd64 ~arm64
+app-mobilephone/adb-sync ~amd64 ~arm64
