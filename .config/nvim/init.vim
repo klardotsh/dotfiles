@@ -15,6 +15,7 @@ Plug 'editorconfig/editorconfig-vim' " Force buffer to use editorconfig settings
 Plug 'ervandew/supertab'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'markonm/traces.vim'
 
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'vim-scripts/DeleteTrailingWhitespace'
