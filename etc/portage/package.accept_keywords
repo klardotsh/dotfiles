@@ -86,3 +86,5 @@ dev-haskell/stylish-haskell ~amd64 ~arm64
 app-admin/entr ~amd64 ~arm64
 media-libs/harfbuzz ~amd64 ~arm64
 app-mobilephone/adb-sync ~amd64 ~arm64
+gui-libs/wlroots ~amd64 ~arm64
+gui-wm/sway ~amd64 ~arm64
