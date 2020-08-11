@@ -2,9 +2,3 @@
 >=net-libs/nodejs-13.0.0
 
 app-shells/fzf::nest
-
-# since I ~unmask kernels, I need to also set a version floor to avoid picking
-# up anything unexpected
-<sys-kernel/gentoo-sources-5.6.0
-
->=dev-lang/ghc-8.8.4

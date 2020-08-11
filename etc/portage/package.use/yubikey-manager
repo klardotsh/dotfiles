@@ -1,0 +1,52 @@
+# I'm not entirely sure why I need to specify this manually (and at that, only on arm64), but I assume this is related to the lack of keywording for this arch
+app-crypt/yubikey-manager python_targets_python3_6
+
+# required by app-crypt/yubikey-manager-3.1.1-r1::gentoo
+# required by yubikey-manager (argument)
+>=dev-python/click-7.1.2 python_targets_python3_6
+# required by app-crypt/yubikey-manager-3.1.1-r1::gentoo
+# required by yubikey-manager (argument)
+>=dev-python/cryptography-2.9 python_targets_python3_6
+# required by app-crypt/yubikey-manager-3.1.1-r1::gentoo
+# required by yubikey-manager (argument)
+=dev-python/fido2-0.7.3 python_targets_python3_6
+# required by app-crypt/yubikey-manager-3.1.1-r1::gentoo
+# required by yubikey-manager (argument)
+>=dev-python/pyopenssl-19.1.0 python_targets_python3_6
+# required by app-crypt/yubikey-manager-3.1.1-r1::gentoo
+# required by yubikey-manager (argument)
+>=dev-python/pyscard-1.9.9 python_targets_python3_6
+# required by app-crypt/yubikey-manager-3.1.1-r1::gentoo
+# required by yubikey-manager (argument)
+>=dev-python/pyusb-1.0.2 python_targets_python3_6
+# required by app-crypt/yubikey-manager-3.1.1-r1::gentoo
+# required by yubikey-manager (argument)
+>=dev-python/six-1.15.0 python_targets_python3_6
+# required by dev-python/certifi-2020.4.5.1::gentoo
+>=dev-python/setuptools-46.4.0-r1 python_targets_python3_6
+# required by dev-python/setuptools-46.4.0-r1::gentoo
+# required by app-crypt/yubikey-manager-3.1.1-r1::gentoo
+# required by yubikey-manager (argument)
+>=dev-python/certifi-2020.4.5.1 python_targets_python3_6
+
+# required by dev-python/cryptography-2.9::gentoo[python_targets_python3_6,python_targets_python2_7,-python_targets_python3_8,python_targets_python3_7]
+# required by dev-python/fido2-0.7.3::gentoo
+# required by app-crypt/yubikey-manager-3.1.1-r1::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-python/cffi-1.14.0-r2 python_targets_python3_6
+# required by dev-python/cffi-1.14.0-r2::gentoo
+# required by dev-python/cryptography-2.9::gentoo[python_targets_python3_6,python_targets_python2_7,-python_targets_python3_8,python_targets_python3_7]
+# required by dev-python/fido2-0.7.3::gentoo
+# required by app-crypt/yubikey-manager-3.1.1-r1::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-python/pycparser-2.20 python_targets_python3_6
+# required by dev-python/pycparser-2.20::gentoo
+# required by dev-python/cffi-1.14.0-r2::gentoo
+# required by dev-python/cryptography-2.9::gentoo[python_targets_python3_6,python_targets_python2_7,-python_targets_python3_8,python_targets_python3_7]
+# required by dev-python/fido2-0.7.3::gentoo
+# required by app-crypt/yubikey-manager-3.1.1-r1::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-python/ply-3.11 python_targets_python3_6
