@@ -3,8 +3,10 @@
 mkdir -p ~/src/mine
 git clone https://git.klar.sh/klardotsh/dotfiles ~/src/mine/dotfiles
 
-mkdir -p ~/.local/share
+mkdir -p ~/.local/share/themes
 ln -sf ~/src/mine/dotfiles/.local/share/applications ~/.local/share/
+# workaround https://github.com/deviantfero/wpgtk/issues/157
+ln -sf ~/.local/share/themes ~/.themes
 
 ln -sf ~/src/mine/dotfiles/bin ~/
 ln -sf ~/src/mine/dotfiles/.alsoftrc ~/
