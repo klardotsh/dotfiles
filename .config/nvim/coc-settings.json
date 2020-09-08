@@ -1,6 +1,6 @@
 {
-	"coc.preferences.hoverTarget": "echo",
-	"signature.target": "echo",
+	"coc.preferences.hoverTarget": "float",
+	"signature.target": "float",
 	"languageserver": {
 		"haskell": {
 			"command": "haskell-language-server-wrapper",
