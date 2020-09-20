@@ -25,9 +25,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 curl -L -o ~/.wallpaper "$(grep -Ev '^#' ~/src/mine/dotfiles/wallpaper.txt)"
 
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim +PlugInstall +qall
-
 mkdir -p ~/.icons
 ln -sf ~/src/mine/dotfiles/.icons/default ~/.icons/
 
@@ -37,3 +34,8 @@ mkdir -p ~/.icons/UNPACK.TMP
 tar -xv -C ~/.icons/UNPACK.TMP -f /tmp/capitaine-cursors.pkg.tar.xz
 mv ~/.icons/UNPACK.TMP/usr/share/icons/capitaine-cursors ~/.icons/
 rm -rf ~/.icons/UNPACK.TMP /tmp/capitaine-cursors.pkg.tar.xz
+
+# vim MUST be the last thing configured to retain compat with pipe mode, since
+# nvim will swallow the rest of curl's pipe into a buffer
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+nvim +PlugInstall +qall
