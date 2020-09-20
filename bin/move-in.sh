@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euxo pipefail
+
 mkdir -p ~/src/mine
 git clone https://git.klar.sh/klardotsh/dotfiles ~/src/mine/dotfiles
 
