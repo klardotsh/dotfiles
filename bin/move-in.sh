@@ -21,10 +21,9 @@ ln -sf ~/src/mine/dotfiles/.zshrc ~/
 ln -sf ~/src/mine/dotfiles/.tmux.conf ~/
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-curl -L -o ~/.wallpaper $(cat ~/src/mine/dotfiles/wallpaper.txt | egrep -v "^#")
+curl -L -o ~/.wallpaper "$(grep -Ev '^#' ~/src/mine/dotfiles/wallpaper.txt)"
 
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 nvim +PlugInstall +qall
 
 mkdir -p ~/.icons
