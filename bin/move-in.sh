@@ -2,6 +2,12 @@
 
 set -euxo pipefail
 
+# ensure various required things are installed
+hash curl
+hash git
+hash nvim
+hash zstd
+
 mkdir -p ~/src/mine
 git clone https://git.klar.sh/klardotsh/dotfiles ~/src/mine/dotfiles
 
@@ -29,11 +35,11 @@ mkdir -p ~/.icons
 ln -sf ~/src/mine/dotfiles/.icons/default ~/.icons/
 
 # arch packages this nicely for us, no point in building on-box
-curl -L -o /tmp/capitaine-cursors.pkg.tar.xz https://www.archlinux.org/packages/community/any/capitaine-cursors/download/
+curl -L -o /tmp/capitaine-cursors.pkg.tar.zstd https://www.archlinux.org/packages/community/any/capitaine-cursors/download/
 mkdir -p ~/.icons/UNPACK.TMP
-tar -xv -C ~/.icons/UNPACK.TMP -f /tmp/capitaine-cursors.pkg.tar.xz
+tar -xv -C ~/.icons/UNPACK.TMP -f /tmp/capitaine-cursors.pkg.tar.zstd
 mv ~/.icons/UNPACK.TMP/usr/share/icons/capitaine-cursors ~/.icons/
-rm -rf ~/.icons/UNPACK.TMP /tmp/capitaine-cursors.pkg.tar.xz
+rm -rf ~/.icons/UNPACK.TMP /tmp/capitaine-cursors.pkg.tar.zstd
 
 # vim MUST be the last thing configured to retain compat with pipe mode, since
 # nvim will swallow the rest of curl's pipe into a buffer
