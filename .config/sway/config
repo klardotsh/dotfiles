@@ -256,6 +256,7 @@ include ~/.config/sway/`hostname`.config
 # Eliminate titlebars
 for_window [title="^.*"] border pixel 1
 for_window [title="Firefox - Sharing Indicator"] floating enable
+for_window [shell="xwayland"] title_format "%title [XWayland]"
 
 # this... doesn't seem to work on a fresh musl-based void install?
 exec_always import-gsettings \
