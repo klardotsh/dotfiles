@@ -3,6 +3,7 @@
 # Released under the [Unlicense](http://unlicense.org/)
 
 export IS_GENTOO=`[ $(lsb_release -si 2>&1 || echo 'n/a') = 'Gentoo' ] && echo 1`
+export IS_VOID=`[ $(lsb_release -si 2>&1 || echo 'n/a') = 'VoidLinux' ] && echo 1`
 
 if test -z "${XDG_RUNTIME_DIR}"; then
 	export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
@@ -36,6 +37,7 @@ export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
 
 export MOZ_USE_XINPUT2=1 # Pixel-perfect trackpads <3
 export MOZ_ENABLE_WAYLAND=1
+export MOZ_WAYLAND_USE_VAAPI=1
 
 export IBUS_ENABLE_CTRL_SHIFT_U=1
 export XMODIFIERS=@im=ibus
@@ -54,6 +56,7 @@ export CLUTTER_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
 
 export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland # otherwise gets set to 'tty', breaking WebRTC
 
 export AWS_SDK_LOAD_CONFIG=true
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
