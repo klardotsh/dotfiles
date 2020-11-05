@@ -1,10 +1,12 @@
 "query:Unread Articles:unread = \"yes\""
 https://lobste.rs/rss
 https://m.signalvnoise.com/feed/
+http://antirez.com/rss
 https://daringfireball.net/feeds/main
 https://www.arp242.net/feed.xml
 https://drewdevault.com/feed.xml
 https://nolanlawson.com/wp-atom.php
+https://jneem.github.io/feed.xml
 https://solar.lowtechmagazine.com/feeds/all-en.atom.xml
 http://feeds.feedburner.com/NoTechMagazine
 http://www.plough.com/en/plough-rss-feed
