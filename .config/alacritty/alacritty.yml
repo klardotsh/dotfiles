@@ -169,36 +169,35 @@ bell:
 # The value `0.0` is completely transparent and `1.0` is opaque.
 background_opacity: 1.0
 
-# https://github.com/eendroroy/alacritty-theme/blob/master/themes/thelovelace.yaml
+# https://github.com/ryuta69/elly-iterm2/blob/31d097a2990b2c8669be75d912d5b8eb87279efa/elly.itermcolors
+# as converted by terminal.sexy
 colors:
-    # Default colors
-    primary:
-        background: '0x1D1F28'
-        #foreground: '0xFDFDFD'
-        # emdimmen!
-        foreground:   '0xBEBEC1'
+  # Default colors
+  primary:
+    background: '0x111a1f'
+    foreground: '0xc0c7ca'
 
-    # Normal colors
-    normal:
-    # Bright colors
-        black:   '0x282A36'
-        red:     '0xF37F97'
-        green:   '0x5ADECD'
-        yellow:  '0xF2A272'
-        blue:    '0x8897F4'
-        magenta: '0xC574DD'
-        cyan:    '0x79E6F3'
-        white:   '0xFDFDFD'
-    bright:
-        black:   '0x414458'
-        red:     '0xFF4971'
-        green:   '0x18E3C8'
-        yellow:  '0xEBCB8B'
-        blue:    '0xFF8037'
-        magenta: '0x556FFF'
-        cyan:    '0x3FDCEE'
-        white:   '0xBEBEC1'
-    indexed_colors: []
+  # Normal colors
+  normal:
+    black:   '0x111a1f'
+    red:     '0x8d7856'
+    green:   '0x798362'
+    yellow:  '0x9b9257'
+    blue:    '0x63768a'
+    magenta: '0x738c9c'
+    cyan:    '0x6998b3'
+    white:   '0xc0c7ca'
+
+  # Bright colors
+  bright:
+    black:   '0x868b8d'
+    red:     '0x8d7856'
+    green:   '0x798362'
+    yellow:  '0x9b9257'
+    blue:    '0x63768a'
+    magenta: '0x738c9c'
+    cyan:    '0x6998b3'
+    white:   '0xc0c7ca'
 
 # Mouse bindings
 #

@@ -9,6 +9,7 @@ Plug 'jeffkreeftmeijer/vim-dim'
 Plug 'noahfrederick/vim-noctu'
 Plug 'w0ng/vim-hybrid'
 Plug 'jim-at-jibba/ariake-vim-colors'
+Plug 'ryuta69/elly.vim'
 
 " Interface / Misc
 Plug 'Konfekt/FastFold'
