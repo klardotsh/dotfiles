@@ -65,3 +65,20 @@
 # required by media-gfx/gimp-2.10.18-r1::gentoo
 # required by gimp (argument)
 >=media-libs/gegl-0.4.22 cairo
+# required by dev-python/setuptools-50.3.0::gentoo
+# required by dev-util/meson-0.55.3::gentoo
+# required by dev-libs/libevdev-1.9.1::gentoo
+# required by dev-libs/libinput-1.16.1::gentoo
+# required by x11-drivers/xf86-input-libinput-0.30.0::gentoo
+# required by x11-base/xorg-drivers-1.20-r2::gentoo[input_devices_libinput]
+# required by x11-base/xorg-server-1.20.8-r1::gentoo[xorg]
+# required by www-client/firefox-82.0.3::gentoo[pgo]
+# required by @selected
+# required by @world (argument)
+>=dev-python/setuptools_scm-4.1.2-r1 python_targets_python3_6
+# required by x11-libs/libva-2.7.1::gentoo[video_cards_intel,video_cards_i965]
+# required by media-libs/mesa-20.1.10::gentoo[vaapi,gallium]
+# required by www-client/firefox-82.0.3::gentoo
+# required by @selected
+# required by @world (argument)
+>=x11-libs/libva-intel-driver-2.4.1 abi_x86_32

@@ -1,0 +1,6 @@
+# something about wayland needed -system-libvpx I think?
+www-client/ungoogled-chromium ozone ozone-wayland wayland -system-libvpx thinlto optimize-thinlto optimize-webui
+
+# required by www-client/ungoogled-chromium-86.0.4240.198_p1::pf4public[system-harfbuzz]
+# required by ungoogled-chromium (argument)
+>=media-libs/harfbuzz-2.7.2 icu

@@ -1,1 +1,1 @@
-media-sound/pulseaudio realtime
+media-sound/pulseaudio alsa-plugin bluetooth realtime

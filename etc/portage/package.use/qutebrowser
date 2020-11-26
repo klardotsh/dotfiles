@@ -1,0 +1,32 @@
+# required by www-client/qutebrowser-1.13.0::gentoo
+# required by qutebrowser (argument)
+>=dev-python/PyQt5-5.14.2-r1 gui widgets declarative multimedia sql printsupport network webchannel
+# required by dev-python/PyQtWebEngine-5.14.0::gentoo
+# required by www-client/qutebrowser-1.13.0::gentoo
+# required by qutebrowser (argument)
+>=dev-qt/qtwebengine-5.14.2 widgets geolocation
+# required by dev-qt/qtwebengine-5.14.2::gentoo
+# required by dev-python/PyQtWebEngine-5.14.0::gentoo
+# required by www-client/qutebrowser-1.13.0::gentoo
+# required by qutebrowser (argument)
+>=dev-qt/qtwebchannel-5.14.2 qml
+# required by dev-qt/qtwebengine-5.14.2::gentoo
+# required by dev-python/PyQtWebEngine-5.14.0::gentoo
+# required by www-client/qutebrowser-1.13.0::gentoo
+# required by qutebrowser (argument)
+>=dev-libs/libxml2-2.9.9-r3 icu
+# required by dev-qt/qtwebengine-5.14.2::gentoo
+# required by dev-python/PyQtWebEngine-5.14.0::gentoo
+# required by www-client/qutebrowser-1.13.0::gentoo
+# required by qutebrowser (argument)
+>=media-libs/libvpx-1.8.2 svc
+# required by dev-qt/qtwebengine-5.14.2::gentoo
+# required by dev-python/PyQtWebEngine-5.14.0::gentoo
+# required by www-client/qutebrowser-1.13.0::gentoo
+# required by qutebrowser (argument)
+>=sys-libs/zlib-1.2.11-r2 minizip
+# required by dev-python/PyQt5-5.14.2-r1::gentoo[multimedia]
+# required by dev-python/PyQtWebEngine-5.14.0::gentoo
+# required by www-client/qutebrowser-1.13.0::gentoo
+# required by qutebrowser (argument)
+>=dev-qt/qtmultimedia-5.14.2-r1 widgets

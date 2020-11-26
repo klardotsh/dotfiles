@@ -1,0 +1,10 @@
+# required by dev-qt/qtwayland-5.14.2::gentoo
+>=dev-qt/qtgui-5.14.2 egl
+# required by dev-qt/qtcore-5.14.2::gentoo
+# required by dev-qt/qtdbus-5.14.2::gentoo
+# required by dev-qt/qtgui-5.14.2::gentoo[dbus]
+# required by dev-qt/qtdeclarative-5.14.2-r3::gentoo
+# required by dev-qt/qtgraphicaleffects-5.14.2::gentoo
+# required by net-im/zoom-5.1.422789.0705::gentoo
+# required by net-im/zoom (argument)
+>=dev-libs/libpcre2-10.34 pcre16
