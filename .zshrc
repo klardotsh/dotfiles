@@ -164,8 +164,8 @@ elif [ "${IS_GENTOO}" = "1" ]; then
 	# some packages (notably nodejs) behave in strange ways when $HOME is
 	# preserved with my "sudo -E" alias, bypass
 	alias pi='/usr/bin/sudo emerge -av'
-	alias pu='/usr/bin/sudo emerge -av --update --deep --with-bdeps=y --newuse --autounmask-keep-masks @world'
-	alias puu='/usr/bin/sudo eix-sync'
+	alias pu='/usr/bin/sudo emerge -av --update --deep --with-bdeps=y --newuse --autounmask-keep-masks --keep-going @world'
+	alias puu='/usr/bin/sudo eix-sync -a'
 	alias apply-unmask='sudo etc-update --automode -3 /etc/portage/package.use/zz-autounmask'
 else
 	source /usr/share/fzf/key-bindings.zsh
