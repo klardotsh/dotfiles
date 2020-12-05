@@ -1,0 +1,4 @@
+# required by www-client/firefox-80.0.1-r1::gentoo[clang]
+# required by @selected
+# required by @world (argument)
+>=sys-devel/llvm-10.0.0 gold

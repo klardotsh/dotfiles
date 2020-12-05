@@ -1,0 +1,4 @@
+# required by dev-util/lldb-10.0.1::gentoo
+# required by dev-dotnet/dotnetcore-sdk-bin-3.1.402::dotnet
+# required by dev-dotnet/dotnetcore-sdk-bin-common-3.1.402::dotnet
+>=sys-devel/clang-10.0.1 xml
