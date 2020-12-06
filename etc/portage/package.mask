@@ -1,4 +1,0 @@
-# sticking to LTS of Node only
->=net-libs/nodejs-13.0.0
-
-app-shells/fzf::nest
