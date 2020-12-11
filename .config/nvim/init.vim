@@ -70,6 +70,11 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rust-lang/rust.vim'
 Plug 'digitaltoad/vim-pug'
+Plug 'jjo/vim-cue'
+Plug 'gpanders/vim-scdoc'
+Plug 'evanleck/vim-svelte'
+Plug 'purescript-contrib/purescript-vim'
+Plug 'zah/nim.vim'
 
 " Config formats support
 Plug 'GutenYe/json5.vim'
