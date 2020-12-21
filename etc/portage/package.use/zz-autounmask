@@ -82,3 +82,5 @@
 # required by @selected
 # required by @world (argument)
 >=x11-libs/libva-intel-driver-2.4.1 abi_x86_32
+# required by waybar etc.
+>=x11-libs/libpciaccess-0.16 abi_x86_32
