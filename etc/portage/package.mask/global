@@ -14,3 +14,5 @@ app-shells/fzf::nest
 
 # broken for lots of reasons on my system, evidently
 #=dev-ml/cudf-0.9
+
+net-im/nheko::guru

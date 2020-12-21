@@ -1,0 +1,3 @@
+# required by net-im/nheko-0.7.2::matrix
+# required by nheko (argument)
+>=dev-qt/qtmultimedia-5.15.1 qml gstreamer
