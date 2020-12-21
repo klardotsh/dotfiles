@@ -1,3 +1,14 @@
 games-util/steam-launcher ValveSteamLicense
 net-im/slack all-rights-reserved
 net-im/slack-bin all-rights-reserved
+# required by steam-launcher (argument)
+>=games-util/steam-launcher-1.0.0.59-r3 ValveSteamLicense
+# required by discord-bin (argument)
+>=net-im/discord-bin-0.0.9-r1 all-rights-reserved
+# required by bitwig-studio (argument)
+>=media-sound/bitwig-studio-3.1 Bitwig
+net-im/slack all-rights-reserved
+# move net-im/slack-bin net-im/slack
+net-im/slack all-rights-reserved
+net-im/zoom ZOOM all-rights-reserved
+net-im/zoom-bin ZOOM
