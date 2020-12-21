@@ -1,9 +1,13 @@
 */*::haskell ~amd64 ~arm64
+dev-haskell/* ~amd64 ~arm64
 
-# limit kernel on amd64 to 5.6 because of zfs
-<sys-kernel/gentoo-sources-5.7.0 ~amd64
-# I apparently can't uncomment this or it applies on ~amd64 as well???
-#sys-kernel/gentoo-sources ~arm64
+<dev-lang/nim-1.5.0 ~amd64 ~arm64
+
+# TODO this should only be applied on non-ZFS systems
+sys-kernel/gentoo-sources ~amd64 ~arm64
+<sys-kernel/gentoo-kernel-5.10 ~amd64 ~arm64
+<sys-kernel/gentoo-kernel-bin-5.10 ~amd64 ~arm64
+
 sys-fs/zfs-kmod ~amd64 ~arm64
 sys-fs/zfs ~amd64 ~arm64
 
@@ -11,11 +15,17 @@ sys-fs/zfs ~amd64 ~arm64
 <gui-wm/sway-1.5 ~amd64 ~arm64
 =dev-libs/libtasn1-4.16.0 ~amd64 ~arm64
 =media-libs/libsdl2-2.0.12-r1 ~amd64 ~arm64
+
 >=dev-python/pipenv-2018.11.26 ~amd64 ~arm64
+=dev-python/virtualenv-20.1.0 ~amd64 ~arm64
+
 app-admin/aws-vault ~amd64 ~arm64
+app-admin/entr ~amd64 ~arm64
 app-crypt/keybase ~amd64 ~arm64
 app-editors/kakoune ~amd64 ~arm64
 app-misc/abduco ~amd64 ~arm64
+app-misc/yq ~amd64 ~arm64
+app-mobilephone/adb-sync ~amd64 ~arm64
 app-shells/fzf ~amd64 ~arm64
 app-shells/thefuck ~amd64 ~arm64
 dev-db/pgcli ~amd64 ~arm64
@@ -48,16 +58,25 @@ games-action/multimc5 ~amd64 ~arm64
 games-puzzle/pingus ~amd64 ~arm64
 games-simulation/openrct2 ~amd64 ~arm64
 games-strategy/wesnoth ~amd64 ~arm64
+
 games-util/steam-launcher ~amd64 ~arm64
+games-util/game-device-udev-rules ~amd64 ~arm64
+
 gui-apps/grim ~amd64 ~arm64
 gui-apps/slurp ~amd64 ~arm64
+
 gui-apps/waybar ~amd64 ~arm64
+=dev-libs/date-3.0.0 ~amd64 ~arm64
+
 gui-libs/wlroots:0/10 ~amd64 ~arm64
 mail-client/aerc ~amd64 ~arm64
 mail-client/alot ~amd64 ~arm64
+mail-client/neomutt ~amd64 ~arm64
 media-fonts/iosevka ~amd64 ~arm64
 media-fonts/paratype ~amd64 ~arm64
 media-fonts/twemoji-color-font ~amd64 ~arm64
+media-fonts/cascadia-code ~amd64 ~arm64
+media-libs/harfbuzz ~amd64 ~arm64
 media-libs/libvpx ~amd64 ~arm64
 media-libs/libwebp ~amd64 ~arm64
 media-sound/bitwig-studio::audio-overlay ~amd64 ~arm64
@@ -79,12 +98,14 @@ sys-apps/yarn ~amd64 ~arm64
 virtual/rust ~amd64 ~arm64
 www-client/firefox ~amd64 ~arm64
 www-client/qutebrowser ~amd64 ~arm64
-app-misc/yq ~amd64 ~arm64
 x11-misc/pywal ~amd64 ~arm64
-mail-client/neomutt ~amd64 ~arm64
-dev-haskell/stylish-haskell ~amd64 ~arm64
-app-admin/entr ~amd64 ~arm64
-media-libs/harfbuzz ~amd64 ~arm64
-app-mobilephone/adb-sync ~amd64 ~arm64
-gui-libs/wlroots ~amd64 ~arm64
-gui-wm/sway ~amd64 ~arm64
+
+<gui-apps/wofi-9999 **
+
+net-im/zoom-bin ~amd64 ~arm64
+
+app-text/antixls ~amd64 ~arm64
+net-im/nheko ~amd64 ~arm64
+dev-db/lmdb++ ~amd64 ~arm64
+dev-libs/mtxclient ~amd64 ~arm64
+dev-libs/tweeny ~amd64 ~arm64
