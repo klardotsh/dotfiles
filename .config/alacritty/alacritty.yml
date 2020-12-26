@@ -68,7 +68,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: Cascadia Code
+    family: Iosevka Term
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -96,13 +96,13 @@ font:
     #style: Italic
 
   # Point size
-  size: 10.5
+  size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
     x: 0
-    y: 2  # cascadia code is a bit more readable with some extra v room
+    y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -169,35 +169,34 @@ bell:
 # The value `0.0` is completely transparent and `1.0` is opaque.
 background_opacity: 1.0
 
-# https://github.com/ryuta69/elly-iterm2/blob/31d097a2990b2c8669be75d912d5b8eb87279efa/elly.itermcolors
-# as converted by terminal.sexy
+# Colors (Ayu Dark)
 colors:
   # Default colors
   primary:
-    background: '0x111a1f'
-    foreground: '0xc0c7ca'
+    background: '0x0A0E14'
+    foreground: '0xB3B1AD'
 
   # Normal colors
   normal:
-    black:   '0x111a1f'
-    red:     '0x8d7856'
-    green:   '0x798362'
-    yellow:  '0x9b9257'
-    blue:    '0x63768a'
-    magenta: '0x738c9c'
-    cyan:    '0x6998b3'
-    white:   '0xc0c7ca'
+    black:   '0x01060E'
+    red:     '0xEA6C73'
+    green:   '0x91B362'
+    yellow:  '0xF9AF4F'
+    blue:    '0x53BDFA'
+    magenta: '0xFAE994'
+    cyan:    '0x90E1C6'
+    white:   '0xC7C7C7'
 
   # Bright colors
   bright:
-    black:   '0x868b8d'
-    red:     '0x8d7856'
-    green:   '0x798362'
-    yellow:  '0x9b9257'
-    blue:    '0x63768a'
-    magenta: '0x738c9c'
-    cyan:    '0x6998b3'
-    white:   '0xc0c7ca'
+    black:   '0x686868'
+    red:     '0xF07178'
+    green:   '0xC2D94C'
+    yellow:  '0xFFB454'
+    blue:    '0x59C2FF'
+    magenta: '0xFFEE99'
+    cyan:    '0x95E6CB'
+    white:   '0xFFFFFF'
 
 # Mouse bindings
 #
