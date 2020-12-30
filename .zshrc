@@ -31,7 +31,7 @@ fi
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 export TERMINAL='alacritty'
-export EDITOR='nvim'
+export EDITOR='kak'
 export BROWSER='xdg-open'
 export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
 
@@ -140,9 +140,9 @@ setopt no_complete_aliases
 alias todo="todo.sh -d ${HOME}/.todo/todo.cfg"
 alias t='todo'
 
-alias e='nvim'
-alias v='nvim'
-alias vim='nvim'
+alias e=$EDITOR
+alias v=$EDITOR
+alias vim=$EDITOR
 alias m='mosh'
 alias mux='tmux.sh $(hostname)'
 alias glowpage='glow -p'
