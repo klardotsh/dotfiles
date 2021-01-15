@@ -129,3 +129,5 @@ x11-themes/kvantum ~amd64 ~arm64
 
 gui-libs/xdg-desktop-portal-wlr **
 net-wireless/iwgtk ~amd64 ~arm64
+
+media-libs/gmmlib ~amd64 ~arm64
