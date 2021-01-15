@@ -9,6 +9,8 @@ elif [ -x /bin/sv ]; then
 	SVDIR=${XDG_CONFIG_HOME}/sv sv start waybar
 	SVDIR=${XDG_CONFIG_HOME}/sv sv start mako
 else
+	pipewire &
+	/usr/libexec/xdg-desktop-portal &
 	mako &
 	waybar &
 fi

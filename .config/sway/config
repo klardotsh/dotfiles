@@ -248,7 +248,7 @@ exec_always import-gsettings \
     cursor-theme:gtk-cursor-theme-name
 
 exec swayidle \
-	timeout 300 'swaymsg "output * dpms off"' \
+	timeout 600 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"'
 
 exec sway_services.sh
