@@ -75,6 +75,7 @@ Plug 'gpanders/vim-scdoc'
 Plug 'evanleck/vim-svelte'
 Plug 'purescript-contrib/purescript-vim'
 Plug 'zah/nim.vim'
+Plug 'LnL7/vim-nix'
 
 " Config formats support
 Plug 'GutenYe/json5.vim'
