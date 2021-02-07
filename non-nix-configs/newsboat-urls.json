@@ -1,0 +1,33 @@
+[ { "url": "query:Unread Articles:unread = \"yes\"" }
+, { "url": "https://lobste.rs/rss" }
+, { "url": "https://m.signalvnoise.com/feed/" }
+, { "url": "http://antirez.com/rss" }
+, { "url": "https://daringfireball.net/feeds/main" }
+, { "url": "https://www.arp242.net/feed.xml" }
+, { "url": "https://drewdevault.com/feed.xml" }
+, { "url": "https://nolanlawson.com/wp-atom.php" }
+, { "url": "https://jneem.github.io/feed.xml" }
+, { "url": "https://solar.lowtechmagazine.com/feeds/all-en.atom.xml" }
+, { "url": "http://feeds.feedburner.com/NoTechMagazine" }
+, { "url": "http://www.plough.com/en/plough-rss-feed" }
+, { "url": "https://reallifemag.com/feed/" }
+, { "url": "http://simonvanderveldt.nl/feed.xml" }
+, { "url": "https://lupyuen.github.io/rss.xml" }
+, { "url": "https://fam-ribbers.com/feed.xml" }
+, { "url": "https://www.wezm.net/feed/" }
+, { "url": "https://emersion.fr/blog/rss.xml" }
+, { "url": "https://jcs.org/rss" }
+, { "url": "https://ewontfix.com/feed.rss" }
+, { "url": "https://www.ribbonfarm.com/wp-feed.php" }
+, { "url": "http://tonsky.me/blog/atom.xml" }
+, { "url": "https://writing.kemitchell.com/feed.xml" }
+, { "url": "https://flak.tedunangst.com/rss" }
+, { "url": "https://utcc.utoronto.ca/~cks/space/blog/?atom" }
+, { "url": "https://vermaden.wordpress.com/feed" }
+, { "url": "https://www.phoronix.com/rss.php" }
+, { "url": "https://www.eff.org/rss/updates.xml" }
+, { "url": "https://ourincrediblejourney.tumblr.com/rss" }
+, { "url": "http://marco-lopes.com/feed.xml" }
+, { "url": "https://blog.qutebrowser.org/feeds/all.atom.xml" }
+, { "url": "https://www.tbray.org/ongoing/ongoing.atom" }
+]

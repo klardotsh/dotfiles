@@ -1,39 +1,79 @@
-# klardotsh's dotfiles
+# klardotsh's dotfiles - nix-ified!
 
-In here you'll find my configs for just about everything I use on a daily basis
-that has an exportable text-based config (that I've bothered to actually
-configure). I'm planning to restructure the repo a bit to handle device-specific
-configs in a more sane manner, but for now, here ya go.
+> Huge thanks to [@yrashk's configs](https://github.com/yrashk/nix-home) which
+> served as a great reference when converting from my old mess of symlinked
+> files to a NixOS+home-manager setup in Feb 2021!
 
-In general, everything is standardized across all machines. There are very
-rarely exceptions, and those exceptions tend to be handled with either something
-along the lines of `include <hostname>.conf`, or by an outright duplicate config
-file. Everything runs Sway, Waybar, Mako, Alacritty, Rofi, Firefox, Kakoune
-and/or Neovim, and (with one exception) PulseAudio + pulsemixer. Most heavy
-lifting happens on `antarctica` and is accessed with heavy use of `mosh` and
-`tmux` and/or `abduco`.
+Welcome to the 2021 flavor of this now-nearly-a-decade-old repo! The big change
+this year (and indeed probably the biggest change *ever* for this repo) is that
+I am now tracking more or less my entire system in Git, and not just selected
+configs, thanks to NixOS. It should be pretty straightforward to replicate any
+machine I own either onto bare metal, or into QEMU VMs, so if you want to truly
+experience how I work, it's now possible to replicate it all! (WIP at time of
+writing...)
 
+Assuming you [have Nix installed](https://nix.dev/tutorials/install-nix.html):
+
+- To test in a QEMU VM, clone this repo, pick a machine by hostname, and build
+  it with `make ${KLARDOTSH_HOSTNAME}-vm`. You can then launch the QEMU VM with
+  `./result/bin/run-${KLARDOTSH_HOSTNAME}-vm` and log in as `dummy` with no
+  password. `sudo passwd j` to give me a password and `su - j` on over.
+
+> Interactive machines may have a `-gui` build option to actually launch a QEMU
+> GUI. Check `vm.nix` for all build targets.
+
+- To run on bare metal, set up disks [as in the NixOS install
+  guide](https://nixos.org/manual/nixos/stable/index.html#ch-installation), and
+  generate a hardware config with `nixos-generate-config --root /mnt`. Save the
+  generated `hardware-configuration.nix` in `/tmp` and throw away the
+  `configuration.nix`. Then:
+
+```sh
+nix-env -i git envsubst
+cd /mnt/etc/nixos
+sudo git clone https://git.klar.sh/klardotsh/dotfiles --single-branch --branch ${DOTFILES_BRANCH:-master} .
+
+# manually merge /tmp/hardware-configuration.nix and
+# system-configurations/${KLARKLARDOTSH_HOSTNAME}-hardware.nix, to taste
+
+sudo ./generate-configuration.sh
+sudo nixos-install
+
+# assuming all goes well...
+sudo reboot
+```
+
+## What Gets Used
+
+All interactive machines have been standardized to a bit of a fault around a
+Wayland desktop with Sway, Waybar, Mako & co., Firefox, PulseAudio, Pipewire,
+Neovim (though I'm slowly moving towards Kakoune), Alacritty, and a myriad of
+generally-lightweight tools.
+
+Currently, no servers actually run Nix.
 
 ## Hostname Decoder Wheel
 
-- `snowcone`, named after [the deadmau5
-  song](https://en.wikipedia.org/wiki/Snowcone_(instrumental)), is my primary
-  machine. It is an HP Spectre 14 powered by an Intel i7-1165G7, 16GB RAM, 32GB
-  of Optane, 1TB SSD, and a 3000x2000 OLED panel I'm sure I'll manage to burn in
-  some day. Hopefully by then, OEMs will start making AMD laptops with actual
-  premium externals (ports, display panels, etc) 😀
+- `devotee`, named after the [Panic! at the Disco song "LA
+  Devotee"](https://en.wikipedia.org/wiki/LA_Devotee), was an Dell XPS
+  13 9370 with an Intel i5-8250U, 16GB RAM, 256GB NVME, and the lower-DPI 1080p
+  screen.
 
 - `antarctica`, named after the [Modest Mouse album "The Moon and
   Antarctica"](https://en.wikipedia.org/wiki/The_Moon_%26_Antarctica), is a
   gaming rig, music production host, and server. Inside is an AMD Ryzen 2700X,
-  32GB RAM, and an obscene amount of storage. It runs Gentoo.
+  32GB RAM, and an obscene amount of storage. It runs Gentoo for now, because I
+  need to offload many of its server responsibilities to other machines before I
+  can justify rebuilding its OS...
 
 - `villain`, named after the [Queens of the Stone Age album
   "Villains"](https://en.wikipedia.org/wiki/Villains_(Queens_of_the_Stone_Age_album)),
   is a bit of a toy machine at the moment, a Lenovo Yoga C630 WOS laptop powered
   by a Qualcomm Snapdragon 850, 8GB RAM, and 128GB of eMMC storage. Thanks to
-  the [aarch64-laptops](https://github.com/aarch64-laptops/build) project, it
-  kinda-sorta runs Void Linux aarch64-musl.
+  the [aarch64-laptops](https://github.com/aarch64-laptops/build) project for
+  making this thing by and large usable! It runs a very broken Gentoo build for
+  now, because I haven't ported the aarch64-specific userspace utils and patched
+  kernel to Nix yet.
 
 - `vermillion`, named after the [Slipknot song of almost the same name, except I
   can't spell](https://en.wikipedia.org/wiki/Vermilion_(song)), is a rarely-used
@@ -46,10 +86,8 @@ lifting happens on `antarctica` and is accessed with heavy use of `mosh` and
 
 ### Retired
 
-- `devotee`, named after the [Panic! at the Disco song "LA
-  Devotee"](https://en.wikipedia.org/wiki/LA_Devotee), was an Dell XPS
-  13 9370 with an Intel i5-8250U, 16GB RAM, 256GB NVME, and the lower-DPI 1080p
-  screen, running Gentoo.
+- `snowcone` is reserved for re-use because I love the name, but got rid of the
+  machine it was attached to. TBA.
 
 - Countless "legacy" machines you may find allusions to deep in the Git log... a
   few desktops, Chromebooks, Macbooks, and who knows what else. You almost

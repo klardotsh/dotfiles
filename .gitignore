@@ -3,3 +3,6 @@
 etc/sv/j/supervise
 .gnupg/
 .local
+*.qcow2
+result
+configuration.nix
