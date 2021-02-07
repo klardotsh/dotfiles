@@ -1,0 +1,5 @@
+# required by sys-libs/libunwind-1.5.0::gentoo[zlib]
+# required by dev-dotnet/dotnetcore-sdk-bin-5.0.100::dotnet
+# required by @selected
+# required by @world (argument)
+>=sys-libs/zlib-1.2.11-r2 static-libs

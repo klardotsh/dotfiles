@@ -4,22 +4,6 @@
 app-shells/fzf::nest
 dev-haskell/*::nest
 
-# broken, depends on multiple versions of "binary"
-=dev-haskell/skylighting-0.10.2
-=dev-haskell/skylighting-core-0.10.2
-
-# tends to depend on broken stuff, such as dev-haskell/skylighting-0.10.2
-app-text/pandoc::haskell
-
-# tends to depend on broken stuff, such as dev-haskell/skylighting-0.10.2
-dev-haskell/pandoc-types::haskell
-
-# why do I even bother with this overlay
-dev-haskell/binary::haskell
-
-# why do I even bother with this overlay
-dev-haskell/stack::haskell
-
 # since I ~unmask kernels, I need to also set a version floor to avoid picking
 # up anything unexpected
 <sys-kernel/gentoo-sources-5.8.0

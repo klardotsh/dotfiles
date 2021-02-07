@@ -6,12 +6,14 @@ dev-haskell/* ~amd64 ~arm64
 # TODO this should only be applied on non-ZFS systems
 sys-kernel/gentoo-sources ~amd64
 <sys-kernel/gentoo-kernel-5.11 ~amd64
+
+<virtual/dist-kernel-5.11 ~amd64
 <sys-kernel/gentoo-kernel-bin-5.11 ~amd64
 
 sys-fs/zfs-kmod ~amd64 ~arm64
 sys-fs/zfs ~amd64 ~arm64
 
-<=app-admin/terraform-0.12.28 ~amd64 ~arm64
+<=app-admin/terraform-0.12.30 ~amd64 ~arm64
 <gui-wm/sway-1.5 ~amd64 ~arm64
 =dev-libs/libtasn1-4.16.0 ~amd64 ~arm64
 =media-libs/libsdl2-2.0.12-r1 ~amd64 ~arm64
@@ -124,3 +126,8 @@ dev-lang/lua:5.1 ~amd64 ~arm64
 
 dev-qt/qtstyleplugins ~amd64 ~arm64
 x11-themes/kvantum ~amd64 ~arm64
+
+dev-util/shellcheck ~amd64 ~arm64
+
+net-misc/zerotier ~amd64 ~arm64
+app-eselect/eselect-lua ~amd64 ~arm64
