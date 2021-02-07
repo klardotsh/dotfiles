@@ -49,6 +49,7 @@ export GDK_BACKEND=wayland
 
 export QT_QPA_PLATFORM=wayland-egl
 export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_STYLE_OVERRIDE=kvantum
 export QT_IM_MODULE=ibus
 
 export BEMENU_BACKEND=wayland
@@ -59,6 +60,7 @@ export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland # otherwise gets set to 'tty', breaking WebRTC
 
 export AWS_SDK_LOAD_CONFIG=true
+export AWS_VAULT_BACKEND=file
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
 
 export MANPATH="$NPM_PACKAGES/share/man:${MANPATH}"
@@ -77,8 +79,9 @@ hash ruby 2>/dev/null && export RUBY_PATH="$(ruby -e 'print Gem.user_dir')/bin"
 # Hackaround for pipenv to auto-install pythons as needed
 hash pyenv 2>/dev/null && export PYENV_ROOT=$(pyenv root)
 
+export NIMBLE_PATH="${HOME}/.nimble/bin"
 export PERSONAL_PATH="${HOME}/bin:${HOME}/.local/bin"
-export PATH="${PERSONAL_PATH}:${RUST_PATH}:${GOLANG_PATH}:${NODEJS_PATH}:${RUBY_PATH}:${PATH}"
+export PATH="${PERSONAL_PATH}:${NIMBLE_PATH}:${RUST_PATH}:${GOLANG_PATH}:${NODEJS_PATH}:${RUBY_PATH}:${PATH}"
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
