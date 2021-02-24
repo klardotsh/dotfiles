@@ -31,6 +31,16 @@ let
     };
   }).vm;
 
+  highroad = (nixpkgs-nixos {
+    system = "x86_64-linux";
+    configuration = import ./system-configurations/highroad.nix {
+      imports = [
+        ./nix/disable-qemu-gfx.nix
+        ./nix/dummy-user.nix
+      ];
+    };
+  }).vm;
+
   villain = (nixpkgs-nixos {
     system = "aarch64-linux";
     configuration = import ./system-configurations/villain.nix {
@@ -54,6 +64,7 @@ in
   inherit antarctica;
   inherit devotee;
   inherit devotee-gui;
+  inherit highroad;
   inherit villain;
   inherit villain-gui;
 }
