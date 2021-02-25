@@ -23,7 +23,7 @@
   # configuration.nix file:
   boot.loader.grub.copyKernels = true;
 
-  boot.loader.grub.devices = [ "ata-Samsung_SSD_850_EVO_500GB_S2RANX0J146020F" ];
+  boot.loader.grub.devices = [ "/dev/disk/by-id/ata-Samsung_SSD_850_EVO_500GB_S2RANX0J146020F" ];
 
   fileSystems."/" = {
     device = "woods850EVO/root/nixos";
