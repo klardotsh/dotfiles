@@ -20,15 +20,6 @@ with config; {
   boot.kernelPackages = pkgs.linuxPackages_5_10;
   boot.supportedFilesystems = [ "zfs" ];
 
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # quoth https://nixos.wiki/wiki/NixOS_on_ZFS (24 Feb 2021)
-  # Using NixOS on a ZFS root file system might result in the boot error
-  # external pointer tables not supported when the number of hardlinks in the
-  # nix store gets very high. This can be avoided by adding this option to your
-  # configuration.nix file:
-  boot.loader.grub.copyKernels = true;
-
   # https://nixos.wiki/wiki/Accelerated_Video_Playback
   hardware.opengl = {
     enable = true;
