@@ -2,6 +2,8 @@ AMD64_VMS := \
 	devotee-vm \
 	devotee-gui-vm \
 	highroad-vm \
+	woods-vm \
+	woods-gui-vm \
 
 ARM64_VMS := \
 	villain-vm \

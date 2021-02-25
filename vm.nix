@@ -59,6 +59,25 @@ let
       ];
     };
   }).vm;
+
+  woods = (nixpkgs-nixos {
+    system = "x86_64-linux";
+    configuration = import ./system-configurations/woods.nix {
+      imports = [
+        ./nix/disable-qemu-gfx.nix
+        ./nix/dummy-user.nix
+      ];
+    };
+  }).vm;
+
+  woods-gui = (nixpkgs-nixos {
+    system = "x86_64-linux";
+    configuration = import ./system-configurations/woods.nix {
+      imports = [
+        ./nix/dummy-user.nix
+      ];
+    };
+  }).vm;
 in
 {
   inherit antarctica;
@@ -67,4 +86,6 @@ in
   inherit highroad;
   inherit villain;
   inherit villain-gui;
+  inherit woods;
+  inherit woods-gui;
 }
