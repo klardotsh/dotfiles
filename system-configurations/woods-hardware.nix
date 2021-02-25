@@ -16,14 +16,16 @@
 
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # quoth https://nixos.wiki/wiki/NixOS_on_ZFS (24 Feb 2021)
-  # Using NixOS on a ZFS root file system might result in the boot error
-  # external pointer tables not supported when the number of hardlinks in the
-  # nix store gets very high. This can be avoided by adding this option to your
-  # configuration.nix file:
-  boot.loader.grub.copyKernels = true;
-
-  boot.loader.grub.devices = [ "/dev/disk/by-id/ata-Samsung_SSD_850_EVO_500GB_S2RANX0J146020F" ];
+  boot.loader.grub = {
+    # quoth https://nixos.wiki/wiki/NixOS_on_ZFS (24 Feb 2021)
+    # Using NixOS on a ZFS root file system might result in the boot error
+    # external pointer tables not supported when the number of hardlinks in the
+    # nix store gets very high. This can be avoided by adding this option to
+    # your configuration.nix file:
+    copyKernels = true;
+    devices = [ "/dev/disk/by-id/ata-Samsung_SSD_850_EVO_500GB_S2RANX0J146020F" ];
+    efiSupport = true;
+  };
 
   fileSystems."/" = {
     device = "woods850EVO/root/nixos";
