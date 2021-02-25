@@ -14,8 +14,6 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  boot.loader.efi.canTouchEfiVariables = true;
-
   boot.loader.grub = {
     # quoth https://nixos.wiki/wiki/NixOS_on_ZFS (24 Feb 2021)
     # Using NixOS on a ZFS root file system might result in the boot error
@@ -23,7 +21,8 @@
     # nix store gets very high. This can be avoided by adding this option to
     # your configuration.nix file:
     copyKernels = true;
-    devices = [ "/dev/disk/by-id/ata-Samsung_SSD_850_EVO_500GB_S2RANX0J146020F" ];
+    device = "nodev";
+    efiInstallAsRemovable = true;
     efiSupport = true;
   };
 
