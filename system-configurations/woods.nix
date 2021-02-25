@@ -44,6 +44,7 @@ with config; {
   networking.hostName = "woods";
   networking.useDHCP = true;
 
+  powerManagement.cpuFreqGovernor = "schedutil";
   programs.mosh.enable = true;
 
   services.zfs = {
