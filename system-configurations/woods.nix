@@ -42,6 +42,7 @@ with config; {
       frequent = 8; # keep the latest eight 15-minute snapshots (instead of four)
       monthly = 1; # keep only one monthly snapshot (instead of twelve)
     };
+    trim.enable = true;
   };
 
   # This value determines the NixOS release from which the default
