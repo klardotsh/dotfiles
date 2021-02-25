@@ -20,6 +20,17 @@ with config; {
   boot.kernelPackages = pkgs.linuxPackages_5_10;
   boot.supportedFilesystems = [ "zfs" ];
 
+  fileSystems."/data" = {
+    # FIXME fix highroad (router) to allow for hostname addressing
+    device = "192.168.42.201:/data";
+    fsType = "nfs";
+    options = [
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=600"
+    ];
+  };
+
   # https://nixos.wiki/wiki/Accelerated_Video_Playback
   hardware.opengl = {
     enable = true;
