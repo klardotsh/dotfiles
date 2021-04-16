@@ -45,14 +45,14 @@
          "x" : 0
       },
       "normal" : {
-         "family" : "MonoLisa",
+         "family" : "Iosevka",
          "style" : "Regular"
       },
       "offset" : {
          "true" : 0,
          "x" : 0
       },
-      "size" : 10,
+      "size" : 11,
       "use_thin_strokes" : true
    },
    "key_bindings" : [

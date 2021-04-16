@@ -17,12 +17,14 @@ with config; {
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
+  boot.kernel.sysctl."fs.inotify.max_user_instances" = 524288;
+  boot.kernel.sysctl."fs.inotify.max_user_watches" = 524288;
   boot.kernelPackages = pkgs.linuxPackages_5_10;
   boot.supportedFilesystems = [ "zfs" ];
 
   fileSystems."/data" = {
     # FIXME fix highroad (router) to allow for hostname addressing
-    device = "192.168.42.201:/data";
+    device = "192.168.42.203:/data";
     fsType = "nfs";
     options = [
       "noauto"
@@ -69,4 +71,16 @@ with config; {
     enable = true;
     algorithm = "zstd";
   };
+
+  # TODO: turn into a steam.nix interstitial
+  nixpkgs.config.allowBroken = true;
+  programs.steam = {
+      enable = true;
+  };
+
+  environment.systemPackages = with pkgs; [
+    (callPackage ../nix/bitwig-studio-environment.nix { })
+  ];
+
+  virtualisation.docker.enable = true;
 }

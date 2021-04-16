@@ -14,6 +14,8 @@ in
   nixpkgs.overlays = [
     (self: super: {
     })
+
+    (import sources.neovim-nightly-overlay)
   ];
 
   time.timeZone = "America/Los_Angeles";
@@ -22,6 +24,7 @@ in
   environment.systemPackages = [
     pkgs.home-manager
     pkgs.htop
+    pkgs.killall
   ];
 
   networking.firewall.allowedTCPPorts = [
@@ -37,22 +40,52 @@ in
       "wheel"
     ];
     openssh.authorizedKeys.keys = [ (builtins.readFile ../klardotsh.id_rsa.pub) ];
+    shell = pkgs.zsh;
   };
 
   home-manager.useGlobalPkgs = true;
   home-manager.users.j = import ../nix/user-j.nix;
 
-  # https://nixos.wiki/wiki/PulseAudio
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.support32Bit = true;
-  # since the alsa plugin is useful and the BT module is I believe also trimmed
-  # from the stock package, and since disk space is cheap...
-  hardware.pulseaudio.package = pkgs.pulseaudioFull;
+  nixpkgs.config.pulseaudio = true;
+  services.pipewire = {
+    enable = true;
+    #alsa = {
+    #  enable = true;
+    #  support32Bit = true;
+    #};
+    #pulse.enable = true;
+    #jack.enable = true;
+  };
+  nixpkgs.config.pipewire = true;
+
+  # preemptively fix a bunch of stuff here since user-j will pull in a ton of
+  # GTK stuff
+  programs.dconf.enable = true;
 
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
-    gtkUsePortal = true;
+  };
+
+  fonts = {
+    fontconfig = {
+      defaultFonts = {
+        monospace = ["Iosevka"];
+      };
+    };
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      font-awesome
+      noto-fonts
+      iosevka
+      paratype-pt-sans
+      paratype-pt-serif
+      twitter-color-emoji
+      twemoji-color-font
+    ];
   };
 }
