@@ -3,12 +3,12 @@
   inputs.home-manager.url = github:nix-community/home-manager/release-20.09;
 
   outputs = { self, nixpkgs, home-manager }: {
-    nixosConfigurations.villain = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.devotee = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./nix/nix.nix # lol
-        ./system-configurations/villain-hardware.nix
-        (import ./system-configurations/villain.nix {
+        ./system-configurations/devotee-hardware.nix
+        (import ./system-configurations/devotee.nix {
           inherit home-manager;
         })
       ];
