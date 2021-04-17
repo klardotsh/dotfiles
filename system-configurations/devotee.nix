@@ -7,7 +7,7 @@ with config; {
     ../nix/global.nix
 
     ../nix/death-to-sudo.nix
-    ../nix/interactive-machines.nix
+    (import ../nix/interactive-machines.nix { inherit home-manager; })
     ../nix/ssh-keys-only.nix
     ../nix/wifi-bt.nix
     ../nix/yubikey.nix
