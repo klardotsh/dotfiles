@@ -1,11 +1,8 @@
-let
-  sources = import ../nix/sources.nix;
-in
-{ imports ? [] }:
+{ home-manager, nixos-hardware, imports ? [ ] }:
 { config, pkgs, ... }:
 with config; {
   imports = imports ++ [
-    (sources.nixos-hardware + "/dell/xps/13-9370")
+    (nixos-hardware + "/dell/xps/13-9370")
 
     ../nix/global.nix
 
