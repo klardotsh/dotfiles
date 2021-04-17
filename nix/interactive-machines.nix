@@ -1,22 +1,13 @@
-let
-  sources = import ../nix/sources.nix;
-in
+{ home-manager }:
 { config, pkgs, ... }:
 {
   imports = [
-    (sources.home-manager + "/nixos")
+    (home-manager + "/nixos")
   ];
 
   # let's just be real, no machines a mere mortal would sit at and use these
   # days can run without unfree software
   nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.overlays = [
-    (self: super: {
-    })
-
-    (import sources.neovim-nightly-overlay)
-  ];
 
   time.timeZone = "America/Los_Angeles";
   nix.trustedUsers = [ "@wheel" ];
@@ -35,6 +26,7 @@ in
     isNormalUser = true;
     extraGroups = [
       "audio"
+      "docker"
       "kvm"
       "storage"
       "wheel"

@@ -1,14 +1,11 @@
-let
-  sources = import ../nix/sources.nix;
-in
-{ imports ? [ ] }:
-{ config, pkgs, ... }:
-with config; {
+{ home-manager, imports ? [ ] }:
+{ pkgs, ... }:
+{
   imports = imports ++ [
     ../nix/global.nix
 
     ../nix/death-to-sudo.nix
-    ../nix/interactive-machines.nix
+    (import ../nix/interactive-machines.nix { inherit home-manager; })
     ../nix/ssh-keys-only.nix
     ../nix/wifi-bt.nix
     ../nix/yubikey.nix
