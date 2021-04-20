@@ -75,6 +75,25 @@ in
     settings = lib.importJSON ../non-nix-configs/alacritty.json;
   };
 
+  /*
+  programs.chromium = {
+    enable = true;
+    package = (pkgs.ungoogled-chromium.override {
+      enableVaapi = true;
+    });
+    extensions = [
+      "gcbommkclmclpchllfjekcdonpmejbdp" # https everywhere
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
+      "ogfcmafjalglgifnmanfmnieipoejdcf" # umatrix
+      "eimadpbcbfnmbkopoojfekhnkhdbieeh" # dark reader
+      "jnofiabkigekemighcdaejlpgdhmbaog" # simple auto hd youtube
+      "clngdbkpkpeebahjckkjfobafhncgmne" # stylus
+      "nngceckbapebfimnlniiiahkandclblb" # bitwarden
+      "ihlenndgcmojhcghmfjfneahoeklbjjh" # cvim
+    ];
+  };
+  */
+
   programs.direnv.enable = true;
 
   programs.firefox = {
@@ -85,9 +104,6 @@ in
           "accessibility.typeaheadfind.flashBar" = 0;
           "general.smoothScroll" = true;
           "media.ffmpeg.vaapi.enabled" = true;
-          "media.peerconnection.video.use_rtx" = false;
-          # ^ is this still needed? was originally there to work around an
-          # obnoxious jitsi bug
           "media.peerconnection.video.vp9_preferred" = true;
         };
       };
@@ -263,6 +279,7 @@ in
     extraConfig = builtins.readFile ../non-nix-configs/newsboat-extra.conf;
   };
 
+  /*
   programs.qutebrowser = {
     enable = true;
     settings = {
@@ -290,6 +307,7 @@ in
       };
     };
   };
+  */
 
   programs.tmux.enable = true;
 

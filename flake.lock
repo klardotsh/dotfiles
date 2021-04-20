@@ -1,12 +1,61 @@
 {
   "nodes": {
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1617824794,
+        "narHash": "sha256-UGkvzx0nIXHhNq/KwJLjXvKAQRE2V33MuX+UirvqrkQ=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "2aa20ae969f2597c4df10a094440a66e9d7f8c86",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "release-20.09",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nixos-hardware": {
+      "locked": {
+        "lastModified": 1618410381,
+        "narHash": "sha256-/HMmKDAOTqQ0mlL2xk7wgTmaLqDkZsyXBn/JO2+SQc8=",
+        "owner": "NixOS",
+        "repo": "nixos-hardware",
+        "rev": "267d8b2d7f049d2cb9b7f4a7f981c123db19a868",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixos-hardware",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1618561877,
-        "narHash": "sha256-dojeWcMeJmBlpwMgC88crSPdy0a75mid2HVRi9S7FsA=",
+        "lastModified": 1618894818,
+        "narHash": "sha256-ZzZ7UHEwLS+nIQzSCSz86BvHYIv2z3f2W6SrtAQC7a8=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c7e905b6a971dad2c26a31960053176c770a812a",
+        "rev": "865110942454456f0a627eef6f3d59c5c8e7b2eb",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1618853290,
+        "narHash": "sha256-K4fddnrGOcKL+6CEchRrVmepiwvwvHxB87goqBTI5Bs=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9a1672105db0eebe8ef59f310397435f2d0298d0",
         "type": "github"
       },
       "original": {
@@ -18,7 +67,9 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "home-manager": "home-manager",
+        "nixos-hardware": "nixos-hardware",
+        "nixpkgs": "nixpkgs_2"
       }
     }
   },
