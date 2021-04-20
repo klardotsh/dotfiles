@@ -426,6 +426,7 @@ in
       modifier = swayModifier;
       keybindings = {
         "${swayModifier}+Shift+c" = "reload";
+        "${swayModifier}+end" = "kill";
         "${swayModifier}+Return" = "exec alacritty";
         "${swayModifier}+Space" = "exec ${pkgs.wofi}/bin/wofi -Imi -t alacritty --show drun,run -p 'Run:'";
         "${swayModifier}+h" = "focus left";
@@ -472,6 +473,35 @@ in
       };
       output = {
         "*" = { bg = "~/.wallpaper fill"; };
+        # this works for now - eventually if I have some eDP-1-having device
+        # that should run at another scale, I'll need to plumb all the way from
+        # the system definition to here, but that day is not today
+        "eDP-1" = { scale = "1.25"; };
+      };
+      input =
+      let
+        dvorak_keyboard = {
+          xkb_layout = "dvorak";
+          xkb_options = "caps:backspace";
+        };
+        nat_scroll_trackpad = {
+          accel_profile = "adaptive";
+          dwt = "on";
+          middle_emulation = "enabled";
+          natural_scroll = "enabled";
+          tap = "enabled";
+          tap_button_map = "lrm";
+        };
+      in
+      {
+        "1:1:AT_Translated_Set_2_keyboard" = dvorak_keyboard;
+        "1133:45849:Logitech_K810_Keyboard" = dvorak_keyboard;
+
+        "2:7:SynPS/2_Synaptics_TouchPad" = nat_scroll_trackpad;
+        "1739:30383:DELL07E6:00_06CB:76AF_Touchpad" = nat_scroll_trackpad;
+        "1452:613:Apple_Inc._Magic_Trackpad_2" = nat_scroll_trackpad;
+        "1133:16641:Logitech_Rechargeable_Touchpad_T650" = nat_scroll_trackpad;
+        "1267:12635:ELAN072D:00_04F3:315B_Touchpad" = nat_scroll_trackpad;
       };
     };
 
