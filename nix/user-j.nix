@@ -3,6 +3,13 @@ let
 in
 { lib, pkgs, ... }:
 {
+  # TODO FIXME remove if
+  # https://github.com/nix-community/home-manager/issues/1262 is ever resolved
+  # because no manpages makes josh sad, but also
+  # https://discourse.nixos.org/t/how-to-get-nixos-install-flake-to-work/10069/4
+  # is a thing (building manpages breaks in pure mode, a requirement of flakes)
+  manual.manpages.enable = false;
+
   home.packages = with pkgs; [
     # since a lot of my projects use Makefiles as general-purpose entrypoints,
     # let's just install that now
