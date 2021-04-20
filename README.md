@@ -47,24 +47,36 @@ sudo reboot
 
 All interactive machines have been standardized to a bit of a fault around a
 Wayland desktop with Sway, Waybar, Mako & co., Firefox, PulseAudio, Pipewire,
-Neovim (though I'm slowly moving towards Kakoune), Alacritty, and a myriad of
-generally-lightweight tools.
-
-Currently, no servers actually run Nix.
+Neovim Alacritty, and a myriad of generally-lightweight tools. For the most
+part, all my storage (except for EFI partitions) is managed with ZFS.
 
 ## Hostname Decoder Wheel
+
+- `woods`, named after the [Bon Iver song by that
+  name](https://en.wikipedia.org/wiki/Blood_Bank_(EP)), is my general purpose
+  workstation powered by an AMD Ryzen 3900X, 32GB RAM, 1TB of SSD, and a Vega
+  56.
 
 - `devotee`, named after the [Panic! at the Disco song "LA
   Devotee"](https://en.wikipedia.org/wiki/LA_Devotee), was an Dell XPS
   13 9370 with an Intel i5-8250U, 16GB RAM, 256GB NVME, and the lower-DPI 1080p
   screen.
 
-- `antarctica`, named after the [Modest Mouse album "The Moon and
-  Antarctica"](https://en.wikipedia.org/wiki/The_Moon_%26_Antarctica), is a
-  gaming rig, music production host, and server. Inside is an AMD Ryzen 2700X,
-  32GB RAM, and an obscene amount of storage. It runs Gentoo for now, because I
-  need to offload many of its server responsibilities to other machines before I
-  can justify rebuilding its OS...
+- `highroad`, named after the [Mastodon song by that
+  name](https://en.wikipedia.org/wiki/High_Road_(Mastodon_song)), is a NixOS
+  router running on some cheap Dell thing I picked up at
+  [RE-PC](http://www.repc.com/). Apparently it runs an i3-4170 and 8GB RAM.
+  Neat.
+
+- `sappy`, named after the [Nirvana song by that
+  name](https://en.wikipedia.org/wiki/Sappy), is a headless server box (hosting
+  things like Git, Minecraft, etc.), powered by an AMD Ryzen 2700X and 32GB RAM.
+
+- `otherside`, named after the [Red Hot Chili Peppers song by that
+  name](https://en.wikipedia.org/wiki/Otherside) is a NAS, powered by whatever
+  random parts I had lying around the house, which apparently included an Intel
+  i5-6600k and 32GB of almost certainly mismatched RAM. I lost track of how much
+  storage it has.
 
 - `villain`, named after the [Queens of the Stone Age album
   "Villains"](https://en.wikipedia.org/wiki/Villains_(Queens_of_the_Stone_Age_album)),
@@ -94,7 +106,7 @@ Currently, no servers actually run Nix.
   certainly won't care about these.
 
 
-## Replicating This Setup
+## Replicating This Setup (LEFTOVERS FROM PRE-NIX)
 
 ### GTK/QT Themes
 
