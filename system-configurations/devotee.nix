@@ -16,10 +16,23 @@ with config; {
 
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
+  boot.kernel.sysctl."fs.inotify.max_user_instances" = 524288;
+  boot.kernel.sysctl."fs.inotify.max_user_watches" = 524288;
   boot.kernelPackages = pkgs.linuxPackages_5_10;
 
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = true;
+
+  fileSystems."/data" = {
+    # FIXME fix highroad (router) to allow for hostname addressing
+    device = "192.168.42.203:/data";
+    fsType = "nfs";
+    options = [
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=600"
+    ];
+  };
 
   # https://nixos.wiki/wiki/Accelerated_Video_Playback
   hardware.opengl = {
@@ -35,6 +48,16 @@ with config; {
   networking.hostName = "devotee";
 
   programs.mosh.enable = true;
+
+  services.zfs = {
+    autoScrub.enable = true;
+    autoSnapshot = {
+      enable = true;
+      frequent = 8; # keep the latest eight 15-minute snapshots (instead of four)
+      monthly = 1; # keep only one monthly snapshot (instead of twelve)
+    };
+    trim.enable = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
