@@ -470,6 +470,8 @@ in
         "${swayModifier}+b" = "splith";
         "${swayModifier}+v" = "splitv";
         "${swayModifier}+r" = "mode resize";
+        "XF86MonBrightnessUp" = "exec ${pkgs.light}/bin/light -A 10";
+        "XF86MonBrightnessDown" = "exec ${pkgs.light}/bin/light -U 10";
       };
       output = {
         "*" = { bg = "~/.wallpaper fill"; };
