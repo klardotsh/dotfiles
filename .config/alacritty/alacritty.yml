@@ -68,7 +68,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: MonoLisa
+    family: Iosevka Term
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -96,7 +96,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 10.0
+  size: 11
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -228,25 +228,12 @@ mouse:
   # If this is `true`, the cursor is temporarily hidden when typing.
   hide_when_typing: false
 
-  url:
-    # URL launcher
-    #
-    # This program is executed when clicking on a text which is recognized as a URL.
-    # The URL is always added to the command as the last parameter.
-    #
-    # When set to `None`, URL launching will be disabled completely.
-    #
-    # Default:
-    #   - (macOS) open
-    #   - (Linux) xdg-open
-    #   - (Windows) explorer
-    #launcher: xdg-open
-
+  hints:
     # URL modifiers
     #
     # These are the modifiers that need to be held down for opening URLs when clicking
     # on them. The available modifiers are documented in the key binding section.
-    modifiers: None
+    mods: None
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
