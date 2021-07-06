@@ -31,7 +31,7 @@ fi
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 export TERMINAL='alacritty'
-export EDITOR='kak'
+export EDITOR='nvim'
 export BROWSER='xdg-open'
 export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
 
@@ -45,7 +45,6 @@ export XMODIFIERS=@im=ibus
 export GTK_CSD=0
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export GTK_IM_MODULE=ibus
-export GDK_BACKEND=wayland
 
 export QT_QPA_PLATFORM=wayland-egl
 export QT_QPA_PLATFORMTHEME=qt5ct
