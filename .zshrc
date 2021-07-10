@@ -19,6 +19,10 @@ fi
 
 source $XDG_RUNTIME_DIR/dbus_shared_session_hackery.env 2>/dev/null
 
+if [ ! -z ~/.cargo/env ]; then
+	source ~/.cargo/env
+fi
+
 # https://www.reddit.com/r/voidlinux/comments/cycyv9/notifications_not_working_using_dbus_and_elogind/eyu0ved/
 # applies to gentoo as well - modified to try to retain "session-ness", which
 # is a term, I promise
@@ -139,12 +143,6 @@ _pipenv() {
 if [[ "$(basename -- ${(%):-%x})" != "_pipenv" ]]; then
   autoload -U compinit && compinit
   compdef _pipenv pipenv
-fi
-
-# I maintain alacritty's colorscheme independently of pywal, mostly because
-# color0 should not be used as background...
-if [[ "${TERM}" != *"alacritty"* ]]; then
-	cat ${XDG_CONFIG_HOME}/wpg/sequences
 fi
 
 setopt no_complete_aliases
