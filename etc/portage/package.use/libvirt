@@ -1,4 +1,0 @@
-app-emulation/libvirt virt-network
-net-dns/dnsmasq script
-app-emulation/virt-manager gtk policykit
-net-misc/spice-gtk usbredir

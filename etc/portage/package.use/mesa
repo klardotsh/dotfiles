@@ -1,4 +1,0 @@
-## it's usually not possible to enable vaapi right off the bat from stage3, so
-## this line generally needs toggled around a bit until the system is up and
-## running, and then can be left commented
-# media-libs/mesa -vaapi

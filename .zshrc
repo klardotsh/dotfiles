@@ -2,7 +2,6 @@
 # Maintained 2012-19 (and counting)
 # Released under the [Unlicense](http://unlicense.org/)
 
-export IS_GENTOO=`[ $(lsb_release -si 2>&1 || echo 'n/a') = 'Gentoo' ] && echo 1`
 export IS_VOID=`[ $(lsb_release -si 2>&1 || echo 'n/a') = 'VoidLinux' ] && echo 1`
 
 if test -z "${XDG_RUNTIME_DIR}"; then
@@ -170,31 +169,11 @@ if [ "${IS_VOID}" = "1" ]; then
 	alias pu="${PRIV_CHANGER} xbps-install -Su"
 	alias pql='xbps-query -f'
 	alias pqs='xbps-query -s'
-elif [ "${IS_GENTOO}" = "1" ]; then
-	export PRIV_CHANGER='sudo'
-	alias sudo='sudo -E '
-
-	source /usr/share/fzf/key-bindings.zsh
-
-	alias pf='eix -r'
-	# some packages (notably nodejs) behave in strange ways when $HOME is
-	# preserved with my "sudo -E" alias, bypass
-	alias pi='/usr/bin/sudo emerge -av'
-	alias pu='/usr/bin/sudo emerge -av --update --deep --with-bdeps=y --newuse --autounmask-keep-masks --keep-going @world'
-	alias puu='/usr/bin/sudo eix-sync -a'
-	alias apply-unmask='sudo etc-update --automode -3 /etc/portage/package.use/zz-autounmask'
 else
 	export PRIV_CHANGER='sudo'
 	alias sudo='sudo -E '
 
 	source /usr/share/fzf/key-bindings.zsh
-
-	alias pf='yay -Ss'
-	alias pi='yay -S'
-	alias pii='yay -Sy'
-	alias pu='yay -Syu'
-	alias pql='pacman -Ql'
-	alias pqs='pacman -Qs'
 fi
 
 alias nmap-quickscan="${PRIV_CHANGER} nmap -sV -T4 -O -F --version-light"
