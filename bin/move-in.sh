@@ -9,7 +9,7 @@ hash nvim
 hash zstd
 
 mkdir -p ~/src/mine
-git clone https://git.klar.sh/klardotsh/dotfiles ~/src/mine/dotfiles
+[ ! -d ~/src/mine/dotfiles ] && git clone https://git.klar.sh/klardotsh/dotfiles ~/src/mine/dotfiles
 
 mkdir -p ~/.local/share/themes
 ln -sf ~/src/mine/dotfiles/.local/share/applications ~/.local/share/
@@ -27,7 +27,7 @@ ln -sf ~/src/mine/dotfiles/.zshenv ~/
 ln -sf ~/src/mine/dotfiles/.zshrc ~/
 
 ln -sf ~/src/mine/dotfiles/.tmux.conf ~/
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+[ ! -d ~/.tmux/plugins/tpm ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 curl -L -o ~/.wallpaper "$(grep -Ev '^#' ~/src/mine/dotfiles/wallpaper.txt)"
 
@@ -35,13 +35,14 @@ mkdir -p ~/.icons
 ln -sf ~/src/mine/dotfiles/.icons/default ~/.icons/
 
 # arch packages this nicely for us, no point in building on-box
-curl -L -o /tmp/capitaine-cursors.pkg.tar.zstd https://www.archlinux.org/packages/community/any/capitaine-cursors/download/
-mkdir -p ~/.icons/UNPACK.TMP
-tar -xv -C ~/.icons/UNPACK.TMP -f /tmp/capitaine-cursors.pkg.tar.zstd
-mv ~/.icons/UNPACK.TMP/usr/share/icons/capitaine-cursors ~/.icons/
-rm -rf ~/.icons/UNPACK.TMP /tmp/capitaine-cursors.pkg.tar.zstd
+[ ! -d ~/.icons/capitaine-cursors ] && curl -L -o /tmp/capitaine-cursors.pkg.tar.zstd https://www.archlinux.org/packages/community/any/capitaine-cursors/download/
+[ ! -d ~/.icons/capitaine-cursors ] && mkdir -p ~/.icons/UNPACK.TMP
+[ ! -d ~/.icons/capitaine-cursors ] && tar -xv -C ~/.icons/UNPACK.TMP -f /tmp/capitaine-cursors.pkg.tar.zstd
+[ ! -d ~/.icons/capitaine-cursors ] && mv ~/.icons/UNPACK.TMP/usr/share/icons/capitaine-cursors ~/.icons/
+[ ! -d ~/.icons/capitaine-cursors ] && rm -rf ~/.icons/UNPACK.TMP /tmp/capitaine-cursors.pkg.tar.zstd
 
 # vim MUST be the last thing configured to retain compat with pipe mode, since
 # nvim will swallow the rest of curl's pipe into a buffer
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-nvim +PlugInstall +qall
+PAQ_DEST="${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/start/paq-nvim
+[ ! -d ${PAQ_DEST} ] && git clone --depth=1 https://github.com/savq/paq-nvim.git ${PAQ_DEST}
+nvim +PaqInstall +qall
