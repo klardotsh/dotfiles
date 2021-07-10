@@ -1,21 +1,22 @@
+// lots taken from
+// https://github.com/lokesh-krishna/dotfiles/blob/15e0d3734ba29a11efcecb6b8d6ca8e917c9d28e/tokyo-night/config/waybar/config
 {
 	"layer": "bottom", // mostly prevents covering fullscreen windows
-	"position": "top",
-	"height": 24, // Waybar height
-
-	"modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
+    "position": "top",
+    "height": 30,
+    "modules-left": ["sway/workspaces", "sway/mode"],
 	"modules-center": ["sway/window"],
 	"modules-right": [
-		"custom/weather",
-		"pulseaudio",
-		"network",
-		"cpu",
-		"memory",
-		"battery",
 		"tray",
+		"custom/weather",
+		//"cpu",
+		"memory",
+		"network",
+		"pulseaudio",
+		"battery",
 		"clock"
 	],
-
+    // Modules configuration
 	"sway/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
@@ -24,45 +25,51 @@
 			"urgent": "",
 			"focused": "",
 			"default": ""
-		}
-	},
+		},
+     },
 	"sway/mode": {
 		"format": "<span style=\"italic\">{}</span>"
 	},
-	"tray": {
-		// "icon-size": 21,
-		"spacing": 2
+	"custom/date": {
+    		"format": "󰸗 {}",
+		"interval": 3600,
+		"exec": "/home/loki/bin/waybar-date.sh"
 	},
 	"clock": {
-		"format": "{:%a %d %b  %H:%M}"
-	},
-	"cpu": {
-		"format": "{usage}% "
+		"format": "{:%a %d %H:%M}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "{:%Y-%m-%d}"
 	},
 	"memory": {
-		"format": "{}% "
+		"format": " {}%"
 	},
 	"battery": {
-		"bat": "BAT0",
 		"states": {
-			// "good": 95,
-			"warning": 25,
-			"critical": 15
+			"warning": 30,
+			"critical": 15,
 		},
-		"format": "{capacity}% {icon}",
-		// "format-good": "", // An empty format will hide the module
-		// "format-full": "",
-		"format-icons": ["", "", "", "", ""]
+		"format": "{icon} {capacity}%",
+		"format-charging": "󰂄 {capacity}%",
+		"format-plugged": "󰂄{capacity}%",
+		"format-alt": "{time} {icon}",
+		"format-full": "󱈑 {capacity}%",
+		"format-icons": ["󱊡", "󱊢", "󱊣"]
+	},
+	"network": {
+        	"format-wifi": "  {essid}",
+        	"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        	"format-linked": "{ifname} (No IP) ",
+        	"format-disconnected": "󰤮 Disconnected",
+        	"format-alt": "{ifname}: {ipaddr}/{cidr}"
 	},
 	"network": {
 		// "interface": "wlp2s0", // (Optional) To force the use of this interface
-		"format-wifi": "{essid} ",
-		"format-ethernet": "{ipaddr} ",
-		"format-disconnected": "Disconnected ⚠"
+		"format-wifi": "  {essid}",
+		"format-ethernet": " {ipaddr}",
+		"format-disconnected": "⚠ Disconnected"
 	},
 	"pulseaudio": {
-		//"scroll-step": 1,
-		"format": "{volume}% {icon}",
+		"format": "{icon} {volume}%",
 		"format-bluetooth": "{volume}% {icon}",
 		"format-muted": "",
 		"format-icons": {
@@ -74,7 +81,6 @@
 			"car": "",
 			"default": ["", ""]
 		},
-		"on-click": "pavucontrol"
 	},
 	"custom/weather": {
 		"format": "{}",
@@ -83,6 +89,6 @@
 		"interval": 1800,
 		"return-type": "json",
 		"exec": "~/bin/weather-waybar.sh",
-		"exec-if": "ping -c1 wttr.in"
-	}
+		"exec-if": "ping -c1 wttr.in",
+	},
 }

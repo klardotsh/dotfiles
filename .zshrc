@@ -79,6 +79,19 @@ hash pyenv 2>/dev/null && export PYENV_ROOT=$(pyenv root)
 export PERSONAL_PATH="${HOME}/bin:${HOME}/.local/bin"
 export PATH="${PERSONAL_PATH}:${RUST_PATH}:${GOLANG_PATH}:${NODEJS_PATH}:${RUBY_PATH}:${PATH}"
 
+# Subpixel hinting mode can be chosen by setting the right TrueType interpreter
+# version. The available settings are:
+#
+# truetype:interpreter-version=35 # Classic mode (default in 2.6)
+# truetype:interpreter-version=38 # Infinality mode
+# truetype:interpreter-version=40 # Minimal mode (default in 2.7)
+#
+# There are more properties that can be set, separated by whitespace. Please
+# refer to the FreeType documentation for details.
+#
+# Uncomment and configure below
+export FREETYPE_PROPERTIES="truetype:interpreter-version=38"
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -147,16 +160,22 @@ alias mux='tmux.sh $(hostname)'
 alias glowpage='glow -p'
 
 if [ "${IS_VOID}" = "1" ]; then
+	export PRIV_CHANGER='doas'
+	alias sudo="${PRIV_CHANGER} "
+
 	source /usr/share/doc/fzf/key-bindings.zsh
 
 	alias pf='xbps-query -Rs'
 	alias pff='xlocate'
 	alias pffi='xlocate -S'
-	alias pi='sudo xbps-install -S'
-	alias pu='sudo xbps-install -Su'
+	alias pi="${PRIV_CHANGER} xbps-install -S"
+	alias pu="${PRIV_CHANGER} xbps-install -Su"
 	alias pql='xbps-query -f'
 	alias pqs='xbps-query -s'
 elif [ "${IS_GENTOO}" = "1" ]; then
+	export PRIV_CHANGER='sudo'
+	alias sudo='sudo -E '
+
 	source /usr/share/fzf/key-bindings.zsh
 
 	alias pf='eix -r'
@@ -167,6 +186,9 @@ elif [ "${IS_GENTOO}" = "1" ]; then
 	alias puu='/usr/bin/sudo eix-sync -a'
 	alias apply-unmask='sudo etc-update --automode -3 /etc/portage/package.use/zz-autounmask'
 else
+	export PRIV_CHANGER='sudo'
+	alias sudo='sudo -E '
+
 	source /usr/share/fzf/key-bindings.zsh
 
 	alias pf='yay -Ss'
@@ -177,11 +199,9 @@ else
 	alias pqs='pacman -Qs'
 fi
 
-alias nmap-quickscan='sudo nmap -sV -T4 -O -F --version-light'
+alias nmap-quickscan="${PRIV_CHANGER} nmap -sV -T4 -O -F --version-light"
 
 alias mp='makepkg -icsr'
-
-alias sudo='sudo -E '
 
 alias df='df -h -x devtmpfs -x rootfs -x tmpfs' # hide all these Arch-standard FSes
 
@@ -225,6 +245,7 @@ else
 fi
 
 zstyle ':completion:*:sudo::' environ PATH="/sbin:/usr/sbin:$PATH"
+zstyle ':completion:*:doas::' environ PATH="/sbin:/usr/sbin:$PATH"
 
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line

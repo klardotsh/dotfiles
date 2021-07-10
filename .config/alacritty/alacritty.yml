@@ -24,13 +24,13 @@ window:
     columns: 0
     lines: 0
 
-  # Window padding (changes require restart)
+  # Window padding
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 2
-    y: 2
+    x: 0
+    y: 0
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -68,7 +68,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: Iosevka Term
+    family: mononoki
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -169,34 +169,39 @@ bell:
 # The value `0.0` is completely transparent and `1.0` is opaque.
 background_opacity: 1.0
 
-# Colors (Ayu Dark)
+# Colors (Tokyo Night, adapted from
+# https://github.com/lokesh-krishna/dotfiles/blob/15e0d3734ba29a11efcecb6b8d6ca8e917c9d28e/tokyo-night/config/kitty/kitty.conf)
 colors:
   # Default colors
   primary:
-    background: '0x0A0E14'
-    foreground: '0xB3B1AD'
+    background: '#24283b'
+    foreground: '#c0caf5'
+
+  selection:
+    background: '#364A82'
+    foreground: '#C0CAF5'
 
   # Normal colors
   normal:
-    black:   '0x01060E'
-    red:     '0xEA6C73'
-    green:   '0x91B362'
-    yellow:  '0xF9AF4F'
-    blue:    '0x53BDFA'
-    magenta: '0xFAE994'
-    cyan:    '0x90E1C6'
-    white:   '0xC7C7C7'
+    black:   '#1D202F'
+    red:     '#f7768e'
+    green:   '#9ece6a'
+    yellow:  '#e0af68'
+    blue:    '#7aa2f7'
+    magenta: '#bb9af7'
+    cyan:    '#7dcfff'
+    white:   '#a9b1d6'
 
   # Bright colors
   bright:
-    black:   '0x686868'
-    red:     '0xF07178'
-    green:   '0xC2D94C'
-    yellow:  '0xFFB454'
-    blue:    '0x59C2FF'
-    magenta: '0xFFEE99'
-    cyan:    '0x95E6CB'
-    white:   '0xFFFFFF'
+    black:   '#414868'
+    red:     '#f7768e'
+    green:   '#9ece6a'
+    yellow:  '#e0af68'
+    blue:    '#7aa2f7'
+    magenta: '#bb9af7'
+    cyan:    '#7dcfff'
+    white:   '#c0caf5'
 
 # Mouse bindings
 #

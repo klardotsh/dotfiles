@@ -1,30 +1,24 @@
-font=Noto Sans UI 11
+# bits of this from
+# https://github.com/lokesh-krishna/dotfiles/blob/15e0d3734ba29a11efcecb6b8d6ca8e917c9d28e/tokyo-night/config/mako/config
+
+font=Lato 12
 markup=1
 max-visible=5
-default-timeout=7000
+default-timeout=10000
 padding=10
 ignore-timeout=1
 layer=overlay
+group-by=summary
+anchor=top-right
 
+border-size=2
 border-radius=5
 
-# https://github.com/Eluminae/base16-mako/blob/master/colors/base16-black-metal.config
-## Base16 Black Metal
-# Author: metalelf0 (https://github.com/metalelf0)
-#
-# You can use these variables anywhere in the mako configuration file.
+background-color=#24283b
+text-color=#c0caf5
+border-color=#414868
+width=350
+margin=10,10,10
 
-# background-color=#171c19e8
-background-color=#222222
-text-color=#c1c1c1
-border-color=#c1c1c1
-
-[urgency=low]
-background-color=#121212
-text-color=#333333
-border-color=#c1c1c1
-
-[urgency=high]
-background-color=#5f8787
-text-color=#999999
-border-color=#c1c1c1
+[grouped]
+format=<b>%s</b>\n%b

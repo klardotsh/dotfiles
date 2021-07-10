@@ -1,6 +1,10 @@
 # Read `man 5 sway` for a complete reference.
 
-set $colors ayu-dark
+exec pipewire
+exec pipewire-pulse
+exec mako
+
+set $colors tokyo-night
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -15,8 +19,8 @@ set $term alacritty
 set $menu wofi -Imi -t $term --show drun,run -p 'Run:'
 set $lockscreen swaylock -c 000000
 
-gaps outer 8
-gaps inner 8
+gaps outer 5
+gaps inner 5
 
 # Hide cursor after 5s of mouse movement
 seat seat0 hide_cursor 5000
@@ -24,6 +28,10 @@ seat seat0 xcursor_theme capitaine-cursors 16
 
 ### Output configuration
 output * bg ~/.wallpaper fill
+
+bar {
+	swaybar_command waybar
+}
 
 ### Input configuration
 # Trackpads and keyboards and such tend to be used across multiple machines, so
@@ -75,6 +83,8 @@ bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -2 --max-volume 100
 bindsym XF86AudioMute exec pulsemixer --toggle-mute
 bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
+
+bindsym $mod+Control+space exec makoctl dismiss
 
 #
 # Basics:
