@@ -52,6 +52,7 @@ require 'paq' {
 
 	-- lsp and completion stuff
 	'neovim/nvim-lspconfig';
+	'nvim-lua/completion-nvim';
 	'ojroques/nvim-lspfuzzy';
 	'hrsh7th/nvim-compe';
 
@@ -98,8 +99,29 @@ require 'paq' {
 	'uarun/vim-protobuf';
 }
 
-opt.completeopt = "menuone,noselect"
-require'compe'.setup {}
+opt.completeopt = "menu,menuone,noselect"
+require'compe'.setup {
+	enabled = true,
+	autocomplete = true,
+	debug = false,
+	min_length = 1,
+	preselect = "enable",
+	throttle_time = 80,
+	source_timeout = 200,
+	incomplete_delay = 400,
+	allow_prefix_unmatch = false,
+	source = {
+		path = true,
+		buffer = true,
+		calc = true,
+		ultisnips = true,
+		vsnip = false,
+		nvim_lsp = true,
+		nvim_lua = true,
+		spell = true,
+		tags = true
+	},
+}
 
 -- from https://github.com/nvim-treesitter/nvim-treesitter/blob/c37e79803e21abfae960174a6c661da166c87e8b/README.md
 require'nvim-treesitter.configs'.setup {
@@ -112,16 +134,27 @@ require'nvim-treesitter.configs'.setup {
 
 -- The LSP section
 local lsp = require 'lspconfig'
+local completion = require 'completion'
 require'lspfuzzy'.setup {}
-lsp.dhall_lsp_server.setup{}
-lsp.dockerls.setup{}
-lsp.gopls.setup{}
-lsp.pyls.setup {
-	root_dir = lsp.util.root_pattern('.git', fn.getcwd())
+lsp.dhall_lsp_server.setup{
+	on_attach = completion.on_attach,
 }
-lsp.tsserver.setup{}
-lsp.zls.setup{}
-
+lsp.dockerls.setup{
+	on_attach = completion.on_attach,
+}
+lsp.gopls.setup{
+	on_attach = completion.on_attach,
+}
+lsp.pyls.setup {
+	root_dir = lsp.util.root_pattern('.git', fn.getcwd()),
+	on_attach = completion.on_attach,
+}
+lsp.tsserver.setup{
+	on_attach = completion.on_attach,
+}
+lsp.zls.setup{
+	on_attach = completion.on_attach,
+}
 lsp.rls.setup {
 	settings = {
 		rust = {
@@ -130,6 +163,7 @@ lsp.rls.setup {
 			all_features = true,
 		},
 	},
+	on_attach = completion.on_attach,
 }
 
 require'lualine'.setup {
@@ -180,7 +214,7 @@ opt.background = 'dark'
 opt.backspace = {'indent', 'eol', 'start'}
 opt.clipboard:append {'unnamedplus'}
 opt.cmdheight = 2
---opt.completeopt ???
+opt.completeopt = {'menuone', 'noinsert', 'noselect'}
 opt.expandtab = false
 opt.hidden = true
 opt.hlsearch = true
@@ -200,6 +234,7 @@ opt.ruler = true
 opt.scrolloff = 7 -- show 7 lines around the cursor line
 opt.shiftround = true
 opt.shiftwidth = 4
+-- opt.shortmess:append {'c'}
 -- opt.signcolumn = true
 opt.smartindent = true
 opt.smartcase = true
