@@ -23,6 +23,8 @@ ln -sf ~/src/mine/dotfiles/.dir_colors ~/
 ln -sf ~/src/mine/dotfiles/.gitconfig ~/
 ln -sf ~/src/mine/dotfiles/.gnupg ~/
 ln -sf ~/src/mine/dotfiles/.gtkrc-2.0 ~/
+ln -sf ~/src/mine/dotfiles/.mailboxes ~/
+ln -sf ~/src/mine/dotfiles/.notmuch-config ~/
 ln -sf ~/src/mine/dotfiles/.zshenv ~/
 ln -sf ~/src/mine/dotfiles/.zshrc ~/
 

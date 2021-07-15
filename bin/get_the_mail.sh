@@ -2,4 +2,4 @@
 
 mbsync -a
 notmuch new
-killall -s USR1 alot
+killall -s USR1 alot || true
