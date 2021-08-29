@@ -23,7 +23,10 @@ require 'paq' {
 
 	-- colorschemes
 	'jeffkreeftmeijer/vim-dim'; -- works in any term
+	'noahfrederick/vim-noctu';
 	'folke/tokyonight.nvim'; -- a new one to play with!
+	'Soares/base16.nvim';
+	'srcery-colors/srcery-vim';
 
 	-- interface / misc
 	'Konfekt/FastFold';
@@ -83,9 +86,11 @@ require 'paq' {
 	-- 'purescript-contrib/purescript-vim';
 	-- 'reasonml-editor/vim-reason-plus';
 	-- 'rust-lang/rust.vim';
-	-- 'vmchale/dhall-vim';
+	'vmchale/dhall-vim';
 	-- 'zah/nim.vim';
 	-- 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+	'alaviss/nim.nvim';
+	'ziglang/zig.vim';
 
 	-- config formats support
 	'GutenYe/json5.vim';
@@ -145,10 +150,15 @@ lsp.dockerls.setup{
 lsp.gopls.setup{
 	on_attach = completion.on_attach,
 }
+lsp.nimls.setup{
+	on_attach = completion.on_attach,
+}
+--[[
 lsp.pyls.setup {
 	root_dir = lsp.util.root_pattern('.git', fn.getcwd()),
 	on_attach = completion.on_attach,
 }
+]]
 lsp.tsserver.setup{
 	on_attach = completion.on_attach,
 }
@@ -165,30 +175,67 @@ lsp.rls.setup {
 	},
 	on_attach = completion.on_attach,
 }
+lsp.diagnosticls.setup {
+	filetypes = {"javascript", "typescript"},
+	init_options = {
+		linters = {
+			eslint = {
+				command = "./node_modules/.bin/eslint",
+				rootPatterns = {".git"},
+				debounce = 100,
+				args = {
+					"--stdin",
+					"--stdin-filename",
+					"%filepath",
+					"--format",
+					"json"
+				},
+				sourceName = "eslint",
+				parseJson = {
+					errorsRoot = "[0].messages",
+					line = "line",
+					column = "column",
+					endLine = "endLine",
+					endColumn = "endColumn",
+					message = "${message} [${ruleId}]",
+					security = "severity"
+				},
+				securities = {
+					[2] = "error",
+					[1] = "warning"
+				}
+			},
+			filetypes = {
+				javascript = "eslint",
+				typescript = "eslint"
+			}
+		}
+	}
+}
 
 require'lualine'.setup {
 	options = {
 		icons_enabled = true,
-		theme = 'tokyonight',
+		theme = 'gruvbox', -- closest thing I have for now, auto doesn't work??
 		component_separators = {'|', '|'},
 		section_separators = {'', ''},
 		disabled_filetypes = {}
 	},
 	sections = {
 		lualine_a = {'mode'},
-		lualine_b = {'branch'},
-		lualine_c = {'filetype'},
-		lualine_x = {'encoding', 'fileformat'},
-		lualine_y = {'progress'},
-		lualine_z = {'location'}
+		lualine_b = {'branch', 'diff'},
+		lualine_c = {'filename'},
+		lualine_x = {},
+		lualine_y = {'filetype', 'encoding'},
+		lualine_z = {'progress', 'location'}
 	},
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
 		lualine_c = {'filename'},
-		lualine_x = {'location'},
-		lualine_y = {},
-		lualine_z = {}
+		lualine_x = {},
+		lualine_y = {'filetype', 'encoding'},
+		lualine_z = {'progress', 'location'}
 	},
 	tabline = {
 		--[[
@@ -227,8 +274,8 @@ opt.listchars = {
 	nbsp = '·',
 }
 --opt.mouse ???
-opt.number = true
-opt.relativenumber = true
+opt.number = false
+opt.relativenumber = false
 opt.pastetoggle = '<F2>'
 opt.ruler = true
 opt.scrolloff = 7 -- show 7 lines around the cursor line
@@ -242,13 +289,18 @@ opt.softtabstop = 4
 opt.splitbelow = true
 opt.splitright = true
 opt.tabstop = 4
+-- kinda explicitly *not* what I want, but it makes matching schemes look
+-- better, so we'll roll with it
 opt.termguicolors = true
 opt.updatetime = 300
 opt.wrap = false
 
-cmd 'colorscheme tokyonight'
 g.tokyonight_hide_inactive_statusline = 1
 g.tokyonight_lualine_bold = 1
+g.base16_transparent_background = 1
+g.srcery_italic = 1
+g.srcery_bg_passthrough = 1
+cmd 'colorscheme srcery'
 
 cmd 'let mapleader=","'
 
@@ -284,3 +336,13 @@ g.comfortable_motion_friction = 50.0
 g.comfortable_motion_air_drag = 1.0
 map('', '<ScrollWheelDown>', '<cmd>comfortable_motion#flick(40)<CR>')
 map('', '<ScrollWheelUp>', '<cmd>comfortable_motion#flick(-40)<CR>')
+
+-- make gitsigns.nvim and lsp play nice in a base16 world
+cmd 'hi SignColumn ctermbg=none guibg=none'
+cmd 'hi DiffAdd ctermbg=none guibg=none'
+cmd 'hi DiffChange ctermbg=none guibg=none'
+cmd 'hi DiffDelete ctermbg=none guibg=none'
+cmd 'hi DiffText ctermbg=none guibg=none'
+
+-- everything else playing nice with base16 plz
+cmd 'hi VertSplit ctermbg=none guibg=none'

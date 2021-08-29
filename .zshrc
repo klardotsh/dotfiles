@@ -61,7 +61,9 @@ export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland # otherwise gets set to 'tty', breaking WebRTC
 
 export AWS_SDK_LOAD_CONFIG=true
+export BAT_THEME="ansi"
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
+export FZF_DEFAULT_OPTS="--color=16 --extended"
 
 export MANPATH="$NPM_PACKAGES/share/man:${MANPATH}"
 hash most 2>/dev/null && export MANPAGER='most -s'
@@ -75,12 +77,13 @@ hash npm 2>/dev/null && export NPM_PACKAGES="$HOME/.npm-packages" && export NODE
 hash go 2>/dev/null && export GOPATH="$HOME/.go" && export GOLANG_PATH="${GOPATH}/bin"
 hash rustc 2>/dev/null && export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src" && export RUST_PATH="${HOME}/.cargo/bin"
 hash ruby 2>/dev/null && export RUBY_PATH="$(ruby -e 'print Gem.user_dir')/bin"
+hash nimble 2>/dev/null && export NIMBLE_PATH="${HOME}/.nimble/bin"
 
 # Hackaround for pipenv to auto-install pythons as needed
 hash pyenv 2>/dev/null && export PYENV_ROOT=$(pyenv root)
 
 export PERSONAL_PATH="${HOME}/bin:${HOME}/.local/bin"
-export PATH="${PERSONAL_PATH}:${RUST_PATH}:${GOLANG_PATH}:${NODEJS_PATH}:${RUBY_PATH}:${PATH}"
+export PATH="${PERSONAL_PATH}:${RUST_PATH}:${GOLANG_PATH}:${NIMBLE_PATH}:${NODEJS_PATH}:${RUBY_PATH}:${PATH}"
 
 # Subpixel hinting mode can be chosen by setting the right TrueType interpreter
 # version. The available settings are:

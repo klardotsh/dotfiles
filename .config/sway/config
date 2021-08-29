@@ -15,7 +15,7 @@ set $down j
 set $up k
 set $right l
 
-set $term alacritty
+set $term foot
 set $menu wofi -Imi -t $term --show drun,run -p 'Run:'
 set $lockscreen swaylock -c 000000
 
@@ -25,6 +25,7 @@ gaps inner 5
 # Hide cursor after 5s of mouse movement
 seat seat0 hide_cursor 5000
 seat seat0 xcursor_theme capitaine-cursors 16
+seat seat0 hide_cursor when-typing enable
 
 ### Output configuration
 output * bg ~/.wallpaper fill
