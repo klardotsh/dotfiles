@@ -89,6 +89,7 @@ require 'paq' {
 	-- 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 	'alaviss/nim.nvim';
 	'ziglang/zig.vim';
+	'karolbelina/uxntal.vim';
 
 	-- config formats support
 	'GutenYe/json5.vim';
