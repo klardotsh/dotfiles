@@ -1,9 +1,5 @@
 # Read `man 5 sway` for a complete reference.
 
-exec pipewire
-exec pipewire-pulse
-exec mako
-
 set $colors tokyo-night
 
 # Logo key. Use Mod1 for Alt.
@@ -31,8 +27,20 @@ seat seat0 hide_cursor when-typing enable
 output * bg ~/.wallpaper fill
 
 bar {
-	swaybar_command waybar
+	font pango:sans-serif 11, FontAwesome 11
+	position top
+	status_command i3status-rs
+	#colors {
+	#	separator #666666
+	#		background #222222
+	#		statusline #dddddd
+	#		focused_workspace #0088CC #0088CC #ffffff
+	#		active_workspace #333333 #333333 #ffffff
+	#		inactive_workspace #333333 #333333 #888888
+	#		urgent_workspace #2f343a #900000 #ffffff
+	#}
 }
+
 
 ### Input configuration
 # Trackpads and keyboards and such tend to be used across multiple machines, so
@@ -262,4 +270,14 @@ exec swayidle \
 	timeout 600 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"'
 
-exec sway_services.sh
+# non-systemd distributions need these propagated for pipewire to work sanely
+exec dbus-update-activation-environment DISPLAY XAUTHORITY SWAYSOCK I3SOCK WAYLAND_DISPLAY
+
+# audio/video
+exec pipewire
+exec pipewire-pulse
+exec /usr/libexec/xdg-desktop-portal -vr
+exec /usr/libexec/xdg-desktop-portal-wlr -r -l DEBUG
+
+# everything else
+exec mako
