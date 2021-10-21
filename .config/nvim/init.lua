@@ -53,8 +53,10 @@ require 'paq' {
 	'tpope/vim-repeat';
 	'tpope/vim-surround';
 
-	-- completion stuff
+	-- lsp and completion stuff
+	'neovim/nvim-lspconfig';
 	'nvim-lua/completion-nvim';
+	'ojroques/nvim-lspfuzzy';
 	'hrsh7th/nvim-compe';
 
 	{
@@ -120,6 +122,7 @@ require'compe'.setup {
 		calc = true,
 		ultisnips = true,
 		vsnip = false,
+		nvim_lsp = true,
 		nvim_lua = true,
 		spell = true,
 		tags = true
@@ -132,6 +135,83 @@ require'nvim-treesitter.configs'.setup {
 	highlight = {
 		enable = true,              -- false will disable the whole extension
 	},
+}
+
+
+-- The LSP section
+local lsp = require 'lspconfig'
+local completion = require 'completion'
+require'lspfuzzy'.setup {}
+lsp.dhall_lsp_server.setup{
+	on_attach = completion.on_attach,
+}
+lsp.dockerls.setup{
+	on_attach = completion.on_attach,
+}
+lsp.gopls.setup{
+	on_attach = completion.on_attach,
+}
+lsp.nimls.setup{
+	on_attach = completion.on_attach,
+}
+--[[
+lsp.pyls.setup {
+	root_dir = lsp.util.root_pattern('.git', fn.getcwd()),
+	on_attach = completion.on_attach,
+}
+]]
+lsp.tsserver.setup{
+	on_attach = completion.on_attach,
+}
+lsp.zls.setup{
+	on_attach = completion.on_attach,
+}
+lsp.rls.setup {
+	settings = {
+		rust = {
+			unstable_features = true,
+			build_on_save = true,
+			all_features = true,
+		},
+	},
+	on_attach = completion.on_attach,
+}
+lsp.diagnosticls.setup {
+	filetypes = {"javascript", "typescript"},
+	init_options = {
+		linters = {
+			eslint = {
+				command = "./node_modules/.bin/eslint",
+				rootPatterns = {".git"},
+				debounce = 100,
+				args = {
+					"--stdin",
+					"--stdin-filename",
+					"%filepath",
+					"--format",
+					"json"
+				},
+				sourceName = "eslint",
+				parseJson = {
+					errorsRoot = "[0].messages",
+					line = "line",
+					column = "column",
+					endLine = "endLine",
+					endColumn = "endColumn",
+					message = "${message} [${ruleId}]",
+					security = "severity"
+				},
+				securities = {
+					[2] = "error",
+					[1] = "warning"
+				}
+			},
+			filetypes = {
+				javascript = "eslint",
+				typescript = "eslint"
+			}
+		}
+	}
 }
 
 require'lualine'.setup {
@@ -246,13 +326,19 @@ map('', '<Home>', "col('.') == match(getline('.'),'\\S')+1 ? '0' : '^'", {
 	silent = true,
 })
 
+-- LSP bindings
+map('n', '<Leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+map('n', '<Leader>crn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+map('n', '<Leader>cref', '<cmd>lua vim.lsp.buf.references()<CR>')
+map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+
 -- from vim.reaper
 g.comfortable_motion_friction = 50.0
 g.comfortable_motion_air_drag = 1.0
 map('', '<ScrollWheelDown>', '<cmd>comfortable_motion#flick(40)<CR>')
 map('', '<ScrollWheelUp>', '<cmd>comfortable_motion#flick(-40)<CR>')
 
--- color normalization so themes and plugins don't impose their will on me
+-- make gitsigns.nvim and lsp play nice in a base16 world
 cmd 'hi SignColumn ctermbg=none guibg=none'
 cmd 'hi DiffAdd ctermbg=none guibg=none'
 cmd 'hi DiffChange ctermbg=none guibg=none'
