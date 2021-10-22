@@ -139,80 +139,49 @@ require'nvim-treesitter.configs'.setup {
 
 
 -- The LSP section
-local lsp = require 'lspconfig'
+local lspconfig = require 'lspconfig'
 local completion = require 'completion'
 require'lspfuzzy'.setup {}
-lsp.dhall_lsp_server.setup{
-	on_attach = completion.on_attach,
+
+-- at one point I was playing with other functionality here; I'll leave this
+-- wrapper func in case I go back to playing with such things
+local wrap_on_attach = function(client)
+	completion.on_attach(client)
+end
+
+local servers = {
+	dhall_lsp_server = {},
+	dockerls = {},
+	gopls = {},
+	nimls = {},
+
+	-- absurdly broken and bordering useless on my system. gets out of sync on
+	-- any change to a file, CONSTANTLY need to :LspRestart
+	rls = {},
+
+	sorbet = {},
+	tsserver = {},
+	zls = {},
 }
-lsp.dockerls.setup{
-	on_attach = completion.on_attach,
-}
-lsp.gopls.setup{
-	on_attach = completion.on_attach,
-}
-lsp.nimls.setup{
-	on_attach = completion.on_attach,
-}
---[[
-lsp.pyls.setup {
-	root_dir = lsp.util.root_pattern('.git', fn.getcwd()),
-	on_attach = completion.on_attach,
-}
-]]
-lsp.tsserver.setup{
-	on_attach = completion.on_attach,
-}
-lsp.zls.setup{
-	on_attach = completion.on_attach,
-}
-lsp.rls.setup {
-	settings = {
-		rust = {
-			unstable_features = true,
-			build_on_save = true,
-			all_features = true,
-		},
-	},
-	on_attach = completion.on_attach,
-}
-lsp.diagnosticls.setup {
-	filetypes = {"javascript", "typescript"},
-	init_options = {
-		linters = {
-			eslint = {
-				command = "./node_modules/.bin/eslint",
-				rootPatterns = {".git"},
-				debounce = 100,
-				args = {
-					"--stdin",
-					"--stdin-filename",
-					"%filepath",
-					"--format",
-					"json"
-				},
-				sourceName = "eslint",
-				parseJson = {
-					errorsRoot = "[0].messages",
-					line = "line",
-					column = "column",
-					endLine = "endLine",
-					endColumn = "endColumn",
-					message = "${message} [${ruleId}]",
-					security = "severity"
-				},
-				securities = {
-					[2] = "error",
-					[1] = "warning"
-				}
-			},
-			filetypes = {
-				javascript = "eslint",
-				typescript = "eslint"
-			}
-		}
+
+for name, opts in pairs(servers) do
+	if type(opts) == "function" then
+		opts()
+	else
+	local client = lspconfig[name]
+	client.setup {
+		flags = { debounce_text_changes = 150 },
+		cmd = opts.cmd or client.cmd,
+		filetypes = opts.filetypes or client.filetypes,
+		on_attach = opts.on_attach or wrap_on_attach,
+		on_init = opts.on_init or client.on_init,
+		handlers = opts.handlers or client.handlers,
+		root_dir = opts.root_dir or client.root_dir,
+		capabilities = opts.capabilities or capabilities,
+		settings = opts.settings or {},
 	}
-}
+	end
+end
 
 require'lualine'.setup {
 	options = {
