@@ -1,22 +1,8 @@
 # klardotsh's ZSH configuration
-# Maintained 2012-19 (and counting)
+# Maintained 2012-22 (and counting)
 # Released under the [Unlicense](http://unlicense.org/)
 
 export IS_VOID=`[ $(lsb_release -si 2>&1 || echo 'n/a') = 'VoidLinux' ] && echo 1`
-
-if test -z "${XDG_RUNTIME_DIR}"; then
-	export XDG_RUNTIME_DIR=/tmp/${UID}-runtime-dir
-	if ! test -d "${XDG_RUNTIME_DIR}"; then
-		mkdir "${XDG_RUNTIME_DIR}"
-		chmod 0700 "${XDG_RUNTIME_DIR}"
-	fi
-fi
-
-if test -z "${XDG_CONFIG_HOME}"; then
-	export XDG_CONFIG_HOME="${HOME}/.config"
-fi
-
-source $XDG_RUNTIME_DIR/dbus_shared_session_hackery.env 2>/dev/null
 
 if [ ! -z ~/.cargo/env ]; then
 	source ~/.cargo/env
@@ -73,6 +59,7 @@ export LESS=-r
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 export _JAVA_AWT_WM_NONREPARTENTING=1
 
+export TFENV_PATH="${HOME}/.tfenv/bin"
 hash npm 2>/dev/null && export NPM_PACKAGES="$HOME/.npm-packages" && export NODEJS_PATH="${NPM_PACKAGES}/bin"
 hash go 2>/dev/null && export GOPATH="$HOME/.go" && export GOLANG_PATH="${GOPATH}/bin"
 hash rustc 2>/dev/null && export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src" && export RUST_PATH="${HOME}/.cargo/bin"
@@ -83,7 +70,7 @@ hash nimble 2>/dev/null && export NIMBLE_PATH="${HOME}/.nimble/bin"
 hash pyenv 2>/dev/null && export PYENV_ROOT=$(pyenv root)
 
 export PERSONAL_PATH="${HOME}/bin:${HOME}/.local/bin"
-export PATH="${PERSONAL_PATH}:${RUST_PATH}:${GOLANG_PATH}:${NIMBLE_PATH}:${NODEJS_PATH}:${RUBY_PATH}:${PATH}"
+export PATH="${PERSONAL_PATH}:${TFENV_PATH}:${RUST_PATH}:${GOLANG_PATH}:${NIMBLE_PATH}:${NODEJS_PATH}:${RUBY_PATH}:${PATH}"
 
 # Subpixel hinting mode can be chosen by setting the right TrueType interpreter
 # version. The available settings are:
@@ -157,13 +144,22 @@ alias v=$EDITOR
 alias vim=$EDITOR
 alias m='mosh'
 alias mux='tmux.sh $(hostname)'
-alias glowpage='glow -p'
+alias glow='lowdown -Tterm'
+
+glowpage() {
+	glow $@ | less ${LESS}
+}
+
+# partially due to https://github.com/ytdl-org/youtube-dl/issues/30132 and just
+# generally youtube-dl not backporting fixes quickly enough / retaining support
+# for ancient Pythons holding it back
+alias youtube-dl='yt-dlp'
 
 if [ "${IS_VOID}" = "1" ]; then
 	export PRIV_CHANGER='doas'
 	alias sudo="${PRIV_CHANGER} "
 
-	source /usr/share/doc/fzf/key-bindings.zsh
+	source /usr/share/fzf/key-bindings.zsh
 
 	alias pf='xbps-query -Rs'
 	alias pff='xlocate'
