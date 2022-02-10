@@ -12,6 +12,10 @@ local fn = vim.fn    -- to call Vim functions e.g. fn.bufnr()
 local g = vim.g      -- a table to access global variables
 local opt = vim.opt  -- to set options
 
+if not g.syntax_on then
+	cmd 'syntax enable'
+end
+
 local function map(mode, lhs, rhs, opts)
 	local options = {noremap = true}
 	if opts then options = vim.tbl_extend('force', options, opts) end
@@ -27,6 +31,8 @@ require 'paq' {
 	'folke/tokyonight.nvim'; -- a new one to play with!
 	'Soares/base16.nvim';
 	'srcery-colors/srcery-vim';
+	'fxn/vim-monochrome';
+	'dracula/vim';
 
 	-- interface / misc
 	'Konfekt/FastFold';
@@ -58,6 +64,7 @@ require 'paq' {
 	'nvim-lua/completion-nvim';
 	'ojroques/nvim-lspfuzzy';
 	'hrsh7th/nvim-compe';
+	'jose-elias-alvarez/null-ls.nvim';
 
 	{
 		'nvim-treesitter/nvim-treesitter',
@@ -92,6 +99,7 @@ require 'paq' {
 	'alaviss/nim.nvim';
 	'ziglang/zig.vim';
 	'karolbelina/uxntal.vim';
+	'bfrg/vim-jq';
 
 	-- config formats support
 	'GutenYe/json5.vim';
@@ -103,6 +111,8 @@ require 'paq' {
 	'markcornick/vim-vagrant';
 	'tarekbecker/vim-yaml-formatter';
 	'uarun/vim-protobuf';
+	'GEverding/vim-hocon';
+	'ron-rs/ron.vim';
 }
 
 opt.completeopt = "menu,menuone,noselect"
@@ -139,9 +149,17 @@ require'nvim-treesitter.configs'.setup {
 
 
 -- The LSP section
+local null_ls = require 'null-ls'
 local lspconfig = require 'lspconfig'
 local completion = require 'completion'
 require'lspfuzzy'.setup {}
+null_ls.config({
+	sources = {
+		null_ls.builtins.diagnostics.rubocop,
+		null_ls.builtins.formatting.rubocop,
+		null_ls.builtins.formatting.rustfmt,
+	},
+})
 
 -- at one point I was playing with other functionality here; I'll leave this
 -- wrapper func in case I go back to playing with such things
@@ -159,10 +177,13 @@ local servers = {
 	-- any change to a file, CONSTANTLY need to :LspRestart
 	rls = {},
 
+	-- also not entirely ideal. methinks this might be a neovim issue, now...
 	sorbet = {},
+
 	tsserver = {},
 	zls = {},
 }
+servers["null-ls"] = {}
 
 for name, opts in pairs(servers) do
 	if type(opts) == "function" then
@@ -220,11 +241,16 @@ require'lualine'.setup {
 	extensions = {}
 }
 
-require'gitsigns'.setup()
-
-if not g.syntax_on then
-	cmd 'syntax enable'
-end
+require'gitsigns'.setup {
+	signs = {
+		add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+		change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+		delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+		topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+		changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+	},
+	signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+}
 
 opt.autoindent = true
 opt.background = 'dark'
@@ -270,7 +296,11 @@ g.tokyonight_lualine_bold = 1
 g.base16_transparent_background = 1
 g.srcery_italic = 1
 g.srcery_bg_passthrough = 1
-cmd 'colorscheme srcery'
+g.monochrome_italic_comments = 1
+g.dracula_colorterm = 0
+
+cmd 'set notermguicolors'
+cmd 'colorscheme dim'
 
 cmd 'let mapleader=","'
 
@@ -299,6 +329,7 @@ map('', '<Home>', "col('.') == match(getline('.'),'\\S')+1 ? '0' : '^'", {
 map('n', '<Leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 map('n', '<Leader>crn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 map('n', '<Leader>cref', '<cmd>lua vim.lsp.buf.references()<CR>')
+map('n', '<Leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 
 -- from vim.reaper
@@ -313,6 +344,9 @@ cmd 'hi DiffAdd ctermbg=none guibg=none'
 cmd 'hi DiffChange ctermbg=none guibg=none'
 cmd 'hi DiffDelete ctermbg=none guibg=none'
 cmd 'hi DiffText ctermbg=none guibg=none'
+cmd 'hi GitSignsAdd ctermbg=none guibg=none'
+cmd 'hi GitSignsChange ctermbg=none guibg=none'
+cmd 'hi GitSignsDelete ctermbg=none guibg=none'
 
 -- everything else playing nice with base16 plz
 cmd 'hi VertSplit ctermbg=none guibg=none'
