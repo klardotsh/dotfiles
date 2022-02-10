@@ -1,0 +1,9 @@
+# https://github.com/lokesh-krishna/dotfiles/blob/15e0d3734ba29a11efcecb6b8d6ca8e917c9d28e/tokyo-night/config/sway/config
+
+## Window decoration
+# class                 border  backgr. text    indicator child_border
+client.focused          #7aa2f7 #414868 #c0caf5 #7dcfff   #7aa2f7
+#client.focused_inactive #7aa2f7 #414868 #c0caf5 #7dcfff   #7aa2f7
+client.focused_inactive #414868 #24283b #a9b1d6 #7dcfff   #414868
+client.unfocused        #414868 #24283b #a9b1d6 #7dcfff   #414868
+client.urgent           #e0af68 #e0af68 #1d202f #7dcfff   #e0af68

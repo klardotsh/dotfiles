@@ -1,6 +1,6 @@
 # Read `man 5 sway` for a complete reference.
 
-set $colors tokyo-night
+set $colors nature-suede
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -26,21 +26,21 @@ seat seat0 hide_cursor when-typing enable
 ### Output configuration
 output * bg ~/.wallpaper fill
 
-bar {
-	font pango:sans-serif 11, FontAwesome 11
-	position top
-	status_command i3status-rs
-	#colors {
-	#	separator #666666
-	#		background #222222
-	#		statusline #dddddd
-	#		focused_workspace #0088CC #0088CC #ffffff
-	#		active_workspace #333333 #333333 #ffffff
-	#		inactive_workspace #333333 #333333 #888888
-	#		urgent_workspace #2f343a #900000 #ffffff
-	#}
-}
-
+# [bar] has MOVED to colors! eg colors.dracula
+#bar {
+#	font pango:sans-serif 11, FontAwesome 11
+#	position top
+#	status_command i3status-rs
+#	#colors {
+#	#	separator #666666
+#	#		background #222222
+#	#		statusline #dddddd
+#	#		focused_workspace #0088CC #0088CC #ffffff
+#	#		active_workspace #333333 #333333 #ffffff
+#	#		inactive_workspace #333333 #333333 #888888
+#	#		urgent_workspace #2f343a #900000 #ffffff
+#	#}
+#}
 
 ### Input configuration
 # Trackpads and keyboards and such tend to be used across multiple machines, so
@@ -95,7 +95,6 @@ bindsym XF86MonBrightnessDown exec light -U 10
 
 bindsym $mod+Control+space exec makoctl dismiss
 
-#
 # Basics:
 #
 # start a terminal
@@ -212,7 +211,7 @@ bindsym $mod+Shift+space floating toggle
 #bindsym $mod+space focus mode_toggle
 
 # move focus to the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 #
 # Scratchpad:
 #
