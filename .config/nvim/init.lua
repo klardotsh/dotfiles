@@ -153,7 +153,7 @@ local null_ls = require 'null-ls'
 local lspconfig = require 'lspconfig'
 local completion = require 'completion'
 require'lspfuzzy'.setup {}
-null_ls.config({
+null_ls.setup({
 	sources = {
 		null_ls.builtins.diagnostics.rubocop,
 		null_ls.builtins.formatting.rubocop,
@@ -183,7 +183,7 @@ local servers = {
 	tsserver = {},
 	zls = {},
 }
-servers["null-ls"] = {}
+--servers["null-ls"] = {}
 
 for name, opts in pairs(servers) do
 	if type(opts) == "function" then

@@ -8,15 +8,6 @@ if [ ! -z ~/.cargo/env ]; then
 	source ~/.cargo/env
 fi
 
-# https://www.reddit.com/r/voidlinux/comments/cycyv9/notifications_not_working_using_dbus_and_elogind/eyu0ved/
-# applies to gentoo as well - modified to try to retain "session-ness", which
-# is a term, I promise
-if test -z "$DBUS_SESSION_BUS_ADDRESS" ; then
-	## if not found, launch a new one
-	dbus-launch --sh-syntax > $XDG_RUNTIME_DIR/dbus_shared_session_hackery.env
-	source $XDG_RUNTIME_DIR/dbus_shared_session_hackery.env 2>/dev/null
-fi
-
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 export TERMINAL='alacritty'
@@ -36,7 +27,8 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export GTK_IM_MODULE=ibus
 
 export QT_QPA_PLATFORM=wayland-egl
-export QT_QPA_PLATFORMTHEME=qt5ct
+# FIXME currently leaves me with no fonts being rendered?
+# export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_IM_MODULE=ibus
 
 export BEMENU_BACKEND=wayland

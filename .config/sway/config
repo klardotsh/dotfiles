@@ -259,6 +259,9 @@ include /etc/sway/config.d/*
 include colors.$colors
 include ~/.config/sway/`hostname`.config
 
+# non-systemd distributions need these propagated for pipewire to work sanely
+exec dbus-update-activation-environment DISPLAY XAUTHORITY SWAYSOCK I3SOCK WAYLAND_DISPLAY
+
 # this... doesn't seem to work on a fresh musl-based void install?
 exec_always import-gsettings \
     gtk-theme:gtk-theme-name \
@@ -268,9 +271,6 @@ exec_always import-gsettings \
 exec swayidle \
 	timeout 600 'swaymsg "output * dpms off"' \
 	resume 'swaymsg "output * dpms on"'
-
-# non-systemd distributions need these propagated for pipewire to work sanely
-exec dbus-update-activation-environment DISPLAY XAUTHORITY SWAYSOCK I3SOCK WAYLAND_DISPLAY
 
 # audio/video
 exec pipewire
