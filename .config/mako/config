@@ -1,6 +1,3 @@
-# bits of this from
-# https://github.com/lokesh-krishna/dotfiles/blob/15e0d3734ba29a11efcecb6b8d6ca8e917c9d28e/tokyo-night/config/mako/config
-
 font=Lato 12
 markup=1
 max-visible=5
@@ -14,11 +11,17 @@ anchor=top-right
 border-size=2
 border-radius=5
 
-background-color=#24283b
-text-color=#c0caf5
-border-color=#414868
 width=350
 margin=10,10,10
+
+# somewhat based on
+# https://github.com/dracula/mako/blob/d9131d945b2c1adbc901fefda22f2f9536f687e2/config
+
+background-color=#282a36
+border-color=#44475a
+
+[urgency=high]
+border-color=#ff5555
 
 [grouped]
 format=<b>%s</b>\n%b
