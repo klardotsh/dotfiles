@@ -254,6 +254,7 @@ for_window [title="^.*"] border pixel 1
 for_window [title="Firefox - Sharing Indicator"] floating enable
 # ^ seems to have stopped working in v84 because of course it did
 for_window [shell="xwayland"] title_format "%title [XWayland]"
+for_window [app_id="zoom"] floating enable
 
 include /etc/sway/config.d/*
 include colors.$colors
