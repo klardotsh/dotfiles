@@ -33,6 +33,9 @@ require 'paq' {
 	'srcery-colors/srcery-vim';
 	'fxn/vim-monochrome';
 	'dracula/vim';
+	'robertmeta/nofrils';
+	'karoliskoncevicius/distilled-vim';
+	'rose-pine/neovim';
 
 	-- interface / misc
 	'Konfekt/FastFold';
@@ -42,7 +45,6 @@ require 'paq' {
 	'markonm/traces.vim';
 	'ntpeters/vim-better-whitespace';
 	'vim-scripts/DeleteTrailingWhitespace';
-	'yuttie/comfortable-motion.vim';
 	'nvim-lua/plenary.nvim';
 	'lewis6991/gitsigns.nvim';
 
@@ -61,14 +63,13 @@ require 'paq' {
 
 	-- lsp and completion stuff
 	'neovim/nvim-lspconfig';
-	'nvim-lua/completion-nvim';
 	'ojroques/nvim-lspfuzzy';
 	'hrsh7th/nvim-compe';
 	'jose-elias-alvarez/null-ls.nvim';
 
 	{
 		'nvim-treesitter/nvim-treesitter',
-		run = ':TSUpdate'
+		-- run = ':TSUpdate'
 	};
 
 	-- automatically create any non-existent directories before writing the buffer
@@ -140,21 +141,22 @@ require'compe'.setup {
 }
 
 -- from https://github.com/nvim-treesitter/nvim-treesitter/blob/c37e79803e21abfae960174a6c661da166c87e8b/README.md
-require'nvim-treesitter.configs'.setup {
-	ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-	highlight = {
-		enable = true,              -- false will disable the whole extension
-	},
-}
+--require'nvim-treesitter.configs'.setup {
+--	ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+--	highlight = {
+--		enable = true,              -- false will disable the whole extension
+--	},
+--}
 
 
 -- The LSP section
 local null_ls = require 'null-ls'
 local lspconfig = require 'lspconfig'
-local completion = require 'completion'
+--local completion = require 'completion'
 require'lspfuzzy'.setup {}
 null_ls.setup({
 	sources = {
+		null_ls.builtins.diagnostics.eslint,
 		null_ls.builtins.diagnostics.rubocop,
 		null_ls.builtins.formatting.rubocop,
 		null_ls.builtins.formatting.rustfmt,
@@ -163,9 +165,9 @@ null_ls.setup({
 
 -- at one point I was playing with other functionality here; I'll leave this
 -- wrapper func in case I go back to playing with such things
-local wrap_on_attach = function(client)
-	completion.on_attach(client)
-end
+--local wrap_on_attach = function(client)
+--	completion.on_attach(client)
+--end
 
 local servers = {
 	dhall_lsp_server = {},
@@ -173,12 +175,17 @@ local servers = {
 	gopls = {},
 	nimls = {},
 
+	pyright = {},
+
 	-- absurdly broken and bordering useless on my system. gets out of sync on
 	-- any change to a file, CONSTANTLY need to :LspRestart
 	rls = {},
 
 	-- also not entirely ideal. methinks this might be a neovim issue, now...
-	sorbet = {},
+	--sorbet = {},
+	--steep = {},
+
+	terraformls = {},
 
 	tsserver = {},
 	zls = {},
@@ -207,7 +214,7 @@ end
 require'lualine'.setup {
 	options = {
 		icons_enabled = true,
-		theme = 'gruvbox', -- closest thing I have for now, auto doesn't work??
+		theme = '16color', -- closest thing I have for now, auto doesn't work??
 		component_separators = {'|', '|'},
 		section_separators = {'', ''},
 		disabled_filetypes = {}
@@ -298,9 +305,13 @@ g.srcery_italic = 1
 g.srcery_bg_passthrough = 1
 g.monochrome_italic_comments = 1
 g.dracula_colorterm = 0
+g.nofrils_strbackgrounds = 1
 
 cmd 'set notermguicolors'
-cmd 'colorscheme dim'
+cmd 'colorscheme noctu'
+--cmd 'colorscheme nofrils-dark'
+--cmd 'colorscheme distilled'
+--cmd 'colorscheme rose-pine'
 
 cmd 'let mapleader=","'
 
@@ -332,12 +343,6 @@ map('n', '<Leader>cref', '<cmd>lua vim.lsp.buf.references()<CR>')
 map('n', '<Leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 
--- from vim.reaper
-g.comfortable_motion_friction = 50.0
-g.comfortable_motion_air_drag = 1.0
-map('', '<ScrollWheelDown>', '<cmd>comfortable_motion#flick(40)<CR>')
-map('', '<ScrollWheelUp>', '<cmd>comfortable_motion#flick(-40)<CR>')
-
 -- make gitsigns.nvim and lsp play nice in a base16 world
 cmd 'hi SignColumn ctermbg=none guibg=none'
 cmd 'hi DiffAdd ctermbg=none guibg=none'
@@ -350,3 +355,6 @@ cmd 'hi GitSignsDelete ctermbg=none guibg=none'
 
 -- everything else playing nice with base16 plz
 cmd 'hi VertSplit ctermbg=none guibg=none'
+
+-- nofrils sets a default background colour. bad dog!
+cmd 'hi Normal ctermbg=none guibg=none'
