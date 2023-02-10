@@ -1,0 +1,26 @@
+# class                 border  bground text    indicator child_border
+client.focused          #8c4f4a #8c4f4a #96915d #daba8b   #383332
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #0F0E0D
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #0F0E0D
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #8c4f4a
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+
+client.background       #191716
+
+bar {
+	font pango:Font Awesome 11, FSD Emoji 11,monospace 11
+	position top
+	status_command i3status-rs
+
+	colors {
+		background #191716
+		statusline #daba8b
+		separator  #8c4f4a
+
+		focused_workspace  #44475A #8c4f4a #F8F8F2
+		active_workspace   #282A36 #44475A #F8F8F2
+		inactive_workspace #282A36 #282A36 #BFBFBF
+		urgent_workspace   #FF5555 #FF5555 #F8F8F2
+		binding_mode       #FF5555 #FF5555 #F8F8F2
+	}
+}

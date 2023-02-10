@@ -1,6 +1,6 @@
 # Read `man 5 sway` for a complete reference.
 
-set $colors nature-suede
+set $colors sexy-trim-yer-beard
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -27,20 +27,6 @@ seat seat0 hide_cursor when-typing enable
 output * bg ~/.wallpaper fill
 
 # [bar] has MOVED to colors! eg colors.dracula
-#bar {
-#	font pango:sans-serif 11, FontAwesome 11
-#	position top
-#	status_command i3status-rs
-#	#colors {
-#	#	separator #666666
-#	#		background #222222
-#	#		statusline #dddddd
-#	#		focused_workspace #0088CC #0088CC #ffffff
-#	#		active_workspace #333333 #333333 #ffffff
-#	#		inactive_workspace #333333 #333333 #888888
-#	#		urgent_workspace #2f343a #900000 #ffffff
-#	#}
-#}
 
 ### Input configuration
 # Trackpads and keyboards and such tend to be used across multiple machines, so
@@ -113,11 +99,10 @@ bindsym $mod+end kill
 
 # start your launcher
 bindsym $mod+Space exec $menu
-bindsym $mod+o exec --no-startup-id rofi-ykman
+bindsym $mod+o exec --no-startup-id ykclip-menu
 
 bindsym $mod+s exec ss_full.sh
 bindsym $mod+Shift+s exec ss_selection.sh
-
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
@@ -276,6 +261,11 @@ exec swayidle \
 # audio/video
 exec pipewire
 exec pipewire-pulse
+# Friday Harbor, WA. Some day I might like to figure out how to tie into the
+# GPS on my LTE hotspot and/or boat (NMEA2000 network) and auto-restart this
+# process if my position significantly changes (say, more than 0.1 degree
+# lat/lon).
+exec wlsunset -l 48.5342662 -L -123.01712420000001
 exec /usr/libexec/xdg-desktop-portal -vr
 exec /usr/libexec/xdg-desktop-portal-wlr -r -l DEBUG
 
