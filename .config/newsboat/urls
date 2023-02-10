@@ -1,14 +1,91 @@
+# This is newsboat-specific, it creates a pseudo-feed for all unread things in
+# the remaining feeds.
 "query:Unread Articles:unread = \"yes\""
+
+# Lobsters: Hacker News, but with a different colorscheme, and occasionally
+# more chatter about BSD.
 https://lobste.rs/rss
-https://m.signalvnoise.com/feed/
+
+# kdb424, a personal friend
+https://blog.kdb424.xyz/atom.xml
+
+# mrusme, who writes cool stuff about general computing
+https://マリウス.com/index.xml
+https://xn--gckvb8fzb.com/index.xml
+
+# TODO: why was this added?
+https://andregarzia.com/feeds/all.atom.xml
+
+# antirez, the author of Redis and countless excellent essays on software
+# development
 http://antirez.com/rss
+
+# jcs, core OpenBSD contributor, author of Lobsters, and otherwise awesome
+# developer from Chicago
+https://jcs.org/rss
+
+# tedu, core OpenBSD contributor and believer in simpler software
+https://flak.tedunangst.com/rss
+
+# TODO: document, why was this added?
+https://jvns.ca/atom.xml
+
+# Ben Kuhn, I find I agree with most of his takes on software development so far
+https://www.benkuhn.net/index.xml
+
+# TODO: document, why was this added?
 https://daringfireball.net/feeds/main
+
+# arp242, a developer I followed at one point. TODO: do I still want this in my
+# feed?
 https://www.arp242.net/feed.xml
+
+# ddevault of SourceHut, wlroots, sway, etc. fame. as of Dec 2022 has stated a
+# plan to generally slow or stop blogging, but leaving in the feed in case that
+# changes (or to catch the slow posts)
 https://drewdevault.com/feed.xml
+
+# Nolan Lawson wrote Pinafore, the fastest (and one of the simplest) web UI for
+# Mastodon I've ever seen, and blogs about web performance, "Tech Veganism",
+# the nightmarish complexity of modern computing, etc.
 https://nolanlawson.com/wp-atom.php
+
+# ratfactor is just awesome: dude writes assembly on decade+ old EeePCs for
+# fun, for crying out loud, why *wouldn't* I want to read this blog? he also
+# maintains http://ratfactor.com/zig/stdlib-browseable/std.zig.html, an
+# absolutely invaluable resource while writing Zig (as of 0.10 the stdlib
+# documentation is still generally worse than just reading the source tree
+# yourself)
+https://ratfactor.com/atom.xml
+
+# Jake Bauer, a Merveilles friend I find I agree with on countless topics. He's
+# hardcore about reusing much older hardware than I'd ever consider trying to
+# use modern software on.
+https://www.paritybit.ca/feed.xml
+
+# ntietz, just a cool person with good, short articles I enjoy
+https://ntietz.com/atom.xml
+
+# TODO: document, why was this added?
 https://jneem.github.io/feed.xml
+
+# Ed Davies, off-gridder with plenty of knowledge about electrical systems
+https://edavies.me.uk/blog/atom.xml
+
+# Low Tech Magazine, first in solar form (which is a subset), and then in
+# "full" form that runs in a datacentre somewhere
 https://solar.lowtechmagazine.com/feeds/all-en.atom.xml
-http://feeds.feedburner.com/NoTechMagazine
+https://www.lowtechmagazine.com/atom.xml
+
+# And if low tech is too much tech for you... here's a magazine dedicated to
+# doing things with *even less*, and reviving pre-industrial ways of solving
+# problems
+https://www.notechmagazine.com/feed
+
+### The rest of this list is still unsorted and unorganized, and is a pile of
+### stuff I need to sort through and add explainer comments to
+
+https://roadtothesea.com/feed/
 http://www.plough.com/en/plough-rss-feed
 https://reallifemag.com/feed/
 http://simonvanderveldt.nl/feed.xml
@@ -16,17 +93,22 @@ https://lupyuen.github.io/rss.xml
 https://fam-ribbers.com/feed.xml
 https://www.wezm.net/feed/
 https://emersion.fr/blog/rss.xml
-https://jcs.org/rss
+https://www.jeffgeerling.com/blog.xml
 https://ewontfix.com/feed.rss
 https://www.ribbonfarm.com/wp-feed.php
 http://tonsky.me/blog/atom.xml
 https://writing.kemitchell.com/feed.xml
-https://flak.tedunangst.com/rss
 https://utcc.utoronto.ca/~cks/space/blog/?atom
 https://vermaden.wordpress.com/feed
 https://www.phoronix.com/rss.php
 https://www.eff.org/rss/updates.xml
 https://ourincrediblejourney.tumblr.com/rss
 http://marco-lopes.com/feed.xml
+https://rachelbythebay.com/w/atom.xml
+https://mntre.com/reform_md.atom
 https://blog.qutebrowser.org/feeds/all.atom.xml
 https://www.tbray.org/ongoing/ongoing.atom
+https://mako.cc/copyrighteous/feed/atom
+https://m.signalvnoise.com/feed/
+https://cone.codes/
+https://archimago.blogspot.com/feeds/posts/default
