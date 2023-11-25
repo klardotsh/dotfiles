@@ -33,11 +33,22 @@ output * bg ~/.wallpaper fill
 # I throw them in the common config here
 input 1:1:AT_Translated_Set_2_keyboard xkb_layout us
 input 1:1:AT_Translated_Set_2_keyboard xkb_variant dvorak
-input 1:1:AT_Translated_Set_2_keyboard xkb_options caps:backspace
+# This more closely resembles the Corne I use on my desktop; layout at
+# https://github.com/klardotsh/qmk_firmware
+input 1:1:AT_Translated_Set_2_keyboard xkb_options caps:super
 
 input 1133:45849:Logitech_K810_Keyboard xkb_layout us
 input 1133:45849:Logitech_K810_Keyboard xkb_variant dvorak
-input 1133:45849:Logitech_K810_Keyboard xkb_options caps:backspace
+# This more closely resembles the Corne I use on my desktop; layout at
+# https://github.com/klardotsh/qmk_firmware
+input 1133:45849:Logitech_K810_Keyboard xkb_options caps:super
+
+input 1267:12693:ELAN06C2:00_04F3:3195_Touchpad accel_profile adaptive
+input 1267:12693:ELAN06C2:00_04F3:3195_Touchpad dwt on
+input 1267:12693:ELAN06C2:00_04F3:3195_Touchpad middle_emulation enabled
+input 1267:12693:ELAN06C2:00_04F3:3195_Touchpad natural_scroll enabled
+input 1267:12693:ELAN06C2:00_04F3:3195_Touchpad tap enabled
+input 1267:12693:ELAN06C2:00_04F3:3195_Touchpad tap_button_map lrm
 
 input 2:7:SynPS/2_Synaptics_TouchPad accel_profile adaptive
 input 2:7:SynPS/2_Synaptics_TouchPad dwt on
@@ -262,6 +273,7 @@ exec swayidle \
 
 # audio/video
 exec pipewire
+exec wireplumber
 exec pipewire-pulse
 # Friday Harbor, WA. Some day I might like to figure out how to tie into the
 # GPS on my LTE hotspot and/or boat (NMEA2000 network) and auto-restart this
