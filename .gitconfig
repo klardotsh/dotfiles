@@ -5,6 +5,11 @@
 [commit]
 	gpgsign = true
 [alias]
+	# I constantly type "checkout" as "cechkout" or something otherwise
+	# ridiculous and have to fix it with https://github.com/nvbn/thefuck, so
+	# let's just make an easier alias
+	co = checkout
+
 	# These yanked straight outta https://hackernoon.com/lesser-known-git-commands-151a1918a60#.47hyswh0f
 	please = push --force-with-lease
 	shorty = status --short --branch
@@ -17,12 +22,13 @@
 	# https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html
 	ll = log --graph --format=\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
 
+	# from a coworker at TWG
+	jiggle-ci = commit --allow-empty -m 'forcibly update anything that runs on post-commit hooks'
+
 	# And now either my own stuff, or stuff I adopted from sources I've long since forgotten
 	lol = log --format='%Cred%h%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset%C(yellow)%d%Creset' --no-merges
 	# "cram" a file into the last commit. This is my "oh shit, forgot a migration" button
 	cram = commit --amend --no-edit
-	# default branch = "main"
-	initt = !git init && echo "ref: refs/heads/main" > .git/HEAD
 [fetch]
 	prune = true
 [rerere]

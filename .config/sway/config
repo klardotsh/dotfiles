@@ -31,10 +31,12 @@ output * bg ~/.wallpaper fill
 ### Input configuration
 # Trackpads and keyboards and such tend to be used across multiple machines, so
 # I throw them in the common config here
-input 1:1:AT_Translated_Set_2_keyboard xkb_layout dvorak
+input 1:1:AT_Translated_Set_2_keyboard xkb_layout us
+input 1:1:AT_Translated_Set_2_keyboard xkb_variant dvorak
 input 1:1:AT_Translated_Set_2_keyboard xkb_options caps:backspace
 
-input 1133:45849:Logitech_K810_Keyboard xkb_layout dvorak
+input 1133:45849:Logitech_K810_Keyboard xkb_layout us
+input 1133:45849:Logitech_K810_Keyboard xkb_variant dvorak
 input 1133:45849:Logitech_K810_Keyboard xkb_options caps:backspace
 
 input 2:7:SynPS/2_Synaptics_TouchPad accel_profile adaptive

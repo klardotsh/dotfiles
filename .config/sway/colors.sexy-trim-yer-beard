@@ -8,7 +8,7 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 client.background       #191716
 
 bar {
-	font pango:Font Awesome 11, FSD Emoji 11,monospace 11
+	font pango:Font Awesome 13, FSD Emoji 13,monospace 13
 	position top
 	status_command i3status-rs
 
