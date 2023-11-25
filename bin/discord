@@ -1,0 +1,8 @@
+#!/bin/sh
+# distrobox_binary
+# name: discord
+if [ -z "${CONTAINER_ID}" ]; then
+	exec /usr/bin/distrobox-enter -n discord -- 		 /usr/local/bin/discord  "$@"
+else
+	exec /usr/local/bin/discord "$@"
+fi

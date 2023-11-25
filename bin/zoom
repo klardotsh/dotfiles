@@ -1,1 +1,8 @@
-QT_QPA_PLATFORM= /usr/bin/zoom $@
+#!/bin/sh
+# distrobox_binary
+# name: zoom
+if [ -z "${CONTAINER_ID}" ]; then
+	exec /usr/bin/distrobox-enter  -n zoom -- 		 /usr/bin/zoom  "$@"
+else
+	exec /usr/bin/zoom "$@"
+fi
