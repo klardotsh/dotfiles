@@ -8,7 +8,7 @@ hash git
 hash nvim
 
 mkdir -p ~/src/mine
-[ ! -d ~/src/mine/dotfiles ] && git clone https://git.klar.sh/klardotsh/dotfiles ~/src/mine/dotfiles
+[ ! -d ~/src/mine/dotfiles ] && git clone https://git.sr.ht/~klardotsh/dotfiles ~/src/mine/dotfiles
 
 mkdir -p ~/.local/share/themes
 ln -sf ~/src/mine/dotfiles/.local/share/applications ~/.local/share/
