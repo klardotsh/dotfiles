@@ -4,41 +4,50 @@
 
 export IS_VOID=`[ $(lsb_release -si 2>&1 || echo 'n/a') = 'VoidLinux' ] && echo 1`
 
+__OS="$(uname -s)"
+
+not_darwin() {
+	[ "${__OS}" != "Darwin" ]
+}
+
 if [ ! -z ~/.cargo/env ]; then
 	source ~/.cargo/env
 fi
 
 export GPG_TTY=$(tty)
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
-export TERMINAL='alacritty'
 export EDITOR='nvim'
-export BROWSER='xdg-open'
-export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
 
-export MOZ_USE_XINPUT2=1 # Pixel-perfect trackpads <3
-export MOZ_ENABLE_WAYLAND=1
-export MOZ_WAYLAND_USE_VAAPI=1
+if not_darwin; then
+	export TERMINAL='foot'
+	export BROWSER='xdg-open'
+	export LANG='en_US.utf8' # Also set in /etc/locale.conf, but hey...
 
-export IBUS_ENABLE_CTRL_SHIFT_U=1
-export XMODIFIERS=@im=ibus
+	export MOZ_USE_XINPUT2=1 # Pixel-perfect trackpads <3
+	export MOZ_ENABLE_WAYLAND=1
+	export MOZ_WAYLAND_USE_VAAPI=1
 
-export GTK_CSD=0
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-export GTK_IM_MODULE=ibus
+	export IBUS_ENABLE_CTRL_SHIFT_U=1
+	export XMODIFIERS=@im=ibus
 
-export QT_QPA_PLATFORM=wayland-egl
-# FIXME currently leaves me with no fonts being rendered?
-# export QT_QPA_PLATFORMTHEME=qt5ct
-export QT_IM_MODULE=ibus
+	export GTK_CSD=0
+	export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+	export GTK_IM_MODULE=ibus
 
-export BEMENU_BACKEND=wayland
-export CLUTTER_BACKEND=wayland
-export SDL_VIDEODRIVER=wayland
+	export QT_QPA_PLATFORM=wayland-egl
+	# FIXME currently leaves me with no fonts being rendered?
+	# export QT_QPA_PLATFORMTHEME=qt5ct
+	export QT_IM_MODULE=ibus
 
-export XDG_CURRENT_DESKTOP=sway
-export XDG_SESSION_TYPE=wayland # otherwise gets set to 'tty', breaking WebRTC
+	export BEMENU_BACKEND=wayland
+	export CLUTTER_BACKEND=wayland
+	export SDL_VIDEODRIVER=wayland
 
-export AWS_VAULT_BACKEND=file
+	export XDG_CURRENT_DESKTOP=sway
+	export XDG_SESSION_TYPE=wayland # otherwise gets set to 'tty', breaking WebRTC
+fi
+
+not_darwin && export AWS_VAULT_BACKEND=file
 export AWS_SDK_LOAD_CONFIG=true
 export BAT_THEME="ansi"
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
@@ -49,8 +58,10 @@ hash most 2>/dev/null && export MANPAGER='most -s'
 
 export LESS=-r
 
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
-export _JAVA_AWT_WM_NONREPARTENTING=1
+if not_darwin; then
+	export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+	export _JAVA_AWT_WM_NONREPARTENTING=1
+fi
 
 export TFENV_PATH="${HOME}/.tfenv/bin"
 hash npm 2>/dev/null && export NPM_PACKAGES="$HOME/.npm-packages" && export NODEJS_PATH="${NPM_PACKAGES}/bin"
@@ -110,8 +121,16 @@ bindkey '^x^e' edit-command-line
 
 setopt PROMPT_SUBST
 
-source /usr/share/git/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
+if [ -f /usr/share/git/git-prompt.sh ]; then
+	source /usr/share/git/git-prompt.sh
+elif [ -f ~/bin/git-prompt.sh ]; then
+	source ~/bin/git-prompt.sh
+else
+	__git_ps1() {
+		printf $1 'no git prompt helper!'
+	}
+fi
 
 export PROMPT="(%m) %c %F{cyan} \$(__git_ps1 '» %s ')» %{$reset_color%}%"
 
@@ -274,9 +293,11 @@ foreground-current-job() { fg; }
 zle -N foreground-current-job
 bindkey '^Z' foreground-current-job
 
-# Colorscheme via pywal
-[ -d ~/.cache/wal ] && /bin/cat ~/.cache/wal/sequences
-[ -d ~/.cache/wal ] && source ~/.cache/wal/colors-tty.sh
+if not_darwin; then
+	# Colorscheme via pywal
+	[ -d ~/.cache/wal ] && /bin/cat ~/.cache/wal/sequences
+	[ -d ~/.cache/wal ] && source ~/.cache/wal/colors-tty.sh
+fi
 
 # Colorscheme via theme.sh
 if command -v theme.sh > /dev/null; then

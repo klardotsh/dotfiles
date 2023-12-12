@@ -4,6 +4,10 @@ set -euxo pipefail
 
 OS="$(uname -s)"
 
+is_darwin() {
+	[ "${OS}" = "Darwin" ]
+}
+
 not_darwin() {
 	[ "${OS}" != "Darwin" ]
 }
@@ -43,6 +47,8 @@ not_darwin && ln -sf ~/src/mine/dotfiles/.tmux-chat.conf ~/
 [ ! -d ~/.tmux/plugins/tpm ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 curl -L -o ~/.wallpaper "$(grep -Ev '^#' ~/src/mine/dotfiles/wallpaper.txt)"
+
+is_darwin && curl -L -o ~/bin/git-prompt.sh https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh
 
 if not_darwin; then
 	mkdir -p ~/.icons
