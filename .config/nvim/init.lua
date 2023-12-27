@@ -70,8 +70,9 @@ opt.hlsearch = true
 opt.ignorecase = true
 opt.incsearch = true
 opt.laststatus = 2
+opt.list = true
 opt.listchars = {
-	tab = '» ',
+	tab = '· ',
 	trail = '·',
 	nbsp = '·',
 }
@@ -88,6 +89,7 @@ opt.softtabstop = 4
 opt.splitbelow = true
 opt.splitright = true
 opt.tabstop = 4
+opt.title = true -- set terminal window title
 opt.updatetime = 300
 
 -- Helix-like (ish) sane line wrapping, thanks @jbauer!
@@ -95,7 +97,7 @@ opt.wrap = true
 opt.linebreak = true
 opt.breakindent = true
 opt.breakindentopt = "shift:2"
-opt.showbreak = ">>"
+opt.showbreak = "↪"
 
 g.tokyonight_hide_inactive_statusline = 1
 g.tokyonight_lualine_bold = 1
@@ -150,8 +152,7 @@ require('jetpack.packer').add {
 		cmd 'hi GitSignsAdd ctermbg=none guibg=none'
 		cmd 'hi GitSignsChange ctermbg=none guibg=none'
 		cmd 'hi GitSignsDelete ctermbg=none guibg=none'
-	end,
-},
+	end},
 
 'ourigen/skyline.vim',
 'markonm/traces.vim', -- Pattern/range previews where NeoVim doesn't already provide them
@@ -176,6 +177,7 @@ require('jetpack.packer').add {
 'bfrg/vim-jq',
 'klardotsh/gale.vim',
 'https://git.sr.ht/~sircmpwn/hare.vim',
+'jaawerth/fennel.vim',
 
 -- config formats support
 'GutenYe/json5.vim',

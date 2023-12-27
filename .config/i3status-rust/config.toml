@@ -38,6 +38,7 @@ interval = 1
 
 [[block]]
 block = "backlight"
+invert_icons = true
 
 [[block]]
 block = "sound"
