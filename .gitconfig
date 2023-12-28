@@ -46,3 +46,16 @@
 	insteadOf = https://gitlab.com/
 [init]
 	defaultBranch = main
+
+[include]
+	# NEVER check this file into Git as it will leak the paths of
+	# anywhere that is being trusted despite "dubious ownership", as
+	# discussed in
+	# https://github.com/git/git/commit/8959555cee7ec045958f9b6dd62e541affb7e7d9
+	# and worked around with my "git-remotesafe" script (see /bin in
+	# dotfiles), somewhat cribbed from
+	# https://weblog.west-wind.com/posts/2023/Jan/05/Fix-that-damn-Git-Unsafe-Repository.
+	path = ~/.gitconfig.remotesafe
+
+[includeIf "gitdir:~/src/work/"]
+	path = ~/src/work/.gitconfig

@@ -3,3 +3,4 @@
 etc/sv/j/supervise
 .gnupg/
 .local
+.gitconfig.remotesafe

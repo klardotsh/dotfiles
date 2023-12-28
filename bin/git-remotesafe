@@ -1,0 +1,20 @@
+#!/usr/bin/env sh
+
+# Somewhat cribbed from
+# https://weblog.west-wind.com/posts/2023/Jan/05/Fix-that-damn-Git-Unsafe-Repository,
+# which allows Git to work on sshfs-mounted directories. Read the
+# commit in Git itself to understand **why** it's screaming before
+# using this to silence things.
+
+REMOTESAFE_TARGET="${REMOTESAFE_TARGET:-${HOME}/.gitconfig.remotesafe}"
+
+if [ -d .git ]; then
+	safepath="$(realpath "$(pwd)")"
+	git config \
+		-f "${REMOTESAFE_TARGET}" \
+		--add safe.directory "${safepath}"
+	echo "Added ${safepath} to safe directories in ${REMOTESAFE_TARGET}"
+else
+	echo "This script must be run from a Git repository root (eg. has a .git/ directory)." >&2
+	exit 1
+fi
