@@ -1,10 +1,10 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 # https://github.com/artemist/play/blob/5204c3f75e8b2e2c47dee25a87ee7718b932ff16/scripts/ykclip-menu.sh
 #
 # Modified to add notifications.
 
-name=$(ykman oath list | wofi -k /dev/null -i -d)
-line=$(ykman oath code $name | head -n 1)
+name=$(ykman oath accounts list | fuzzel -d)
+line=$(ykman oath accounts code "$name" | head -n 1)
 if test -n "$line"
 then
 	OTP=$(echo "${line}" | awk '{print $NF}')

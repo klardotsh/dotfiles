@@ -1,0 +1,10 @@
+#!/bin/sh
+# distrobox_binary
+# name: $0
+LINKED_AS="$(basename "$0")"
+
+if [ -z "${CONTAINER_ID}" ]; then
+	exec /usr/bin/distrobox-enter -n "${LINKED_AS}" -- "/usr/bin/${LINKED_AS}" "$@"
+else
+	exec "/usr/bin/${LINKED_AS}" "$@"
+fi

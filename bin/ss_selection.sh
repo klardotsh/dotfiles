@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
-PATHNAME=~/Pictures/Screenshots/screenshot-$(date -u +%Y-%m-%d-%TZ).png
+# MS Teams and other poorly-written softwares choke on colons in filenames, so
+# use underscores instead.
+PATHNAME=~/Pictures/Screenshots/screenshot-$(date -u +%Y-%m-%d-%TZ | tr ':' '_').png
 
-slurp | grim -g - ${PATHNAME} && notify-send Screenshot ${PATHNAME}
+grimshot --notify save window "${PATHNAME}"

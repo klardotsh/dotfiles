@@ -1,8 +1,1 @@
-#!/bin/sh
-# distrobox_binary
-# name: steam
-if [ -z "${CONTAINER_ID}" ]; then
-	exec /usr/bin/distrobox-enter  -n steam -- 		 /usr/bin/steam  "$@"
-else
-	exec /usr/bin/steam "$@"
-fi
+_distrobox-wrapper
