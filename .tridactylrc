@@ -1,0 +1,8 @@
+" vim: set filetype=tridactyl
+
+" General Settings
+set update.lastchecktime 1703802556457
+set configversion 2.0
+
+" Cursed autofocus behavior by websites these days...
+set allowautofocus false
