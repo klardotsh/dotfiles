@@ -2,6 +2,9 @@
 # the remaining feeds.
 "query:Unread Articles:unread = \"yes\""
 
+# The Home Town
+https://forum.merveilles.town/rss.xml
+
 # Lobsters: Hacker News, but with a different colorscheme, and occasionally
 # more chatter about BSD.
 https://lobste.rs/rss
@@ -9,12 +12,21 @@ https://lobste.rs/rss
 # kdb424, a personal friend
 https://blog.kdb424.xyz/atom.xml
 
+# @vesto from Merveilles, a US expat nerd in Germany
+https://www.stevegattuso.me/feed.xml
+
 # mrusme, who writes cool stuff about general computing
 https://マリウス.com/index.xml
 https://xn--gckvb8fzb.com/index.xml
 
 # TODO: why was this added?
 https://andregarzia.com/feeds/all.atom.xml
+
+# andrewrk, author of Zig
+https://andrewkelley.me/rss.xml
+
+# Zig itself
+https://ziglang.org/news/index.xml
 
 # antirez, the author of Redis and countless excellent essays on software
 # development
@@ -72,6 +84,10 @@ https://jneem.github.io/feed.xml
 # Ed Davies, off-gridder with plenty of knowledge about electrical systems
 https://edavies.me.uk/blog/atom.xml
 
+# Terence Eden, just cool tech geekery in general (and a healthy dose of
+# cynicism towards modern tech and hype around it)
+https://shkspr.mobi/blog/feed/atom/
+
 # Low Tech Magazine, first in solar form (which is a subset), and then in
 # "full" form that runs in a datacentre somewhere
 https://solar.lowtechmagazine.com/feeds/all-en.atom.xml
@@ -81,6 +97,41 @@ https://www.lowtechmagazine.com/atom.xml
 # doing things with *even less*, and reviving pre-industrial ways of solving
 # problems
 https://www.notechmagazine.com/feed
+
+# Fanless computers
+https://www.fanlesstech.com/feeds/posts/default
+
+# TODO better comment
+# cool unix dude
+https://bt.ht/atom.xml
+
+# Bulk section: prior Mastodon follows when I did the great untimelinification
+# for mental health purposes. Nothing personal about any of these folks
+# necessarily, just juggling some timelines.
+https://mastodon.decentralised.social/@wezm.rss
+https://sonomu.club/@dried.rss
+https://merveilles.town/@akkartik.rss
+https://astrodon.social/@kellylepo.rss
+https://infosec.exchange/@damien.rss
+https://mastodon.social/@mhoye.rss
+https://sunbeam.city/@tty.rss
+https://toot-lab.reclaim.technology/@djsundog.rss
+https://oldbytes.space/@Retrograde.rss
+https://hachyderm.io/@molly0xfff.rss
+https://pony.social/@cadey.rss
+https://appalachian.town/@awildthorp.rss
+https://merveilles.town/@alderwick.rss
+https://mspsocial.net/@vkc.rss
+https://mspsocial.net/@jacqui.rss
+https://merveilles.town/@maleza.rss
+https://mastodon.social/@marcoarment.rss
+https://toot.cafe/@baldur.rss
+https://fosstodon.org/@martijnbraam.rss
+https://fosstodon.org/@saramg.rss
+https://bsd.network/@mischa.rss
+https://social.afront.org/@suehle.rss
+https://mastodon.scot/@withaveeay.rss
+https://ruby.social/@kkuchta.rss
 
 ### The rest of this list is still unsorted and unorganized, and is a pile of
 ### stuff I need to sort through and add explainer comments to
