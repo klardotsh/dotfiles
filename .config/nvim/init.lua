@@ -95,6 +95,7 @@ opt.softtabstop = 4
 opt.splitbelow = true
 opt.splitright = true
 opt.tabstop = 4
+opt.termguicolors = false
 opt.title = true -- set terminal window title
 opt.updatetime = 300
 
@@ -114,17 +115,19 @@ g.monochrome_italic_comments = 1
 g.dracula_colorterm = 0
 g.nofrils_strbackgrounds = 1
 
-vim.cmd('set notermguicolors')
-
 vim.cmd('packadd vim-jetpack')
 require('jetpack.packer').add {
-	{'tani/vim-jetpack'},
+	'tani/vim-jetpack',
+
+	-- diagnostics...
+	'tweekmonster/startuptime.vim',
+
+	-- themes: I tend to prefer those that work with <=16 colors generically
 	'jeffkreeftmeijer/vim-dim',
 	'noahfrederick/vim-noctu',
 	'robertmeta/nofrils',
 	'karoliskoncevicius/distilled-vim',
 	'cideM/yui',
-	'https://git.jaderune.net/jbauer/vim-monochrome',
 
 	-- the junegunn section
 	'junegunn/fzf.vim',
@@ -225,6 +228,7 @@ require('jetpack.packer').add {
 	'NLKNguyen/cloudformation-syntax.vim',
 	'markcornick/vim-vagrant',
 	'uarun/vim-protobuf',
+	'tridactyl/vim-tridactyl',
 
 	-- completion and language server nonsense, the bane of every config I've
 	-- written in the past several years
