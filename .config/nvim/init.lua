@@ -210,33 +210,24 @@ require('jetpack.packer').add {
 	-- > :w
 	'pbrisbin/vim-mkdir',
 
-	-- language support - generally speaking treesitter has wiped out most of what
+	{'nvim-treesitter/nvim-treesitter',
+	run = ":TSUpdate",
+	config = function()
+		require'nvim-treesitter.configs'.setup {
+			ensure_installed = "all",
+			highlight = { enable = true }
+		}
+	end},
+
+	-- Misc. language support - generally speaking treesitter has wiped out most of what
 	-- used to make up this list
 	'gpanders/vim-scdoc',
-	'jjo/vim-cue',
-	'neovimhaskell/haskell-vim',
-	'purescript-contrib/purescript-vim',
 	'reasonml-editor/vim-reason-plus',
-	'rust-lang/rust.vim',
-	'vmchale/dhall-vim',
-	'alaviss/nim.nvim',
-	'ziglang/zig.vim',
-	'karolbelina/uxntal.vim',
-	'bfrg/vim-jq',
 	'klardotsh/gale.vim',
-	'https://git.sr.ht/~sircmpwn/hare.vim',
-	'jaawerth/fennel.vim',
-
-	-- config formats support
-	'GutenYe/json5.vim',
 	'Matt-Deacalion/vim-systemd-syntax',
 	'NLKNguyen/cloudformation-syntax.vim',
-	'cespare/vim-toml',
-	'hashivim/vim-terraform',
 	'markcornick/vim-vagrant',
-	'tarekbecker/vim-yaml-formatter',
 	'uarun/vim-protobuf',
-	'ron-rs/ron.vim',
 
 	-- completion and language server nonsense, the bane of every config I've
 	-- written in the past several years
