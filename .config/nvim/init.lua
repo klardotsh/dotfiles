@@ -18,7 +18,16 @@ end
 local function map(mode, lhs, rhs, opts)
 	local options = {noremap = true}
 	if opts then options = vim.tbl_extend('force', options, opts) end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+
+	if type(mode) == "string" then
+		vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	elseif type(mode) == "table" then
+		for _, imode in ipairs(mode) do
+			map(imode, lhs, rhs, opts)
+		end
+	else
+		error("first arg to map() must be a string or a table of strings")
+	end
 end
 
 function unfuck_colors()
@@ -166,6 +175,18 @@ require('jetpack.packer').add {
 		})
 	end},
 
+	{'brenton-leighton/multiple-cursors.nvim',
+	config = function()
+		require("multiple-cursors").setup()
+
+		map({'n', 'i'}, '<C-Down>', '<cmd>MultipleCursorsAddDown<CR>')
+		map({''}, '<C-j>', '<cmd>MultipleCursorsAddDown<CR>')
+		map({'n', 'i'}, '<C-Up>', '<cmd>MultipleCursorsAddUp<CR>')
+		map({''}, '<C-k>', '<cmd>MultipleCursorsAddUp<CR>')
+		map({'n', 'i'}, "<C-LeftMouse>", "<cmd>MultipleCursorsMouseAddDelete<CR>")
+		map({'n', 'v'}, "<Leader>a", "<cmd>MultipleCursorsAddToWordUnderCursor<CR>")
+	end},
+
 	{'lewis6991/gitsigns.nvim',
 	config = function()
 		require('gitsigns').setup()
@@ -238,6 +259,38 @@ require('jetpack.packer').add {
 		})
 	end
 },
+
+	{'VonHeikemen/lsp-zero.nvim',
+	config = function()
+		local lspconfig = require('lspconfig')
+		local lsp_zero = require('lsp-zero')
+
+		lsp_zero.on_attach(function(client, bufnr)
+			-- see :help lsp-zero-keybindings
+			-- to learn the available actions
+			lsp_zero.default_keymaps({buffer = bufnr})
+		end)
+
+		-- LSP bindings. TODO: how many of these are now unnecessary given the above?
+		map('n', '<Leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+		map('n', '<Leader>crn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+		map('n', '<Leader>cref', '<cmd>lua vim.lsp.buf.references()<CR>')
+		map('n', '<Leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+		map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+
+		lspconfig.bashls.setup({})
+		lspconfig.dhall_lsp_server.setup({})
+		lspconfig.fennel_ls.setup({})
+		lspconfig.gopls.setup({})
+		lspconfig.lua_ls.setup({})
+		lspconfig.nomad_lsp.setup({})
+		lspconfig.pylsp.setup({})
+		lspconfig.rust_analyzer.setup({})
+		lspconfig.sorbet.setup({})
+		lspconfig.terraform_lsp.setup({})
+		lspconfig.tsserver.setup({})
+		lspconfig.zls.setup({})
+	end},
 }
 
 map('', '<Leader>/', ':nohlsearch<CR>', { silent = true })
@@ -260,13 +313,6 @@ map('', '<Home>', "col('.') == match(getline('.'),'\\S')+1 ? '0' : '^'", {
 	expr = true,
 	silent = true,
 })
-
--- LSP bindings
-map('n', '<Leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-map('n', '<Leader>crn', '<cmd>lua vim.lsp.buf.rename()<CR>')
-map('n', '<Leader>cref', '<cmd>lua vim.lsp.buf.references()<CR>')
-map('n', '<Leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 
 -- Set colorscheme as the final things in the config.
 vim.cmd('colorscheme noctu')
