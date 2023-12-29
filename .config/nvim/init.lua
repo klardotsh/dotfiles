@@ -202,63 +202,63 @@ require('jetpack.packer').add {
 		cmd 'hi GitSignsDelete ctermbg=none guibg=none'
 	end},
 
-'ourigen/skyline.vim',
-'markonm/traces.vim', -- Pattern/range previews where NeoVim doesn't already provide them
+	'ourigen/skyline.vim',
+	'markonm/traces.vim', -- Pattern/range previews where NeoVim doesn't already provide them
 
--- automatically create any non-existent directories before writing the buffer
--- > :e this/does/not/exist/file.txt
--- > :w
-'pbrisbin/vim-mkdir',
+	-- automatically create any non-existent directories before writing the buffer
+	-- > :e this/does/not/exist/file.txt
+	-- > :w
+	'pbrisbin/vim-mkdir',
 
--- language support - generally speaking treesitter has wiped out most of what
--- used to make up this list
-'gpanders/vim-scdoc',
-'jjo/vim-cue',
-'neovimhaskell/haskell-vim',
-'purescript-contrib/purescript-vim',
-'reasonml-editor/vim-reason-plus',
-'rust-lang/rust.vim',
-'vmchale/dhall-vim',
-'alaviss/nim.nvim',
-'ziglang/zig.vim',
-'karolbelina/uxntal.vim',
-'bfrg/vim-jq',
-'klardotsh/gale.vim',
-'https://git.sr.ht/~sircmpwn/hare.vim',
-'jaawerth/fennel.vim',
+	-- language support - generally speaking treesitter has wiped out most of what
+	-- used to make up this list
+	'gpanders/vim-scdoc',
+	'jjo/vim-cue',
+	'neovimhaskell/haskell-vim',
+	'purescript-contrib/purescript-vim',
+	'reasonml-editor/vim-reason-plus',
+	'rust-lang/rust.vim',
+	'vmchale/dhall-vim',
+	'alaviss/nim.nvim',
+	'ziglang/zig.vim',
+	'karolbelina/uxntal.vim',
+	'bfrg/vim-jq',
+	'klardotsh/gale.vim',
+	'https://git.sr.ht/~sircmpwn/hare.vim',
+	'jaawerth/fennel.vim',
 
--- config formats support
-'GutenYe/json5.vim',
-'Matt-Deacalion/vim-systemd-syntax',
-'NLKNguyen/cloudformation-syntax.vim',
-'cespare/vim-toml',
-'hashivim/vim-terraform',
-'markcornick/vim-vagrant',
-'tarekbecker/vim-yaml-formatter',
-'uarun/vim-protobuf',
-'ron-rs/ron.vim',
+	-- config formats support
+	'GutenYe/json5.vim',
+	'Matt-Deacalion/vim-systemd-syntax',
+	'NLKNguyen/cloudformation-syntax.vim',
+	'cespare/vim-toml',
+	'hashivim/vim-terraform',
+	'markcornick/vim-vagrant',
+	'tarekbecker/vim-yaml-formatter',
+	'uarun/vim-protobuf',
+	'ron-rs/ron.vim',
 
--- completion and language server nonsense, the bane of every config I've
--- written in the past several years
-'neovim/nvim-lspconfig',
-"hrsh7th/cmp-nvim-lsp",
-"hrsh7th/cmp-buffer",
-"hrsh7th/cmp-path",
-"hrsh7th/cmp-cmdline",
-"hrsh7th/cmp-vsnip",
-"hrsh7th/vim-vsnip",
-{
-	"hrsh7th/nvim-cmp",
-	config = function()
-		require('cmp').setup({
-			snippet = {
-				expand = function(args)
-					vim.fn["vsnip#anonymous"](args.body)
-				end,
-			},
-		})
-	end
-},
+	-- completion and language server nonsense, the bane of every config I've
+	-- written in the past several years
+	'neovim/nvim-lspconfig',
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-cmdline",
+	"hrsh7th/cmp-vsnip",
+	"hrsh7th/vim-vsnip",
+	{
+		"hrsh7th/nvim-cmp",
+		config = function()
+			require('cmp').setup({
+				snippet = {
+					expand = function(args)
+						vim.fn["vsnip#anonymous"](args.body)
+					end,
+				},
+			})
+		end
+	},
 
 	{'VonHeikemen/lsp-zero.nvim',
 	config = function()
