@@ -64,9 +64,6 @@ end
 -- muscle memory is strong. On Dvorak, it's an extremely comfortable jump
 -- anyway.
 g.mapleader=","
-if not g.syntax_on then
-	cmd 'syntax on'
-end
 
 opt.autoindent = true
 opt.background = 'dark'
