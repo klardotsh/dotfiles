@@ -1,40 +1,69 @@
 [theme]
-name = "native"
+theme = "native"
 
 [icons]
-name = "awesome"
+icons = "none"
+# All emojis in this section must have a trailing U+FE0E (C-v ufe0e in vim) to
+# force non-colorized rendering. See:
+# https://gitlab.gnome.org/GNOME/pango/-/issues/690#note_1507039
+[icons.overrides]
+gpu = "G"
+disk_drive = "D"
+music = "♪︎"
+time = "🕓︎"
+volume = ["🔈︎", "🔉︎", "🔊︎"]
+volume_muted = "🔇︎"
+weather_clouds = "W"
+weather_default = "W"
+weather_rain = "W"
+weather_snow = "W"
+weather_sun = "W"
+weather_thunder = "W"
 
 [[block]]
 block = "focused_window"
-max_width = 50
-show_marks = "visible"
+format = " $title "
 
 [[block]]
 block = "music"
-dynamic_width = true
-max_width = 50
-marquee = false
-hide_when_empty = true
+format = " $icon {$combo.str(max_w:35,rot_interval:0.5) |} "
+format_alt = " $icon {$player.str(max_w:35,rot_interval:0.5) |}"
+
+[[block]]
+block = "weather"
+format = " $icon $weather $temp "
+format_alt = " $icon_ffin $location: $temp_fmax/$temp_fmin $wind_favg m/s $direction_favg "
+autolocate = true
+autolocate_interval = 3600 # 1hr
+[block.service]
+name = "metno"
 
 [[block]]
 block = "disk_space"
-path = "/"
-alias = "/"
 info_type = "available"
-unit = "GB"
-interval = 20
-warning = 20.0
-alert = 10.0
+interval = 60
+alert_unit = "GB"
+warning = 200.0
+alert = 100.0
 
 [[block]]
-block = "memory"
-display_type = "memory"
-format_mem = "{mem_used_percents}"
-format_swap = "{swap_used_percents}"
+block = "amd_gpu"
+# This is a bit of a hack, but should prevent this block from existing on
+# systems that at least haven't loaded the AMDGPU kernel module. Systems which
+# bake it into the kernel will bypass this.
+if_command = "directory-not-empty /sys/module/amdgpu"
+format = " $icon $utilization ($vram_used) "
+interval = 1
 
 [[block]]
 block = "cpu"
-interval = 1
+interval = 5
+format = " C $utilization "
+
+[[block]]
+block = "memory"
+interval = 5
+format = " M $mem_used_percents ($mem_used) "
 
 [[block]]
 block = "backlight"
@@ -46,9 +75,10 @@ block = "sound"
 
 [[block]]
 block = "battery"
+if_command = "directory-not-empty /sys/class/power_supply/BAT0"
 format = "{percentage} {time}"
 
 [[block]]
 block = "time"
 interval = 5
-format = "%a %d %H:%M"
+format = " $icon $timestamp.datetime(f:'%a %d %H:%M') "
