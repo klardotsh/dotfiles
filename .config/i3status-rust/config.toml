@@ -38,6 +38,7 @@ interval = 1
 
 [[block]]
 block = "backlight"
+if_command = "directory-not-empty /sys/class/backlight"
 invert_icons = true
 
 [[block]]
