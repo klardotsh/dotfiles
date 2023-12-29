@@ -6,3 +6,7 @@ set configversion 2.0
 
 " Cursed autofocus behavior by websites these days...
 set allowautofocus false
+
+" phanpy seems to require autofocus to allow the notifications tray to close:
+" without it, it can open, and then will remain so until the page reloads
+seturl phanpy.social allowautofocus true
