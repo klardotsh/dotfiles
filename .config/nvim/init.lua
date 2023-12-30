@@ -106,18 +106,13 @@ opt.breakindent = true
 opt.breakindentopt = "shift:2"
 opt.showbreak = "↪"
 
-g.tokyonight_hide_inactive_statusline = 1
-g.tokyonight_lualine_bold = 1
-g.base16_transparent_background = 1
-g.srcery_italic = 1
-g.srcery_bg_passthrough = 1
 g.monochrome_italic_comments = 1
-g.dracula_colorterm = 0
 g.nofrils_strbackgrounds = 1
 
 vim.cmd('packadd vim-jetpack')
 require('jetpack.packer').add {
 	'tani/vim-jetpack',
+	'nvim-lua/plenary.nvim', -- general helper lib
 
 	-- diagnostics...
 	'tweekmonster/startuptime.vim',
@@ -129,11 +124,6 @@ require('jetpack.packer').add {
 	'karoliskoncevicius/distilled-vim',
 	'cideM/yui',
 
-	-- the junegunn section
-	'junegunn/fzf.vim',
-	'junegunn/rainbow_parentheses.vim',
-	'junegunn/vim-emoji',
-
 	-- the tpope section
 	'tpope/vim-abolish',
 	'tpope/vim-commentary',
@@ -143,10 +133,46 @@ require('jetpack.packer').add {
 	'tpope/vim-surround',
 	'tpope/vim-speeddating',
 
+	-- messing with numbers
+	'glts/vim-magnum', -- dependency, big integer library
+	'glts/vim-radical', -- convert between dec/hex/oct/bin nums with crX binds
+
 	-- interface / misc
 	'editorconfig/editorconfig-vim', -- force buffer to use editorconfig settings
 	'ntpeters/vim-better-whitespace',
 	'vim-scripts/DeleteTrailingWhitespace',
+
+	-- finders and so forth
+	{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+	'nvim-telescope/telescope-symbols.nvim',
+	'chip/telescope-software-licenses.nvim',
+	{'nvim-telescope/telescope.nvim',
+	config = function()
+		local telescope = require('telescope')
+		telescope.load_extension('fzf')
+		telescope.load_extension('software-licenses')
+		telescope.setup({
+			pickers = {
+				buffers = { theme = 'ivy' },
+				diagnostics = { theme = 'ivy' },
+				help_tags = { theme = 'ivy' },
+				live_grep = { theme = 'ivy' },
+				find_files = { theme = 'ivy' },
+				symbols = { theme = 'ivy' },
+			},
+		})
+
+		local builtin = require('telescope.builtin')
+		vim.keymap.set('n', '<C-t>', builtin.find_files, {})
+		vim.keymap.set('n', '<leader>d', builtin.diagnostics, {})
+		vim.keymap.set('n', '<leader>g', builtin.live_grep, {})
+		vim.keymap.set('n', '<leader>b', builtin.buffers, {})
+		vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
+		vim.keymap.set('n', '<leader>sy', builtin.symbols, {})
+		map('', '<Leader>sl', ':Telescope software-licenses find theme=ivy<CR>')
+	end},
+
+	-- provide :menubar command completion like helix/kakoune
 	{'vzze/cmdline.nvim',
 	config = function()
 		require('cmdline')({
@@ -185,6 +211,16 @@ require('jetpack.packer').add {
 		map({''}, '<C-k>', '<cmd>MultipleCursorsAddUp<CR>')
 		map({'n', 'i'}, "<C-LeftMouse>", "<cmd>MultipleCursorsMouseAddDelete<CR>")
 		map({'n', 'v'}, "<Leader>a", "<cmd>MultipleCursorsAddToWordUnderCursor<CR>")
+	end},
+
+	{'ggandor/leap.nvim',
+	config = function()
+		require('leap').create_default_mappings()
+	end},
+
+	{'ggandor/flit.nvim',
+	config = function()
+		require('flit').setup()
 	end},
 
 	{'lewis6991/gitsigns.nvim',
@@ -226,7 +262,6 @@ require('jetpack.packer').add {
 	'klardotsh/gale.vim',
 	'Matt-Deacalion/vim-systemd-syntax',
 	'NLKNguyen/cloudformation-syntax.vim',
-	'markcornick/vim-vagrant',
 	'uarun/vim-protobuf',
 	'tridactyl/vim-tridactyl',
 
@@ -293,11 +328,9 @@ map('v', 'Q', 'gq')
 map('', '<Leader>j', ':%!jq -S<CR>')
 
 -- buffer/file management
-map('', '<C-t>', ':Files<CR>')
 map('', '<C-e>', ':bufdo edit<Space>')
 map('', '<C-N>', ':bn<CR>')
 map('', '<C-P>', ':bp<CR>')
-map('', '<Leader>b', ':Buffers<CR>')
 
 -- First try to go to first real character of line, then allow going to
 -- beginning of line
