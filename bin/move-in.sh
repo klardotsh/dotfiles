@@ -63,3 +63,6 @@ fi
 
 nvim --headless +JetpackSync +qall
 echo "Disregard any 'not synchronized' error you just saw from neovim above: JetpackSync was run!" >&2
+nvim --headless +TSUpdate +qall
+
+echo "===> You're all moved in!"
