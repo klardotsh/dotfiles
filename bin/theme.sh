@@ -5161,6 +5161,48 @@ foreground: #181818
 background: #f6f6f6
 cursor: #181818
 
+alabaster-dark
+0: #000000
+1: #e25d56
+2: #73ca50
+3: #e9bf57
+4: #4a88e4
+5: #915caf
+6: #23acdd
+7: #cecece
+8: #777777
+9: #f36868
+10: #88db3f
+11: #f0bf7a
+12: #6f8fdb
+13: #e987e9
+14: #4ac9e2
+15: #ffffff
+foreground: #cecece
+background: #0e1415
+cursor: #cd974b
+
+alabaster-light
+0: #000000
+1: #aa3731
+2: #448c37
+3: #cb9000
+4: #325cc0
+5: #7a3e9d
+6: #0083b2
+7: #bbbbbb
+8: #777777
+9: #f05050
+10: #60cb00
+11: #ffbc5d
+12: #007acc
+13: #e64ce6
+14: #00aacb
+15: #ffffff
+foreground: #000000
+background: #f7f7f7
+cursor: #007acc
+
 ibm3270
 0: #222222
 1: #f01818
