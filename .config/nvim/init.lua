@@ -109,6 +109,8 @@ opt.showbreak = "↪"
 g.monochrome_italic_comments = 1
 g.nofrils_strbackgrounds = 1
 
+local SELECTED_COLORSCHEME = 'komau'
+
 vim.cmd('packadd vim-jetpack')
 require('jetpack.packer').add {
 	'tani/vim-jetpack',
@@ -122,7 +124,7 @@ require('jetpack.packer').add {
 	'noahfrederick/vim-noctu',
 	'robertmeta/nofrils',
 	'karoliskoncevicius/distilled-vim',
-	'cideM/yui',
+	'ntk148v/komau.vim',
 
 	-- the tpope section
 	'tpope/vim-abolish',
@@ -340,5 +342,5 @@ map('', '<Home>', "col('.') == match(getline('.'),'\\S')+1 ? '0' : '^'", {
 })
 
 -- Set colorscheme as the final things in the config.
-vim.cmd('colorscheme noctu')
+vim.cmd('colorscheme ' .. SELECTED_COLORSCHEME)
 unfuck_colors()
