@@ -12,13 +12,19 @@ not_darwin() {
 	[ "${OS}" != "Darwin" ]
 }
 
+ensure_cloned() {
+	if [ ! -d "$2" ]; then
+		git clone "$1" "$2"
+	fi
+}
+
 # ensure various required things are installed
 hash curl
 hash git
 hash nvim
 
 mkdir -p ~/src/mine
-[ ! -d ~/src/mine/dotfiles ] && git clone https://git.sr.ht/~klardotsh/dotfiles ~/src/mine/dotfiles
+ensure_cloned https://git.sr.ht/~klardotsh/dotfiles ~/src/mine/dotfiles
 
 if not_darwin; then
 	mkdir -p ~/.local/share/themes
@@ -44,7 +50,7 @@ ln -sf ~/src/mine/dotfiles/.zshrc ~/
 ln -sf ~/src/mine/dotfiles/.tmux.conf ~/
 # Currently no point in having IRC clients on the work machines.
 not_darwin && ln -sf ~/src/mine/dotfiles/.tmux-chat.conf ~/
-[ ! -d ~/.tmux/plugins/tpm ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ensure_cloned https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 curl -L -o ~/.wallpaper "$(grep -Ev '^#' ~/src/mine/dotfiles/wallpaper.txt)"
 
@@ -55,4 +61,5 @@ if not_darwin; then
 	ln -sf ~/src/mine/dotfiles/.icons/default ~/.icons/
 fi
 
-nvim +JetpackSync +qall
+nvim --headless +JetpackSync +qall
+echo "Disregard any 'not synchronized' error you just saw from neovim above: JetpackSync was run!" >&2
