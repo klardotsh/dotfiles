@@ -31,32 +31,35 @@ local function map(mode, lhs, rhs, opts)
 end
 
 function unfuck_colors()
-	-- everything else playing nice with base16 plz
+	-- So many colorschemes set bg/fg colors. Stop. I already defined 16 of them
+	-- in my terminal config. Especially, if you color NonText, I hate you.
+	cmd 'hi Normal ctermfg=none ctermbg=none guifg=none guibg=none'
+	cmd 'hi NonText ctermbg=none'
 	cmd 'hi VertSplit ctermbg=none guibg=none'
 	cmd 'hi StatusLineNC ctermbg=none guibg=none'
-
-	-- nofrils sets a default background colour. bad dog!
-	-- distilled sets a default **foreground** colour. still bad dog!
-	cmd 'hi Normal ctermfg=none ctermbg=none guifg=none guibg=none'
-
-	-- monochrome sets a default background colour for empty space, bad dog!
-	cmd 'hi NonText ctermbg=none'
-
-	-- monochrome sets a background for comments, nuke that too
-	-- then make comments readable in dark colorschemes, and stand out in
-	-- general
-	cmd 'hi Comment ctermbg=none ctermfg=4 cterm=italic'
-
-	-- monochrome sets a background for things like = and +, goodbye
-	cmd 'hi Statement ctermbg=none'
-
-	-- yui darkens strings/constants by default, which is *very* hard to read
-	-- on dark screens. this value looks fine on both dark and light
-	-- backgrounds
-	cmd 'hi Constant ctermfg=7'
-
-	-- Preferences/modifying monochrome, mostly
+	cmd 'hi Comment ctermbg=none cterm=italic'
 	cmd 'hi Constant ctermbg=none cterm=italic'
+
+	-- Unfuck vim-boring specifically (this should basically become a fork honestly)
+	-- Specifically works better than stock when toggling between light and dark themes.
+	cmd 'hi String ctermfg=8 ctermbg=none'
+	cmd 'hi Statement ctermbg=none cterm=bold,italic'
+	cmd 'hi Special ctermbg=none cterm=bold'
+
+	-- Sidebar gutter colors are mostly (1) light variants, and (2) with backgrounds
+	-- in vim-boring. Fix all of that.
+	cmd 'hi DiagnosticError ctermbg=none ctermfg=1'
+	cmd 'hi DiagnosticWarn ctermbg=none ctermfg=3'
+	cmd 'hi DiagnosticInfo ctermbg=none ctermfg=5'
+	cmd 'hi DiagnosticHint ctermbg=none ctermfg=9'
+	cmd 'hi diffAdded ctermbg=none ctermfg=green'
+	cmd 'hi diffRemoved ctermbg=none ctermfg=red'
+	cmd 'hi diffChanged ctermbg=none ctermfg=yellow'
+	cmd 'hi diffLine ctermbg=none'
+	cmd 'hi diffNewFile ctermbg=none'
+	cmd 'hi diffOldFile ctermbg=none'
+	cmd 'hi diffIndexLine ctermbg=none'
+	cmd 'hi diffFile ctermbg=none'
 end
 
 -- As much as <Space> as a leader is in vogue right now and compatible with
@@ -109,7 +112,7 @@ opt.showbreak = "↪"
 g.monochrome_italic_comments = 1
 g.nofrils_strbackgrounds = 1
 
-local SELECTED_COLORSCHEME = 'komau'
+local SELECTED_COLORSCHEME = 'boring'
 
 vim.cmd('packadd vim-jetpack')
 require('jetpack.packer').add {
@@ -124,7 +127,7 @@ require('jetpack.packer').add {
 	'noahfrederick/vim-noctu',
 	'robertmeta/nofrils',
 	'karoliskoncevicius/distilled-vim',
-	'ntk148v/komau.vim',
+	't184256/vim-boring',
 
 	-- the tpope section
 	'tpope/vim-abolish',
@@ -253,8 +256,11 @@ require('jetpack.packer').add {
 	config = function()
 		require'nvim-treesitter.configs'.setup {
 			ensure_installed = "all",
-			highlight = { enable = true }
+			highlight = { enable = true },
+			indent = { enable = false },
 		}
+
+		vim.treesitter.language.register("bash", "apkbuild")
 	end},
 
 	-- Misc. language support - generally speaking treesitter has wiped out most of what

@@ -1,6 +1,6 @@
 # This is newsboat-specific, it creates a pseudo-feed for all unread things in
 # the remaining feeds.
-"query:Unread Articles:unread = \"yes\""
+#"query:Unread Articles:unread = \"yes\""
 
 # The Home Town
 https://forum.merveilles.town/rss.xml
