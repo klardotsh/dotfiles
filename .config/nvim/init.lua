@@ -43,8 +43,8 @@ function unfuck_colors()
 	-- Unfuck vim-boring specifically (this should basically become a fork honestly)
 	-- Specifically works better than stock when toggling between light and dark themes.
 	cmd 'hi String ctermfg=8 ctermbg=none'
-	cmd 'hi Statement ctermbg=none cterm=bold,italic'
-	cmd 'hi Special ctermbg=none cterm=bold'
+	cmd 'hi Statement ctermbg=none cterm=bold'
+	cmd 'hi Special ctermbg=none cterm=italic'
 
 	-- Sidebar gutter colors are mostly (1) light variants, and (2) with backgrounds
 	-- in vim-boring. Fix all of that.
