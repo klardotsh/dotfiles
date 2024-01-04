@@ -7,6 +7,7 @@ icons = "none"
 # force non-colorized rendering. See:
 # https://gitlab.gnome.org/GNOME/pango/-/issues/690#note_1507039
 [icons.overrides]
+backlight = ["B", "B", "B", "B", "B"]
 gpu = "G"
 disk_drive = "D"
 music = "♪︎"
@@ -51,7 +52,7 @@ block = "amd_gpu"
 # This is a bit of a hack, but should prevent this block from existing on
 # systems that at least haven't loaded the AMDGPU kernel module. Systems which
 # bake it into the kernel will bypass this.
-if_command = "directory-not-empty /sys/module/amdgpu"
+if_command = "directory-not-empty /sys/module/amdgpu/"
 format = " $icon $utilization ($vram_used) "
 interval = 1
 
@@ -67,7 +68,7 @@ format = " M $mem_used_percents ($mem_used) "
 
 [[block]]
 block = "backlight"
-if_command = "directory-not-empty /sys/class/backlight"
+if_command = "directory-not-empty /sys/class/backlight/"
 invert_icons = true
 
 [[block]]
@@ -75,8 +76,8 @@ block = "sound"
 
 [[block]]
 block = "battery"
-if_command = "directory-not-empty /sys/class/power_supply/BAT0"
-format = "{percentage} {time}"
+if_command = "directory-not-empty /sys/class/power_supply/BAT0/"
+format = "{$percentage} {$time}"
 
 [[block]]
 block = "time"
