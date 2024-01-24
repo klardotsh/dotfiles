@@ -165,6 +165,13 @@ require('jetpack.packer').add {
 				find_files = { theme = 'ivy' },
 				symbols = { theme = 'ivy' },
 			},
+			extensions = {
+				fzf = {
+					fuzzy = true,                    -- false will only do exact matching
+					override_generic_sorter = true,  -- override the generic sorter
+					override_file_sorter = true,
+				},
+			},
 		})
 
 		local builtin = require('telescope.builtin')
@@ -300,11 +307,30 @@ require('jetpack.packer').add {
 		local lspconfig = require('lspconfig')
 		local lsp_zero = require('lsp-zero')
 
-		lsp_zero.on_attach(function(client, bufnr)
+		lsp_zero.on_attach(function(_, bufnr)
 			-- see :help lsp-zero-keybindings
 			-- to learn the available actions
 			lsp_zero.default_keymaps({buffer = bufnr})
 		end)
+
+		-- thanks, https://stackoverflow.com/a/74303272
+		local opts = { noremap=true, silent=true }
+
+		local function quickfix()
+			vim.lsp.buf.code_action({
+				filter = function(a) return a.isPreferred end,
+				apply = true
+			})
+		end
+
+		local function quickfix_all()
+			vim.lsp.buf.code_action({
+				apply = true
+			})
+		end
+
+		vim.keymap.set('n', '<leader>f', quickfix, opts)
+		vim.keymap.set('n', '<leader>F', quickfix_all, opts)
 
 		-- LSP bindings. TODO: how many of these are now unnecessary given the above?
 		map('n', '<Leader>cd', '<cmd>lua vim.lsp.buf.definition()<CR>')
