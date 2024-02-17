@@ -4,6 +4,7 @@
 	signingkey = josh@klar.sh
 [commit]
 	gpgsign = true
+	verbose = true
 [alias]
 	# I constantly type "checkout" as "cechkout" or something otherwise
 	# ridiculous and have to fix it with https://github.com/nvbn/thefuck, so
@@ -20,7 +21,7 @@
 	ignored = !git ls-files -v | grep ^[a-z]
 
 	# https://bluz71.github.io/2018/11/26/fuzzy-finding-in-bash-with-fzf.html
-	ll = log --graph --format=\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\"
+	ll = "log --graph --format=\"%C(yellow)%h%C(red)%d%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(blue)<%an>%C(reset)\""
 
 	# from a coworker at TWG
 	jiggle-ci = commit --allow-empty -m 'forcibly update anything that runs on post-commit hooks'
@@ -29,8 +30,12 @@
 	lol = log --format='%Cred%h%Creset %s %Cgreen(%cr) %C(blue)<%an>%Creset%C(yellow)%d%Creset' --no-merges
 	# "cram" a file into the last commit. This is my "oh shit, forgot a migration" button
 	cram = commit --amend --no-edit
+
+	dlog = log -p --ext-diff
+	dshow = show --ext-diff
 [fetch]
 	prune = true
+	prunetags = true
 [rerere]
 	enabled = 1
 [filter "lfs"]
@@ -44,8 +49,33 @@
 	program = /home/j/bin/gpg
 [url "git@gitlab.com:"]
 	insteadOf = https://gitlab.com/
+[url "git@github.com:"]
+	insteadOf = https://github.com/
 [init]
 	defaultBranch = main
+
+# The https://jvns.ca/blog/2024/02/16/popular-git-config-options/ section
+[rebase]
+	# I've been passing --autosquash for so many years by hand... ffs
+	autosquash = true
+[help]
+	autocorrect = prompt
+[diff]
+	algorithm = histogram
+[transfer]
+	fsckobjects = true
+[fetch]
+	fsckobjects = true
+[receive]
+	fsckobjects = true
+[push]
+	followtags = true
+[log]
+	date = iso
+
+# Far better diffing for languages it understands
+[diff]
+	external = difft
 
 [include]
 	# NEVER check this file into Git as it will leak the paths of
