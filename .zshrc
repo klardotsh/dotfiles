@@ -312,6 +312,12 @@ if command -v theme.sh > /dev/null; then
 	bindkey '^O' last_theme
 fi
 
+# Better directory jumping: https://github.com/ajeetdsouza/zoxide
+if command -v zoxide > /dev/null; then
+	eval "$(zoxide init --cmd cd zsh)"
+	/bin/rm -rf ~/.zcompdump*; compinit
+fi
+
 # Multiple python versions
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
