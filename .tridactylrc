@@ -10,3 +10,6 @@ set allowautofocus false
 " phanpy seems to require autofocus to allow the notifications tray to close:
 " without it, it can open, and then will remain so until the page reloads
 seturl phanpy.social allowautofocus true
+" zulip requires autofocus for quote-reply and for image (incl. tenor gif)
+" insertion. without it, all of these features are fully broken.
+seturl zulipchat.com allowautofocus true
