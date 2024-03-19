@@ -118,6 +118,7 @@ vim.cmd('packadd vim-jetpack')
 require('jetpack.packer').add {
 	'tani/vim-jetpack',
 	'nvim-lua/plenary.nvim', -- general helper lib
+	'rktjmp/lush.nvim', -- colorscheme helper lib
 
 	-- diagnostics...
 	'tweekmonster/startuptime.vim',
