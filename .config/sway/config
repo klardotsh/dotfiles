@@ -93,6 +93,8 @@ input 1267:12635:ELAN072D:00_04F3:315B_Touchpad tap enabled
 input 1267:12635:ELAN072D:00_04F3:315B_Touchpad tap_button_map lrm
 
 ### Key bindings
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioRaiseVolume exec pulsemixer --change-volume +2 --max-volume 100
 bindsym XF86AudioLowerVolume exec pulsemixer --change-volume -2 --max-volume 100
 bindsym XF86AudioMute exec pulsemixer --toggle-mute
@@ -120,6 +122,8 @@ bindsym $mod+end kill
 # start your launcher
 bindsym $mod+Space exec $menu
 bindsym $mod+o exec --no-startup-id ykclip-menu
+
+bindsym $mod+Shift+Comma exec --no-startup-id rofimoji
 
 bindsym $mod+s exec ss_full.sh
 bindsym $mod+Shift+s exec ss_selection.sh
