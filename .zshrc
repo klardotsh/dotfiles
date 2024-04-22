@@ -50,7 +50,7 @@ fi
 not_darwin && export AWS_VAULT_BACKEND=file
 export AWS_SDK_LOAD_CONFIG=true
 export BAT_THEME="ansi"
-export FZF_DEFAULT_COMMAND="rg --files --hidden"
+unset FZF_DEFAULT_COMMAND
 export FZF_DEFAULT_OPTS="--color=16 --extended"
 
 export MANPATH="$NPM_PACKAGES/share/man:${MANPATH}"
@@ -191,8 +191,6 @@ if [ "${IS_VOID}" = "1" ]; then
 	export PRIV_CHANGER='doas'
 	alias sudo="${PRIV_CHANGER} "
 
-	source /usr/share/fzf/key-bindings.zsh
-
 	alias pf='xbps-query -Rs'
 	alias pff='xlocate'
 	alias pffi='xlocate -S'
@@ -203,8 +201,6 @@ if [ "${IS_VOID}" = "1" ]; then
 else
 	export PRIV_CHANGER='sudo'
 	alias sudo='sudo -E '
-
-	source /usr/share/fzf/key-bindings.zsh
 fi
 
 alias nmap-quickscan="${PRIV_CHANGER} nmap -sV -T4 -O -F --version-light"
@@ -311,6 +307,9 @@ if command -v theme.sh > /dev/null; then
 	zle -N last_theme
 	bindkey '^O' last_theme
 fi
+
+# Bindings for fuzzy file finding
+eval "$(fzf --zsh)"
 
 # Better directory jumping: https://github.com/ajeetdsouza/zoxide
 if command -v zoxide > /dev/null; then
