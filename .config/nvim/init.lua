@@ -342,6 +342,7 @@ require('jetpack.packer').add {
 
 		lspconfig.bashls.setup({})
 		lspconfig.dhall_lsp_server.setup({})
+		lspconfig.eslint.setup({})
 		lspconfig.fennel_ls.setup({})
 		lspconfig.gopls.setup({})
 		lspconfig.lua_ls.setup({})
