@@ -4,4 +4,4 @@
 # use underscores instead.
 PATHNAME=~/Pictures/Screenshots/screenshot-$(date -u +%Y-%m-%d-%TZ | tr ':' '_').png
 
-grimshot --notify save window "${PATHNAME}"
+grimshot --notify save anything "${PATHNAME}"
