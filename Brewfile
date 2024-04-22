@@ -5,6 +5,7 @@ brew 'micro'
 brew 'htop'
 brew 'tmux'
 brew 'colordiff'
+brew 'difftastic' # AST-aware diffing
 brew 'git'
 brew 'git-lfs'
 brew 'git-crypt'
@@ -23,6 +24,10 @@ brew 'bat' # better file printer
 brew 'most' # slightly better pager... kinda
 brew 'mosh' # udp-based mobile-network-friendly shells over ssh
 brew 'direnv' # per-directory envvars
+brew 'zoxide' # better directory changing
+
+# Containerization things
+brew 'skopeo'
 
 # This is mostly a holdover from my Linux boxen and how I have
 # git configured: GNU's PGP implementation, which I then hook
