@@ -1,0 +1,17 @@
+# udev rule file for Chessnut boards. Place in /etc/udev/rules.d/ and reload udev with
+# doas/sudo udevadm control --reload-rules && doas/sudo udevadm trigger
+#
+# Originally from https://goneill.co.nz/chess
+# Modified by klardotsh <josh@klar.sh> to add Air+ support, symlinks, and to work
+# correctly on Void Linux, which lacks eg. plugdev group, and doesn't seem to respond
+# to the uinput tag upstream used.
+
+# To work with a specific Chessnut product, narrow as such:
+#     ATTRS{idProduct}=="8001" is Chessnut Air, first batch
+#     ATTRS{idProduct}=="8002" is Chessnut Air, second batch
+#     ATTRS{idProduct}=="8101" is Chessnut Pro
+#     ATTRS{idProduct}=="8201" is Chessnut Air Plus
+# (Use lsusb to see your devices while the board is plugged in)
+
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="2d80", GROUP="input", MODE="0666", SYMLINK+="chessnut_usb"
+KERNEL=="hidraw*", ATTRS{idVendor}=="2d80", GROUP="input", MODE="0666", SYMLINK+="chessnut_hidraw"
