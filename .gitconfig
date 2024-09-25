@@ -54,6 +54,15 @@
 [init]
 	defaultBranch = main
 
+[pager]
+	# lol alias above works much better without a pager, and it has taken me
+	# something like 6 years to finally bother actually setting this. Finally,
+	# commit IDs that don't disappear when I need to do something else in the
+	# same terminal pane! Terminals (and multiplexers) have scrollback buffers,
+	# use them.
+	log = false
+
+
 # The https://jvns.ca/blog/2024/02/16/popular-git-config-options/ section
 [rebase]
 	# I've been passing --autosquash for so many years by hand... ffs

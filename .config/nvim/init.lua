@@ -87,7 +87,6 @@ opt.listchars = {
 }
 opt.number = false
 opt.relativenumber = false
-opt.pastetoggle = '<F2>'
 opt.ruler = true
 opt.scrolloff = 7 -- show 7 lines around the cursor line
 opt.shiftround = true
@@ -345,13 +344,14 @@ require('jetpack.packer').add {
 		lspconfig.eslint.setup({})
 		lspconfig.fennel_ls.setup({})
 		lspconfig.gopls.setup({})
+		lspconfig.jsonnet_ls.setup({})
 		lspconfig.lua_ls.setup({})
 		lspconfig.nomad_lsp.setup({})
 		lspconfig.pylsp.setup({})
 		lspconfig.rust_analyzer.setup({})
 		lspconfig.sorbet.setup({})
 		lspconfig.terraform_lsp.setup({})
-		lspconfig.tsserver.setup({})
+		lspconfig.ts_ls.setup({})
 		lspconfig.zls.setup({})
 	end},
 }

@@ -13,3 +13,10 @@ seturl phanpy.social allowautofocus true
 " zulip requires autofocus for quote-reply and for image (incl. tenor gif)
 " insertion. without it, all of these features are fully broken.
 seturl zulipchat.com allowautofocus true
+
+" MS Teams is one of the most incompetently built and awful pieces of
+" technology I've ever been forced to use, and Tridactyl unfortunately breaks it
+" completely. See for example https://github.com/tridactyl/tridactyl/issues/821.
+" So anyway, we'll make these two play more nicely together.
+seturl teams.microsoft.com allowautofocus true
+seturl teams.microsoft.com modeindicator false

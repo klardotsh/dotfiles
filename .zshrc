@@ -195,9 +195,12 @@ if [ "${IS_VOID}" = "1" ]; then
 	alias pff='xlocate'
 	alias pffi='xlocate -S'
 	alias pi="${PRIV_CHANGER} xbps-install -S"
-	alias pu="${PRIV_CHANGER} xbps-install -Su"
 	alias pql='xbps-query -f'
 	alias pqs='xbps-query -s'
+
+	pu() {
+		"${PRIV_CHANGER}" sh -c "xbps-install -Su && xbps-remove -yOoR && vkpurge rm all"
+	}
 else
 	export PRIV_CHANGER='sudo'
 	alias sudo='sudo -E '
