@@ -1,0 +1,40 @@
+{
+  "name": "Ploopy Adept Trackball (Madromys)",
+  "vendorProductId": 1346591815,
+  "macros": [
+    "{KC_LGUI,KC_LALT,KC_LEFT}",
+    "{KC_LGUI,KC_LALT,KC_RGHT}",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "layers": [
+    [
+      "KC_MS_BTN1",
+      "KC_MS_BTN2",
+      "KC_MS_BTN4",
+      "KC_MS_BTN5",
+      "CUSTOM(1)",
+      "MO(1)"
+    ],
+    ["KC_TRNS", "KC_MS_BTN3", "MACRO(0)", "MACRO(1)", "KC_TRNS", "KC_TRNS"],
+    ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS"],
+    ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS"],
+    ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS"],
+    ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS"],
+    ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS"],
+    ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS"]
+  ],
+  "encoders": []
+}

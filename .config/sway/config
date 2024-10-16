@@ -197,9 +197,12 @@ bindsym $mod+Control+right move workspace to output right
 bindsym $mod+Control+up move workspace to output up
 bindsym $mod+Control+down move workspace to output down
 
-# MacOS-inspired three finger swipe between workspaces on a given output
+# MacOS-inspired three finger swipe between workspaces on a given output, with
+# a keyboard (or trackball!) fallback
 bindgesture swipe:3:right workspace prev_on_output
 bindgesture swipe:3:left workspace next_on_output
+bindsym $mod+Alt+left workspace prev_on_output
+bindsym $mod+Alt+right workspace next_on_output
 
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
