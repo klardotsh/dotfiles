@@ -28,9 +28,16 @@
       "CUSTOM(1)",
       "MO(1)"
     ],
-    ["KC_TRNS", "KC_MS_BTN3", "MACRO(0)", "MACRO(1)", "KC_TRNS", "KC_TRNS"],
-    ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS"],
-    ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS"],
+    ["TO(2)", "KC_MS_BTN3", "MACRO(0)", "MACRO(1)", "KC_TRNS", "KC_TRNS"],
+    [
+      "KC_MS_BTN1",
+      "CUSTOM(1)",
+      "KC_MS_BTN4",
+      "KC_MS_BTN5",
+      "KC_MS_BTN2",
+      "MO(3)"
+    ],
+    ["TO(0)", "KC_TRNS", "MACRO(0)", "MACRO(1)", "KC_MS_BTN3", "KC_TRNS"],
     ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS"],
     ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS"],
     ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS"],
