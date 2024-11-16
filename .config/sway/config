@@ -65,7 +65,7 @@ input 1739:30383:DELL07E6:00_06CB:76AF_Touchpad tap enabled
 input 1739:30383:DELL07E6:00_06CB:76AF_Touchpad tap_button_map lrm
 
 input 1452:613:Apple_Inc._Magic_Trackpad accel_profile adaptive
-input 1452:613:Apple_Inc._Magic_Trackpad pointer_accel 0.6
+input 1452:613:Apple_Inc._Magic_Trackpad pointer_accel 0.7
 input 1452:613:Apple_Inc._Magic_Trackpad dwt on
 input 1452:613:Apple_Inc._Magic_Trackpad middle_emulation enabled
 input 1452:613:Apple_Inc._Magic_Trackpad natural_scroll enabled
@@ -73,7 +73,7 @@ input 1452:613:Apple_Inc._Magic_Trackpad tap enabled
 input 1452:613:Apple_Inc._Magic_Trackpad tap_button_map lrm
 
 input 1452:613:Apple_Inc._Magic_Trackpad_2 accel_profile adaptive
-input 1452:613:Apple_Inc._Magic_Trackpad_2 pointer_accel 0.6
+input 1452:613:Apple_Inc._Magic_Trackpad_2 pointer_accel 0.7
 input 1452:613:Apple_Inc._Magic_Trackpad_2 dwt on
 input 1452:613:Apple_Inc._Magic_Trackpad_2 middle_emulation enabled
 input 1452:613:Apple_Inc._Magic_Trackpad_2 natural_scroll enabled
