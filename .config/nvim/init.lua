@@ -81,7 +81,7 @@ opt.incsearch = true
 opt.laststatus = 2
 opt.list = true
 opt.listchars = {
-	tab = '· ',
+	tab = '  ',
 	trail = '·',
 	nbsp = '·',
 }
@@ -131,7 +131,6 @@ require('jetpack.packer').add {
 
 	-- the tpope section
 	'tpope/vim-abolish',
-	'tpope/vim-commentary',
 	'tpope/vim-fugitive',
 	'tpope/vim-markdown',
 	'tpope/vim-repeat',
@@ -142,10 +141,77 @@ require('jetpack.packer').add {
 	'glts/vim-magnum', -- dependency, big integer library
 	'glts/vim-radical', -- convert between dec/hex/oct/bin nums with crX binds
 
+	-- mini.nvim section
+	{'echasnovski/mini.nvim',
+	config = function()
+		require('mini.animate').setup({
+			--cursor = { enable = false },
+			scroll = { enable = false },
+		})
+
+		local miniclue = require('mini.clue')
+		miniclue.setup({
+			triggers = {
+				-- Leader triggers
+				{ mode = 'n', keys = '<Leader>' },
+				{ mode = 'x', keys = '<Leader>' },
+
+				-- Built-in completion
+				{ mode = 'i', keys = '<C-x>' },
+
+				-- `g` key
+				{ mode = 'n', keys = 'g' },
+				{ mode = 'x', keys = 'g' },
+
+				-- Marks
+				{ mode = 'n', keys = "'" },
+				{ mode = 'n', keys = '`' },
+				{ mode = 'x', keys = "'" },
+				{ mode = 'x', keys = '`' },
+
+				-- Registers
+				{ mode = 'n', keys = '"' },
+				{ mode = 'x', keys = '"' },
+				{ mode = 'i', keys = '<C-r>' },
+				{ mode = 'c', keys = '<C-r>' },
+
+				-- Window commands
+				{ mode = 'n', keys = '<C-w>' },
+
+				-- `z` key
+				{ mode = 'n', keys = 'z' },
+				{ mode = 'x', keys = 'z' },
+			},
+
+			clues = {
+				-- Enhance this by adding descriptions for <Leader> mapping groups
+				miniclue.gen_clues.builtin_completion(),
+				miniclue.gen_clues.g(),
+				miniclue.gen_clues.marks(),
+				miniclue.gen_clues.registers(),
+				miniclue.gen_clues.windows(),
+				miniclue.gen_clues.z(),
+			},
+		})
+
+		require('mini.bufremove').setup()
+		require('mini.comment').setup()
+		require('mini.completion').setup()
+		require('mini.git').setup()
+		require('mini.icons').setup()
+		require('mini.indentscope').setup()
+		require('mini.jump').setup()
+		require('mini.notify').setup()
+		require('mini.splitjoin').setup()
+		require('mini.statusline').setup()
+		require('mini.trailspace').setup()
+
+		vim.keymap.set('n', '<leader>wd', MiniBufremove.delete, {})
+	end},
+
 	-- interface / misc
 	'editorconfig/editorconfig-vim', -- force buffer to use editorconfig settings
 	'ntpeters/vim-better-whitespace',
-	'vim-scripts/DeleteTrailingWhitespace',
 
 	-- finders and so forth
 	{ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
@@ -225,16 +291,6 @@ require('jetpack.packer').add {
 		map({'n', 'v'}, "<Leader>a", "<cmd>MultipleCursorsAddToWordUnderCursor<CR>")
 	end},
 
-	{'ggandor/leap.nvim',
-	config = function()
-		require('leap').create_default_mappings()
-	end},
-
-	{'ggandor/flit.nvim',
-	config = function()
-		require('flit').setup()
-	end},
-
 	{'lewis6991/gitsigns.nvim',
 	config = function()
 		require('gitsigns').setup()
@@ -250,7 +306,6 @@ require('jetpack.packer').add {
 		cmd 'hi GitSignsDelete ctermbg=none guibg=none'
 	end},
 
-	'ourigen/skyline.vim',
 	'markonm/traces.vim', -- Pattern/range previews where NeoVim doesn't already provide them
 
 	-- automatically create any non-existent directories before writing the buffer
@@ -283,24 +338,24 @@ require('jetpack.packer').add {
 	-- completion and language server nonsense, the bane of every config I've
 	-- written in the past several years
 	'neovim/nvim-lspconfig',
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/cmp-buffer",
-	"hrsh7th/cmp-path",
-	"hrsh7th/cmp-cmdline",
-	"hrsh7th/cmp-vsnip",
-	"hrsh7th/vim-vsnip",
-	{
-		"hrsh7th/nvim-cmp",
-		config = function()
-			require('cmp').setup({
-				snippet = {
-					expand = function(args)
-						vim.fn["vsnip#anonymous"](args.body)
-					end,
-				},
-			})
-		end
-	},
+	-- "hrsh7th/cmp-nvim-lsp",
+	-- "hrsh7th/cmp-buffer",
+	-- "hrsh7th/cmp-path",
+	-- "hrsh7th/cmp-cmdline",
+	-- "hrsh7th/cmp-vsnip",
+	-- "hrsh7th/vim-vsnip",
+	-- {
+	-- 	"hrsh7th/nvim-cmp",
+	-- 	config = function()
+	-- 		require('cmp').setup({
+	-- 			snippet = {
+	-- 				expand = function(args)
+	-- 					vim.fn["vsnip#anonymous"](args.body)
+	-- 				end,
+	-- 			},
+	-- 		})
+	-- 	end
+	-- },
 
 	{'VonHeikemen/lsp-zero.nvim',
 	config = function()
