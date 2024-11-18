@@ -224,13 +224,17 @@ alias rm='rm -iv'
 alias chmod="chmod -c"
 alias chown="chown -c"
 
-alias grep='rg'
-alias egrep='rg'
-alias frg='rg --files-with-matches '
-alias fgrep='frg'
+if command -v rg > /dev/null 2>&1; then
+	alias grep='rg'
+	alias egrep='rg'
+	alias frg='rg --files-with-matches '
+	alias fgrep='frg'
+fi
 
-alias ls='eza'
-alias tree='eza -T'
+if command -v eza > /dev/null 2>&1; then
+	alias ls='eza'
+	alias tree='eza -T'
+fi
 
 alias gl="git lol"
 alias gls="git lol --since '2 weeks' --author 'Josh Klar'"
