@@ -37,12 +37,12 @@ function unfuck_colors()
 	cmd 'hi NonText ctermbg=none'
 	cmd 'hi VertSplit ctermbg=none guibg=none'
 	cmd 'hi StatusLineNC ctermbg=none guibg=none'
-	cmd 'hi Comment ctermbg=none cterm=italic'
+	cmd 'hi Comment ctermfg=4 ctermbg=none cterm=italic'
 	cmd 'hi Constant ctermbg=none cterm=italic'
 
 	-- Unfuck vim-boring specifically (this should basically become a fork honestly)
 	-- Specifically works better than stock when toggling between light and dark themes.
-	cmd 'hi String ctermfg=8 ctermbg=none'
+	cmd 'hi String ctermfg=6 ctermbg=none cterm=none'
 	cmd 'hi Statement ctermbg=none cterm=bold'
 	cmd 'hi Special ctermbg=none cterm=italic'
 
