@@ -54,9 +54,10 @@ unset FZF_DEFAULT_COMMAND
 export FZF_DEFAULT_OPTS="--color=16 --extended"
 
 export MANPATH="$NPM_PACKAGES/share/man:${MANPATH}"
-hash most 2>/dev/null && export MANPAGER='most -s'
 
-export LESS=-r
+export PAGER="bat --style=plain"
+export MANPAGER="${PAGER} -l man"
+export LESS=-R
 
 if not_darwin; then
 	export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
@@ -132,7 +133,7 @@ else
 	}
 fi
 
-export PROMPT="(%m) %c %F{cyan} \$(__git_ps1 '» %s ')» %{$reset_color%}%"
+export PROMPT="(%m) %c %F{cyan} \$(__git_ps1 '» %s ')» %{$reset_color%}"
 
 precmd() { print "" }
 
@@ -231,6 +232,10 @@ alias tree='eza -T'
 alias gl="git lol"
 alias gls="git lol --since '2 weeks' --author 'Josh Klar'"
 alias gca="git cram" # Muscle memory dies hard - this is NOT git commit -a
+
+if command -v cyme > /dev/null 2>&1; then
+	alias lsusb='cyme --lsusb'
+fi
 
 alias ip="ip -c"
 
