@@ -1,5 +1,8 @@
 local wezterm = require 'wezterm'
 
+local DARK_THEME = 'zenwritten_dark'
+local LIGHT_THEME = 'zenwritten_light'
+
 -- Thanks, https://github.com/wez/wezterm/issues/4681#issuecomment-2320537074
 local function get_cursor_theme()
 	local success, stdout, stderr =
@@ -17,7 +20,17 @@ local function get_cursor_theme()
 	return stdout:match [[RESOURCE_MANAGER%(STRING%) = ".+\nXcursor.theme:\t(.+)\n.+"]]
 end
 
+local function light_dark_toggle(window, _)
+	local currentScheme = window:effective_config().color_scheme
+	local newScheme = currentScheme == DARK_THEME and LIGHT_THEME or DARK_THEME
+
+	window:set_config_overrides({ color_scheme = newScheme })
+end
+
 return {
+	-- Default to dark theme to avoid flashbangs on new windows at night; use keybind to
+	-- toggle to light mode after launch.
+	color_scheme = DARK_THEME,
 	enable_tab_bar = false,
 	font = wezterm.font_with_fallback({
 		'Monaspace Krypton',
@@ -39,5 +52,10 @@ return {
 		'ss08=1',
 		'ss09=1',
 	},
+
+	keys = {
+		{ key = "o", mods = "ALT", action = wezterm.action_callback(light_dark_toggle) },
+	},
+
 	xcursor_theme = get_cursor_theme() or 'Adwaita',
 }

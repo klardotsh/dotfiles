@@ -304,25 +304,6 @@ foreground-current-job() { fg; }
 zle -N foreground-current-job
 bindkey '^Z' foreground-current-job
 
-if not_darwin; then
-	# Colorscheme via pywal
-	[ -d ~/.cache/wal ] && /bin/cat ~/.cache/wal/sequences
-	[ -d ~/.cache/wal ] && source ~/.cache/wal/colors-tty.sh
-fi
-
-# Colorscheme via theme.sh
-if command -v theme.sh > /dev/null; then
-	[ -e ~/.theme_history ] && theme.sh "$(theme.sh -l|tail -n1)"
-
-	# Bind C-o to the last theme.
-	last_theme() {
-		theme.sh "$(theme.sh -l|tail -n2|head -n1)"
-	}
-
-	zle -N last_theme
-	bindkey '^O' last_theme
-fi
-
 # Bindings for fuzzy file finding
 eval "$(fzf --zsh)"
 
