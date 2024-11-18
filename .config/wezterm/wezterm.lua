@@ -31,10 +31,12 @@ return {
 	-- Default to dark theme to avoid flashbangs on new windows at night; use keybind to
 	-- toggle to light mode after launch.
 	color_scheme = DARK_THEME,
+	default_cursor_style = 'BlinkingBar',
 	enable_tab_bar = false,
 	font = wezterm.font_with_fallback({
 		'Monaspace Krypton',
 		'FSD Emoji',
+		'Symbols Nerd Font',
 	}),
 	font_size = 15.0,
 	harfbuzz_features = {
