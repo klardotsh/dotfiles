@@ -34,12 +34,13 @@ return {
 	default_cursor_style = 'BlinkingBar',
 	enable_tab_bar = false,
 	font = wezterm.font_with_fallback({
-		'Monaspace Krypton',
+		'Maple Mono',
 		'FSD Emoji',
 		'Symbols Nerd Font',
 	}),
 	font_size = 15.0,
 	harfbuzz_features = {
+		'zero=1',
 		'calt=1',
 		'dlig=1',
 		'clig=1',
@@ -53,6 +54,7 @@ return {
 		'ss07=1',
 		'ss08=1',
 		'ss09=1',
+		'cv35=1',
 	},
 
 	keys = {
