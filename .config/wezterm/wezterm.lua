@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 
-local DARK_THEME = 'zenwritten_dark'
-local LIGHT_THEME = 'zenwritten_light'
+local DARK_THEME = 'duskfox'
+local LIGHT_THEME = 'dawnfox'
 
 -- Thanks, https://github.com/wez/wezterm/issues/4681#issuecomment-2320537074
 local function get_cursor_theme()
