@@ -212,11 +212,12 @@ fi
 
 alias nmap-quickscan="${PRIV_CHANGER} nmap -sV -T4 -O -F --version-light"
 
-alias mp='makepkg -icsr'
-
 alias df='df -h -x devtmpfs -x rootfs -x tmpfs' # hide all these Arch-standard FSes
 
-alias cat='bat'
+if command -v bat > /dev/null 2>&1; then
+	alias cat='bat'
+fi
+
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -iv'
@@ -266,6 +267,16 @@ if command -v colordiff > /dev/null 2>&1; then
 	alias diff="colordiff -Nuar"
 else
 	alias diff="diff -Nuar"
+fi
+
+
+if command -v qrencode > /dev/null 2>&1; then
+	alias quickqr=“qrencode -t ansiutf8 $1”
+fi
+
+# HTTPie replacement
+if command -v xh > /dev/null 2>&1; then
+	alias http=xh
 fi
 
 zstyle ':completion:*:sudo::' environ PATH="/sbin:/usr/sbin:$PATH"
