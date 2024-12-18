@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=Discord
+Name=Discord (Distrobox)
 Categories=Distrobox;System;Utility
-Exec=/home/j/bin/discord
+Exec=/usr/bin/distrobox enter discord -- /usr/local/bin/discord
 Icon=/home/j/.local/share/icons/distrobox/arch.png
 Keywords=distrobox;
 TryExec=/usr/bin/distrobox
