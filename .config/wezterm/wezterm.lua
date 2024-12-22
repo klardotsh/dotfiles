@@ -6,7 +6,7 @@ local LIGHT_THEME = 'dawnfox'
 local FP_Iosevka = 'iosevka'
 local FP_Maple = 'maple'
 
-local FONT_PRESET = FP_Iosevka
+local FONT_PRESET = FP_Maple
 
 -- Thanks, https://github.com/wez/wezterm/issues/4681#issuecomment-2320537074
 local function get_cursor_theme()
