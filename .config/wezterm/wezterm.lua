@@ -3,10 +3,13 @@ local wezterm = require 'wezterm'
 local DARK_THEME = 'duskfox'
 local LIGHT_THEME = 'dawnfox'
 
+local FP_Fira = 'fira'
 local FP_Iosevka = 'iosevka'
 local FP_Maple = 'maple'
+local FP_MonoLisa = 'monolisa'
+local FP_Victor = 'victor'
 
-local FONT_PRESET = FP_Maple
+local FONT_PRESET = FP_Victor
 
 -- Thanks, https://github.com/wez/wezterm/issues/4681#issuecomment-2320537074
 local function get_cursor_theme()
@@ -33,10 +36,16 @@ local function light_dark_toggle(window, _)
 end
 
 local function config_font_for_preset(preset)
-	if preset == FP_Iosevka then
+	if preset == FP_Fira then
+		primary_font = 'Fira Code'
+	elseif preset == FP_Iosevka then
 		primary_font = { family = 'Iosevka Term', stretch = 'Expanded', weight = 'Regular' }
 	elseif preset == FP_Maple then
 		primary_font = 'Maple Mono'
+	elseif preset == FP_MonoLisa then
+		primary_font = 'MonoLisa'
+	elseif preset == FP_Victor then
+		primary_font = 'Victor Mono'
 	end
 
 	return wezterm.font_with_fallback({
@@ -52,7 +61,17 @@ local function config_harfbuzz_for_preset(preset)
 		'calt=1', 'liga=1', -- Generically turn ligatures on
 	}
 
-	if preset == FP_Iosevka then
+	if preset == FP_Fira then
+		table.insert(hb, 'cv06=1') -- Flowy i character
+		table.insert(hb, 'cv12=1') -- Reverse-slashed 0 character
+		table.insert(hb, 'cv14=1') -- 3 character with flat top
+		table.insert(hb, 'ss04=1') -- Gentler $ character
+		table.insert(hb, 'cv18=1') -- Simpler % character
+		table.insert(hb, 'ss08=1') -- Clearer == / != / === / !== rendering
+		table.insert(hb, 'ss09=1') -- Haskell-y >>= and friends
+		table.insert(hb, 'cv26=1') -- :- as a glyph
+		table.insert(hb, 'ss07=1') -- =~ as squiggly equal sign
+	elseif preset == FP_Iosevka then
 		table.insert(hb, 'dlig=0') -- Explicitly disable due to awful [| and friends
 		table.insert(hb, 'ss14=1') -- PragmataPro style
 	elseif preset == FP_Maple then
