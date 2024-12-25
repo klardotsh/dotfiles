@@ -41,7 +41,7 @@ if not_darwin; then
 
 	export BEMENU_BACKEND=wayland
 	export CLUTTER_BACKEND=wayland
-	export SDL_VIDEODRIVER=wayland
+	export SDL_VIDEODRIVER=wayland,x11
 
 	export XDG_CURRENT_DESKTOP=sway
 	export XDG_SESSION_TYPE=wayland # otherwise gets set to 'tty', breaking WebRTC
