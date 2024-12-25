@@ -34,7 +34,7 @@ function unfuck_colors()
 	-- So many colorschemes set bg/fg colors. Stop. I already defined 16 of them
 	-- in my terminal config. Especially, if you color NonText, I hate you.
 	cmd 'hi Normal ctermfg=none ctermbg=none guifg=none guibg=none'
-	cmd 'hi Type cterm=italic'
+	cmd 'hi Type cterm=none'
 	cmd 'hi NonText ctermbg=none'
 	cmd 'hi VertSplit ctermbg=none guibg=none'
 	cmd 'hi StatusLineNC ctermbg=none guibg=none'
