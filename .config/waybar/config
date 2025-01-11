@@ -12,7 +12,7 @@
 		//"cpu",
 		"memory",
 		"network",
-		"pulseaudio",
+		"wireplumber",
 		"battery",
 		"clock"
 	],
@@ -81,6 +81,13 @@
 			"car": "",
 			"default": ["", ""]
 		},
+	},
+	"wireplumber": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{volume}% {icon}",
+		"format-muted": "",
+		"format-icons": ["", "", ""]
+		// "on-click": "helvum",
 	},
 	"custom/weather": {
 		"format": "{}",

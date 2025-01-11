@@ -1,43 +1,54 @@
+@define-color bg-dark #191726;
+@define-color fg-dark #eae8ff;
+
 * {
     border: none;
     border-radius: 0;
-    font-family: Lato;
-    font-size: 12pt;
+    font-family: sans-serif, "Symbols Nerd Font";
+    font-size: 15pt;
     min-height: 0;
 }
 
 window#waybar {
     background: transparent;
-    color: white;
+    color: @fg-dark;
 }
 
 #workspaces {
-	background-color: #24283b;
-	margin: 5px;
-	margin-left: 10px;
-	border-radius: 5px;
+	background-color: @bg-dark;
+	margin: 0.25em;
+	margin-left: 0.5em;
+	border-radius: 0.25em;
 }
 #workspaces button {
-    padding: 5px 10px;
+    padding: 0.25em 0.5em;
     color: #c0caf5;
 }
 
 #workspaces button.focused {
-    color: #24283b;
+    color: @bg-dark;
     background-color: #7aa2f7;
-    border-radius: 5px;
+    border-radius: 0.25em;
 }
 
 #workspaces button:hover {
 	background-color: #7dcfff;
-	color: #24283b;
-	border-radius: 5px;
+	color: @bg-dark;
+	border-radius: 0.25em;
 }
 
-#custom-weather, #custom-date, #clock, #battery, #pulseaudio, #network, #memory, #tray {
-	background-color: #24283b;
-	padding: 5px 10px;
-	margin: 5px 0px;
+#custom-weather,
+#custom-date,
+#clock,
+#battery,
+#pulseaudio,
+#wireplumber,
+#network,
+#memory,
+#tray {
+	background-color: @bg-dark;
+	padding: 0.25em 0.5em;
+	margin: 0.25em 0;
 }
 
 #custom-date {
@@ -45,20 +56,20 @@ window#waybar {
 }
 
 #custom-power {
-	color: #24283b;
+	color: @bg-dark;
 	background-color: #db4b4b;
-	border-radius: 5px;
-	margin-right: 10px;
-	margin-top: 5px;
-	margin-bottom: 5px;
-	margin-left: 0px;
-	padding: 5px 10px;
+	border-radius: 0.25em;
+	margin-right: 0.5em;
+	margin-top: 0.25em;
+	margin-bottom: 0.25em;
+	margin-left: 0;
+	padding: 0.25em 0.5em;
 }
 
 #clock {
     color: #b48ead;
-    border-radius: 0px 5px 5px 0px;
-    margin-right: 10px;
+    border-radius: 0 0.25em 0.25em 0;
+    margin-right: 0.5em;
 }
 
 #battery {
@@ -71,15 +82,15 @@ window#waybar {
 
 #battery.warning:not(.charging) {
     background-color: #f7768e;
-    color: #24283b;
-    border-radius: 5px 5px 5px 5px;
+    color: @bg-dark;
+    border-radius: 0.25em;
 }
 
 #network {
 	color: #f7768e;
-	border-radius: 5px 0px 0px 5px;
+	border-radius: 0.25em 0px 0px 0.25em;
 }
 
-#pulseaudio {
+#pulseaudio, #wireplumber {
 	color: #e0af68;
 }
