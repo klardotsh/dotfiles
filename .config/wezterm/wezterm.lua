@@ -78,16 +78,15 @@ local function config_harfbuzz_for_preset(preset)
 		table.insert(hb, 'dlig=1')
 		table.insert(hb, 'cv35=1') -- Disable cursive-italic lowercase L
 
-		-- Enable all feature sets in Maple Mono
-		table.insert(hb, 'ss01=1')
-		table.insert(hb, 'ss02=1')
-		table.insert(hb, 'ss03=1')
-		table.insert(hb, 'ss04=1')
-		table.insert(hb, 'ss05=1')
-		table.insert(hb, 'ss06=1')
-		table.insert(hb, 'ss07=1')
+		-- Enable most feature sets in Maple Mono
+		table.insert(hb, 'ss01=1') -- Disable === ligatures for clarity
+		table.insert(hb, 'ss02=1') -- Disable >= <= ligatures for clarity
+		table.insert(hb, 'ss03=1') -- Allow [tOdO] and [TODO] to be equivalent
+		table.insert(hb, 'ss04=1') -- Break up __ and ___ for clarity
+		table.insert(hb, 'ss05=1') -- Thin down slash in eg. \n
+		table.insert(hb, 'ss06=0') -- In italic al / il, don't connect characters?
+		-- ss07 is bad: allows ligatures in cases like f>>
 		table.insert(hb, 'ss08=1')
-		table.insert(hb, 'ss09=1')
 
 		table.insert(hb, 'zero=1') -- Dotted zero
 	end
