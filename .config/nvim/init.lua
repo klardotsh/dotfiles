@@ -38,7 +38,7 @@ function unfuck_colors()
 	cmd 'hi NonText ctermbg=none'
 	cmd 'hi VertSplit ctermbg=none guibg=none'
 	cmd 'hi StatusLineNC ctermbg=none guibg=none'
-	cmd 'hi Comment ctermfg=5 ctermbg=none cterm=italic'
+	cmd 'hi Comment ctermfg=6 ctermbg=none cterm=italic'
 	cmd 'hi Constant ctermbg=none cterm=italic ctermfg=5'
 
 	-- Unfuck vim-boring specifically (this should basically become a fork honestly)
