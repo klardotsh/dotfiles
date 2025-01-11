@@ -22,6 +22,9 @@ ensure_cloned() {
 hash curl
 hash git
 hash nvim
+hash fish
+
+fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher'
 
 mkdir -p ~/src/mine
 ensure_cloned https://git.sr.ht/~klardotsh/dotfiles ~/src/mine/dotfiles
