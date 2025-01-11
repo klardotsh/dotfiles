@@ -20,3 +20,7 @@ seturl zulipchat.com allowautofocus true
 " So anyway, we'll make these two play more nicely together.
 seturl teams.microsoft.com allowautofocus true
 seturl teams.microsoft.com modeindicator false
+
+" https://github.com/tridactyl/tridactyl/issues/279
+set noiframeon servicenow.com
+seturl servicenow.com superignore true
