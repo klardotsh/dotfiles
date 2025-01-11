@@ -1,4 +1,5 @@
 set -U fish_greeting
+set -x _PR_AI_DISABLE true # No "AI" for https://codeberg.org/iff/pay-respects
 
 set __OS "$(uname -s)"
 if [ $(lsb_release -si 2>&1 || echo 'n/a') = 'VoidLinux' ]
@@ -44,6 +45,7 @@ fish_add_path "$GOPATH/bin"
 if type -q rustc
 	set -x RUST_SRC_PATH "$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 end
+set -x CARGO_NET_GIT_FETCH_WITH_CLI true
 fish_add_path ~/.cargo/bin
 
 if type -q ruby
@@ -157,6 +159,7 @@ if status is-interactive
 	fzf --fish | source
 	zoxide init fish | source
 	direnv hook fish | source
+	pay-respects fish --alias --nocnf | source
 
 	# `thefuck --alias` was dumped into ~/.config/fish/functions/fuck.fish,
 	# because Python's startup time is much, much slower than is acceptable
@@ -169,3 +172,5 @@ if status is-interactive
 	#
 	# set -x THEFUCK_OVERRIDDEN_ALIASES 'gsed,git'
 end
+
+fish_add_path ~/bin
