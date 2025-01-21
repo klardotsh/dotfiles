@@ -160,6 +160,7 @@ if status is-interactive
 	zoxide init fish | source
 	direnv hook fish | source
 	pay-respects fish --alias --nocnf | source
+	starship init fish | source
 
 	# `thefuck --alias` was dumped into ~/.config/fish/functions/fuck.fish,
 	# because Python's startup time is much, much slower than is acceptable
