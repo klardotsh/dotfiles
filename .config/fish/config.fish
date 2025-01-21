@@ -1,3 +1,7 @@
+# Appears to be harmless and silent on systems where this directory doesn't
+# exist, so no need to gate on MacOS
+fish_add_path /opt/homebrew/bin
+
 set -U fish_greeting
 set -x _PR_AI_DISABLE true # No "AI" for https://codeberg.org/iff/pay-respects
 
