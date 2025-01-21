@@ -3,13 +3,14 @@ local wezterm = require 'wezterm'
 local DARK_THEME = 'duskfox'
 local LIGHT_THEME = 'dawnfox'
 
+local FP_AgaveC = 'agavec'
 local FP_Fira = 'fira'
 local FP_Iosevka = 'iosevka'
 local FP_Maple = 'maple'
 local FP_MonoLisa = 'monolisa'
 local FP_Victor = 'victor'
 
-local FONT_PRESET = FP_Victor
+local FONT_PRESET = FP_Maple
 
 -- Thanks, https://github.com/wez/wezterm/issues/4681#issuecomment-2320537074
 local function get_cursor_theme()
@@ -36,7 +37,9 @@ local function light_dark_toggle(window, _)
 end
 
 local function config_font_for_preset(preset)
-	if preset == FP_Fira then
+	if preset == FP_AgaveC then
+		primary_font = 'Agave Code'
+	elseif preset == FP_Fira then
 		primary_font = 'Fira Code'
 	elseif preset == FP_Iosevka then
 		primary_font = { family = 'Iosevka Term', stretch = 'Expanded', weight = 'Regular' }
