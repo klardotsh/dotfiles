@@ -96,3 +96,5 @@
 
 [includeIf "gitdir:~/src/work/"]
 	path = ~/src/work/.gitconfig
+[sequence]
+	editor = interactive-rebase-tool
