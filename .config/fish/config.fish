@@ -130,7 +130,10 @@ if status is-interactive
 
 	if type -q eza
 		alias ls eza
-		alias tree "eza -T"
+	end
+
+	if type -q erd
+		alias tree erd
 	end
 
 	if type -q colordiff
@@ -165,6 +168,7 @@ if status is-interactive
 	direnv hook fish | source
 	pay-respects fish --alias --nocnf | source
 	starship init fish | source
+	erd --completions fish | source
 
 	# `thefuck --alias` was dumped into ~/.config/fish/functions/fuck.fish,
 	# because Python's startup time is much, much slower than is acceptable
