@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+niri msg action power-off-monitors
+exec swaylock -c 000000
