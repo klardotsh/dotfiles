@@ -94,6 +94,9 @@ input 1267:12635:ELAN072D:00_04F3:315B_Touchpad natural_scroll enabled
 input 1267:12635:ELAN072D:00_04F3:315B_Touchpad tap enabled
 input 1267:12635:ELAN072D:00_04F3:315B_Touchpad tap_button_map lrm
 
+# input 1386:855:Wacom_Intuos_Pro_M_Pen rotation_angle 90
+# input 1386:855:Wacom_Intuos_Pro_M_Pad rotation_angle 90
+
 ### Key bindings
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
@@ -275,6 +278,9 @@ for_window [title="Firefox - Sharing Indicator"] floating enable
 # ^ seems to have stopped working in v84 because of course it did
 for_window [shell="xwayland"] title_format "%title [XWayland]"
 for_window [app_id="zoom"] floating enable
+
+for_window [class="."] inhibit_idle fullscreen
+for_window [app_id="."] inhibit_idle fullscreen
 
 include /etc/sway/config.d/*
 include colors.$colors
