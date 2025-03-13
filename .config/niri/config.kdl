@@ -102,6 +102,10 @@ output "Dell Inc. DELL U4025QW 8NX4N04" {
 	variable-refresh-rate
 }
 
+output "InfoVision Optoelectronics (Kunshan) Co.,Ltd China 0x854B Unknown" {
+	scale 1
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
