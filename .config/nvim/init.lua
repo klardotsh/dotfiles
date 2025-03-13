@@ -49,7 +49,7 @@ function unfuck_colors()
 
 	-- Sidebar gutter colors are mostly (1) light variants, and (2) with backgrounds
 	-- in vim-boring. Fix all of that.
-	cmd 'hi DiagnosticError ctermbg=none ctermfg=16'
+	cmd 'hi DiagnosticError ctermbg=none ctermfg=9'
 	cmd 'hi DiagnosticWarn ctermbg=none ctermfg=5'
 	cmd 'hi DiagnosticInfo ctermbg=none ctermfg=5'
 	cmd 'hi DiagnosticHint ctermbg=none ctermfg=9'
