@@ -160,6 +160,11 @@ if status is-interactive
 		alias lsusb 'cyme --lsusb'
 	end
 
+	if type -q yazi
+		alias filebrowser 'yazi'
+		alias files 'yazi'
+	end
+
 	# This section is reserved for things that start up fast enough to not add
 	# noticeable latency to shell startup - otherwise, dump to
 	# ~/.config/fish/functions!
