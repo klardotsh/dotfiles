@@ -26,7 +26,7 @@ input {
         dwt
         // dwtp
         natural-scroll
-        // accel-speed 0.2
+        accel-speed 0.6
         accel-profile "adaptive"
 		middle-emulation
         // scroll-method "two-finger"
@@ -126,6 +126,7 @@ layout {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+		proportion 0.75
 
         // Fixed sets the width in logical pixels exactly.
         // fixed 1920
@@ -135,7 +136,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 0.333333; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
@@ -508,9 +509,9 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Mod+S { screenshot; }
+    Mod+Ctrl+S { screenshot-screen; }
+    Mod+Shift+S { screenshot-window; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { quit; }
