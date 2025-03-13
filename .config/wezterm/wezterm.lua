@@ -1,11 +1,12 @@
 local wezterm = require 'wezterm'
 
-local DARK_THEME = 'Bamboo'
-local LIGHT_THEME = 'Bamboo Light'
+local DARK_THEME = 'rose-pine-moon'
+local LIGHT_THEME = 'rose-pine-dawn'
 
 local FP_Adwaita = 'adwaita'
 local FP_AgaveC = 'agavec'
 local FP_Atkinson = 'atkinson'
+local FP_Berk = 'berk'
 local FP_Fantasque = 'fantasque'
 local FP_Fira = 'fira'
 local FP_Hermit = 'hermit'
@@ -14,7 +15,7 @@ local FP_Maple = 'maple'
 local FP_MonoLisa = 'monolisa'
 local FP_Victor = 'victor'
 
-local FONT_PRESET = FP_Maple
+local FONT_PRESET = FP_Berk
 
 -- Thanks, https://github.com/wez/wezterm/issues/4681#issuecomment-2320537074
 local function get_cursor_theme()
@@ -47,6 +48,8 @@ local function config_font_for_preset(preset)
 		primary_font = 'Agave Code'
 	elseif preset == FP_Atkinson then
 		primary_font = 'Atkinson Hyperlegible Mono'
+	elseif preset == FP_Berk then
+		primary_font = 'Berkeley Mono'
 	elseif preset == FP_Fantasque then
 		primary_font = 'Fantasque Sans Mono'
 	elseif preset == FP_Fira then
@@ -65,7 +68,7 @@ local function config_font_for_preset(preset)
 
 	return wezterm.font_with_fallback({
 		primary_font,
-		'FSD Emoji',
+		'Twitter Color Emoji',
 		'Symbols Nerd Font',
 	})
 end
