@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 
-local DARK_THEME = 'rose-pine-moon'
-local LIGHT_THEME = 'rose-pine-dawn'
+local DARK_THEME = 'Solar Flare (base16)'
+local LIGHT_THEME = 'Solar Flare Light (base16)'
 
 local FP_Adwaita = 'adwaita'
 local FP_AgaveC = 'agavec'
