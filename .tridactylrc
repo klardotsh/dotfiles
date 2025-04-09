@@ -24,3 +24,4 @@ seturl teams.microsoft.com modeindicator false
 " https://github.com/tridactyl/tridactyl/issues/279
 set noiframeon servicenow.com
 seturl servicenow.com superignore true
+seturl service-now.com superignore true
