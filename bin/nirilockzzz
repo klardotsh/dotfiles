@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+echo "---> Calling zfs wait on backups drive to wake it up (else will block sleep)"
+touch /media/Backup22TB-A/.nirilockzzz
+zfs wait Backup22TB-A
+echo "---> Requesting root privs to call whoami and cache a doas session"
+doas whoami
+niri msg action power-off-monitors
+swaylock -c 000000 &
+doas zzz
