@@ -525,3 +525,9 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { spawn "nirilock"; }
 }
+
+gestures {
+	hot-corners {
+		off
+	}
+}

@@ -254,7 +254,7 @@ require('jetpack.packer').add {
 	-- provide :menubar command completion like helix/kakoune
 	{'vzze/cmdline.nvim',
 	config = function()
-		require('cmdline')({
+		require('cmdline').setup({
 			window = {
 				matchFuzzy = true,
 				offset     = 1, -- depending on 'cmdheight' you might need to offset

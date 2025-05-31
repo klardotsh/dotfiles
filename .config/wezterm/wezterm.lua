@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 
-local DARK_THEME = 'Solar Flare (base16)'
-local LIGHT_THEME = 'Solar Flare Light (base16)'
+local DARK_THEME = 'rose-pine'
+local LIGHT_THEME = 'rose-pine-dawn'
 
 local FP_Adwaita = 'adwaita'
 local FP_AgaveC = 'agavec'
@@ -12,10 +12,11 @@ local FP_Fira = 'fira'
 local FP_Hermit = 'hermit'
 local FP_Iosevka = 'iosevka'
 local FP_Maple = 'maple'
+local FP_MD_IO = 'md_io'
 local FP_MonoLisa = 'monolisa'
 local FP_Victor = 'victor'
 
-local FONT_PRESET = FP_Berk
+local FONT_PRESET = FP_MD_IO
 
 -- Thanks, https://github.com/wez/wezterm/issues/4681#issuecomment-2320537074
 local function get_cursor_theme()
@@ -60,6 +61,8 @@ local function config_font_for_preset(preset)
 		primary_font = { family = 'Iosevka Term', stretch = 'Expanded', weight = 'Regular' }
 	elseif preset == FP_Maple then
 		primary_font = 'Maple Mono'
+	elseif preset == FP_MD_IO then
+		primary_font = 'MD IO Trial'
 	elseif preset == FP_MonoLisa then
 		primary_font = 'MonoLisa'
 	elseif preset == FP_Victor then
@@ -113,12 +116,12 @@ local function config_harfbuzz_for_preset(preset)
 end
 
 return {
-	-- Default to dark theme to avoid flashbangs on new windows at night; use keybind to
-	-- toggle to light mode after launch.
 	color_schemes = {
 		["cyberdream"] = require("cyberdream"),
 		["cyberdream-light"] = require("cyberdream-light"),
 	},
+	-- Default to dark theme to avoid flashbangs on new windows at night; use keybind to
+	-- toggle to light mode after launch.
 	color_scheme = DARK_THEME,
 	default_cursor_style = 'BlinkingBar',
 	enable_tab_bar = false,
