@@ -16,7 +16,7 @@ local FP_MD_IO = 'md_io'
 local FP_MonoLisa = 'monolisa'
 local FP_Victor = 'victor'
 
-local FONT_PRESET = FP_MD_IO
+local FONT_PRESET = FP_Berk
 
 -- Thanks, https://github.com/wez/wezterm/issues/4681#issuecomment-2320537074
 local function get_cursor_theme()
