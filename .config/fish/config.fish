@@ -165,6 +165,12 @@ if status is-interactive
 		alias files 'yazi'
 	end
 
+	if type -q jf
+		alias json-str 'jf %q'
+		alias json-arr 'jf "[%*s]"'
+		alias json-obj 'jf "{%**s}"'
+	end
+
 	# This section is reserved for things that start up fast enough to not add
 	# noticeable latency to shell startup - otherwise, dump to
 	# ~/.config/fish/functions!
