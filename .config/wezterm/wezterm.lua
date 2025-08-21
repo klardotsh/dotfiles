@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 
-local DARK_THEME = 'rose-pine'
-local LIGHT_THEME = 'rose-pine-dawn'
+local DARK_THEME = 'Catppuccin Mocha'
+local LIGHT_THEME = 'Catppuccin Latte'
 
 local FP_Adwaita = 'adwaita'
 local FP_AgaveC = 'agavec'
