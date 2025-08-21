@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+exec ungoogled-chromium \
+	--kiosk \
+	--user-data-dir=/home/j/.config/chromium-forgevtt \
+	--gtk-version=4 \
+	--ozone-platform-hint=auto \
+	--render-node-override=/dev/dri/renderD128 \
+	--enable-features=TouchpadOverscrollHistoryNavigation \
+	--process-per-site \
+	$@
