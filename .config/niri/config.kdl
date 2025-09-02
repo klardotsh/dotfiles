@@ -227,7 +227,7 @@ spawn-at-startup "pipewire-pulse"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "wlsunset -l 47.7985 -L -122.4980" // Kingston, WA
 spawn-at-startup "/usr/libexec/xdg-desktop-portal -vr"
-spawn-at-startup "/usr/libexec/xdg-desktop-portal-wlr -r"
+spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome -r"
 spawn-at-startup "swww-daemon"
 
 environment {
