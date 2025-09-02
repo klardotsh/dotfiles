@@ -6,7 +6,7 @@ set -U fish_greeting
 set -x _PR_AI_DISABLE true # No "AI" for https://codeberg.org/iff/pay-respects
 
 set __OS "$(uname -s)"
-if [ $(lsb_release -si 2>&1 || echo 'n/a') = 'VoidLinux' ]
+if type -q lsb_release && [ $(lsb_release -si 2>&1 || echo 'n/a') = 'VoidLinux' ]
 	set IS_VOID true
 end
 
@@ -22,13 +22,13 @@ end
 
 if type -q nvim
 	set -x EDITOR nvim
+	set -x MANPAGER "nvim +Man!"
 else
 	set -x EDITOR vi
 end
 
-if type -q bat
-	set -x PAGER "bat --style=plain"
-	set -x MANPAGER "$PAGER -l man"
+if type -q ov
+	set -x PAGER "ov"
 end
 
 set -x LESS "-R"
@@ -75,7 +75,8 @@ set -x BEMENU_BACKEND wayland
 set -x CLUTTER_BACKEND wayland
 set -x SDL_VIDEODRIVER "wayland,x11"
 
-set -x XDG_CURRENT_DESKTOP sway
+set -x XDG_CURRENT_DESKTOP niri
+set -x XDG_SESSION_DESKTOP niri
 set -x XDG_SESSION_TYPE wayland # otherwise gets set to 'tty', breaking WebRTC things
 
 set -x _JAVA_OPTIONS '-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
