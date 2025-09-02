@@ -315,16 +315,9 @@ require('jetpack.packer').add {
 	'pbrisbin/vim-mkdir',
 
 	{'nvim-treesitter/nvim-treesitter',
+	branch = "main",
 	run = ":TSUpdate",
-	config = function()
-		require'nvim-treesitter.configs'.setup {
-			ensure_installed = "all",
-			highlight = { enable = true },
-			indent = { enable = false },
-		}
-
-		vim.treesitter.language.register("bash", "apkbuild")
-	end},
+	},
 
 	-- Misc. language support - generally speaking treesitter has wiped out most of what
 	-- used to make up this list
