@@ -8,6 +8,8 @@ set -x _PR_AI_DISABLE true # No "AI" for https://codeberg.org/iff/pay-respects
 set __OS "$(uname -s)"
 if type -q lsb_release && [ $(lsb_release -si 2>&1 || echo 'n/a') = 'VoidLinux' ]
 	set IS_VOID true
+else
+	set IS_VOID false
 end
 
 # Also set system-wide, but better safe than sorry.
