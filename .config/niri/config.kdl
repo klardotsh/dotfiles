@@ -211,6 +211,21 @@ cursor {
 environment {
 	DISPLAY ":0"
 	// ^ TODO: Remove at Niri 25.08, xwayland-satellite is now managed appliance
+
+	// Force Firefox to play nicely with Wayland wherever it doesn't already
+	MOZ_ENABLE_WAYLAND "1"
+	MOZ_WAYLAND_USE_VAAPI "1"
+
+	BEMENU_BACKEND "wayland"
+	CLUTTER_BACKEND "wayland"
+	SDL_VIDEODRIVER "wayland,x11"
+	QT_QPA_PLATFORM "wayland-egl"
+
+	XDG_CURRENT_DESKTOP "niri"
+	XDG_SESSION_DESKTOP "niri"
+	XDG_SESSION_TYPE "wayland" // otherwise gets set to 'tty', breaking WebRTC things
+
+	_JAVA_AWT_WM_NONREPARENTING "1"
 }
 
 spawn-at-startup "dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY"

@@ -66,23 +66,11 @@ end
 
 set -x BROWSER xdg-open
 set -x MOZ_USE_XINPUT2 1
-set -x MOZ_ENABLE_WAYLAND 1
-set -x MOZ_WAYLAND_USE_VAAPI 1
 
 set -x GTK_CSD 0
 set -x GTK2_RC_FILES ~/.gtkrc-2.0
-set -x QT_QPA_PLATFORM wayland-egl
-
-set -x BEMENU_BACKEND wayland
-set -x CLUTTER_BACKEND wayland
-set -x SDL_VIDEODRIVER "wayland,x11"
-
-set -x XDG_CURRENT_DESKTOP niri
-set -x XDG_SESSION_DESKTOP niri
-set -x XDG_SESSION_TYPE wayland # otherwise gets set to 'tty', breaking WebRTC things
 
 set -x _JAVA_OPTIONS '-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
-set -x _JAVA_AWT_WM_NONREPARTENTING 1
 
 if status is-interactive
 	alias e $EDITOR
