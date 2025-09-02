@@ -52,7 +52,10 @@ input {
     }
 
     // Uncomment this to make the mouse warp to the center of newly focused windows.
-    warp-mouse-to-focus
+    //
+    // Note 01 Sep 2025: This got annoying AF with Zoom popups mid-meeting
+    // constantly hijacking my mouse, so I've killed it for now.
+    // warp-mouse-to-focus
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
