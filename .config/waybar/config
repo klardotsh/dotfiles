@@ -4,9 +4,10 @@
 	"layer": "bottom", // mostly prevents covering fullscreen windows
     "position": "top",
     "height": 30,
-    "modules-left": ["sway/workspaces", "sway/mode"],
-	"modules-center": ["sway/window"],
+    "modules-left": ["niri/workspaces", "sway/workspaces", "sway/mode"],
+	"modules-center": ["niri/window", "sway/window"],
 	"modules-right": [
+		"mpris",
 		"tray",
 		"custom/weather",
 		//"cpu",
@@ -17,6 +18,15 @@
 		"clock"
 	],
     // Modules configuration
+	"niri/workspaces": {
+		"all-outputs": true,
+		"format": "{icon}",
+		"format-icons": {
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		},
+	},
 	"sway/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
@@ -56,17 +66,12 @@
 		"format-icons": ["󱊡", "󱊢", "󱊣"]
 	},
 	"network": {
-        	"format-wifi": "  {essid}",
-        	"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        	"format-linked": "{ifname} (No IP) ",
-        	"format-disconnected": "󰤮 Disconnected",
-        	"format-alt": "{ifname}: {ipaddr}/{cidr}"
-	},
-	"network": {
-		// "interface": "wlp2s0", // (Optional) To force the use of this interface
 		"format-wifi": "  {essid}",
-		"format-ethernet": " {ipaddr}",
-		"format-disconnected": "⚠ Disconnected"
+		"format-ethernet": "",
+		"format-linked": " {ifname} (No IP)",
+		"format-disconnected": "⚠ Disconnected",
+		"format-alt": " {ifname}: {ipaddr}/{cidr}",
+		"tooltip-format": " {ifname}: {ipaddr}/{cidr}",
 	},
 	"pulseaudio": {
 		"format": "{icon} {volume}%",
@@ -97,5 +102,13 @@
 		"return-type": "json",
 		"exec": "~/bin/weather-waybar.sh",
 		"exec-if": "ping -c1 wttr.in",
+	},
+	"mpris": {
+		"format": "{status_icon} {player}: {artist} :: {title}",
+		"tooltip-format": "{album} :: {length}",
+		"status-icons": {
+			"playing": "▶",
+			"paused": "⏸︎"
+		},
 	},
 }
