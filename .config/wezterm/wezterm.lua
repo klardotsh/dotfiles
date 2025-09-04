@@ -1,8 +1,9 @@
 local wezterm = require 'wezterm'
 
-local DARK_THEME = 'Catppuccin Mocha'
-local LIGHT_THEME = 'Catppuccin Latte'
+local DARK_THEME = 'zenbones_dark'
+local LIGHT_THEME = 'zenbones'
 
+local FP_0X = '0x'
 local FP_Adwaita = 'adwaita'
 local FP_AgaveC = 'agavec'
 local FP_Atkinson = 'atkinson'
@@ -14,9 +15,10 @@ local FP_Iosevka = 'iosevka'
 local FP_Maple = 'maple'
 local FP_MD_IO = 'md_io'
 local FP_MonoLisa = 'monolisa'
+local FP_Pragmata = 'pragmata'
 local FP_Victor = 'victor'
 
-local FONT_PRESET = FP_Berk
+local FONT_PRESET = FP_Maple
 
 -- Thanks, https://github.com/wez/wezterm/issues/4681#issuecomment-2320537074
 local function get_cursor_theme()
@@ -43,7 +45,9 @@ local function light_dark_toggle(window, _)
 end
 
 local function config_font_for_preset(preset)
-	if preset == FP_Adwaita then
+	if preset == FP_0X then
+		primary_font = '0xProto'
+	elseif preset == FP_Adwaita then
 		primary_font = 'Adwaita Mono'
 	elseif preset == FP_AgaveC then
 		primary_font = 'Agave Code'
@@ -65,6 +69,8 @@ local function config_font_for_preset(preset)
 		primary_font = 'MD IO Trial'
 	elseif preset == FP_MonoLisa then
 		primary_font = 'MonoLisa'
+	elseif preset == FP_Pragmata then
+		primary_font = 'PragmataPro Mono Liga'
 	elseif preset == FP_Victor then
 		primary_font = 'Victor Mono'
 	end
@@ -97,10 +103,9 @@ local function config_harfbuzz_for_preset(preset)
 		table.insert(hb, 'ss14=1') -- PragmataPro style
 	elseif preset == FP_Maple then
 		table.insert(hb, 'dlig=1')
+		table.insert(hb, 'cv01=1') -- Disable gaps in @ $ & etc.
 		table.insert(hb, 'cv35=1') -- Disable cursive-italic lowercase L
 
-		-- Enable most feature sets in Maple Mono
-		table.insert(hb, 'ss01=1') -- Disable === ligatures for clarity
 		table.insert(hb, 'ss02=1') -- Disable >= <= ligatures for clarity
 		table.insert(hb, 'ss03=1') -- Allow [tOdO] and [TODO] to be equivalent
 		table.insert(hb, 'ss04=1') -- Break up __ and ___ for clarity
@@ -108,8 +113,6 @@ local function config_harfbuzz_for_preset(preset)
 		table.insert(hb, 'ss06=0') -- In italic al / il, don't connect characters?
 		-- ss07 is bad: allows ligatures in cases like f>>
 		table.insert(hb, 'ss08=1')
-
-		table.insert(hb, 'zero=1') -- Dotted zero
 	end
 
 	return hb
