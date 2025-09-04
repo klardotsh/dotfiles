@@ -4,8 +4,6 @@
 	signingkey = josh@klar.sh
 [color]
 	pager = yes
-[core]
-	pager = bat --style=plain
 [commit]
 	gpgsign = true
 	verbose = true
