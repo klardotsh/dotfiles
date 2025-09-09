@@ -1,5 +1,9 @@
 local wezterm = require 'wezterm'
 
+-- https://github.com/wez/wezterm/discussions/4728
+local is_darwin <const> = wezterm.target_triple:find("darwin") ~= nil
+local is_linux <const> = wezterm.target_triple:find("linux") ~= nil
+
 local DARK_THEME = 'zenbones_dark'
 local LIGHT_THEME = 'zenbones'
 
@@ -10,6 +14,7 @@ local FP_Atkinson = 'atkinson'
 local FP_Berk = 'berk'
 local FP_Fantasque = 'fantasque'
 local FP_Fira = 'fira'
+local FP_Geist = 'geist'
 local FP_Hermit = 'hermit'
 local FP_Iosevka = 'iosevka'
 local FP_Maple = 'maple'
@@ -18,24 +23,7 @@ local FP_MonoLisa = 'monolisa'
 local FP_Pragmata = 'pragmata'
 local FP_Victor = 'victor'
 
-local FONT_PRESET = FP_Maple
-
--- Thanks, https://github.com/wez/wezterm/issues/4681#issuecomment-2320537074
-local function get_cursor_theme()
-	local success, stdout, stderr =
-		wezterm.run_child_process { 'xprop', '-root' }
-	if not success then
-		wezterm.log_error(
-			('Command exited with non-zero exit code.\nStdout:\n%s\nStderr:\n%s'):format(
-				stdout,
-				stderr
-			)
-		)
-		return nil
-	end
-
-	return stdout:match [[RESOURCE_MANAGER%(STRING%) = ".+\nXcursor.theme:\t(.+)\n.+"]]
-end
+local FONT_PRESET = FP_Iosevka
 
 local function light_dark_toggle(window, _)
 	local currentScheme = window:effective_config().color_scheme
@@ -59,6 +47,8 @@ local function config_font_for_preset(preset)
 		primary_font = 'Fantasque Sans Mono'
 	elseif preset == FP_Fira then
 		primary_font = 'Fira Code'
+	elseif preset == FP_Geist then
+		primary_font = 'Geist Mono'
 	elseif preset == FP_Hermit then
 		primary_font = 'Hermit'
 	elseif preset == FP_Iosevka then
@@ -99,8 +89,11 @@ local function config_harfbuzz_for_preset(preset)
 		table.insert(hb, 'cv26=1') -- :- as a glyph
 		table.insert(hb, 'ss07=1') -- =~ as squiggly equal sign
 	elseif preset == FP_Iosevka then
-		table.insert(hb, 'dlig=0') -- Explicitly disable due to awful [| and friends
+		table.insert(hb, 'dlig=1')
 		table.insert(hb, 'ss14=1') -- PragmataPro style
+		table.insert(hb, 'VSAH=3') -- Hecka curly { and }
+		table.insert(hb, 'VLAA=1') -- Flat underbar for >= ligature
+		table.insert(hb, 'VLAC=1') -- Some breaks in == and === ligatures
 	elseif preset == FP_Maple then
 		table.insert(hb, 'dlig=1')
 		table.insert(hb, 'cv01=1') -- Disable gaps in @ $ & etc.
@@ -118,7 +111,7 @@ local function config_harfbuzz_for_preset(preset)
 	return hb
 end
 
-return {
+config = {
 	color_schemes = {
 		["cyberdream"] = require("cyberdream"),
 		["cyberdream-light"] = require("cyberdream-light"),
@@ -135,6 +128,11 @@ return {
 	keys = {
 		{ key = "o", mods = "ALT", action = wezterm.action_callback(light_dark_toggle) },
 	},
-
-	xcursor_theme = get_cursor_theme() or 'Adwaita',
 }
+
+if is_linux then
+	config.enable_wayland = true
+	config.xcursor_theme = "catppuccin-mocha-dark-cursors"
+end
+
+return config
