@@ -33,10 +33,14 @@ brew 'mosh' # udp-based mobile-network-friendly shells over ssh
 brew 'direnv' # per-directory envvars
 brew 'zoxide' # better directory changing
 brew 'lnav' # log wrangling and paging
+brew 'ouch' # better archive extraction
 
 # Containerization things
 brew 'skopeo'
 brew 'crane'
+
+# Packaging things, since I do a lot of that...
+brew 'rpm'
 
 # This is mostly a holdover from my Linux boxen and how I have
 # git configured: GNU's PGP implementation, which I then hook
@@ -55,4 +59,9 @@ if OS.mac?
 	tap 'koekeishiya/formulae'
 	brew 'skhd'
 	cask 'amethyst'
+	cask 'wezterm'
+
+	# Eye candy
+	cask 'font-cascadia-code'
+	cask 'font-iosevka'
 end
