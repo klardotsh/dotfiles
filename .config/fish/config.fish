@@ -172,6 +172,10 @@ if status is-interactive
 	starship init fish | source
 	erd --completions fish | source
 
+	if type -q mise
+		mise activate fish | source
+	end
+
 	# `thefuck --alias` was dumped into ~/.config/fish/functions/fuck.fish,
 	# because Python's startup time is much, much slower than is acceptable
 	# to have in the hot path here.
