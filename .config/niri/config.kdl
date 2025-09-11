@@ -202,7 +202,8 @@ spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome -r"
 spawn-at-startup "swww-daemon"
 
 cursor {
-	xcursor-theme "catppuccin-mocha-dark-cursors"
+	// https://www.pling.com/p/1932768
+	xcursor-theme "Simp1e-Rose-Pine"
 	xcursor-size 24
 	hide-when-typing
 	hide-after-inactive-ms 1000

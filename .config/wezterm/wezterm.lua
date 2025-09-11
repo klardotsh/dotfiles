@@ -4,14 +4,32 @@ local wezterm = require 'wezterm'
 local is_darwin <const> = wezterm.target_triple:find("darwin") ~= nil
 local is_linux <const> = wezterm.target_triple:find("linux") ~= nil
 
-local DARK_THEME = 'zenbones_dark'
-local LIGHT_THEME = 'zenbones'
+-- The primary issue with Rose Pine as shipped by Wezterm is that you can't see
+-- the selection range basically at all (except for during certain weird
+-- interactions with colorized text), so we'll fork the built in style to fix
+-- selections only. I otherwise quite like Rose Pine and continually return to
+-- it even after trying other things.
+local rp_dark_with_highlight = wezterm.get_builtin_color_schemes()['rose-pine']
+local rp_light_with_highlight = wezterm.get_builtin_color_schemes()['rose-pine-dawn']
+
+rp_dark_bg = rp_dark_with_highlight.background
+rp_dark_fg = rp_dark_with_highlight.foreground
+rp_dark_with_highlight.selection_bg = "rgba(50% 50% 50% 50%)"
+
+rp_light_bg = rp_light_with_highlight.background
+rp_light_fg = rp_light_with_highlight.foreground
+rp_light_with_highlight.selection_bg = "rgba(50% 50% 50% 50%)"
+
+local DARK_THEME = 'rose-pine-highlightable'
+local LIGHT_THEME = 'rose-pine-dawn-highlightable'
 
 local FP_0X = '0x'
 local FP_Adwaita = 'adwaita'
 local FP_AgaveC = 'agavec'
 local FP_Atkinson = 'atkinson'
 local FP_Berk = 'berk'
+local FP_Cascadia = 'cascadia'
+local FP_Commit = 'commit'
 local FP_Fantasque = 'fantasque'
 local FP_Fira = 'fira'
 local FP_Geist = 'geist'
@@ -23,7 +41,7 @@ local FP_MonoLisa = 'monolisa'
 local FP_Pragmata = 'pragmata'
 local FP_Victor = 'victor'
 
-local FONT_PRESET = FP_Iosevka
+local FONT_PRESET = FP_Cascadia
 
 local function light_dark_toggle(window, _)
 	local currentScheme = window:effective_config().color_scheme
@@ -43,6 +61,10 @@ local function config_font_for_preset(preset)
 		primary_font = 'Atkinson Hyperlegible Mono'
 	elseif preset == FP_Berk then
 		primary_font = 'Berkeley Mono'
+	elseif preset == FP_Cascadia then
+		primary_font = 'Cascadia Code'
+	elseif preset == FP_Commit then
+		primary_font = 'CommitMono'
 	elseif preset == FP_Fantasque then
 		primary_font = 'Fantasque Sans Mono'
 	elseif preset == FP_Fira then
@@ -84,16 +106,26 @@ local function config_harfbuzz_for_preset(preset)
 		table.insert(hb, 'cv14=1') -- 3 character with flat top
 		table.insert(hb, 'ss04=1') -- Gentler $ character
 		table.insert(hb, 'cv18=1') -- Simpler % character
+		table.insert(hb, 'ss03=1') -- Clearer (to me) & character
 		table.insert(hb, 'ss08=1') -- Clearer == / != / === / !== rendering
+		table.insert(hb, 'ss02=1') -- Flat, not aligned, underbar in >= <=
 		table.insert(hb, 'ss09=1') -- Haskell-y >>= and friends
 		table.insert(hb, 'cv26=1') -- :- as a glyph
-		table.insert(hb, 'ss07=1') -- =~ as squiggly equal sign
+		table.insert(hb, 'ss07=1') -- =~ and !~ as squiggly equal sign
+	elseif preset == FP_Commit then
+		table.insert(hb, 'ss01=1') -- Ligatures(eq): <= != ===
+		table.insert(hb, 'ss02=1') -- Ligatures(arr): >-> =>
+		table.insert(hb, 'ss03=1') -- Smart case (?)
+		table.insert(hb, 'ss04=1') -- Symbol spacing: ... <<
+		table.insert(hb, 'ss05=1') -- Smart kerning (immi)
+		table.insert(hb, 'cv06=1') -- More linear 6 and 9 chars
 	elseif preset == FP_Iosevka then
 		table.insert(hb, 'dlig=1')
 		table.insert(hb, 'ss14=1') -- PragmataPro style
 		table.insert(hb, 'VSAH=3') -- Hecka curly { and }
 		table.insert(hb, 'VLAA=1') -- Flat underbar for >= ligature
 		table.insert(hb, 'VLAC=1') -- Some breaks in == and === ligatures
+		table.insert(hb, 'VLAD=1') -- Some breaks in -- ligatures
 	elseif preset == FP_Maple then
 		table.insert(hb, 'dlig=1')
 		table.insert(hb, 'cv01=1') -- Disable gaps in @ $ & etc.
@@ -115,6 +147,8 @@ config = {
 	color_schemes = {
 		["cyberdream"] = require("cyberdream"),
 		["cyberdream-light"] = require("cyberdream-light"),
+		["rose-pine-highlightable"] = rp_dark_with_highlight,
+		["rose-pine-dawn-highlightable"] = rp_light_with_highlight,
 	},
 	-- Default to dark theme to avoid flashbangs on new windows at night; use keybind to
 	-- toggle to light mode after launch.
@@ -132,7 +166,8 @@ config = {
 
 if is_linux then
 	config.enable_wayland = true
-	config.xcursor_theme = "catppuccin-mocha-dark-cursors"
+	-- https://www.pling.com/p/1932768
+	config.xcursor_theme = "Simp1e-Rose-Pine"
 end
 
 return config
