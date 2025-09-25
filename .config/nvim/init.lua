@@ -1,7 +1,7 @@
--- klardotsh's vimrc, 2023 edition
--- released under 0BSD (https://www.tldrlegal.com/license/bsd-0-clause-license)
+-- klardotsh's vimrc, 2025 edition. Released under 0BSD
+-- (https://www.tldrlegal.com/license/bsd-0-clause-license)
 --
--- requires nvim >=0.9.0 (or at least that's all I've tested it against)
+-- Requires nvim >=0.11.0
 
 local api = vim.api
 local cmd = vim.cmd  -- to execute Vim commands e.g. cmd('pwd')
@@ -46,6 +46,7 @@ function unfuck_colors()
 	cmd 'hi String ctermfg=5 ctermbg=none cterm=none'
 	cmd 'hi Statement ctermbg=none cterm=bold ctermfg=none'
 	cmd 'hi Special ctermbg=none cterm=italic'
+	cmd 'hi MatchParen ctermbg=8'
 
 	-- Sidebar gutter colors are mostly (1) light variants, and (2) with backgrounds
 	-- in vim-boring. Fix all of that.
@@ -143,7 +144,7 @@ require('jetpack.packer').add {
 	'glts/vim-radical', -- convert between dec/hex/oct/bin nums with crX binds
 
 	-- mini.nvim section
-	{'echasnovski/mini.nvim',
+	{'nvim-mini/mini.nvim',
 	config = function()
 		require('mini.animate').setup({
 			--cursor = { enable = false },
@@ -292,6 +293,18 @@ require('jetpack.packer').add {
 		map({'n', 'v'}, "<Leader>a", "<cmd>MultipleCursorsAddToWordUnderCursor<CR>")
 	end},
 
+	-- Jump out of surrounding characters with Ctrl-Enter (eg to get to the
+	-- outside of some parens/braces
+	{'ysmb-wtsg/in-and-out.nvim',
+	config = function()
+		vim.keymap.set("n", "<C-CR>", function()
+			require("in-and-out").in_and_out()
+		end)
+		vim.keymap.set("i", "<C-CR>", function()
+			require("in-and-out").in_and_out()
+		end)
+	end},
+
 	{'lewis6991/gitsigns.nvim',
 	config = function()
 		require('gitsigns').setup()
@@ -353,7 +366,6 @@ require('jetpack.packer').add {
 
 	{'VonHeikemen/lsp-zero.nvim',
 	config = function()
-		local lspconfig = require('lspconfig')
 		local lsp_zero = require('lsp-zero')
 
 		lsp_zero.on_attach(function(_, bufnr)
@@ -387,23 +399,6 @@ require('jetpack.packer').add {
 		map('n', '<Leader>cref', '<cmd>lua vim.lsp.buf.references()<CR>')
 		map('n', '<Leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 		map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-
-		lspconfig.bashls.setup({})
-		lspconfig.dhall_lsp_server.setup({})
-		lspconfig.eslint.setup({})
-		lspconfig.fennel_ls.setup({})
-		lspconfig.gitlab_ci_ls.setup({})
-		lspconfig.gopls.setup({})
-		lspconfig.jsonnet_ls.setup({})
-		lspconfig.lua_ls.setup({})
-		lspconfig.markdown_oxide.setup({})
-		lspconfig.nomad_lsp.setup({})
-		lspconfig.pylsp.setup({})
-		lspconfig.rust_analyzer.setup({})
-		lspconfig.sorbet.setup({})
-		lspconfig.terraform_lsp.setup({})
-		lspconfig.ts_ls.setup({})
-		lspconfig.zls.setup({})
 	end},
 }
 
