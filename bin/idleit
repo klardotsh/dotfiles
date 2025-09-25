@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+set -e
+
+# nice(1) says: range from -20 (most favorable to the process) to 19 (least
+# favorable to the process)
+NICE_LEVEL=19
+
+# ionice(1) says: 0 for no scheduling class, 1 for realtime, 2 for
+# best-effort, 3 for idle
+CLASS_IDLE=3
+# ionice(1) says: 0 represents the highest priority level (of a 0-7 scale)
+PRIORITY_LEVEL=7
+
+exec nice -n "${NICE_LEVEL}" -- \
+	ionice -c "${CLASS_IDLE}" -n "${PRIORITY_LEVEL}" -- \
+		"${@}"
