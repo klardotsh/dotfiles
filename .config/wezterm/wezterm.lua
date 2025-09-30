@@ -153,6 +153,7 @@ config = {
 	-- Default to dark theme to avoid flashbangs on new windows at night; use keybind to
 	-- toggle to light mode after launch.
 	color_scheme = DARK_THEME,
+	window_background_opacity = 0.925,
 	default_cursor_style = 'BlinkingBar',
 	enable_tab_bar = false,
 	font = config_font_for_preset(FONT_PRESET),
