@@ -45,6 +45,8 @@ window#waybar {
 #wireplumber,
 #network,
 #memory,
+#mpris,
+#window,
 #tray {
 	background-color: @bg-dark;
 	padding: 0.25em 0.5em;
