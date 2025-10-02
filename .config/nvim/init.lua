@@ -400,6 +400,12 @@ require('jetpack.packer').add {
 		map('n', '<Leader>cf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 		map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 	end},
+
+	{"rdgd/file-reloader.nvim",
+	config = function()
+		require("file-reloader").setup()
+	end
+	},
 }
 
 map('', '<Leader>/', ':nohlsearch<CR>', { silent = true })
