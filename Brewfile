@@ -7,6 +7,7 @@ brew 'neovim'
 brew 'helix'
 brew 'micro'
 brew 'htop'
+brew 'bottom'
 brew 'tmux'
 brew 'colordiff'
 brew 'difftastic' # AST-aware diffing
@@ -35,13 +36,9 @@ brew 'zoxide' # better directory changing
 brew 'lnav' # log wrangling and paging
 brew 'ouch' # better archive extraction
 
-# Containerization things
-brew 'skopeo'
-brew 'crane'
-
-# Packaging things, since I do a lot of that...
-brew 'rpm'
-
+# Auth and Security
+brew 'aws-vault'
+brew 'rbw'
 # This is mostly a holdover from my Linux boxen and how I have
 # git configured: GNU's PGP implementation, which I then hook
 # to provide commit signing in git because more code forges
@@ -49,10 +46,12 @@ brew 'rpm'
 # as of late 2023
 brew 'gnupg2'
 
-# Unsure if needed on bare MacOS metal but: avoid storing AWS
-# credentials in plain text - store them in MacOS keyring or
-# an AES-encrypted file on disk instead!
-brew 'aws-vault'
+# Containerization things
+brew 'skopeo'
+brew 'crane'
+
+# Packaging things, since I do a lot of that...
+brew 'rpm'
 
 # Make MacOS slightly less awful to use. The bar is painfully low.
 if OS.mac?
@@ -60,6 +59,9 @@ if OS.mac?
 	brew 'skhd'
 	cask 'amethyst'
 	cask 'wezterm'
+
+	# QoL for weird monitors and such
+	cask 'betterdisplay'
 
 	# Eye candy
 	cask 'font-cascadia-code'
