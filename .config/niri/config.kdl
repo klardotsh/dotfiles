@@ -192,8 +192,7 @@ layout {
 spawn-at-startup "pipewire"
 spawn-at-startup "wireplumber"
 spawn-at-startup "pipewire-pulse"
-spawn-at-startup "xwayland-satellite"
-// ^ TODO: Remove at Niri 25.08, xwayland-satellite is now managed appliance
+spawn-at-startup "waybar"
 spawn-at-startup "wlsunset -l 47.7985 -L -122.4980" // Kingston, WA
 // ^ This doesn't seem to work reliably as a spawn-at-startup anymore(?), yet
 // works fine in a one-off shell in quick testing. Needs more investigation.
@@ -210,9 +209,6 @@ cursor {
 }
 
 environment {
-	DISPLAY ":0"
-	// ^ TODO: Remove at Niri 25.08, xwayland-satellite is now managed appliance
-
 	// Force Firefox to play nicely with Wayland wherever it doesn't already
 	MOZ_ENABLE_WAYLAND "1"
 	MOZ_WAYLAND_USE_VAAPI "1"
