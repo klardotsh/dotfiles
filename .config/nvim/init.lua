@@ -232,6 +232,8 @@ require('jetpack.packer').add {
 				live_grep = { theme = 'ivy' },
 				find_files = { theme = 'ivy' },
 				symbols = { theme = 'ivy' },
+				lsp_document_symbols = { theme = 'ivy' },
+				treesitter = { theme = 'ivy' },
 			},
 			extensions = {
 				fzf = {
@@ -248,8 +250,9 @@ require('jetpack.packer').add {
 		vim.keymap.set('n', '<leader>g', builtin.live_grep, {})
 		vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 		vim.keymap.set('n', '<leader>h', builtin.help_tags, {})
-		vim.keymap.set('n', '<leader>sy', builtin.symbols, {})
+		vim.keymap.set('n', '<leader>sy', builtin.lsp_document_symbols, {})
 		map('', '<Leader>sl', ':Telescope software-licenses find theme=ivy<CR>')
+		vim.keymap.set('n', '<leader>t', builtin.treesitter, {})
 	end},
 
 	-- provide :menubar command completion like helix/kakoune
@@ -326,6 +329,16 @@ require('jetpack.packer').add {
 	-- > :e this/does/not/exist/file.txt
 	-- > :w
 	'pbrisbin/vim-mkdir',
+
+	-- Inline diagnostics, including multi-line overflow handling
+	{"rachartier/tiny-inline-diagnostic.nvim",
+    config = function()
+        require('tiny-inline-diagnostic').setup({
+			preset = "classic",
+			multilines = { enabled = true },
+		})
+        vim.diagnostic.config({ virtual_text = false }) -- Disable default virtual text
+    end},
 
 	{'nvim-treesitter/nvim-treesitter',
 	branch = "main",
