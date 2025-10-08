@@ -189,3 +189,11 @@ if status is-interactive
 end
 
 fish_add_path ~/bin
+
+# Bind Ctrl-Z to fg, allowing Ctrl-Z to be treated as a toggle between
+# foreground and background for a task. Useful for hiding editors to go handle
+# VCS tasks and then bringing the editor back. This matches my Ctrl-Z binding
+# in ~/.zshrc.
+#
+# https://stackoverflow.com/a/75950692
+bind \cz 'fg 2>/dev/null; commandline -f repaint'
