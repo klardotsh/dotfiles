@@ -2,22 +2,37 @@
 brew 'fish'
 brew 'starship'
 
-# Editors and dev productivity things.
+# Editors
 brew 'neovim'
 brew 'helix'
 brew 'micro'
+
+# Resource monitors
 brew 'htop'
 brew 'bottom'
+brew 'btop'
+
+# Multiplexers
 brew 'tmux'
+brew 'zellij'
+
+# Differs
 brew 'colordiff'
 brew 'difftastic' # AST-aware diffing
+
+# Git and git accessories
 brew 'git'
 brew 'git-lfs'
 brew 'git-crypt'
 brew 'git-interactive-rebase-tool'
+brew 'gitu'
+
+# Networking stuff
 brew 'openssh'
+brew 'mosh' # udp-based mobile-network-friendly shells over ssh
 brew 'curl'
 brew 'xh' # human-friendly pretty http/json client
+
 brew 'jaq' # jq clone for json stuff: https://github.com/01mf02/jaq
 brew 'fzf' # find files and shell history fuzzily
 brew 'thefuck' # cli mistake fixer
@@ -30,11 +45,11 @@ brew 'glow' # another markdown renderer
 brew 'lowdown' # markdown renderer
 brew 'bat' # better file printer
 brew 'ov' # a much better pager
-brew 'mosh' # udp-based mobile-network-friendly shells over ssh
 brew 'direnv' # per-directory envvars
 brew 'zoxide' # better directory changing
 brew 'lnav' # log wrangling and paging
 brew 'ouch' # better archive extraction
+brew 'scc' # SLOC counter
 
 # Auth and Security
 brew 'aws-vault'
@@ -52,6 +67,9 @@ brew 'crane'
 
 # Packaging things, since I do a lot of that...
 brew 'rpm'
+
+# Entertainment :)
+brew 'pianobar'
 
 # Make MacOS slightly less awful to use. The bar is painfully low.
 if OS.mac?
