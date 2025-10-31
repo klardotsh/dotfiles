@@ -321,6 +321,8 @@ binds {
     XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 	XF86MonBrightnessUp   allow-when-locked=true { spawn "light" "-A" "5"; }
 	XF86MonBrightnessDown allow-when-locked=true { spawn "light" "-U" "5"; }
+	XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
+	XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
 
     Mod+Q { close-window; }
 
