@@ -48,7 +48,7 @@ local FP_MonoLisa = 'monolisa'
 local FP_Pragmata = 'pragmata'
 local FP_Victor = 'victor'
 
-local FONT_PRESET = FP_Berk
+local FONT_PRESET = FP_Cascadia
 
 local function light_dark_toggle(window, _)
 	local currentScheme = window:effective_config().color_scheme
