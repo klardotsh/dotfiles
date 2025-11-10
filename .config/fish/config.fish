@@ -29,8 +29,8 @@ else
 	set -x EDITOR vi
 end
 
-if type -q ov
-	set -x PAGER "ov"
+if type -q moor
+	set -x PAGER "moor"
 end
 
 set -x LESS "-R"
@@ -127,7 +127,9 @@ if status is-interactive
 		alias tree erd
 	end
 
-	if type -q colordiff
+	if type -q riff
+		alias diff "riff"
+	else if type -q colordiff
 		alias diff "colordiff -Nuar"
 	else
 		alias diff "diff -Nuar"

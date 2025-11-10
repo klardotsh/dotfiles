@@ -19,6 +19,10 @@ brew 'zellij'
 # Differs
 brew 'colordiff'
 brew 'difftastic' # AST-aware diffing
+brew 'riff'
+
+# Pagers
+brew 'moor'
 
 # Git and git accessories
 brew 'git'
