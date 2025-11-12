@@ -33,6 +33,7 @@ local LIGHT_THEME = 'GruvboxLight'
 local FP_0X = '0x'
 local FP_Adwaita = 'adwaita'
 local FP_AgaveC = 'agavec'
+local FP_Argon = 'argon'
 local FP_Atkinson = 'atkinson'
 local FP_Berk = 'berk'
 local FP_Cascadia = 'cascadia'
@@ -45,6 +46,7 @@ local FP_Iosevka = 'iosevka'
 local FP_Maple = 'maple'
 local FP_MD_IO = 'md_io'
 local FP_MonoLisa = 'monolisa'
+local FP_Myna = 'myna'
 local FP_Pragmata = 'pragmata'
 local FP_Victor = 'victor'
 
@@ -64,6 +66,8 @@ local function config_font_for_preset(preset)
 		primary_font = 'Adwaita Mono'
 	elseif preset == FP_AgaveC then
 		primary_font = 'Agave Code'
+	elseif preset == FP_Argon then
+		primary_font = 'Monaspace Argon NF'
 	elseif preset == FP_Atkinson then
 		primary_font = 'Atkinson Hyperlegible Mono'
 	elseif preset == FP_Berk then
@@ -88,6 +92,8 @@ local function config_font_for_preset(preset)
 		primary_font = 'MD IO Trial'
 	elseif preset == FP_MonoLisa then
 		primary_font = 'MonoLisa'
+	elseif preset == FP_Myna then
+		primary_font = 'Myna'
 	elseif preset == FP_Pragmata then
 		primary_font = 'PragmataPro Mono Liga'
 	elseif preset == FP_Victor then
@@ -145,6 +151,18 @@ local function config_harfbuzz_for_preset(preset)
 		table.insert(hb, 'ss06=0') -- In italic al / il, don't connect characters?
 		-- ss07 is bad: allows ligatures in cases like f>>
 		table.insert(hb, 'ss08=1')
+	elseif preset == FP_Argon then
+		table.insert(hb, 'ss01=1') -- !==, ===, etc
+		table.insert(hb, 'ss02=1') -- >=, <=, etc
+		table.insert(hb, 'ss03=1') -- ->, ~>, etc.
+		table.insert(hb, 'ss05=1') -- |> and friends
+		table.insert(hb, 'ss06=1') -- repeated #, +, and &
+		table.insert(hb, 'ss07=1') -- ::, :::, etc
+		table.insert(hb, 'ss08=1') -- ..= and other dot-relateds
+		table.insert(hb, 'ss09=1') -- ==>, >>, =<<, etc
+		table.insert(hb, 'ss10=1') -- #[, #(, etc.
+
+		table.insert(hb, 'cv32=0') -- >= lower line parallel with baseline
 	end
 
 	return hb

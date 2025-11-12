@@ -38,6 +38,7 @@ set -x MOOR "-colors 16 -style algol -terminal-fg"
 
 set -x AWS_SDK_LOAD_CONFIG true
 set -x BAT_THEME ansi
+set -x DFT_DISPLAY "side-by-side-show-both"
 set -x FZF_DEFAULT_OPTS "--color=16 --extended"
 
 set -x TFENV_PATH ~/.tfenv/bin
