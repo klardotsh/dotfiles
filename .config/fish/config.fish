@@ -24,17 +24,21 @@ end
 
 if type -q nvim
 	set -x EDITOR nvim
-	set -x MANPAGER "nvim +Man!"
 else
 	set -x EDITOR vi
 end
 
 if type -q moor
 	set -x PAGER "moor"
+	set -x MANPAGER "moor --reformat"
 end
 
 set -x LESS "-R"
 set -x MOOR "-colors 16 -style algol -terminal-fg"
+
+# Make manpage output prettier
+set -x LESS_TERMCAP_md "$(tput bold; tput setaf 5)"
+set -x LESS_TERMCAP_us "$(tput setaf 6)"
 
 set -x AWS_SDK_LOAD_CONFIG true
 set -x BAT_THEME ansi
