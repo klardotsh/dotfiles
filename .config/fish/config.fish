@@ -34,7 +34,7 @@ if type -q moor
 end
 
 set -x LESS "-R"
-set -x MOOR "-colors 16 -style algol"
+set -x MOOR "-colors 16 -style algol -terminal-fg"
 
 set -x AWS_SDK_LOAD_CONFIG true
 set -x BAT_THEME ansi
