@@ -69,6 +69,12 @@ brew 'gnupg2'
 brew 'skopeo'
 brew 'crane'
 
+# Language things
+brew 'rustup'
+brew 'bacon'
+brew 'cargo-update'
+brew 'cargo-nextest'
+
 # Packaging things, since I do a lot of that...
 brew 'rpm'
 
