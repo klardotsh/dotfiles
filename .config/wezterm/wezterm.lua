@@ -20,15 +20,15 @@ rp_light_bg = rp_light_with_highlight.background
 rp_light_fg = rp_light_with_highlight.foreground
 rp_light_with_highlight.selection_bg = "rgba(50% 50% 50% 50%)"
 
---local DARK_THEME = 'rose-pine-highlightable'
---local LIGHT_THEME = 'rose-pine-dawn-highlightable'
+local DARK_THEME = 'rose-pine-highlightable'
+local LIGHT_THEME = 'rose-pine-dawn-highlightable'
 
 -- May be worth revisiting Helium: https://raykzhao.phd/posts/helium
 -- local DARK_THEME = 'Selenized Dark (Gogh)'
 -- local LIGHT_THEME = 'Selenized Light (Gogh)'
 
-local DARK_THEME = 'GruvboxDark'
-local LIGHT_THEME = 'GruvboxLight'
+-- local DARK_THEME = 'GruvboxDark'
+-- local LIGHT_THEME = 'GruvboxLight'
 
 local FP_0X = '0x'
 local FP_Adwaita = 'adwaita'
