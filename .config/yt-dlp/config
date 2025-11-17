@@ -1,0 +1,12 @@
+# best video and audio qualities, always
+-f (bestvideo+bestaudio)/best
+
+# then merge them
+--merge-output-format mkv
+--audio-quality 0
+
+--embed-thumbnail
+--embed-metadata
+--embed-subs
+
+--js-runtimes node
