@@ -354,6 +354,7 @@ require('jetpack.packer').add {
 	'NLKNguyen/cloudformation-syntax.vim',
 	'uarun/vim-protobuf',
 	'tridactyl/vim-tridactyl',
+	'gentoo/gentoo-syntax',
 
 	-- completion and language server nonsense, the bane of every config I've
 	-- written in the past several years
