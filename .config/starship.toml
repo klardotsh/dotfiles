@@ -9,3 +9,6 @@ disabled = true
 
 [shell]
 disabled = false
+
+[hostname]
+style = 'bold green'
