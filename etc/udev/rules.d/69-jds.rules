@@ -1,0 +1,16 @@
+# udev rule file for JDS Labs Element IV audio interface. Place in /etc/udev/rules.d/
+# and reload udev with
+# doas/sudo udevadm control --reload-rules && doas/sudo udevadm trigger
+#
+# Mostly based on the rules JDS Core says to add, as well as my existing rules
+# for eg. Chessnut chessboards.
+# Modified by klardotsh <josh@klar.sh> to add symlinks, and to work
+# correctly on Void Linux, which lacks eg. plugdev group, and doesn't seem to respond
+# to the uinput tag upstream used.
+
+# To work with a specific JDS Labl product, narrow as such:
+#     ATTRS{idProduct}=="88fa" is Element IV
+# (Use lsusb to see your devices while the interface is plugged in)
+
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="152a", GROUP="input", MODE="0666", SYMLINK+="jds_element_usb"
+KERNEL=="hidraw*", ATTRS{idVendor}=="152a", GROUP="input", MODE="0666", SYMLINK+="jds_element_hidraw"

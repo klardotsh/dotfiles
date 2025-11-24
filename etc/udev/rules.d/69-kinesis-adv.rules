@@ -1,0 +1,8 @@
+# udev rule file for Kinesis keyboards such that WebHID support (for Clique configuration)
+# can work. Place in /etc/udev/rules.d/ and reload udev with
+# doas/sudo udevadm control --reload-rules && doas/sudo udevadm trigger
+#
+# (Use lsusb to see your devices while the trackball is plugged in)
+
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="29ea", GROUP="input", MODE="0666", SYMLINK+="kin_adv_usb"
+KERNEL=="hidraw*", ATTRS{idVendor}=="29ea", GROUP="input", MODE="0666", SYMLINK+="kin_adv_hidraw"
