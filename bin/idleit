@@ -12,6 +12,7 @@ CLASS_IDLE=3
 # ionice(1) says: 0 represents the highest priority level (of a 0-7 scale)
 PRIORITY_LEVEL=7
 
-exec nice -n "${NICE_LEVEL}" -- \
+exec chrt --idle 0 -- \
+	nice -n "${NICE_LEVEL}" -- \
 	ionice -c "${CLASS_IDLE}" -n "${PRIORITY_LEVEL}" -- \
 		"${@}"
