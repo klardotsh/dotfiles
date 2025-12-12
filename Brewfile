@@ -86,7 +86,7 @@ if OS.mac?
 	tap 'koekeishiya/formulae'
 	brew 'skhd'
 	cask 'amethyst'
-	cask 'wezterm'
+	cask 'ghostty'
 
 	# QoL for weird monitors and such
 	cask 'betterdisplay'

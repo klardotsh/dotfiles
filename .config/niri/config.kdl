@@ -193,9 +193,10 @@ spawn-at-startup "pipewire"
 spawn-at-startup "wireplumber"
 spawn-at-startup "pipewire-pulse"
 spawn-at-startup "waybar"
-spawn-at-startup "wlsunset -l 47.7985 -L -122.4980" // Kingston, WA
 // ^ This doesn't seem to work reliably as a spawn-at-startup anymore(?), yet
 // works fine in a one-off shell in quick testing. Needs more investigation.
+spawn-at-startup "wlsunset -l 47.7985 -L -122.4980" // Kingston, WA
+spawn-at-startup "darkman run" // light dark portal
 spawn-at-startup "/usr/libexec/xdg-desktop-portal -vr"
 spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome -r"
 spawn-at-startup "swww-daemon"
@@ -303,7 +304,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T { spawn "wezterm"; }
+    Mod+T { spawn "ghostty"; }
     Mod+D { spawn "fuzzel"; }
     Super+Alt+L { spawn "swaylock" "-c" "000000"; }
 	Mod+O { spawn "ykclip-menu"; }
