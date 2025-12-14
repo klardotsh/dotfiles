@@ -69,6 +69,13 @@ output "Dell Inc. DELL U4025QW 8NX4N04" {
 	variable-refresh-rate
 }
 
+// XPS 13 internal panel
+output "Sharp Corporation 0x1593 Unknown" {
+	mode "1920x1200@120.000"
+	scale 1
+	variable-refresh-rate
+}
+
 // Pretty sure this is Thinkpad X13G4 internal panel?
 output "InfoVision Optoelectronics (Kunshan) Co.,Ltd China 0x854B Unknown" {
 	scale 1
