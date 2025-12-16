@@ -37,7 +37,9 @@ brew 'mosh' # udp-based mobile-network-friendly shells over ssh
 brew 'curl'
 brew 'xh' # human-friendly pretty http/json client
 
+brew 'jq' # The original
 brew 'jaq' # jq clone for json stuff: https://github.com/01mf02/jaq
+brew 'yq' # jq, but YAML-ified
 brew 'fzf' # find files and shell history fuzzily
 brew 'thefuck' # cli mistake fixer
 brew 'ripgrep' # grep replacement
