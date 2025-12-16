@@ -34,12 +34,13 @@ function unfuck_colors()
 	-- So many colorschemes set bg/fg colors. Stop. I already defined 16 of them
 	-- in my terminal config. Especially, if you color NonText, I hate you.
 	cmd 'hi Normal ctermfg=none ctermbg=none guifg=none guibg=none'
-	cmd 'hi Type cterm=none'
+	cmd 'hi Type ctermfg=none cterm=italic'
 	cmd 'hi NonText ctermbg=none'
 	cmd 'hi VertSplit ctermbg=none guibg=none'
 	cmd 'hi StatusLineNC ctermbg=none guibg=none'
-	cmd 'hi Comment ctermfg=8 ctermbg=none cterm=italic'
+	cmd 'hi Comment ctermfg=15 ctermbg=none cterm=italic'
 	cmd 'hi Constant ctermbg=none cterm=italic ctermfg=5'
+	cmd 'hi @constant.macro cterm=none ctermfg=none' -- stop purple-ing assert_eq! and friends
 
 	-- Unfuck vim-boring specifically (this should basically become a fork honestly)
 	-- Specifically works better than stock when toggling between light and dark themes.
@@ -130,6 +131,7 @@ require('jetpack.packer').add {
 	'robertmeta/nofrils',
 	'karoliskoncevicius/distilled-vim',
 	't184256/vim-boring',
+	'ntk148v/komau.vim', -- 256 colors, but looks nice?
 
 	-- the tpope section
 	'tpope/vim-abolish',
