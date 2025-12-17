@@ -38,7 +38,7 @@ function unfuck_colors()
 	cmd 'hi NonText ctermbg=none'
 	cmd 'hi VertSplit ctermbg=none guibg=none'
 	cmd 'hi StatusLineNC ctermbg=none guibg=none'
-	cmd 'hi Comment ctermfg=15 ctermbg=none cterm=italic'
+	cmd 'hi Comment ctermfg=8 ctermbg=none cterm=italic'
 	cmd 'hi Constant ctermbg=none cterm=italic ctermfg=5'
 	cmd 'hi @constant.macro cterm=none ctermfg=none' -- stop purple-ing assert_eq! and friends
 
