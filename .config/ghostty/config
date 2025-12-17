@@ -1,8 +1,8 @@
-theme = light:zenbones_light,dark:zenbones_dark
+theme = light:rose-pine-dawn,dark:rose-pine
 window-theme = system
 minimum-contrast = 1.5
 
-background-opacity = 0.9
+background-opacity = 0.925
 background-blur = true
 
 cursor-style = bar
