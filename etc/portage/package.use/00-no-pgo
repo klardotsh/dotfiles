@@ -1,0 +1,4 @@
+# Packages in this file seem to have varying build failures with PGO enabled, so turn it off
+
+# sys-devel/binutils -pgo
+# sys-devel/gcc -pgo

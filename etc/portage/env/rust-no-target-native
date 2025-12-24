@@ -1,0 +1,2 @@
+# https://bugs.gentoo.org/960546
+RUSTFLAGS="${RUSTFLAGS} -C target-cpu=x86-64-v3"

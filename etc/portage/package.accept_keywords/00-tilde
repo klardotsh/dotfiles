@@ -1,0 +1,85 @@
+# In general, non-::gentoo repos can't be relied on to ever stabilize anything (or
+# maybe not stabilizing anything is considered best practice?), so tilde-allow all
+# of the overlays I use.
+*/*::4nykey ~amd64
+*/*::audio-overlay ~amd64
+*/*::guru ~amd64
+# */*::pf4public ~amd64
+# ^ just kidding pf4public does roll stable ungoogled-chromiums!
+*/*::qsx ~amd64
+*/*::haskell ~amd64
+
+# Make sure we have a recent kernel for this Lunar Lake machine
+=sys-fs/zfs-2.3* ~amd64
+=sys-fs/zfs-kmod-2.3* ~amd64
+sys-firmware/intel-microcode ~amd64
+=sys-kernel/gentoo-kernel-6.17* ~amd64
+=virtual/dist-kernel-6.17* ~amd64
+
+# Somewhat related to the above, pull a newer cpupower just in case it matters for these
+# hypermodern CPUs...
+<sys-power/cpupower-6.17 ~amd64
+
+# Likewise for hypermodern GPUs, pull newer mesa, too
+media-libs/mesa ~amd64
+dev-util/mesa_clc ~amd64
+
+# Still no stable tuned yet for power state management
+sys-apps/tuned ~amd64
+dev-python/python-linux-procfs ~amd64
+
+# https://bugs.gentoo.org/949655
+<sys-apps/fwupd-efi-1.9 ~amd64
+
+# As of time of placement in this list, none of these had any stabilized options:
+app-misc/jaq ~amd64
+app-shells/zoxide ~amd64
+app-text/pandoc ~amd64
+app-text/pandoc-cli ~amd64
+dev-util/difftastic ~amd64
+dev-vcs/jj ~amd64
+gui-apps/rofimoji ~amd64
+net-im/zoom ~amd64
+net-misc/zerotier ~amd64
+net-wireless/bluetui ~amd64
+sys-apps/cyme ~amd64
+sys-process/ctop ~amd64
+x11-apps/igt-gpu-tools ~amd64
+x11-terms/wezterm ~amd64
+
+# Some transitive dependencies not worth caring about
+<dev-python/cython-3.3.0::gentoo ~amd64
+=app-arch/brotli-1.2* ~amd64
+
+=media-gfx/imv-5.0* ~amd64
+
+=dev-python/freetype-py-2.5* ~amd64
+
+# Whatever, right?
+media-fonts/* ~amd64
+
+# Effectively nothing Haskell-related appears to be stabilized, so just run ~ for
+# everything in git-annex's dep tree
+dev-vcs/git-annex ~amd64
+app-admin/haskell-updater ~amd64
+dev-haskell/* ~amd64
+dev-lang/ghc ~amd64
+
+# Games I almost never mind being ~amd64
+games-action/* ~amd64
+games-arcade/* ~amd64
+games-misc/* ~amd64
+games-simulation/* ~amd64
+games-strategy/* ~amd64
+games-util/* ~amd64
+
+# Transitive dep of SuperTuxKart
+dev-libs/angelscript ~amd64
+
+dev-build/rocm-cmake ~amd64
+dev-libs/rocm-opencl-runtime ~amd64
+dev-libs/rocr-runtime ~amd64
+dev-libs/rocm-comgr ~amd64
+dev-libs/rocm-device-libs ~amd64
+dev-util/hipcc ~amd64
+dev-libs/roct-thunk-interface ~amd64

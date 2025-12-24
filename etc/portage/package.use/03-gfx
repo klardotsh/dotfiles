@@ -1,0 +1,3 @@
+media-libs/libsdl2 gles1 gles2 libsamplerate opengl pulseaudio vulkan
+media-libs/vulkan-loader layers
+dev-util/vulkan-tools cube

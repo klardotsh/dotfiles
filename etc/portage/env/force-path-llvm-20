@@ -1,0 +1,2 @@
+# https://bugs.gentoo.org/960828
+PATH="/usr/lib/llvm/20/bin:${PATH}"

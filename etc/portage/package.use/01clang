@@ -1,0 +1,3 @@
+llvm-core/clang-common default-lld
+llvm-runtimes/clang-runtime default-lld
+llvm-core/clang-linker-config default-lld

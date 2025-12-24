@@ -1,0 +1,7 @@
+# required by sys-kernel/gentoo-kernel-6.12.54::gentoo[-generic-uki,initramfs]
+# required by virtual/dist-kernel-6.12.54::gentoo
+>=sys-kernel/installkernel-60 dracut
+
+sys-firmware/intel-microcode -hostonly
+sys-kernel/gentoo-kernel -experimental
+sys-kernel/linux-firmware deduplicate

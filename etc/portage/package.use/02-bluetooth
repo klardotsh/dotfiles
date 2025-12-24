@@ -1,0 +1,3 @@
+# https://wiki.gentoo.org/wiki/Bluetooth#Enabling_battery_reporting, plus whatever I
+# just want anyway
+net-wireless/bluez experimental midi

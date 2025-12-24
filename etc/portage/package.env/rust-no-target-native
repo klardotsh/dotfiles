@@ -1,0 +1,9 @@
+# https://bugs.gentoo.org/960546
+<dev-lang/rust-1.90 rust-no-target-native
+<dev-python/uv-0.10 rust-no-target-native
+
+# On Ryzen 7900 (but NOT on Intel 258V), this package seems to run into some variant of
+# https://github.com/llvm/llvm-project/issues/153457
+#
+# EDIT: This still didn't fix it?
+=app-misc/tealdeer-1.8* rust-no-target-native

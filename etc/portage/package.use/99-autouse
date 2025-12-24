@@ -1,0 +1,142 @@
+# required by www-client/firefox-140.5.0::gentoo[system-libvpx]
+# required by @selected
+# required by @world (argument)
+>=media-libs/libvpx-1.15.2 postproc
+# required by www-client/firefox-140.5.0::gentoo[system-png]
+# required by @selected
+# required by @world (argument)
+>=media-libs/libpng-1.6.50-r1 apng
+# required by x11-libs/pango-1.57.0::gentoo
+# required by gui-apps/mako-1.10.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=media-libs/freetype-2.14.1-r1 harfbuzz
+# required by app-containers/containers-common-0.63.0::gentoo
+# required by app-containers/buildah-1.40.0::gentoo
+# required by @selected
+# required by @world (argument)
+>=net-firewall/iptables-1.8.11-r1 nftables
+
+# required by x11-terms/wezterm-20240203.110809-r2::gentoo
+# required by @selected
+# required by @world (argument)
+>=x11-libs/libxkbcommon-1.11.0 X
+
+# required by virtual/opengl-8::gentoo
+# required by games-simulation/openrct2-0.4.27::gentoo[opengl]
+# required by @selected
+# required by @world (argument)
+>=media-libs/libglvnd-1.7.0 X
+
+# required by app-emulation/qemu-10.0.5::gentoo[test]
+# required by sys-kernel/gentoo-kernel-6.17.8::gentoo[test]
+# required by @selected
+# required by @world (argument)
+>=dev-libs/glib-2.84.4 utils
+# required by media-gfx/graphviz-12.2.1-r1::gentoo
+# required by dev-python/objgraph-3.6.2::gentoo[test]
+# required by dev-python/multidict-6.6.4::gentoo[test]
+# required by dev-python/yarl-1.22.0::gentoo[test]
+# required by dev-python/aiohttp-3.13.0::gentoo[test]
+# required by dev-python/truststore-0.10.4::gentoo[test]
+# required by dev-python/anyio-4.11.0::gentoo[test]
+# required by dev-python/watchfiles-1.1.0::gentoo[test]
+# required by dev-python/uvicorn-0.37.0::gentoo[test]
+# required by dev-python/httpx-0.28.1-r1::gentoo[test]
+# required by dev-python/twisted-25.5.0-r1::gentoo[-python_targets_python3_11,python_targets_python3_13,-python_targets_python3_12,test,-python_targets_python3_14]
+# required by dev-python/automat-25.4.16::gentoo[test]
+>=media-libs/gd-2.3.3-r4 fontconfig truetype
+# required by dev-python/twisted-25.5.0-r1::gentoo[test]
+# required by dev-python/automat-25.4.16::gentoo[test]
+>=x11-base/xorg-server-21.1.20 xvfb
+# required by x11-base/xorg-server-21.1.20::gentoo[-minimal]
+# required by media-libs/libepoxy-1.5.10-r3::gentoo[test]
+>=media-libs/mesa-25.1.9 X
+# required by x11-base/xorg-server-21.1.20::gentoo[-minimal]
+# required by x11-drivers/xf86-input-libinput-1.5.0::gentoo
+# required by x11-base/xorg-drivers-21.1-r2::gentoo[input_devices_libinput]
+>=media-libs/libepoxy-1.5.10-r3 X
+# required by dev-python/faker-37.11.0::gentoo[test]
+# required by dev-python/pydantic-2.11.7::gentoo[test]
+# required by dev-python/dirty-equals-0.10.0::gentoo[-python_targets_python3_11,python_targets_python3_13,-python_targets_python3_12,test]
+# required by dev-python/watchfiles-1.1.0::gentoo[test]
+# required by dev-python/uvicorn-0.37.0::gentoo[test]
+# required by dev-python/httpx-0.28.1-r1::gentoo[test]
+# required by dev-python/twisted-25.5.0-r1::gentoo[-python_targets_python3_11,python_targets_python3_13,-python_targets_python3_12,test,-python_targets_python3_14]
+# required by dev-python/automat-25.4.16::gentoo[test]
+>=dev-python/pillow-11.3.0 tiff
+
+# required by dev-python/fonttools-4.60.1::4nykey[-test]
+# required by dev-python/glyphsLib-6.12.3::4nykey[-test]
+# required by dev-util/fontmake-3.11.0::4nykey[-test]
+# required by media-fonts/open-sans-3.002_pre20231104::4nykey[-binary]
+# required by media-fonts/fonts-meta-3-r1::gentoo[latin]
+# required by @selected
+# required by @world (argument)
+>=app-arch/brotli-1.1.0 python
+# required by dev-util/fontmake-3.11.0::4nykey[-test]
+# required by media-fonts/open-sans-3.002_pre20231104::4nykey[-binary]
+# required by media-fonts/fonts-meta-3-r1::gentoo[latin]
+# required by @selected
+# required by @world (argument)
+>=dev-python/fonttools-4.60.1 woff skia
+
+# required by dev-python/pillow-11.3.0::gentoo[-test,tiff]
+# required by media-gfx/inkscape-1.4-r3::gentoo[python_single_target_python3_13]
+# required by media-fonts/twemoji-color-font-15.1.0::4nykey[-binary]
+# required by @selected
+# required by @world (argument)
+>=media-libs/tiff-4.7.0-r1 jpeg
+# required by dev-util/svgo-4.0.0_rc1::4nykey
+# required by media-fonts/twemoji-color-font-15.1.0::4nykey[-binary]
+# required by @selected
+# required by @world (argument)
+>=net-libs/nodejs-22.13.1 npm
+# required by media-gfx/inkscape-1.4-r3::gentoo
+# required by media-fonts/twemoji-color-font-15.1.0::4nykey[-binary]
+# required by @selected
+# required by @world (argument)
+>=app-text/poppler-25.09.1 cairo
+# required by media-gfx/inkscape-1.4-r3::gentoo[python_single_target_python3_13]
+# required by media-fonts/twemoji-color-font-15.1.0::4nykey[-binary]
+# required by @selected
+# required by @world (argument)
+>=dev-python/pillow-11.3.0 webp
+# required by gui-apps/waybar-0.12.0::gentoo[tray]
+# required by @selected
+# required by @world (argument)
+>=dev-libs/libdbusmenu-16.04.0-r4 gtk3
+# required by media-fonts/twemoji-color-font-15.1.0::4nykey[-binary]
+# required by @selected
+# required by @world (argument)
+>=virtual/imagemagick-tools-1 png
+
+# required by www-client/ungoogled-chromium-142.0.7444.162_p1::pf4public
+# required by @selected
+# required by @world (argument)
+>=dev-libs/libxml2-2.14.6 icu
+# required by www-client/ungoogled-chromium-142.0.7444.162_p1::pf4public[system-harfbuzz]
+# required by @selected
+# required by @world (argument)
+>=media-libs/harfbuzz-11.4.5 icu
+# required by www-client/ungoogled-chromium-142.0.7444.162_p1::pf4public
+# required by @selected
+# required by @world (argument)
+>=sys-libs/zlib-1.3.1-r1 minizip
+# required by www-client/ungoogled-chromium-142.0.7444.162_p1::pf4public
+# required by @selected
+# required by @world (argument)
+>=net-libs/nodejs-22.13.1 inspector
+
+# required by games-strategy/wesnoth-1.18.5::gentoo[-dedicated]
+# required by wesnoth (argument)
+>=media-libs/sdl2-image-2.8.5-r1 jpeg png webp
+# required by games-strategy/wesnoth-1.18.5::gentoo
+# required by wesnoth (argument)
+>=dev-libs/boost-1.88.0-r1 icu
+# required by games-strategy/wesnoth-1.18.5::gentoo
+# required by wesnoth (argument)
+>=media-libs/libsdl2-2.32.6 X
+# required by games-strategy/wesnoth-1.18.5::gentoo[-dedicated]
+# required by wesnoth (argument)
+>=media-libs/sdl2-mixer-2.8.1-r3 vorbis

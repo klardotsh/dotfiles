@@ -1,0 +1,4 @@
+sys-devel/gcc graphite jit
+
+# Just not worth the tiny perf gains for how much this adds to compile times
+sys-devel/gcc -pgo

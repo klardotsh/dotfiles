@@ -1,0 +1,12 @@
+media-gfx/imv bmp gif heif jpeg jpegxl png svg tiff webp
+media-gfx/qrencode png
+media-video/ffmpeg jpeg2k jpegxl opus pulseaudio speex srt vorbis vpx webp x264 x265
+media-video/mpv jpeg
+
+# Deno is a wild ride, we'll force NodeJS for now.
+# https://bugs.gentoo.org/927139
+net-misc/yt-dlp -deno
+
+media-sound/cmus aac ffmpeg mp4 opus wavpack pulseaudio
+
+net-im/zoom opencl pulseaudio

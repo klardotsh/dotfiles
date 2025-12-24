@@ -1,0 +1,4 @@
+# Rarely, packages in non-::gentoo overlays are broken without network access (probably
+# the most egregious examples of this come from NodeJS/NPM stuff), so we need a
+# contained blast zone for those things.
+FEATURES="-network-sandbox"

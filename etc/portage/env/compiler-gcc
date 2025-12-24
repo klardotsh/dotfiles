@@ -1,0 +1,16 @@
+# TODO: Replace with resolve-march-native
+MARCH_NATIVE_GCC="-march=native -mtune=native"
+
+COMMON_FLAGS="-O3 -flto ${MARCH_NATIVE_GCC}"
+CFLAGS="${COMMON_FLAGS}"
+CXXFLAGS="${COMMON_FLAGS}"
+FCFLAGS="${COMMON_FLAGS}"
+FFLAGS="${COMMON_FLAGS}"
+LDFLAGS="-Wl,--as-needed"
+
+CC="gcc"
+CXX="g++"
+CPP="gcc -E"
+AR="ar"
+NM="nm"
+RANLIB="ranlib"
