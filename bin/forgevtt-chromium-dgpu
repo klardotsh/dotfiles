@@ -1,9 +1,12 @@
 #!/usr/bin/env sh
 
-exec ungoogled-chromium \
+CHROMIUM="$(which ungoogled-chromium 2>/dev/null)"
+CHROMIUM="${CHROMIUM:-chromium}"
+
+# Previously had --gtk-version=4 in here but now that triggers SIGSEGV 🤷‍♂️
+exec "${CHROMIUM}" \
 	--kiosk \
 	--user-data-dir=/home/j/.config/chromium-forgevtt \
-	--gtk-version=4 \
 	--ozone-platform-hint=auto \
 	--render-node-override=/dev/dri/renderD128 \
 	--enable-features=TouchpadOverscrollHistoryNavigation \
