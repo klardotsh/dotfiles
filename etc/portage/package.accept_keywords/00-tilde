@@ -8,12 +8,14 @@
 # ^ just kidding pf4public does roll stable ungoogled-chromiums!
 */*::qsx ~amd64
 */*::haskell ~amd64
+*/*::nekochigura ~amd64
 
 # Make sure we have a recent kernel for this Lunar Lake machine
 =sys-fs/zfs-2.3* ~amd64
 =sys-fs/zfs-kmod-2.3* ~amd64
 sys-firmware/intel-microcode ~amd64
 =sys-kernel/gentoo-kernel-6.17* ~amd64
+=sys-kernel/linux-headers-6.17* ~amd64
 =virtual/dist-kernel-6.17* ~amd64
 
 # Somewhat related to the above, pull a newer cpupower just in case it matters for these
