@@ -196,16 +196,7 @@ layout {
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 
-spawn-at-startup "pipewire"
-spawn-at-startup "wireplumber"
-spawn-at-startup "pipewire-pulse"
-spawn-at-startup "waybar"
-// ^ This doesn't seem to work reliably as a spawn-at-startup anymore(?), yet
-// works fine in a one-off shell in quick testing. Needs more investigation.
-spawn-at-startup "wlsunset -l 47.7985 -L -122.4980" // Kingston, WA
-spawn-at-startup "darkman run" // light dark portal
-spawn-at-startup "/usr/libexec/xdg-desktop-portal -vr"
-spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome -r"
+//spawn-at-startup "wlsunset -l 47.7985 -L -122.4980" // Kingston, WA
 spawn-at-startup "swww-daemon"
 
 cursor {
@@ -234,6 +225,8 @@ environment {
 }
 
 spawn-at-startup "dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY"
+// ^ TODO: Determine if still necessary now that I'm all-systemd
+
 spawn-at-startup "import-gsettings gtk-theme:gtk-theme-name icon-theme:gtk-icon-theme-name cursor-theme:gtk-cursor-theme-name"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
