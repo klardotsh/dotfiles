@@ -10,3 +10,5 @@ net-misc/yt-dlp -deno
 media-sound/cmus aac ffmpeg mp4 opus wavpack pulseaudio
 
 net-im/zoom opencl pulseaudio
+
+media-libs/libao pulseaudio
