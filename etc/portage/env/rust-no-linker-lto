@@ -1,0 +1,4 @@
+# https://bugs.gentoo.org/964380#c13
+#
+# Keep synchronized with /etc/portage/make.conf
+RUSTFLAGS="-C opt-level=3 -C target-cpu=native"
