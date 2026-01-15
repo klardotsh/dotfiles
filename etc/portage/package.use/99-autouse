@@ -140,3 +140,10 @@
 # required by games-strategy/wesnoth-1.18.5::gentoo[-dedicated]
 # required by wesnoth (argument)
 >=media-libs/sdl2-mixer-2.8.1-r3 vorbis
+
+# required by media-gfx/imagemagick-7.1.2.5::gentoo[heif]
+# required by virtual/imagemagick-tools-1::gentoo[svg]
+# required by media-fonts/twemoji-color-font-15.1.0::4nykey
+# required by @selected
+# required by @world (argument)
+>=media-libs/libheif-1.21.1 x265

@@ -1,2 +1,2 @@
 */* -static-libs -X
-*/* bluetooth brotli dbus dist-kernel font_types_otf graphite jemalloc lm-sensors lto man pgo pipewire policykit vaapi verify-sig verify-provenance vulkan wayland xdg zstd
+*/* bluetooth brotli dbus dist-kernel font_types_otf graphite heif jemalloc jpeg lm-sensors lto man pgo pipewire png policykit svg vaapi verify-sig verify-provenance vulkan wayland webp xdg zstd

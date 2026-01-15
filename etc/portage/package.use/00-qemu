@@ -1,0 +1,2 @@
+app-emulation/qemu qemu_user_targets: aarch64 riscv64 x86_64
+app-emulation/qemu io-uring numa spice ssh usbredir virtfs

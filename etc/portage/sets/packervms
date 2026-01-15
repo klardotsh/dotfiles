@@ -1,0 +1,5 @@
+dev-util/packer 
+app-emulation/qemu
+
+# Required for mkisofs
+app-cdr/cdrtools

@@ -11,12 +11,11 @@
 */*::nekochigura ~amd64
 
 # Make sure we have a recent kernel for this Lunar Lake machine
-=sys-fs/zfs-2.3* ~amd64
-=sys-fs/zfs-kmod-2.3* ~amd64
+=sys-fs/zfs-2.4* ~amd64
+=sys-fs/zfs-kmod-2.4* ~amd64
 sys-firmware/intel-microcode ~amd64
-=sys-kernel/gentoo-kernel-6.17* ~amd64
-=sys-kernel/linux-headers-6.17* ~amd64
-=virtual/dist-kernel-6.17* ~amd64
+=sys-kernel/gentoo-kernel-6.18* ~amd64
+=virtual/dist-kernel-6.18* ~amd64
 
 # Somewhat related to the above, pull a newer cpupower just in case it matters for these
 # hypermodern CPUs...
@@ -25,6 +24,7 @@ sys-firmware/intel-microcode ~amd64
 # Likewise for hypermodern GPUs, pull newer mesa, too
 media-libs/mesa ~amd64
 dev-util/mesa_clc ~amd64
+dev-util/spirv-llvm-translator ~amd64
 
 # Still no stable tuned yet for power state management
 sys-apps/tuned ~amd64
@@ -85,3 +85,22 @@ dev-libs/rocm-comgr ~amd64
 dev-libs/rocm-device-libs ~amd64
 dev-util/hipcc ~amd64
 dev-libs/roct-thunk-interface ~amd64
+
+# Very much not worried about MicroPython breaking anything, and none of its
+# releases are stabilized to begin with.
+dev-lang/micropython ~amd64
+
+# Same story for QuickJS (which at time of writing, is out of date, but
+# whatever)
+dev-lang/quickjs ~amd64
+dev-libs/quickjs-ng ~amd64
+
+# Get onto 1.2.x so that my configs can match across work Mac and personal
+# machines.
+# FIXME: zig-0.14.1 segfaults during emerge and so we don't even get to build this ghostty
+#=x11-terms/ghostty-1.2* ~amd64
+#=x11-terms/ghostty-terminfo-1.2* ~amd64
+# Dependency of ^ ghostty
+gui-libs/gtk4-layer-shell ~amd64
+
+dev-util/packer ~amd64
