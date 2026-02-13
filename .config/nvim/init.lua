@@ -103,6 +103,7 @@ opt.tabstop = 4
 opt.termguicolors = false
 opt.title = true -- set terminal window title
 opt.updatetime = 300
+opt.winborder = "rounded" -- visually separate popups from background content
 
 -- Helix-like (ish) sane line wrapping, thanks @jbauer!
 opt.wrap = true
