@@ -1,0 +1,7 @@
+[location]
+auto = true
+
+[units]
+temperature = "celsius"
+wind_speed = "kn"
+precipitation = "inch"
