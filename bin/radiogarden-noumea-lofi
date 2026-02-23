@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+# Requires: https://github.com/jonasrmichel/radio-garden-go
+#
+# Without a web browser at all:
+# go install github.com/jonasrmichel/radio-garden-go/radio-garden@latest
+
+mpv -vo=null --no-audio-display "$(radio-garden station stream -i NMEQz68i)"
