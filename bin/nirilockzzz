@@ -7,4 +7,4 @@ echo "---> Requesting root privs to call whoami and cache a doas session"
 doas whoami
 niri msg action power-off-monitors
 swaylock -c 000000 &
-doas zzz
+exec systemctl suspend
