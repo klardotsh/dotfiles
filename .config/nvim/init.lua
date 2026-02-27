@@ -200,6 +200,7 @@ require('jetpack.packer').add {
 		})
 
 		require('mini.bufremove').setup()
+		require('mini.cmdline').setup()
 		require('mini.comment').setup()
 		require('mini.completion').setup()
 		require('mini.git').setup()
@@ -256,35 +257,6 @@ require('jetpack.packer').add {
 		vim.keymap.set('n', '<leader>sy', builtin.lsp_document_symbols, {})
 		map('', '<Leader>sl', ':Telescope software-licenses find theme=ivy<CR>')
 		vim.keymap.set('n', '<leader>t', builtin.treesitter, {})
-	end},
-
-	-- provide :menubar command completion like helix/kakoune
-	{'vzze/cmdline.nvim',
-	config = function()
-		require('cmdline').setup({
-			window = {
-				matchFuzzy = true,
-				offset     = 1, -- depending on 'cmdheight' you might need to offset
-				debounceMs = 10
-			},
-
-			hl = {
-				default   = "Pmenu",
-				selection = "PmenuSel",
-				directory = "Directory",
-				substr    = "LineNr"
-			},
-
-			column = {
-				maxNumber = 6,
-				minWidth  = 20
-			},
-
-			binds = {
-				next = "<Tab>",
-				back = "<S-Tab>"
-			}
-		})
 	end},
 
 	{'brenton-leighton/multiple-cursors.nvim',
