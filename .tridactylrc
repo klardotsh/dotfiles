@@ -25,3 +25,4 @@ seturl teams.microsoft.com modeindicator false
 set noiframeon servicenow.com
 seturl servicenow.com superignore true
 seturl service-now.com superignore true
+seturl app.slack.com superignore true
