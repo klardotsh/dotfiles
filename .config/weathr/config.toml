@@ -1,5 +1,6 @@
 [location]
 auto = true
+display = "city"
 
 [units]
 temperature = "celsius"
