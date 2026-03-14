@@ -203,5 +203,12 @@ fish_add_path ~/bin
 # VCS tasks and then bringing the editor back. This matches my Ctrl-Z binding
 # in ~/.zshrc.
 #
-# https://stackoverflow.com/a/75950692
-bind \cz 'fg 2>/dev/null; commandline -f repaint'
+# Originally based on https://stackoverflow.com/a/75950692, then modified to
+# add job selection support with `fzf`. `fzf` will automatically return the
+# singular row if only one exists, and so Ctrl-Z with only one background job
+# continues to work exactly as it did before. Only with 2+ background jobs will
+# a prompt be made.
+#
+# The single quotes being on the outside here matters, or the fzf line will be
+# interpolated at config parse time, not at keypress time.
+bind \cz 'fg %$(jobs | fzf -1 --ghost="Select a job to restore to foreground..." | cut -f1) 2>/dev/null; commandline -f repaint'
