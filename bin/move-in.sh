@@ -32,6 +32,8 @@ ensure_cloned https://git.sr.ht/~klardotsh/dotfiles ~/src/mine/dotfiles
 if not_darwin; then
 	mkdir -p ~/.local/share/themes
 	ln -sf ~/src/mine/dotfiles/.local/share/applications ~/.local/share/
+	ln -sf ~/src/mine/dotfiles/.local/share/dark-mode.d ~/.local/share/
+	ln -sf ~/src/mine/dotfiles/.local/share/light-mode.d ~/.local/share/
 	# workaround https://github.com/deviantfero/wpgtk/issues/157
 	ln -sf ~/.local/share/themes ~/.themes
 fi
