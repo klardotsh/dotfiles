@@ -325,6 +325,9 @@ binds {
 	XF86AudioPlay         allow-when-locked=true { spawn "playerctl" "play-pause"; }
 	XF86AudioNext         allow-when-locked=true { spawn "playerctl" "next"; }
 
+	Mod+Alt+Shift+D { spawn "voxtype" "record" "toggle"; }
+	Mod+Alt+Shift+X { spawn "voxtype" "record" "cancel"; }
+
     Mod+Q { close-window; }
 
     Mod+Left  { focus-column-left; }

@@ -1,0 +1,91 @@
+# State file for Waybar/polybar integration (enabled by default)
+state_file = "auto"  # Or custom path, or "disabled" to turn off
+
+[hotkey]
+key = "SCROLLLOCK"  # Or: PAUSE, F13-F24, RIGHTALT, etc.
+modifiers = []      # Optional: ["LEFTCTRL", "LEFTALT"]
+mode = "toggle"   # Uncomment for toggle mode (press to start/stop)
+enabled = false
+
+[audio]
+device = "default"  # Or specific device from `pactl list sources short`
+sample_rate = 16000
+max_duration_secs = 360
+
+# Audio feedback (sound cues when recording starts/stops)
+[audio.feedback]
+enabled = true
+theme = "subtle"   # "default", "subtle", "mechanical", or path to custom dir
+volume = 0.7        # 0.0 to 1.0
+
+[whisper]
+model = "large-v3-turbo"   # tiny, base, small, medium, large-v3, large-v3-turbo
+language = "en"     # Or "auto" for detection, or language code (es, fr, de, etc.)
+translate = false   # Translate non-English speech to English
+# threads = 4       # CPU threads for inference (omit for auto-detect)
+# on_demand_loading = true  # Load model only when recording (saves memory)
+# GPU memory isolation mode
+# Enable on laptops with hybrid graphics to let dGPU sleep between transcriptions.
+gpu_isolation = true
+
+# Requires https://github.com/peteonrails/voxtype/pull/276
+gpu_device = 1
+
+# Enable eager input processing
+eager_processing = true
+
+# Chunk duration (default: 5.0 seconds)
+eager_chunk_secs = 5.0
+
+# Overlap between chunks (default: 0.5 seconds)
+eager_overlap_secs = 0.5
+
+[output]
+mode = "type"       # "type", "clipboard", or "paste"
+fallback_to_clipboard = true
+type_delay_ms = 0   # Increase if characters are dropped
+auto_submit = false  # Send Enter after transcription (for chat apps, terminals)
+# Note: "paste" mode copies to clipboard then simulates Ctrl+V
+#       Useful for non-US keyboard layouts where ydotool typing fails
+
+# Needed for chat apps, coding agents, etc.
+shift_enter_newlines = true  # Use Shift+Enter instead of Enter for line breaks
+append_text = " "  # Add a space after each transcription
+
+[output.notification]
+on_recording_start = false  # Notify when PTT activates
+on_recording_stop = false   # Notify when transcribing
+on_transcription = true     # Show transcribed text
+
+# Text processing (word replacements, spoken punctuation)
+[text]
+spoken_punctuation = true  # Say "period" → ".", "open paren" → "("
+
+[text.replacements]
+"vox type" = "voxtype"
+"oh marky" = "Omarchy"
+
+[status]
+# Status display icons for Waybar/tray integrations
+#
+# Icon theme (or path to custom theme file):
+#   Font-based (require specific fonts):
+#     - "emoji"     - Default emoji icons (🎙️ 🎤 ⏳)
+#     - "nerd-font" - Nerd Font icons (requires Nerd Font)
+#     - "material"  - Material Design Icons (requires MDI font)
+#     - "phosphor"  - Phosphor Icons (requires Phosphor font)
+#     - "codicons"  - VS Code icons (requires Codicons font)
+#     - "omarchy"   - Omarchy distro icons
+#   Universal (no special fonts needed):
+#     - "minimal"   - Simple Unicode (○ ● ◐ ×)
+#     - "dots"      - Geometric shapes (◯ ⬤ ◔ ◌)
+#     - "arrows"    - Media player style (▶ ● ↻ ■)
+#     - "text"      - Plain text ([MIC] [REC] [...] [OFF])
+icon_theme = "emoji"
+#
+# Per-state icon overrides (optional, takes precedence over theme)
+# [status.icons]
+# idle = "🎙️"
+# recording = "🎤"
+# transcribing = "⏳"
+# stopped = ""
