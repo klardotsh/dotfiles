@@ -2,12 +2,17 @@ theme = light:rose-pine-dawn,dark:rose-pine
 window-theme = system
 minimum-contrast = 1.5
 
-background-opacity = 0.925
+background-opacity = 0.915
 background-blur = true
 
 cursor-style = bar
 
-font-family = monospace
+# Updating ~/.config/fontconfig files does not sync with "monospace" here;
+# fontconfig settings appear to be read once at application start and never
+# again. Thus, specify the font explicitly so that (1) MacOS support is
+# consistent, and (2) changing fonts gets picked up by Ctrl-Shift-Comma.
+font-family = Cascadia Code
+font-family = FSD Emoji
 font-size = 15
 
 # We always want these.
