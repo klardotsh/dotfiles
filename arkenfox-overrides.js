@@ -39,3 +39,7 @@ user_pref("browser.urlbar.suggest.openpage", true); // 5010
 user_pref("svg.disabled", false); // 5502
 user_pref("javascript.options.asmjs", true); // 5504
 user_pref("javascript.options.wasm", true); // 5506
+
+// CUSTOM: Make the devtools zoom higher - my HiDPI screens turn the inspector
+// into an eyechart...
+user_pref("devtools.toolbox.zoomValue", 1.4);
