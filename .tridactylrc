@@ -26,3 +26,5 @@ set noiframeon servicenow.com
 seturl servicenow.com superignore true
 seturl service-now.com superignore true
 seturl app.slack.com superignore true
+seturl slack.com superignore true
+seturl sofi.com superignore true
