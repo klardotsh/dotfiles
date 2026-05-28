@@ -1,4 +1,10 @@
-theme = light:rose-pine-dawn,dark:rose-pine
+#theme = light:GruvboxLightHard,dark:GruvboxDarkHard
+#theme = light:dayfox,dark:nightfox
+#theme = light:selenized-light,dark:selenized-black
+theme = light:Tomorrow,dark:Tomorrow Night Burns
+#theme = light:selenized-light,dark:ashen
+
+cursor-color = #d0a215
 window-theme = system
 minimum-contrast = 1.5
 
@@ -11,7 +17,9 @@ cursor-style = bar
 # fontconfig settings appear to be read once at application start and never
 # again. Thus, specify the font explicitly so that (1) MacOS support is
 # consistent, and (2) changing fonts gets picked up by Ctrl-Shift-Comma.
-font-family = Cascadia Code
+#font-family = Lilex
+#font-family = Cascadia Code
+font-family = Berkeley Mono
 font-family = FSD Emoji
 font-size = 15
 
@@ -21,3 +29,6 @@ font-feature = +calt,+liga
 # Individual font overrides could go below. For example, for Maple Mono, we'd
 # want (to match my old Wezterm config):
 # font-feature = +dlig,+cv01,+cv35,+ss02,+ss03,+ss04,+ss05,-ss06,+ss01
+
+# Lilex
+#font-feature = +zero,+cv14,+cv13,+cv06,+cv15,+cv11,+cv08
