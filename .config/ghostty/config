@@ -21,7 +21,8 @@ font-family = Lilex
 #font-family = Cascadia Code
 #font-family = Berkeley Mono
 font-family = FSD Emoji
-font-size = 15
+font-size = 14
+freetype-load-flags = false
 
 # We always want these.
 font-feature = +calt,+liga
