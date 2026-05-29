@@ -1,7 +1,7 @@
 #theme = light:GruvboxLightHard,dark:GruvboxDarkHard
-#theme = light:dayfox,dark:nightfox
+theme = light:Dayfox,dark:Terafox
 #theme = light:selenized-light,dark:selenized-black
-theme = light:Tomorrow,dark:Tomorrow Night Burns
+#theme = light:Tomorrow,dark:Tomorrow Night Burns
 #theme = light:selenized-light,dark:ashen
 
 cursor-color = #d0a215
