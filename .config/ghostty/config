@@ -33,3 +33,8 @@ font-feature = +calt,+liga
 
 # Lilex
 font-feature = +dlig,+zero,+cv14,+cv13,+cv06,+cv15,+cv11,+cv08
+
+working-directory = home
+window-inherit-working-directory = false
+tab-inherit-working-directory = true
+split-inherit-working-directory = true
