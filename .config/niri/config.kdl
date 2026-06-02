@@ -65,7 +65,7 @@ input {
 // Desktop primary monitor
 output "Dell Inc. DELL U4025QW 8NX4N04" {
 	mode "5120x2160@120.000"
-	scale 1.15
+	scale 1.25
 	variable-refresh-rate
 }
 
