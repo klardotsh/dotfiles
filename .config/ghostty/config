@@ -1,7 +1,7 @@
 #theme = light:GruvboxLightHard,dark:GruvboxDarkHard
 #theme = light:Dayfox,dark:Nightfox
-#theme = light:selenized-light,dark:selenized-black
-theme = light:Tomorrow,dark:Tomorrow Night Burns
+theme = light:Selenized Light,dark:Selenized Black
+#theme = light:Tomorrow,dark:Tomorrow Night Burns
 #theme = light:selenized-light,dark:ashen
 
 cursor-color = #d0a215
@@ -19,7 +19,8 @@ cursor-style = bar
 # consistent, and (2) changing fonts gets picked up by Ctrl-Shift-Comma.
 #font-family = Lilex
 #font-family = Cascadia Code
-font-family = Berkeley Mono
+#font-family = Berkeley Mono
+font-family = Commit Mono
 font-family = FSD Emoji
 font-size = 14
 freetype-load-flags = false
@@ -33,6 +34,17 @@ font-feature = +calt,+liga
 
 # Lilex
 #font-feature = +dlig,+zero,+cv14,+cv13,+cv06,+cv15,+cv11,+cv08
+
+# Commit Mono:
+# ss01: more ligatures, eg. ===
+# ss02: arrows
+# ss03: uppercase symbols adjacent to uppercase letters
+# ss04: 2-/3-character spacing shrinkage
+# ss05: smart kerning (I think)
+# cv03: squarish dots for eg. punctuation
+# cv07: zero selection (negate is slashed)
+# cv09: asterisk selection (negate is inline)
+font-feature = +dlig,+ss01,+ss02,+ss03,+ss04,+ss05,+cv03,-cv07,-cv09
 
 working-directory = home
 window-inherit-working-directory = false
