@@ -17,9 +17,9 @@ cursor-style = bar
 # fontconfig settings appear to be read once at application start and never
 # again. Thus, specify the font explicitly so that (1) MacOS support is
 # consistent, and (2) changing fonts gets picked up by Ctrl-Shift-Comma.
-font-family = Lilex
+#font-family = Lilex
 #font-family = Cascadia Code
-#font-family = Berkeley Mono
+font-family = Berkeley Mono
 font-family = FSD Emoji
 font-size = 14
 freetype-load-flags = false
@@ -32,7 +32,7 @@ font-feature = +calt,+liga
 # font-feature = +dlig,+cv01,+cv35,+ss02,+ss03,+ss04,+ss05,-ss06,+ss01
 
 # Lilex
-font-feature = +dlig,+zero,+cv14,+cv13,+cv06,+cv15,+cv11,+cv08
+#font-feature = +dlig,+zero,+cv14,+cv13,+cv06,+cv15,+cv11,+cv08
 
 working-directory = home
 window-inherit-working-directory = false
