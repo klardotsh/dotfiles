@@ -16,9 +16,9 @@
 =sys-fs/zfs-2.4* ~amd64
 =sys-fs/zfs-kmod-2.4* ~amd64
 sys-firmware/intel-microcode ~amd64
-<sys-kernel/gentoo-kernel-6.20 ~amd64
-<sys-kernel/linux-headers-6.20 ~amd64
-<virtual/dist-kernel-6.20 ~amd64
+<sys-kernel/gentoo-kernel-7.1 ~amd64
+<sys-kernel/linux-headers-7.1 ~amd64
+<virtual/dist-kernel-7.1 ~amd64
 
 # Somewhat related to the above, pull a newer cpupower just in case it matters for these
 # hypermodern CPUs...
