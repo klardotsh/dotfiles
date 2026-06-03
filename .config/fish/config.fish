@@ -170,6 +170,12 @@ if status is-interactive
 		alias json-obj 'jf "{%**s}"'
 	end
 
+	if type -q lowdown
+		alias mdread 'lowdown -Tterm'
+	else if type -q glow
+		alias mdread 'glow'
+	end
+
 	# This section is reserved for things that start up fast enough to not add
 	# noticeable latency to shell startup - otherwise, dump to
 	# ~/.config/fish/functions!
