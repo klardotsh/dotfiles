@@ -1,0 +1,3 @@
+net-print/*cups* openssl pdf usb zeroconf
+#net-print/cups-meta pdf zeroconf
+#net-print/libcupsfilters pdf

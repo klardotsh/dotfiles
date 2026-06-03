@@ -1,2 +1,10 @@
 media-fonts/open-sans::4nykey
 media-fonts/roboto::4nykey
+
+# upstream sources changed size, manifests were not regenerated
+=sys-kernel/gentoo-kernel-6.18.33
+=sys-kernel/gentoo-kernel-6.18.33_p1
+
+# upstream changed version number git tagging system to add a `v` prefix that the
+# ebuild does not reflect; sources can't pull
+>=app-editors/kakoune-lsp-21.0.0

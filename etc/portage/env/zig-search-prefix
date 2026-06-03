@@ -1,0 +1,4 @@
+# zig.eclass only adds --search-prefix for cross-compiles, not native builds.
+# Without it, pkg-config strips -L/usr/lib64 (default path) and Zig gets
+# zero library search paths -> "searched paths: none".
+ZBS_ARGS_EXTRA="--search-prefix /usr/"

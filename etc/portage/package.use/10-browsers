@@ -1,2 +1,27 @@
-www-client/firefox hwaccel system-pipewire system-png widevine
+www-client/firefox hwaccel pulseaudio system-pipewire system-png widevine
+
+# vaapi? ( !system-av1, !system-libvpx )
+# can't set system-abseil-cpp because version dep isn't stabilized and I'm not dealing with that
+# same with system-brotli
+# no system-ffmpeg: 'You need to expose "av_stream_get_first_dts" in ffmpeg via user patch'
+# no system-re2: it builds with libstdc++ and has no libcxx USE flag to override,
+# 	whereas chromium REQUIRES libcxx (stdc++ support is deprecated). why this combo
+# 	is even allowed by portage I may never know, but removing the USE unbroke builds
+# no system-icu: system ICU doesn't include udatamem.h which V8 depends on. NodeJS
+#	ebuild patches around this but ungoogled-chromium does not, so much use bundled ICU
+# can't use any of these, evidently due to the same c++ ABI nonsense:
+# 	system-jsoncpp system-snappy system-woff2 
 www-client/ungoogled-chromium gtk4 optimize-thinlto optimize-webui pulseaudio screencast thinlto vaapi widevine
+www-client/ungoogled-chromium system-crc32 system-double-conversion system-openjpeg
+
+www-client/qutebrowser adblock pdf widevine
+
+# Some qtwebengine flags live in the gui useflags file, but those are the more "QT-ish"
+# ones. The more "browser-ish" ones live here, generally.
+dev-qt/qtwebengine geolocation screencast
+
+# https://github.com/PF4Public/gentoo-overlay/issues/493#issuecomment-4327120749
+# Trying to solve +llvm_slot_22 and -llvm_slot_21 was nightmare fuel so we'll just punt PGO
+# for now
+=www-client/ungoogled-chromium-148.0.7778.178_p1 -pgo
+=www-client/ungoogled-chromium-148.0.7778.215_p1 -pgo

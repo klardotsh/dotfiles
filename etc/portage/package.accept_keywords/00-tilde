@@ -9,13 +9,16 @@
 */*::qsx ~amd64
 */*::haskell ~amd64
 */*::nekochigura ~amd64
+*/*::mndz ~amd64 # JavaScript stuff - bun, deno...
+*/*::nest ~amd64 # misc - lots of dev utilities like shfmt live here
 
 # Make sure we have a recent kernel for this Lunar Lake machine
 =sys-fs/zfs-2.4* ~amd64
 =sys-fs/zfs-kmod-2.4* ~amd64
 sys-firmware/intel-microcode ~amd64
-=sys-kernel/gentoo-kernel-6.18* ~amd64
-=virtual/dist-kernel-6.18* ~amd64
+<sys-kernel/gentoo-kernel-6.20 ~amd64
+<sys-kernel/linux-headers-6.20 ~amd64
+<virtual/dist-kernel-6.20 ~amd64
 
 # Somewhat related to the above, pull a newer cpupower just in case it matters for these
 # hypermodern CPUs...
@@ -34,6 +37,8 @@ dev-python/python-linux-procfs ~amd64
 <sys-apps/fwupd-efi-1.9 ~amd64
 
 # As of time of placement in this list, none of these had any stabilized options:
+app-editors/kakoune ~amd64
+app-editors/kakoune-lsp ~amd64
 app-misc/jaq ~amd64
 app-shells/zoxide ~amd64
 app-text/pandoc ~amd64
@@ -42,6 +47,7 @@ dev-util/difftastic ~amd64
 dev-vcs/jj ~amd64
 gui-apps/rofimoji ~amd64
 net-im/zoom ~amd64
+net-misc/openrsync ~amd64
 net-misc/zerotier ~amd64
 net-wireless/bluetui ~amd64
 sys-apps/cyme ~amd64
@@ -98,9 +104,56 @@ dev-libs/quickjs-ng ~amd64
 # Get onto 1.2.x so that my configs can match across work Mac and personal
 # machines.
 # FIXME: zig-0.14.1 segfaults during emerge and so we don't even get to build this ghostty
-#=x11-terms/ghostty-1.2* ~amd64
-#=x11-terms/ghostty-terminfo-1.2* ~amd64
+=x11-terms/ghostty-1.3* ~amd64
+=x11-terms/ghostty-terminfo-1.3* ~amd64
 # Dependency of ^ ghostty
+=dev-lang/zig-0.15* ~amd64
+=dev-lang/zig-0.16* ~amd64
 gui-libs/gtk4-layer-shell ~amd64
 
 dev-util/packer ~amd64
+app-admin/terraform ~amd64
+
+# whisper-cli helpers
+sci-libs/hipBLAS ~amd64
+sci-libs/hipBLAS-common ~amd64
+sci-libs/clblast ~amd64
+sci-libs/rocBLAS ~amd64
+dev-util/hip ~amd64
+dev-util/rocminfo ~amd64
+dev-libs/rocm-core ~amd64
+dev-util/Tensile ~amd64
+dev-util/rocm-smi ~amd64
+
+# get out of QT5-land...
+=media-gfx/krita-6.0* ~amd64 
+
+# Build dep of ungoogled-chromium
+dev-build/gn ~amd64
+
+=llvm-core/clang-22.1* ~amd64
+=llvm-core/clang-common-22.1* ~amd64
+=llvm-core/lld-22.1* ~amd64
+=llvm-core/lld-toolchain-symlinks-22* ~amd64
+=llvm-core/llvm-toolchain-symlinks-22* ~amd64
+=llvm-core/clang-toolchain-symlinks-22* ~amd64
+=llvm-core/clang-linker-config-22* ~amd64
+=llvm-core/llvm-22.1* ~amd64
+=llvm-core/llvmgold-22* ~amd64
+=llvm-runtimes/clang-runtime-22* ~amd64
+=llvm-runtimes/clang-rtlib-config-22* ~amd64
+=llvm-runtimes/clang-unwindlib-config-22* ~amd64
+=llvm-runtimes/clang-stdlib-config-22* ~amd64
+=llvm-runtimes/compiler-rt-22.1* ~amd64
+=llvm-runtimes/compiler-rt-sanitizers-22.1* ~amd64
+=llvm-runtimes/openmp-22.1* ~amd64
+
+# Stable seems broken, let's try testing?
+=dev-debug/systemtap-5.4* ~amd64
+
+# When it comes to AI stuff, just accept that everything is bleeding edge always,
+# these people wouldn't know stability if it hit them in the face with a brick
+dev-util/opencode ~amd64
+dev-util/opencode-bin ~amd64
+sci-ml/huggingface_hub ~amd64
+sci-ml/hf_xet ~amd64

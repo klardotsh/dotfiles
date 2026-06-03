@@ -1,2 +1,6 @@
 */* -static-libs -X
-*/* bluetooth brotli dbus dist-kernel font_types_otf graphite heif jemalloc jpeg lm-sensors lto man pgo pipewire png policykit svg vaapi verify-sig verify-provenance vulkan wayland webp xdg zstd
+*/* bluetooth brotli cups dbus dist-kernel fish-completion font_types_otf graphite heif jemalloc jpeg lm-sensors lto man pgo pipewire png policykit svg vaapi verify-sig verify-provenance vulkan wayland webp xdg zopfli zstd
+
+# This is needed by enough packages still that it's worth just globally setting for now.
+# - 01 June 2026
+*/* PYTHON_TARGETS: python3_13

@@ -1,2 +1,15 @@
 gui-apps/fuzzel png svg
+gui-apps/waybar mpris niri tray
 gui-wm/niri screencast
+
+# wayland? ( opengl )
+dev-qt/qtbase opengl
+dev-qt/qttools opengl
+dev-qt/qtdeclarative opengl
+dev-qt/qtwebengine opengl
+# vaapi? ( opengl )
+dev-qt/qtmultimedia opengl v4l
+
+# qutebrowser needs webchannel, opengl matches above
+dev-python/pyqt6 opengl webchannel
+dev-python/pyqt6-webengine opengl

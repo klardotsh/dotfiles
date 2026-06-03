@@ -147,3 +147,73 @@
 # required by @selected
 # required by @world (argument)
 >=media-libs/libheif-1.21.1 x265
+
+# required by media-sound/tenacity-1.3.4-r4::guru
+# required by media-sound/tenacity (argument)
+>=x11-libs/wxGTK-3.2.0 X
+# required by x11-libs/wxGTK-3.2.8.1-r2::gentoo[X]
+# required by media-sound/tenacity-1.3.4-r4::guru
+# required by media-sound/tenacity (argument)
+>=x11-libs/gtk+-3.24.51 X
+# required by x11-libs/gtk+-3.24.51::gentoo
+# required by x11-libs/wxGTK-3.2.8.1-r2::gentoo[X]
+# required by media-sound/tenacity-1.3.4-r4::guru
+# required by media-sound/tenacity (argument)
+>=x11-libs/cairo-1.18.4-r1 X
+# End up needing this to resolve slot complaints from the above...
+dev-cpp/cairomm X
+dev-cpp/gtkmm X
+
+# required by kde-apps/kdenlive-25.08.3::gentoo
+# required by kdenlive (argument)
+>=media-libs/mlt-7.34.1-r1 ffmpeg frei0r xml sdl qt6
+# required by kde-apps/kdenlive-25.08.3::gentoo
+# required by kdenlive (argument)
+>=media-video/ffmpeg-7.1.3 X sdl
+# required by x11-misc/xdg-utils-1.2.1-r9::gentoo
+# required by kde-frameworks/kf-env-6::gentoo
+# required by kde-frameworks/qqc2-desktop-style-6.22.0::gentoo
+# required by kde-apps/kdenlive-25.08.3::gentoo
+# required by kdenlive (argument)
+>=app-text/xmlto-0.0.28-r11 text
+# required by kde-frameworks/qqc2-desktop-style-6.22.0::gentoo
+# required by kde-apps/kdenlive-25.08.3::gentoo
+# required by kdenlive (argument)
+>=kde-frameworks/sonnet-6.22.0 qml
+
+# required by media-video/ffmpeg-7.1.3::gentoo[vaapi]
+# required by dev-qt/qtmultimedia-6.10.1-r1::gentoo[ffmpeg]
+# required by kde-frameworks/knotifyconfig-6.22.0::gentoo
+# required by kde-apps/kdenlive-25.08.3::gentoo
+# required by kdenlive (argument)
+>=media-libs/libva-2.22.0-r1 X
+# required by media-plugins/frei0r-plugins-2.4.1-r1::gentoo[facedetect]
+# required by media-libs/mlt-7.34.1-r1::gentoo[frei0r]
+# required by kde-apps/kdenlive-25.08.3::gentoo
+# required by kdenlive (argument)
+>=media-libs/opencv-4.12.0-r1 contribdnn contrib features2d
+# required by kde-frameworks/purpose-6.22.0::gentoo
+# required by kde-apps/kdenlive-25.08.3::gentoo
+# required by kdenlive (argument)
+>=kde-frameworks/prison-6.22.0 qml
+# required by kde-frameworks/kcoreaddons-6.22.0::gentoo
+# required by kde-frameworks/kbookmarks-6.22.0::gentoo
+# required by kde-frameworks/kio-6.22.1::gentoo
+# required by kde-frameworks/kparts-6.22.0::gentoo
+# required by kde-plasma/keditfiletype-6.5.5::gentoo
+>=dev-qt/qtbase-6.10.1 libproxy icu
+>=dev-qt/qt5compat-6.10.1 icu
+
+# required by media-gfx/krita-6.0.0_beta1::gentoo
+# required by krita (argument)
+>=dev-libs/quazip-1.4-r1 qt6
+# required by media-gfx/krita-6.0.0_beta1::gentoo[python_single_target_python3_13]
+# required by krita (argument)
+>=dev-python/pyqt6-6.10.1 qml
+# required by media-gfx/krita-6.0.0_beta1::gentoo
+# required by krita (argument)
+>=dev-qt/qtbase-6.10.1 X
+>=dev-qt/qtmultimedia-6.10.1 X
+
+# required by games-simulation/corsix-th (argument)
+>=games-simulation/corsix-th-0.68.0 -midi

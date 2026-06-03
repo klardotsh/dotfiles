@@ -1,11 +1,10 @@
 app-misc/tmate compiler-gcc
-
 sys-kernel/gentoo-kernel compiler-gcc
 sys-fs/zfs compiler-gcc
 sys-fs/zfs-kmod compiler-gcc
-
 sys-devel/binutils compiler-gcc
 sys-devel/gcc compiler-gcc
+dev-debug/systemtap compiler-gcc
 
 # configure script claims compiler can't make binaries with clang
 dev-lang/ghc compiler-gcc
@@ -13,7 +12,3 @@ dev-haskell/* compiler-gcc
 
 # No Fortran compiling support in Clang land? Or just misconfigured...
 sci-libs/flexiblas compiler-gcc
-
-media-libs/ipu6-camera-hal compiler-gcc
-media-video/v4l2loopback compiler-gcc
-sys-kernel/ipu6-drivers compiler-gcc

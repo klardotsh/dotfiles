@@ -3,3 +3,5 @@ media-libs/vulkan-loader layers
 dev-util/vulkan-tools cube
 
 media-gfx/imagemagick hdri opencl xml zlib
+
+media-gfx/krita color-management gif

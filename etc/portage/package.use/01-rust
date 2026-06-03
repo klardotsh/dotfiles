@@ -2,3 +2,8 @@
 #   rust-analyzer? ( rust-src )
 dev-lang/rust clippy rustfmt rust-analyzer rust-src mrustc-bootstrap
 dev-lang/rust-bin clippy rustfmt rust-analyzer rust-src mrustc-bootstrap
+
+# Breaks with weird LLVM version mismatches and other mysteries I don't feel like solving for.
+=dev-lang/rust-1.84* -lto
+=dev-lang/rust-1.85* -lto
+=dev-lang/rust-1.86* -lto

@@ -1,0 +1,37 @@
+# Hack around https://bugs.gentoo.org/971849 which was breaking Rust and Niri
+# (at a minimum... haven't tested the rest of my broken upgrades list yet)
+# because system has LLVM 22 but Rust/Niri/etc. target LLVM slot 21. This might
+# be especially acute because I use system-wide LLVM via
+# /etc/portage/make.conf, but haven't dug too deep on that.
+#
+# I suspect, but don't know for sure, that the longer term fix for this would
+# be in the upstream eclass somehow. llvm-r1 eclass (inherited by
+# dev-lang/rust-1.93.0) says _LLVM_NEWEST_STABLE=21, which to me looks
+# relevant, but I'm not really a Portage guru at the eclass/ebuild level.
+
+if [[ -n "${LLVM_SLOT}" ]]; then
+	_llvm_bin="/usr/lib/llvm/${LLVM_SLOT}/bin"
+
+	if [[ "${CC}" == *clang* ]]; then
+		CC="clang-${LLVM_SLOT}"
+	fi
+
+	if [[ "${CXX}" == *clang++* ]]; then
+		CXX="clang++-${LLVM_SLOT}"
+	fi
+
+	if [[ "${AR}" == *llvm-ar* ]]; then
+		AR="${_llvm_bin}/llvm-ar"
+	fi
+
+	if [[ "${NM}" == *llvm-nm* ]]; then
+		NM="${_llvm_bin}/llvm-nm"
+	fi
+
+	if [[ "${RANLIB}" == *llvm-ranlib* ]]; then
+		RANLIB="${_llvm_bin}/llvm-ranlib"
+	fi
+
+	export CC CXX AR NM RANLIB
+	unset _llvm_bin
+fi
