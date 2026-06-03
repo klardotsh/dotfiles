@@ -1,6 +1,6 @@
 #theme = light:GruvboxLightHard,dark:GruvboxDarkHard
-#theme = light:Dayfox,dark:Nightfox
-theme = light:Selenized Light,dark:Selenized Black
+theme = light:Dawnfox,dark:Terafox
+#theme = light:Selenized Light,dark:Selenized Black
 #theme = light:Tomorrow,dark:Tomorrow Night Burns
 #theme = light:selenized-light,dark:ashen
 
@@ -20,9 +20,9 @@ cursor-style = bar
 #font-family = Lilex
 #font-family = Cascadia Code
 #font-family = Berkeley Mono
-font-family = Commit Mono
+font-family = CommitMono
 font-family = FSD Emoji
-font-size = 14
+font-size = 13
 freetype-load-flags = false
 
 # We always want these.
