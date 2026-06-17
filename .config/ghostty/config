@@ -21,16 +21,25 @@ cursor-style = bar
 #font-family = Lilex
 #font-family = Cascadia Code
 #font-family = Berkeley Mono
-font-family = CommitMono
-font-family = FSD Emoji
-font-size = 13
+#font-family = CommitMono
+#font-family = Fira Code
+#font-family = Maple Mono
+#font-family = PragmataPro Liga
+font-family = Iosevka Term
+#font-family = Twitter Color Emoji
+#font-family = FSD Emoji
+font-size = 14
 
 # We always want these.
 font-feature = +calt,+liga
 
 # Individual font overrides could go below. For example, for Maple Mono, we'd
 # want (to match my old Wezterm config):
-# font-feature = +dlig,+cv01,+cv35,+ss02,+ss03,+ss04,+ss05,-ss06,+ss01
+#font-feature = +dlig,+cv01,+cv35,+ss02,+ss03,+ss04,+ss05,-ss06,+ss01
+
+# Iosevka
+# ss08: PragmataPro style. ss14: JetBrains Mono style. ss15: IBM Plex Mono style.
+font-feature = +dlig,+ss08,VSAH=3,VLAA=1,VLAC=1,VLAD=1
 
 # Lilex
 #font-feature = +dlig,+zero,+cv14,+cv13,+cv06,+cv15,+cv11,+cv08
@@ -44,7 +53,7 @@ font-feature = +calt,+liga
 # cv03: squarish dots for eg. punctuation
 # cv07: zero selection (negate is slashed)
 # cv09: asterisk selection (negate is inline)
-font-feature = +dlig,+ss01,+ss02,+ss03,+ss04,+ss05,+cv03,-cv07,-cv09
+#font-feature = +dlig,+ss01,+ss02,+ss03,+ss04,+ss05,+cv03,-cv07,-cv09
 
 working-directory = home
 window-inherit-working-directory = false
