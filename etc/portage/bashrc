@@ -12,6 +12,21 @@
 if [[ -n "${LLVM_SLOT}" ]]; then
 	_llvm_bin="/usr/lib/llvm/${LLVM_SLOT}/bin"
 
+	# Move the matched LLVM slot to the FRONT of PATH so tools the build
+	# invokes bare (notably llvm-profdata during CPython's PGO merge) resolve
+	# to the same slot as the compiler below, rather than to a newer installed
+	# slot. Each installed LLVM slot contributes an /etc/env.d/60llvm-* entry,
+	# so ${_llvm_bin} is typically already somewhere in PATH (after the newer
+	# slots); a prepend-only-if-absent would see it present and skip the fix.
+	# Strip every existing occurrence first, then prepend, so the target slot
+	# wins exactly once regardless of where env.d placed it.
+	_llvm_path=":${PATH}:"
+	_llvm_path=${_llvm_path//:${_llvm_bin}:/:}
+	_llvm_path=${_llvm_path#:}
+	_llvm_path=${_llvm_path%:}
+	PATH="${_llvm_bin}:${_llvm_path}"
+	unset _llvm_path
+
 	if [[ "${CC}" == *clang* ]]; then
 		CC="clang-${LLVM_SLOT}"
 	fi
@@ -32,6 +47,6 @@ if [[ -n "${LLVM_SLOT}" ]]; then
 		RANLIB="${_llvm_bin}/llvm-ranlib"
 	fi
 
-	export CC CXX AR NM RANLIB
+	export CC CXX AR NM RANLIB PATH
 	unset _llvm_bin
 fi
