@@ -35,7 +35,26 @@
   otherwise. If you need to refer to an older version of a file, you may never
   `git checkout` it directly, you must use alternatives such as `git cat-file`.
 
-- You must never attempt to edit a file without the use of the edit tool. Using
+- `git diff` must always be called with `--no-ext-diff` without exception, to
+  ensure diff output is machine readable rather than human-optimized.
+
+- Interactive rebases and any other `git` calls that launch editors will cause
+  tool timeouts, and must be avoided using the `GIT_EDITOR=true` environment
+  variable to rebase calls. For example, `GIT_EDITOR=true git rebase
+  --continue`. During rebases specifically, `GIT_SEQUENCE_EDITOR` is a very
+  useful environment variable and should be favored over `GIT_EDITOR` when
+  doing complex rebases (eg. with breaks, execs, etc.)
+
+- Stay in the project directory. If you need a temp file, use `mktemp` to
+  create one for you (that you must remember to clean up when done with it); do
+  not write to `/tmp` directly.
+
+- Create backups before risky operations, and in particular before running a
+  `git checkout` or similar Git operation that writes to disk. Consider `git
+  stash` rather than copying backup files, but copying backup files is an
+  acceptable workaround, particularly for files not (yet) tracked in Git.
+
+- Always use the edit or write tools to modify or create files on disk. Using
   shell / bash commands such as `echo` and `cat` to bypass the edit tool is
   strictly forbidden until and unless the edit tool has failed (eg. JSON
   message too long).
@@ -49,6 +68,13 @@
 
 - ALWAYS favor the use of (parallel, if possible) subagents for research,
   investigation, experimentation, and debugging.
+
+- When possible, call core system utilities in a POSIX-compliant way for
+  maximal cross-platform compatibility. This is especially true when writing
+  shell scripts or Makefiles that will be committed to the project repository,
+  as other users of the repository may be on different operating systems. Of
+  particular note are tools like `find` and `sed` which tend to vary between
+  Linux and BSD/MacOS.
 
 ## Code Style
 
@@ -78,4 +104,12 @@
   variable name, unless you have been told to consolidate unit tests into a
   single test using the old function names as descriptor comments for the
   now-inlined assertions.
- 
+
+- **Never remove explainer comments.** Comments that explain why code exists,
+  how it works, or the reasoning behind design decisions must never be deleted
+  by an agent. This includes `// TODO:` markers. The only acceptable reason to
+  remove a comment is if the code it describes has been entirely deleted. If
+  the code has *changed* such that the comment is now inaccurate, do not delete
+  the comment — reword it to match the new code. If you are unsure whether a
+  comment is still accurate, ask the human for guidance rather than removing
+  it. A human must approve all comment removals.
