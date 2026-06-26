@@ -2,8 +2,11 @@
 #theme = light:Dawnfox,dark:Terafox
 #theme = light:Selenized Light,dark:Selenized Black
 #theme = light:Tomorrow,dark:Tomorrow Night Burns
-#theme = light:selenized-light,dark:ashen
-theme = light:Modus Operandi Tinted,dark:Modus Vivendi Tinted
+#theme = light:Selenized Light,dark:ashen
+#theme = light:Flexoki Light,dark:Flexoki Dark
+#theme = light:Modus Operandi Tinted,dark:Modus Vivendi Tinted
+#theme = light:iTerm2 Solarized Light,dark:iTerm2 Solarized Dark
+theme = light:Kanso Pearl,dark:Kanso Zen
 
 cursor-color = #d0a215
 window-theme = system
