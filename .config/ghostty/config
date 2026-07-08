@@ -22,13 +22,13 @@ cursor-style = bar
 # again. Thus, specify the font explicitly so that (1) MacOS support is
 # consistent, and (2) changing fonts gets picked up by Ctrl-Shift-Comma.
 #font-family = Lilex
-#font-family = Cascadia Code
+font-family = Cascadia Code
 #font-family = Berkeley Mono
 #font-family = CommitMono
 #font-family = Fira Code
 #font-family = Maple Mono
 #font-family = PragmataPro Liga
-font-family = Iosevka Term
+#font-family = Iosevka Term
 #font-family = Twitter Color Emoji
 #font-family = FSD Emoji
 font-size = 14
@@ -42,7 +42,7 @@ font-feature = +calt,+liga
 
 # Iosevka
 # ss08: PragmataPro style. ss14: JetBrains Mono style. ss15: IBM Plex Mono style.
-font-feature = +dlig,+ss08,VSAH=3,VLAA=1,VLAC=1,VLAD=1
+#font-feature = +dlig,+ss08,VSAH=3,VLAA=1,VLAC=1,VLAD=1
 
 # Lilex
 #font-feature = +dlig,+zero,+cv14,+cv13,+cv06,+cv15,+cv11,+cv08
