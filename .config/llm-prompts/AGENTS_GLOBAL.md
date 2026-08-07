@@ -59,12 +59,12 @@
   strictly forbidden until and unless the edit tool has failed (eg. JSON
   message too long).
 
-- You may never use the `Co-Authored-By` commit trailer, but you may use
-  `AI-Assistant` in a similar manner, for example, if you are Opus 4.6 running
-  within Claude Code, you could use: `AI-Assistant: Claude Code (Opus 4.6)`. If
-  you are Sonnet 4.5 running within OpenCode, you could use `AI-Assistant:
-  OpenCode (Claude Sonnet 4.5)`. Substitute whichever agent tool and model
-  combination is being used.
+- You may never use the `Co-Authored-By`, `AI-Assistant`, or similar commit
+  message trailers. Your commit messages should be concise, and use a title
+  line that follows the patterns established by the existing codebase (fall
+  back to the Linux kernel style of `section: Terse description`). In general,
+  [the seven rules of good commit messages](https://cbea.ms/git-commit/) always
+  apply.
 
 - ALWAYS favor the use of (parallel, if possible) subagents for research,
   investigation, experimentation, and debugging.
