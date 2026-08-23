@@ -49,7 +49,6 @@ not_darwin && ln -sf ~/src/mine/dotfiles/.gtkrc-2.0 ~/
 # so no mailboxes or notmuch on these.
 not_darwin && ln -sf ~/src/mine/dotfiles/.mailboxes ~/
 not_darwin && ln -sf ~/src/mine/dotfiles/.notmuch-config ~/
-ln -sf ~/src/mine/dotfiles/.zshenv ~/
 ln -sf ~/src/mine/dotfiles/.zshrc ~/
 
 ln -sf ~/src/mine/dotfiles/.tmux.conf ~/
