@@ -28,3 +28,7 @@ seturl service-now.com superignore true
 seturl app.slack.com superignore true
 seturl slack.com superignore true
 seturl sofi.com superignore true
+" Many authenticated pages fail without this (eg. posting an ad), complaining
+" that the document is not as expected. Sites that believe they should control
+" my user agent more than I do are the worst and antithetical to the web.
+seturl craigslist.org superignore true

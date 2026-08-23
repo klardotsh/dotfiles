@@ -1,5 +1,5 @@
 [theme]
-theme = "native"
+#theme = "native"
 
 [icons]
 icons = "none"

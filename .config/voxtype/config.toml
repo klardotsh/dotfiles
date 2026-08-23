@@ -32,13 +32,17 @@ gpu_isolation = true
 gpu_device = 1
 
 # Enable eager input processing
-eager_processing = true
+#eager_processing = true
+eager_processing = false
 
 # Chunk duration (default: 5.0 seconds)
 eager_chunk_secs = 5.0
 
 # Overlap between chunks (default: 0.5 seconds)
 eager_overlap_secs = 0.5
+
+[vad]
+enabled = false
 
 [output]
 mode = "type"       # "type", "clipboard", or "paste"
@@ -60,6 +64,7 @@ on_transcription = true     # Show transcribed text
 # Text processing (word replacements, spoken punctuation)
 [text]
 spoken_punctuation = true  # Say "period" → ".", "open paren" → "("
+filter_filler_words = true
 
 [text.replacements]
 "vox type" = "voxtype"

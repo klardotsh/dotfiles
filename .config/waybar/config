@@ -7,8 +7,10 @@
     "modules-left": ["niri/workspaces", "sway/workspaces", "sway/mode"],
 	"modules-center": ["niri/window", "sway/window"],
 	"modules-right": [
+		"custom/slopstat",
 		"mpris",
 		"tray",
+		"custom/voxtype",
 		"custom/weather",
 		//"cpu",
 		"memory",
@@ -111,4 +113,16 @@
 			"paused": "⏸︎"
 		},
 	},
+	"custom/slopstat": {
+		"format": "🤖 {}",
+		"interval": 60,
+		"exec": "slopstat oneline"
+	},
+	"custom/voxtype": {
+       "exec": "voxtype status --follow --format json",
+       "return-type": "json",
+       "format": "{}",
+       "tooltip": true,
+       "on-click": "systemctl --user restart voxtype"
+   },
 }

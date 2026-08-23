@@ -15,7 +15,7 @@ minimum-contrast = 1.5
 background-opacity = 0.915
 background-blur = true
 
-cursor-style = bar
+cursor-style = block
 
 # Updating ~/.config/fontconfig files does not sync with "monospace" here;
 # fontconfig settings appear to be read once at application start and never
@@ -31,6 +31,7 @@ font-family = Cascadia Code
 #font-family = Iosevka Term
 #font-family = Twitter Color Emoji
 #font-family = FSD Emoji
+#font-family = Lyth Mono Term
 font-size = 14
 
 # We always want these.
