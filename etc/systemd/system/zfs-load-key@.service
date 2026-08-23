@@ -1,0 +1,14 @@
+[Unit]
+Description=Load ZFS keys
+DefaultDependencies=no
+Before=zfs-mount.service
+After=zfs-import.target
+Requires=zfs-import.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/sbin/zfs load-key %i
+
+[Install]
+WantedBy=zfs-mount.service
