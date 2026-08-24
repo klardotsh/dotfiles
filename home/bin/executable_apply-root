@@ -1,0 +1,8 @@
+#!/bin/sh
+# Run the root-owned chezmoi invocation against /etc (rootmoi).
+# Manual and explicit: apply-root apply|diff|status|add ...
+exec sudo -E chezmoi \
+  --source "$HOME/src/mine/dotfiles/root/etc" \
+  --destination /etc \
+  --config "$HOME/src/mine/dotfiles/root/.chezmoi.root.toml" \
+  "$@"
