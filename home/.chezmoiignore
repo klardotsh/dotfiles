@@ -1,0 +1,53 @@
+# home/.chezmoiignore — never-manage boundary for the $HOME source root.
+#
+# Patterns match TARGET paths relative to ~ (so `dot_foo` prefixes already
+# resolved to their `.foo` targets).  The home source is curated (only tracked
+# files are `git mv`'d in), so this file is a defensive boundary: it guarantees
+# that even a broad `chezmoi add ~/.config/...` (or a stale clone on another
+# host) can never drag runtime junk or secrets into the managed set.
+#
+# SYNTAX NOTE (verified against chezmoi v2.71.1): patterns in an ignored
+# directory cannot be re-included, so a whitelist must never ignore the parent
+# dir itself.  Use `dir/*` + `!dir/kept-file` (see the .gnupg section), never
+# `dir/**` + `!dir/kept` (the re-include would be dropped).
+
+# --- Secrets: never managed (007). ---
+.ssh/**
+.config/neuralwatt/api_key
+.config/**/api_key
+.config/OpenRCT2/keys/**
+.config/Element/**
+.config/Postman/**
+.gitconfig.remotesafe
+
+# --- .gnupg: only gpg.conf + gpg-agent.conf are managed; the rest (private
+# keys, keybox, sockets, DBs) must never be.  `/*` ignores immediate children
+# but leaves the dir reachable, so the two config files re-include cleanly. ---
+.gnupg/*
+!.gnupg/gpg.conf
+!.gnupg/gpg-agent.conf
+
+# --- Runtime junk under .config (never managed; caches, cookies, state DBs). ---
+.config/chromium/**
+.config/chromium-forgevtt/**
+.config/vivaldi/**
+.config/discord/**
+.config/cmus/**
+.config/kew/**
+.config/configstore/**
+.config/thefuck/**
+.config/gh/**
+.config/htop/htop_history
+.config/nvim/.netrwhist
+.config/nvim/lazy-lock.json
+.config/pulse/cookie
+.config/sway/nocturnes.config
+.config/waybar/config.bak
+**/*.cache
+**/*.log
+
+# --- .local: only the desktop entries + dark/light toggles are managed; the
+# state dirs (including chezmoi's own) stay unmanaged. ---
+.local/state/**
+.local/share/chezmoi/**
+.local/share/Trash/**
