@@ -15,6 +15,9 @@ input {
             // For example:
             // layout "us,ru"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+			layout "us"
+			variant "dvorak"
+			options "caps:escape"
         }
     }
 
@@ -72,7 +75,7 @@ output "Dell Inc. DELL U4025QW 8NX4N04" {
 // XPS 13 internal panel
 output "Sharp Corporation 0x1593 Unknown" {
 	mode "1920x1200@120.000"
-	scale 1
+	scale 1.25
 	variable-refresh-rate
 }
 
