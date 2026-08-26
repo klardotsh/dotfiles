@@ -284,7 +284,9 @@ for_window [app_id="."] inhibit_idle fullscreen
 
 include /etc/sway/config.d/*
 include colors.$colors
-include ~/.config/sway/`hostname`.config
+{{ if eq .chezmoi.hostname "woods" }}
+include ~/.config/sway/woods.config
+{{ end }}
 
 # non-systemd distributions need these propagated for pipewire to work sanely
 exec dbus-update-activation-environment DISPLAY XAUTHORITY SWAYSOCK I3SOCK WAYLAND_DISPLAY

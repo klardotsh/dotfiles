@@ -41,7 +41,16 @@
 .config/nvim/.netrwhist
 .config/nvim/lazy-lock.json
 .config/pulse/cookie
+# Host-specific sway files use conditional inclusion because chezmoi 2.71.1
+# does not support `@hostname` filename suffixes.
+.config/sway/antarctica.config
+.config/sway/devotee.config
+.config/sway/gravity.config
 .config/sway/nocturnes.config
+.config/sway/snowcone.config
+{{ if ne .chezmoi.hostname "woods" }}
+.config/sway/woods.config
+{{ end }}
 .config/waybar/config.bak
 **/*.cache
 **/*.log
