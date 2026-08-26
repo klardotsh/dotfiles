@@ -1,7 +1,16 @@
 #!/bin/sh
 # Run the root-owned chezmoi invocation against /etc (rootmoi).
 # Manual and explicit: apply-root apply|diff|status|add ...
-exec sudo -E chezmoi \
+if command -v doas >/dev/null 2>&1; then
+	elevate=doas
+elif command -v sudo >/dev/null 2>&1; then
+	elevate=sudo
+else
+	printf '%s\n' 'apply-root: neither doas nor sudo is available' >&2
+	exit 127
+fi
+
+exec "$elevate" chezmoi \
   --source "$HOME/src/mine/dotfiles/root/etc" \
   --destination /etc \
   --config "$HOME/src/mine/dotfiles/root/.chezmoi.root.toml" \
