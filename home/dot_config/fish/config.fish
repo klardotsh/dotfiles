@@ -218,3 +218,7 @@ fish_add_path ~/bin
 # The single quotes being on the outside here matters, or the fzf line will be
 # interpolated at config parse time, not at keypress time.
 bind \cz 'fg %$(jobs | fzf -1 --ghost="Select a job to restore to foreground..." | cut -f1) 2>/dev/null; commandline -f repaint'
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
