@@ -1,0 +1,128 @@
+// lots taken from
+// https://github.com/lokesh-krishna/dotfiles/blob/15e0d3734ba29a11efcecb6b8d6ca8e917c9d28e/tokyo-night/config/waybar/config
+{
+	"layer": "bottom", // mostly prevents covering fullscreen windows
+    "position": "top",
+    "height": 30,
+    "modules-left": ["niri/workspaces", "sway/workspaces", "sway/mode"],
+	"modules-center": ["niri/window", "sway/window"],
+	"modules-right": [
+		"custom/slopstat",
+		"mpris",
+		"tray",
+		"custom/voxtype",
+		"custom/weather",
+		//"cpu",
+		"memory",
+		"network",
+		"wireplumber",
+		"battery",
+		"clock"
+	],
+    // Modules configuration
+	"niri/workspaces": {
+		"all-outputs": true,
+		"format": "{icon}",
+		"format-icons": {
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		},
+	},
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"format": "{icon}",
+		"format-icons": {
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		},
+     },
+	"sway/mode": {
+		"format": "<span style=\"italic\">{}</span>"
+	},
+	"custom/date": {
+    		"format": "󰸗 {}",
+		"interval": 3600,
+		"exec": "/home/loki/bin/waybar-date.sh"
+	},
+	"clock": {
+		"format": "{:%a %d %H:%M}",
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "{:%Y-%m-%d}"
+	},
+	"memory": {
+		"format": " {}%"
+	},
+	"battery": {
+		"states": {
+			"warning": 30,
+			"critical": 15,
+		},
+		"format": "{icon} {capacity}% ({time})",
+		"format-charging": "󰂄 {capacity}%",
+		"format-plugged": "󰂄{capacity}%",
+		"format-alt": "{time} {icon}",
+		"format-full": "󱈑 {capacity}%",
+		"format-icons": ["󱊡", "󱊢", "󱊣"]
+	},
+	"network": {
+		"format-wifi": "  {essid}",
+		"format-ethernet": "",
+		"format-linked": " {ifname} (No IP)",
+		"format-disconnected": "⚠ Disconnected",
+		"format-alt": " {ifname}: {ipaddr}/{cidr}",
+		"tooltip-format": " {ifname}: {ipaddr}/{cidr}",
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{volume}% {icon}",
+		"format-muted": "",
+		"format-icons": {
+			"headphones": "",
+			"handsfree": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
+		},
+	},
+	"wireplumber": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{volume}% {icon}",
+		"format-muted": "",
+		"format-icons": ["", "", ""]
+		// "on-click": "helvum",
+	},
+	"custom/weather": {
+		"format": "{}",
+		"format-alt": "{alt}: {}",
+		"format-alt-click": "click-right",
+		"interval": 1800,
+		"return-type": "json",
+		"exec": "~/bin/weather-waybar.sh",
+		"exec-if": "ping -c1 wttr.in",
+	},
+	"mpris": {
+		"format": "{status_icon} {player}: {artist} :: {title}",
+		"tooltip-format": "{album} :: {length}",
+		"status-icons": {
+			"playing": "▶",
+			"paused": "⏸︎"
+		},
+	},
+	"custom/slopstat": {
+		"format": "🤖 {}",
+		"interval": 60,
+		"exec": "slopstat oneline"
+	},
+	"custom/voxtype": {
+       "exec": "voxtype status --follow --format json",
+       "return-type": "json",
+       "format": "{}",
+       "tooltip": true,
+       "on-click": "systemctl --user restart voxtype"
+   },
+}

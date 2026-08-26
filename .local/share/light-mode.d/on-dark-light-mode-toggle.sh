@@ -1,1 +1,0 @@
-../../../bin/on-dark-light-mode-toggle.sh

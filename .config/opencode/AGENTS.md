@@ -1,1 +1,0 @@
-../llm-prompts/AGENTS_GLOBAL.md

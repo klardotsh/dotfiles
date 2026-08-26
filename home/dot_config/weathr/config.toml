@@ -1,0 +1,10 @@
+[location]
+#auto = true
+display = "city"
+latitude = 47.854167
+longitude = -122.583889
+
+[units]
+temperature = "celsius"
+wind_speed = "kn"
+precipitation = "inch"

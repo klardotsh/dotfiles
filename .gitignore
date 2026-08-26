@@ -4,3 +4,9 @@ etc/sv/j/supervise
 .gnupg/
 .local
 .gitconfig.remotesafe
+bin/*
+
+# Migration plan/work documents — NEVER committed (live-updating work products)
+PLAN-*.md
+PLAN-*/
+WORK-*.md

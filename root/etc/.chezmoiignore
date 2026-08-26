@@ -1,0 +1,122 @@
+# Root (rootmoi) chezmoiignore -- TRUE safe-by-default whitelist.
+#
+# Only the exact paths below are ever managed; everything else is ignored,
+# so the root invocation can never touch an unrelated /etc file, including
+# any file added to this source later without an explicit `!` line here.
+#
+# Syntax (verified against chezmoi v2.71.1): once a directory is ignored,
+# its children cannot be re-included, so we re-include each directory level
+# by name, then ignore its children, then re-include the exact managed files:
+#
+#   /*                   ignore every top-level entry
+#   !portage/            re-include the portage dir (by name, not `!*/`)
+#   portage/*            ignore portage's immediate children and their subtrees
+#   !portage/env/        re-include the env subdir
+#   portage/env/*        ignore env's children
+#   !portage/env/allow-network   re-include one managed file
+#
+# When P4.1 adds a live /etc file to the source, it MUST gain a matching `!`
+# line at every directory level plus the file itself, or it silently will not
+# apply.  A decoy file with no `!` line is ignored (verified).
+/*
+!doas.conf
+!dracut.conf.d/
+dracut.conf.d/*
+!dracut.conf.d/intel.conf
+!dracut.conf.d/microcode.conf
+!dracut.conf.d/usrmount.conf
+!dracut.conf.d/zol.conf
+!greetd/
+greetd/*
+!greetd/config.toml
+!iwd/
+iwd/*
+!iwd/main.conf
+!portage/
+portage/*
+!portage/bashrc
+!portage/chihiro_make.conf
+!portage/package.license
+!portage/woods_make.conf
+!portage/env/
+!portage/package.accept_keywords/
+!portage/package.env/
+!portage/package.mask/
+!portage/package.use/
+!portage/repos.conf/
+!portage/sets/
+portage/env/*
+!portage/env/allow-network
+!portage/env/compiler-gcc
+!portage/env/rust-no-linker-lto
+!portage/env/rust-no-target-native
+!portage/env/zig-search-prefix
+portage/package.accept_keywords/*
+!portage/package.accept_keywords/00-tilde
+!portage/package.accept_keywords/01-kernel
+portage/package.env/*
+!portage/package.env/allow-network
+!portage/package.env/force-gcc
+!portage/package.env/rust-no-linker-lto
+!portage/package.env/rust-no-target-native
+!portage/package.env/zig-search-prefix
+portage/package.mask/*
+!portage/package.mask/00-broken
+!portage/package.mask/01-antibin
+portage/package.use/*
+!portage/package.use/00-doas
+!portage/package.use/00-fwupd
+!portage/package.use/00-global
+!portage/package.use/00-kernel
+!portage/package.use/00-no-pgo
+!portage/package.use/00-qemu
+!portage/package.use/00-systemd
+!portage/package.use/00-zfs
+!portage/package.use/01-gcc
+!portage/package.use/01-rust
+!portage/package.use/01clang
+!portage/package.use/02-bluetooth
+!portage/package.use/02-pipewire
+!portage/package.use/03-gfx
+!portage/package.use/04-fonts
+!portage/package.use/05-gui
+!portage/package.use/06-av
+!portage/package.use/07-network
+!portage/package.use/08-sci-ml
+!portage/package.use/09-printing
+!portage/package.use/10-browsers
+!portage/package.use/11-waybar
+!portage/package.use/99-autouse
+!portage/package.use/chihiro_00cpu-flags
+!portage/package.use/chihiro_00video_cards
+!portage/package.use/woods_00cpu-flags
+!portage/package.use/woods_00video_cards
+portage/repos.conf/*
+!portage/repos.conf/eselect-repo.conf
+portage/sets/*
+!portage/sets/optfeature
+!portage/sets/packervms
+!portage/sets/printing
+!sv/
+sv/*
+!sv/j/
+sv/j/*
+!sv/j/run
+!systemd/
+systemd/*
+!systemd/resolved.conf
+!systemd/network/
+!systemd/system/
+systemd/network/*
+!systemd/network/50-dhcp.network
+systemd/system/*
+!systemd/system/zfs-load-key@.service
+!udev/
+udev/*
+!udev/rules.d/
+udev/rules.d/*
+!udev/rules.d/69-chessnut.rules
+!udev/rules.d/69-jds.rules
+!udev/rules.d/69-keychron-m5.rules
+!udev/rules.d/69-kinesis-adv.rules
+!udev/rules.d/69-ploopy-via.rules

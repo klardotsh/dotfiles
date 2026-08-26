@@ -1,0 +1,3 @@
+# chezmoi configuration for this workstation (hostname: woods).
+# The dotfiles repository is the chezmoi source. .chezmoiroot selects home/.
+sourceDir = "~/src/mine/dotfiles"

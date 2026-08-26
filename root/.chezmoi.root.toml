@@ -1,0 +1,5 @@
+# Root-side (rootmoi) chezmoi configuration for /etc on this workstation.
+# Invoked by the apply-root wrapper. It is never applied to ~.
+sourceDir = "~/src/mine/dotfiles/root/etc"
+useBuiltinGit = true
+destDir = "/etc"

@@ -34,44 +34,43 @@ page](//klar.sh/uses.html)).
 
 - `snowcone`, named after [a deadmau5 song by that
   name](https://www.youtube.com/watch?v=amBBO4PqJKo), is my general-purpose
-  workstation, running Void Linux x86\_64-musl. It's powered by an AMD Ryzen
-  7900, 96GB RAM, 2TB of SSD, and an RX 7600.
+  workstation, running Void Linux x86\_64-glibc. It's powered by an AMD Ryzen
+  7900, 96GB RAM, 2TB of SSD, and an RX 7900 GRE.
 
-- `nocturnes`, named after [the Silicone Soul song "Les
-  Nocturnes"](https://www.youtube.com/watch?v=hGvZWnVYfko) (that name refers to
-  ["nocturne"](https://en.wikipedia.org/wiki/Nocturne)), is my primary laptop:
-  a Thinkpad X13 Gen 4 AMD, again running Void Linux x86\_64-musl. It's powered
-  by an AMD Ryzen 7840U, 32GB RAM, 1TB of SSD, and a Radeon 780M iGPU.
-
-- `vermillion`, named after the [Slipknot song of almost the same name, except
-  I can't spell](https://www.youtube.com/watch?v=xKcbYUwmmlE), is my outgoing
-  laptop, a 2017 Samsung Chromebook Pro, running [Mr. Chromebox's coreboot
-  firmware](https://mrchromebox.tech/) and Void Linux x86\_64-musl. Between
-  early 2022 and late 2023, it was my sole laptop, after the death of
-  `devotee`, below (an XPS 13 9370).
-
-- `villain`, named after the [Queens of the Stone Age album
-  "Villains"](https://en.wikipedia.org/wiki/Villains_(Queens_of_the_Stone_Age_album)).
-  is a bit of a project car at the moment. It's a Lenovo Yoga C630 WOS laptop
-  powered by a Qualcomm Snapdragon 850, 8GB RAM, and 128GB of eMMC storage. I
-  boot it about once a year, but some configs here still refer to it so it's
-  not retired yet...
+- `chihiro`, named after [the Billie Eilish song by that
+  name](https://www.youtube.com/watch?v=e_AZJzYe7CU), is my primary laptop: a
+  Dell XPS 13 9350 (2025), running Gentoo (glibc, systemd). It's powered by an
+  Intel 258V, 32GB RAM, 2TB of SSD, and whatever iGPU Lunar Lake ships with.
 
 Various names of past gear have been retired, but you may still see their names
 here (and almost certainly in the Git history). Here's a grab and go list of
-their namesakes:
+their namesakes, because I'm always thrilled to pass along music
+recommendations:
 
-- `woods`, named after [the Bon Iver song by that
-  name](https://www.youtube.com/watch?v=MUGKbuWMqgU).
+- `woods` (used by at least two prior desktops), named after [the Bon Iver song
+  by that name](https://www.youtube.com/watch?v=MUGKbuWMqgU).
 
-- `devotee`, named after [the Panic! at the Disco song "LA
-  Devotee"](https://www.youtube.com/watch?v=r5dNcKTcnPA).
+- `nocturnes` (used by a prior Thinkpad laptop), named after [the Silicone Soul
+  song "Les Nocturnes"](https://www.youtube.com/watch?v=hGvZWnVYfko) (that name
+  refers to ["nocturne"](https://en.wikipedia.org/wiki/Nocturne)).
 
-- `highroad`, named after [the Mastodon song by than
+- `vermillion` (used by a prior Samsung Chromebook Pro, corebooted and
+  Linux-ified), named after the [Slipknot song of almost the same name, except
+  that I can't spell](https://www.youtube.com/watch?v=xKcbYUwmmlE).
+
+- `villain` (used by an experimental laptop that never really left the house, a
+  Lenovo C630 ARM rig), named after the [Queens of the Stone Age album
+  "Villains"](https://en.wikipedia.org/wiki/Villains_(Queens_of_the_Stone_Age_album)).
+
+- `devotee` (used by a prior Dell XPS 13 9370), named after [the Panic! at the
+  Disco song "LA Devotee"](https://www.youtube.com/watch?v=r5dNcKTcnPA).
+
+- `highroad` (formerly a ZFS NAS), named after [the Mastodon song by than
   name](https://www.youtube.com/watch?v=6Aw1WnNVcYw).
 
 - `sappy`, named after [the Nirvana song by that
   name](https://www.youtube.com/watch?v=jOg8IblMNK4).
 
-- `otherside`, named after the [Red Hot Chili Peppers song by that
+- `otherside` (formerly an OpnSense router running under a Gentoo hypervisor),
+  named after the [Red Hot Chili Peppers song by that
   name](https://www.youtube.com/watch?v=rn_YodiJO6k).

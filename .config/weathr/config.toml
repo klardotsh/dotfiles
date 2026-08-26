@@ -1,8 +1,0 @@
-[location]
-auto = true
-display = "city"
-
-[units]
-temperature = "celsius"
-wind_speed = "kn"
-precipitation = "inch"
