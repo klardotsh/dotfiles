@@ -1,0 +1,2 @@
+dev-vcs/git rust
+dev-debug/gdb python server zstd lzma multitarget source-highlight xxhash

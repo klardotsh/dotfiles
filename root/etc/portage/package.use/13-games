@@ -1,0 +1,2 @@
+# Upstream claims leveldb has reliability issues eg. stuttering
+games-engines/minetest -server -leveldb

@@ -1,6 +1,6 @@
 .config
 .config/nvim/.netrwhist
-etc/sv/j/supervise
+root/chezmoistate.boltdb
 .gnupg/
 .local
 .gitconfig.remotesafe

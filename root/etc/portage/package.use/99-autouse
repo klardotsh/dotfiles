@@ -217,3 +217,21 @@ dev-cpp/gtkmm X
 
 # required by games-simulation/corsix-th (argument)
 >=games-simulation/corsix-th-0.68.0 -midi
+
+# required by dev-util/fontmake-3.12.1::4nykey[-test]
+# required by media-fonts/jetbrains-mono-2.304::4nykey[-binary]
+# required by @selected
+# required by @world (argument)
+>=dev-python/fonttools-4.63.0 harfbuzz
+
+# required by media-gfx/gimp-3.2.4::gentoo
+# required by gimp (argument)
+>=media-libs/babl-0.1.126 lcms
+# required by media-gfx/gimp-3.2.4::gentoo
+# required by gimp (argument)
+>=media-libs/gegl-0.4.70 lcms cairo
+
+# required by net-im/zoom-7.0.0.1666-r2::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-qt/qt5compat-6.11.1 qml

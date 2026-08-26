@@ -11,14 +11,15 @@
 */*::nekochigura ~amd64
 */*::mndz ~amd64 # JavaScript stuff - bun, deno...
 */*::nest ~amd64 # misc - lots of dev utilities like shfmt live here
+*/*::brother-overlay ~amd64
 
 # Make sure we have a recent kernel for this Lunar Lake machine
 =sys-fs/zfs-2.4* ~amd64
 =sys-fs/zfs-kmod-2.4* ~amd64
 sys-firmware/intel-microcode ~amd64
-<sys-kernel/gentoo-kernel-7.1 ~amd64
-<sys-kernel/linux-headers-7.1 ~amd64
-<virtual/dist-kernel-7.1 ~amd64
+<sys-kernel/gentoo-kernel-7.3 ~amd64
+<sys-kernel/linux-headers-7.3 ~amd64
+<virtual/dist-kernel-7.3 ~amd64
 
 # Somewhat related to the above, pull a newer cpupower just in case it matters for these
 # hypermodern CPUs...
@@ -36,6 +37,9 @@ dev-python/python-linux-procfs ~amd64
 # https://bugs.gentoo.org/949655
 <sys-apps/fwupd-efi-1.9 ~amd64
 
+# Unbreak a cryptography dep-stuck issue the non-r1 of this package caused
+=app-crypt/yubikey-manager-5.9.1-r1 ~amd64
+
 # As of time of placement in this list, none of these had any stabilized options:
 app-editors/kakoune ~amd64
 app-editors/kakoune-lsp ~amd64
@@ -44,6 +48,7 @@ app-shells/zoxide ~amd64
 app-text/pandoc ~amd64
 app-text/pandoc-cli ~amd64
 dev-util/difftastic ~amd64
+dev-util/prek ~amd64
 dev-vcs/jj ~amd64
 gui-apps/rofimoji ~amd64
 net-im/zoom ~amd64
@@ -76,6 +81,7 @@ dev-lang/ghc ~amd64
 # Games I almost never mind being ~amd64
 games-action/* ~amd64
 games-arcade/* ~amd64
+games-engines/* ~amd64
 games-misc/* ~amd64
 games-simulation/* ~amd64
 games-strategy/* ~amd64
@@ -151,9 +157,16 @@ dev-build/gn ~amd64
 # Stable seems broken, let's try testing?
 =dev-debug/systemtap-5.4* ~amd64
 
+# AVX512 support started in this version, apparently?
+=dev-debug/valgrind-3.27* ~amd64
+
 # When it comes to AI stuff, just accept that everything is bleeding edge always,
 # these people wouldn't know stability if it hit them in the face with a brick
 dev-util/opencode ~amd64
 dev-util/opencode-bin ~amd64
 sci-ml/huggingface_hub ~amd64
 sci-ml/hf_xet ~amd64
+
+net-print/brother-* ~amd64
+
+net-misc/magic-wormhole-rust ~amd64

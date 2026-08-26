@@ -1,0 +1,7 @@
+net-print/*cups* openssl pdf usb zeroconf
+#net-print/cups-meta pdf zeroconf
+#net-print/libcupsfilters pdf
+net-print/brother-* scanner
+media-gfx/sane-backends threads
+*/* SANE_BACKENDS: -* escl
+media-gfx/brother-scan4-bin avahi usb

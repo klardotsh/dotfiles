@@ -4,3 +4,6 @@
 # This is needed by enough packages still that it's worth just globally setting for now.
 # - 01 June 2026
 */* PYTHON_TARGETS: python3_13
+
+# Hunspell was the driving force here but other apps might use it too
+*/* L10N: en en-US en_US
