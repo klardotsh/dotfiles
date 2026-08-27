@@ -29,15 +29,22 @@ sync-git-verify-commit-signature = yes
 [haskell]
 location = /var/db/repos/haskell
 sync-type = git
-sync-uri = https://github.com/gentoo-haskell/gentoo-haskell.git
+sync-uri = https://github.com/gentoo-haskell/gentoo-haskell.git{{ if eq .chezmoi.hostname "chihiro" }}
+
+[nekochigura]
+location = /var/db/repos/nekochigura
+sync-type = git
+sync-uri = https://github.com/melynx/nekochigura.git
+
+[nest]{{ else }}
 
 
-[nest]
+[nest]{{ end }}
 location = /var/db/repos/nest
 sync-type = git
-sync-uri = https://github.com/SpiderX/portage-overlay.git
+sync-uri = https://github.com/SpiderX/portage-overlay.git{{ if eq .chezmoi.hostname "chihiro" }}{{ else }}
 
 [brother-overlay]
 location = /var/db/repos/brother-overlay
 sync-type = git
-sync-uri = https://github.com/stefan-langenmaier/brother-overlay.git
+sync-uri = https://github.com/stefan-langenmaier/brother-overlay.git{{ end }}

@@ -1,5 +1,9 @@
+{{- if eq .chezmoi.hostname "chihiro" -}}
+MARCH_NATIVE_GCC="-march=arrowlake-s -mabm -mno-kl -mno-sgx -mno-widekl -mshstk -mwbnoinvd --param=l1-cache-line-size=64 --param=l1-cache-size=32 --param=l2-cache-size=4096"
+{{- else -}}
 # TODO: Replace with resolve-march-native
 MARCH_NATIVE_GCC="-march=native -mtune=native"
+{{- end }}
 
 COMMON_FLAGS="-O3 -flto ${MARCH_NATIVE_GCC}"
 CFLAGS="${COMMON_FLAGS}"

@@ -1,8 +1,0 @@
-# gfx1100: RDNA3 GPU, codename navi31/plum bonito, including my AMD 7900 GRE
-# https://packages.gentoo.org/useflags/amdgpu_targets_gfx1100
-#
-# 1036 doesn't seem to actually exist but it's what amdgpu_top reports for the
-# iGPU in my AMD 7900 CPU.
-*/* AMDGPU_TARGETS: gfx1036 gfx1100
-
-sci-misc/llama-cpp curl rocm openblas opencl openssl
