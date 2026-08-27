@@ -24,6 +24,7 @@
 # keys, keybox, sockets, DBs) must never be.  `/*` ignores immediate children
 # but leaves the dir reachable, so the two config files re-include cleanly. ---
 .gnupg/*
+.gnupg.bak/**
 !.gnupg/gpg.conf
 !.gnupg/gpg-agent.conf
 
