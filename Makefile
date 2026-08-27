@@ -36,12 +36,6 @@ user-postapply: user-apply
 	@command -v curl >/dev/null 2>&1
 	@command -v fish >/dev/null 2>&1
 	@command -v git >/dev/null 2>&1
-	@command -v nvim >/dev/null 2>&1
-	fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher'
-	if test "`uname -s`" != Darwin; then \
-		mkdir -p "$(HOME)/.local/share/themes"; \
-		ln -sf "$(HOME)/.local/share/themes" "$(HOME)/.themes"; \
-	fi
 	@mkdir -p "$(HOME)/.tmux/plugins"
 	@test -d "$(HOME)/.tmux/plugins/tpm" || git clone https://github.com/tmux-plugins/tpm "$(HOME)/.tmux/plugins/tpm"
 	url=$$(awk '!/^#/ && NF { print; exit }' "$(SOURCE_DIR)/wallpaper.txt") && \
@@ -53,6 +47,7 @@ user-postapply: user-apply
 	nvim --headless +JetpackSync +qall
 	@printf '%s\n' 'Disregard any "not synchronized" error from JetpackSync above.' >&2
 	nvim --headless +TSUpdate +qall
+
 system-status:
 	@if command -v doas >/dev/null 2>&1; then \
 		doas $(CHEZMOI) --source "$(ROOT_SOURCE_DIR)" --destination /etc --config "$(ROOT_CONFIG)" status; \
