@@ -22,7 +22,7 @@
 !doas.conf
 !dracut.conf.d/
 dracut.conf.d/*
-!dracut.conf.d/intel.conf
+{{ if eq .chezmoi.hostname "chihiro" }}!dracut.conf.d/intel.conf{{ end }}
 !dracut.conf.d/microcode.conf
 !dracut.conf.d/usrmount.conf
 !dracut.conf.d/zol.conf
@@ -104,11 +104,6 @@ portage/sets/*
 !portage/sets/optfeature
 !portage/sets/packervms
 !portage/sets/printing
-!sv/
-sv/*
-!sv/j/
-sv/j/*
-!sv/j/run
 !systemd/
 systemd/*
 !systemd/resolved.conf
