@@ -95,8 +95,8 @@ portage/package.use/*
 !portage/package.use/00cpu-flags
 !portage/package.use/00video_cards
 !portage/package.use/12-devtools
-{{ if ne .chezmoi.hostname "chihiro" }}!portage/package.use/13-games{{ end }}
-{{ if ne .chezmoi.hostname "chihiro" }}!portage/package.use/14-chat{{ end }}
+!portage/package.use/13-games
+!portage/package.use/14-chat
 !portage/profile/
 portage/profile/*
 !portage/profile/package.use.mask
