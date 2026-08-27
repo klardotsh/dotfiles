@@ -1,0 +1,5 @@
+{{- if eq .chezmoi.hostname "chihiro" -}}
+*/* VIDEO_CARDS: -* intel
+{{- else -}}
+*/* VIDEO_CARDS: -* amdgpu radeonsi
+{{- end }}

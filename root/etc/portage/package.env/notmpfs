@@ -1,0 +1,6 @@
+# Even on a 32GB RAM system (like my laptop), this needs to live outside of tmpfs,
+# because the 24GB max allocation of the tmpfs dir isn't enough.
+www-client/ungoogled-chromium notmpfs
+
+# I just barely run out of space to write the final build artifacts here :(
+sys-kernel/gentoo-kernel notmpfs

@@ -49,6 +49,7 @@ portage/binrepos.conf/*
 !portage/repos.conf/
 !portage/sets/
 portage/env/*
+{{ if eq .chezmoi.hostname "chihiro" }}!portage/env/notmpfs{{ end }}
 !portage/env/allow-network
 !portage/env/compiler-gcc
 !portage/env/rust-no-linker-lto
@@ -58,6 +59,7 @@ portage/package.accept_keywords/*
 !portage/package.accept_keywords/00-tilde
 !portage/package.accept_keywords/01-kernel
 portage/package.env/*
+{{ if eq .chezmoi.hostname "chihiro" }}!portage/package.env/notmpfs{{ end }}
 !portage/package.env/allow-network
 !portage/package.env/force-gcc
 !portage/package.env/rust-no-linker-lto
@@ -93,8 +95,8 @@ portage/package.use/*
 !portage/package.use/00cpu-flags
 !portage/package.use/00video_cards
 !portage/package.use/12-devtools
-!portage/package.use/13-games
-!portage/package.use/14-chat
+{{ if ne .chezmoi.hostname "chihiro" }}!portage/package.use/13-games{{ end }}
+{{ if ne .chezmoi.hostname "chihiro" }}!portage/package.use/14-chat{{ end }}
 !portage/profile/
 portage/profile/*
 !portage/profile/package.use.mask

@@ -1,2 +1,4 @@
 dev-vcs/git rust
+{{- if ne .chezmoi.hostname "chihiro" }}
 dev-debug/gdb python server zstd lzma multitarget source-highlight xxhash
+{{- end }}
