@@ -12,6 +12,7 @@
 */*::mndz ~amd64 # JavaScript stuff - bun, deno...
 */*::nest ~amd64 # misc - lots of dev utilities like shfmt live here
 */*::brother-overlay ~amd64
+*/*::joecool-overlay ~amd64
 
 # Make sure we have a recent kernel for this Lunar Lake machine
 =sys-fs/zfs-2.4* ~amd64
