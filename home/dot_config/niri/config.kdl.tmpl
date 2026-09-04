@@ -56,6 +56,14 @@ input {
         // middle-emulation
     }
 
+    // niri classifies the Elecom HUGE as a trackball, not a mouse, so the
+    // "mouse" block above never reaches it. See 9cf3d73.
+    trackball {
+        natural-scroll
+        accel-speed 0.5
+        accel-profile "adaptive"
+    }
+
     // Uncomment this to make the mouse warp to the center of newly focused windows.
     //
     // Note 01 Sep 2025: This got annoying AF with Zoom popups mid-meeting
