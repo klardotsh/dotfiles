@@ -1,2 +1,5 @@
 >=dev-lang/rust-1.90.0 rust-no-linker-lto
 #gui-wm/niri rust-no-linker-lto
+
+# https://github.com/zed-industries/zed/issues/45947
+app-editors/zed rust-no-linker-lto

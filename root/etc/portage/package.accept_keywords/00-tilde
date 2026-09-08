@@ -171,3 +171,5 @@ sci-ml/hf_xet ~amd64
 net-print/brother-* ~amd64
 
 net-misc/magic-wormhole-rust ~amd64
+
+app-editors/zed ~amd64

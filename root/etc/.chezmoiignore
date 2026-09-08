@@ -18,7 +18,6 @@
 # When P4.1 adds a live /etc file to the source, it MUST gain a matching `!`
 # line at every directory level plus the file itself, or it silently will not
 # apply.  A decoy file with no `!` line is ignored (verified).
-/*
 !doas.conf
 !dracut.conf.d/
 dracut.conf.d/*

@@ -235,3 +235,7 @@ dev-cpp/gtkmm X
 # required by @selected
 # required by @world (argument)
 >=dev-qt/qt5compat-6.11.1 qml
+
+# required by app-editors/zed-1.10.3::gentoo
+# required by app-editors/zed (argument)
+media-libs/vulkan-loader X
