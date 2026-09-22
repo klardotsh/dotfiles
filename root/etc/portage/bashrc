@@ -50,3 +50,11 @@ if [[ -n "${LLVM_SLOT}" ]]; then
 	export CC CXX AR NM RANLIB PATH
 	unset _llvm_bin
 fi
+
+# The interactive shells (zsh and fish) export NODE_COMPILE_CACHE to
+# $HOME/.cache/nodejs-compile-cache. Portage passes that variable into the
+# build environment. The path points into $HOME, and the sandbox denies
+# writes there. Node then fails a mkdir on a sandbox access violation. One
+# example is the npm install in dev-lang/typescript-6.0.3. Remove the
+# variable from every build to prevent the violation.
+unset NODE_COMPILE_CACHE
