@@ -1,0 +1,10 @@
+[preferred]
+default=gnome;gtk
+# xdg-desktop-portal-gnome 49.0 delegates FileChooser to org.gnome.Nautilus,
+# which is not installed. Use the GTK portal for file dialogs instead.
+org.freedesktop.impl.portal.FileChooser=gtk;
+org.freedesktop.impl.portal.Settings=darkman
+{{- if eq .chezmoi.hostname "woods" }}
+# woods only: xdg-desktop-portal-wlr is installed here, not on chihiro.
+org.freedesktop.impl.portal.ScreenCast=wlr
+{{- end }}
