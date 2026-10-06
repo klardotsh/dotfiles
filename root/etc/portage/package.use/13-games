@@ -1,2 +1,5 @@
 # Upstream claims leveldb has reliability issues eg. stuttering
 games-engines/minetest -server -leveldb
+
+# 0.5.5 fails to build with -scripting as of 09/16/26
+games-simulation/openrct2 scripting
