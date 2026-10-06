@@ -212,6 +212,10 @@ layout {
 //spawn-at-startup "wlsunset -l 47.7985 -L -122.4980" // Kingston, WA
 spawn-at-startup "swww-daemon"
 
+// Clipboard history. cliphist needs one watcher per content type.
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
+
 cursor {
 	// https://www.pling.com/p/1932768
 	xcursor-theme "Simp1e-Rose-Pine"
@@ -327,6 +331,7 @@ binds {
     Super+Alt+L { spawn "swaylock" "-c" "000000"; }
 	Mod+O { spawn "ykclip-menu"; }
 	Mod+Shift+Comma { spawn "rofimoji"; }
+	Mod+Ctrl+V { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
