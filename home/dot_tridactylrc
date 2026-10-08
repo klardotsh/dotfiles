@@ -32,3 +32,4 @@ seturl sofi.com superignore true
 " that the document is not as expected. Sites that believe they should control
 " my user agent more than I do are the worst and antithetical to the web.
 seturl craigslist.org superignore true
+seturl ryobitools.com superignore true
