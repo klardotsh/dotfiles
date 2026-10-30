@@ -26,6 +26,8 @@ user-dry-run:
 	$(CHEZMOI) --source "$(SOURCE_DIR)" apply --dry-run --verbose
 
 user-apply: user-dry-run
+	@printf 'Apply user changes? [y/N] '; read -r answer; \
+	case "$$answer" in [yY]|[yY][eE][sS]) ;; *) printf '%s\n' 'Aborted.' >&2; exit 1 ;; esac
 	$(CHEZMOI) --source "$(SOURCE_DIR)" apply
 
 user-add:
@@ -76,6 +78,8 @@ system-dry-run:
 	fi
 
 system-apply: system-dry-run
+	@printf 'Apply system changes? [y/N] '; read -r answer; \
+	case "$$answer" in [yY]|[yY][eE][sS]) ;; *) printf '%s\n' 'Aborted.' >&2; exit 1 ;; esac
 	@if command -v doas >/dev/null 2>&1; then \
 		doas $(CHEZMOI) --source "$(ROOT_SOURCE_DIR)" --destination /etc --config "$(ROOT_CONFIG)" apply; \
 	elif command -v sudo >/dev/null 2>&1; then \
