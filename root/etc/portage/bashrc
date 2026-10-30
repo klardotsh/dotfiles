@@ -58,3 +58,9 @@ fi
 # example is the npm install in dev-lang/typescript-6.0.3. Remove the
 # variable from every build to prevent the violation.
 unset NODE_COMPILE_CACHE
+
+# The pf4public ebuilds call python_is_python3, which python-utils-r1 removed.
+# Remove this shim after the overlay drops that call.
+python_is_python3() {
+	[[ ${1:-${EPYTHON}} == python3* ]]
+}
