@@ -19,6 +19,7 @@
 # line at every directory level plus the file itself, or it silently will not
 # apply.  A decoy file with no `!` line is ignored (verified).
 !doas.conf
+!gitconfig
 !dracut.conf.d/
 dracut.conf.d/*
 {{ if eq .chezmoi.hostname "chihiro" }}!dracut.conf.d/intel.conf{{ end }}
@@ -96,11 +97,14 @@ portage/package.use/*
 !portage/package.use/12-devtools
 !portage/package.use/13-games
 !portage/package.use/14-chat
+!portage/package.use/15-voxtype
 !portage/profile/
 portage/profile/*
 !portage/profile/package.use.mask
 portage/repos.conf/*
 !portage/repos.conf/eselect-repo.conf
+!portage/repos.conf/klardotsh-overlay.conf
+!portage/repos.conf/klardotsh-keys.conf
 portage/sets/*
 !portage/sets/optfeature
 !portage/sets/packervms
