@@ -68,6 +68,7 @@ portage/package.env/*
 portage/package.mask/*
 !portage/package.mask/00-broken
 !portage/package.mask/01-antibin
+!portage/package.mask/02-csvlens
 portage/package.use/*
 !portage/package.use/00-doas
 !portage/package.use/00-fwupd

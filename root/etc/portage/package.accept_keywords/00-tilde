@@ -13,6 +13,7 @@
 */*::nest ~amd64 # misc - lots of dev utilities like shfmt live here
 */*::brother-overlay ~amd64
 */*::joecool-overlay ~amd64
+*/*::supertux88 ~amd64
 */*::klardotsh ~amd64
 */*::klardotsh-keys ~amd64
 

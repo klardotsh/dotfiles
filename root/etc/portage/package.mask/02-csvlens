@@ -1,0 +1,4 @@
+# Prefer app-text/csvlens from nest.
+# The app-misc/csvlens copies in tatsh-overlay and supertux88 are less complete.
+app-misc/csvlens::tatsh-overlay
+app-misc/csvlens::supertux88
