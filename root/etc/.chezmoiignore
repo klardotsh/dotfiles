@@ -128,3 +128,4 @@ udev/rules.d/*
 !udev/rules.d/69-keychron-m5.rules
 !udev/rules.d/69-kinesis-adv.rules
 !udev/rules.d/69-ploopy-via.rules
+!portage/patches
