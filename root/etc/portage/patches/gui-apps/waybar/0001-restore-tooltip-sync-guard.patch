@@ -1,0 +1,22 @@
+Keep the custom-module tooltip markup stable between updates.
+
+Upstream: a97e8dad7cc739abf27a1562e9270000ac4124f1
+
+--- a/src/modules/custom.cpp
++++ b/src/modules/custom.cpp
+@@ -187,9 +187,13 @@
+                 fmt::arg("icon", getIcon(percentage_, alt_)), fmt::arg("percentage", percentage_));
+             label_.set_tooltip_markup(tooltip);
+           } else if (text_ == tooltip_) {
+-            label_.set_tooltip_markup(str);
++            if (label_.get_tooltip_markup() != str) {
++              label_.set_tooltip_markup(str);
++            }
+           } else {
+-            label_.set_tooltip_markup(tooltip_);
++            if (label_.get_tooltip_markup() != tooltip_) {
++              label_.set_tooltip_markup(tooltip_);
++            }
+           }
+         }
+         auto style = label_.get_style_context();
