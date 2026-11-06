@@ -12,3 +12,7 @@ dev-haskell/* compiler-gcc
 
 # No Fortran compiling support in Clang land? Or just misconfigured...
 sci-libs/flexiblas compiler-gcc
+
+# Browser source segfaults at CefInitialize with the clang -O3 build.
+# https://github.com/obsproject/obs-browser
+media-video/obs-studio compiler-gcc
