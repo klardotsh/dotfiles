@@ -116,7 +116,9 @@
 	"custom/slopstat": {
 		"format": "🤖 {}",
 		"interval": 60,
-		"exec": "slopstat oneline"
+		"exec": "slopstat oneline --waybar",
+		"return-type": "json",
+		"tooltip": true
 	},
 	"custom/voxtype": {
        "exec": "voxtype status --follow --format json",
