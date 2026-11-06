@@ -19,7 +19,15 @@
 # line at every directory level plus the file itself, or it silently will not
 # apply.  A decoy file with no `!` line is ignored (verified).
 !doas.conf
+!fail2ban/
+fail2ban/*
+!fail2ban/jail.local
 !gitconfig
+!ssh/
+ssh/*
+!ssh/sshd_config.d/
+ssh/sshd_config.d/*
+!ssh/sshd_config.d/00-local-only.conf
 !dracut.conf.d/
 dracut.conf.d/*
 {{ if eq .chezmoi.hostname "chihiro" }}!dracut.conf.d/intel.conf{{ end }}

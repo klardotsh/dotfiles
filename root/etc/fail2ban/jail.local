@@ -1,0 +1,38 @@
+# Managed by chezmoi. Source of truth:
+# ~/src/mine/dotfiles/root/etc/fail2ban/jail.local
+# Target: /etc/fail2ban/jail.local
+#
+# This mirrors the effective policy on bouncer.klar.sh:
+#   bantime 1h, findtime 10m, maxretry 10 per sshd jail,
+#   action iptables-multiport.
+#
+# Two platform changes apply here:
+#   1. Gentoo logs to the systemd journal, so backend is systemd instead of
+#      polling /var/log/messages.
+#   2. Gentoo has no alpine-sshd-ddos filter. The second jail uses the stock
+#      sshd filter in ddos mode instead.
+#
+# ignoreip lists the RFC1918 ranges. This host accepts SSH only from those
+# ranges, so fail2ban must not ban the laptop that uses them. Outside sources
+# are still banned. Keep this list in sync with the Match Address list in
+# /etc/ssh/sshd_config.d/00-local-only.conf.
+
+[DEFAULT]
+backend = systemd
+bantime = 1h
+findtime = 10m
+maxretry = 5
+banaction = iptables-multiport
+ignoreip = 127.0.0.1/8 ::1 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16
+
+[sshd]
+enabled = true
+port = ssh
+maxretry = 10
+
+[sshd-ddos]
+enabled = true
+filter = sshd
+mode = ddos
+port = ssh
+maxretry = 10
