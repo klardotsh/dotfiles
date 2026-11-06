@@ -86,6 +86,7 @@ dev-lang/ghc ~amd64
 games-action/* ~amd64
 games-arcade/* ~amd64
 games-engines/* ~amd64
+games-fps/* ~amd64
 games-misc/* ~amd64
 games-simulation/* ~amd64
 games-strategy/* ~amd64
