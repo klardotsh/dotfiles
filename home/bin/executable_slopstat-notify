@@ -1,6 +1,7 @@
 #!/bin/sh
 # Show slopstat usage as a desktop notification.
 # Waybar tooltips are unreliable in 0.15.0, so the bar module calls this on click.
-# --notify emits one dense line per provider so the bubble stays short.
-exec notify-send --app-name=slopstat --expire-time=30000 --transient \
-	"Usage" "$(slopstat oneline --notify 2>/dev/null)"
+# --verbose prints the structured per-provider table. The notification daemon
+# applies its 10 second default timeout.
+exec notify-send --app-name=slopstat --transient \
+	"Usage" "$(slopstat oneline --verbose 2>/dev/null | sed 's/ resets in / ↺/')"
