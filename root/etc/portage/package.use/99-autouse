@@ -239,3 +239,10 @@ dev-cpp/gtkmm X
 # required by app-editors/zed-1.10.3::gentoo
 # required by app-editors/zed (argument)
 media-libs/vulkan-loader X
+
+# required by app-containers/netavark-2.1.0::gentoo
+# required by app-containers/container-libs-0.70.0::gentoo[extra]
+# required by app-containers/podman-6.1.4::gentoo
+# required by @selected
+# required by @world (argument)
+>=net-firewall/nftables-1.1.7 json
