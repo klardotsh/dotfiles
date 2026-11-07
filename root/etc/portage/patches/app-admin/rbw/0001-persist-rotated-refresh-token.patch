@@ -1,0 +1,129 @@
+diff --git a/src/actions.rs b/src/actions.rs
+index 79d304d..8f19aff 100644
+--- a/src/actions.rs
++++ b/src/actions.rs
+@@ -137,6 +137,7 @@ pub async fn sync(
+     access_token: &str,
+     refresh_token: &str,
+ ) -> Result<(
++    Option<String>,
+     Option<String>,
+     (
+         String,
+@@ -302,7 +303,7 @@ where
+     match f(access_token) {
+         Ok(t) => Ok((None, t)),
+         Err(Error::RequestUnauthorized) => {
+-            let access_token = exchange_refresh_token(refresh_token)?;
++            let (access_token, _) = exchange_refresh_token(refresh_token)?;
+             let t = f(&access_token)?;
+             Ok((Some(access_token), t))
+         }
+@@ -314,7 +315,7 @@ async fn with_exchange_refresh_token_async<F, T>(
+     access_token: &str,
+     refresh_token: &str,
+     f: F,
+-) -> Result<(Option<String>, T)>
++) -> Result<(Option<String>, Option<String>, T)>
+ where
+     F: Fn(
+             &str,
+@@ -325,23 +326,25 @@ where
+     T: Send,
+ {
+     match f(access_token).await {
+-        Ok(t) => Ok((None, t)),
++        Ok(t) => Ok((None, None, t)),
+         Err(Error::RequestUnauthorized) => {
+-            let access_token =
++            let (access_token, refresh_token) =
+                 exchange_refresh_token_async(refresh_token).await?;
+             let t = f(&access_token).await?;
+-            Ok((Some(access_token), t))
++            Ok((Some(access_token), refresh_token, t))
+         }
+         Err(e) => Err(e),
+     }
+ }
+ 
+-fn exchange_refresh_token(refresh_token: &str) -> Result<String> {
++fn exchange_refresh_token(refresh_token: &str) -> Result<(String, Option<String>)> {
+     let (client, _) = api_client()?;
+     client.exchange_refresh_token(refresh_token)
+ }
+ 
+-async fn exchange_refresh_token_async(refresh_token: &str) -> Result<String> {
++async fn exchange_refresh_token_async(
++    refresh_token: &str,
++) -> Result<(String, Option<String>)> {
+     let (client, _) = api_client()?;
+     client.exchange_refresh_token_async(refresh_token).await
+ }
+diff --git a/src/api.rs b/src/api.rs
+index a817fb2..6e51256 100644
+--- a/src/api.rs
++++ b/src/api.rs
+@@ -372,6 +372,7 @@ struct ConnectRefreshTokenReq {
+ #[derive(serde::Deserialize, Debug)]
+ struct ConnectRefreshTokenRes {
+     access_token: String,
++    refresh_token: Option<String>,
+ }
+ 
+ #[derive(serde::Serialize, Debug)]
+@@ -1545,7 +1546,7 @@ impl Client {
+     pub fn exchange_refresh_token(
+         &self,
+         refresh_token: &str,
+-    ) -> Result<String> {
++    ) -> Result<(String, Option<String>)> {
+         let connect_req = ConnectRefreshTokenReq {
+             grant_type: "refresh_token".to_string(),
+             client_id: "cli".to_string(),
+@@ -1558,13 +1559,13 @@ impl Client {
+             .send()
+             .map_err(|source| Error::Reqwest { source })?;
+         let connect_res: ConnectRefreshTokenRes = res.json_with_path()?;
+-        Ok(connect_res.access_token)
++        Ok((connect_res.access_token, connect_res.refresh_token))
+     }
+ 
+     pub async fn exchange_refresh_token_async(
+         &self,
+         refresh_token: &str,
+-    ) -> Result<String> {
++    ) -> Result<(String, Option<String>)> {
+         let connect_req = ConnectRefreshTokenReq {
+             grant_type: "refresh_token".to_string(),
+             client_id: "cli".to_string(),
+@@ -1579,7 +1580,7 @@ impl Client {
+             .map_err(|source| Error::Reqwest { source })?;
+         let connect_res: ConnectRefreshTokenRes =
+             res.json_with_path().await?;
+-        Ok(connect_res.access_token)
++        Ok((connect_res.access_token, connect_res.refresh_token))
+     }
+ 
+     fn api_url(&self, path: &str) -> String {
+diff --git a/src/bin/rbw-agent/actions.rs b/src/bin/rbw-agent/actions.rs
+index 9ddd2ad..b8870e4 100644
+--- a/src/bin/rbw-agent/actions.rs
++++ b/src/bin/rbw-agent/actions.rs
+@@ -523,6 +523,7 @@ pub async fn sync(
+     };
+     let (
+         access_token,
++        refresh_token,
+         (protected_key, protected_private_key, protected_org_keys, entries),
+     ) = rbw::actions::sync(&access_token, &refresh_token)
+         .await
+@@ -531,6 +532,9 @@ pub async fn sync(
+     if let Some(access_token) = access_token {
+         db.access_token = Some(access_token);
+     }
++    if let Some(refresh_token) = refresh_token {
++        db.refresh_token = Some(refresh_token);
++    }
+     db.protected_key = Some(protected_key);
+     db.protected_private_key = Some(protected_private_key);
+     db.protected_org_keys = protected_org_keys;
