@@ -118,7 +118,7 @@
 		"interval": 60,
 		"exec": "slopstat oneline --waybar",
 		"return-type": "json",
-		"tooltip": true
+		"on-click": "/home/j/bin/slopstat-notify"
 	},
 	"custom/voxtype": {
        "exec": "voxtype status --follow --format json",
