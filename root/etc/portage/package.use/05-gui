@@ -2,6 +2,22 @@ gui-apps/fuzzel png svg
 gui-apps/waybar mpris niri tray
 gui-wm/niri screencast
 
+# required by x11-libs/wxGTK-3.2.12::4nykey
+# required by media-sound/tenacity-1.3.5-r1::guru
+# required by @selected
+# required by @world (argument)
+>=x11-libs/wxWidgets-3.2.12:3.2 X
+
+# Setting +X means have to set a framework out of gtk3/gtk4/qt6
+>=x11-libs/wxWidgets-3.2.12:3.2 gtk4
+
+# required by x11-libs/wxWidgets-3.2.12::4nykey[gtk4]
+# required by x11-libs/wxGTK-3.2.12::4nykey
+# required by media-sound/tenacity-1.3.5-r1::guru
+# required by @selected
+# required by @world (argument)
+>=gui-libs/gtk-4.20.4-r1 X
+
 # wayland? ( opengl )
 dev-qt/qtbase opengl
 dev-qt/qttools opengl
