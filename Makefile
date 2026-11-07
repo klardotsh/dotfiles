@@ -6,10 +6,11 @@ ROOT_SOURCE_DIR = $$(pwd)/root/etc
 ROOT_CONFIG = $$(pwd)/root/.chezmoi.root.toml
 
 .PHONY: bootstrap user-init user-status user-diff user-dry-run user-apply \
-	user-add user-postapply system-status system-diff system-dry-run \
+	user-add user-postapply systemd-user system-status system-diff system-dry-run \
 	system-apply system-add
 
 bootstrap: user-init
+	@$(MAKE) systemd-user
 	@$(MAKE) user-postapply
 	@$(MAKE) system-apply
 
@@ -49,6 +50,22 @@ user-postapply: user-apply
 	nvim --headless +JetpackSync +qall
 	@printf '%s\n' 'Disregard any "not synchronized" error from JetpackSync above.' >&2
 	nvim --headless +TSUpdate +qall
+
+systemd-user:
+	$(CHEZMOI) --source "$(SOURCE_DIR)" apply \
+		"$(HOME)/.config/systemd/user/noirpass.service" \
+		"$(HOME)/.config/systemd/user/noirpass.service.d/10-store-check.conf" \
+		"$(HOME)/.local/share/dbus-1/services/org.freedesktop.secrets.service"
+	@if command -v systemctl >/dev/null 2>&1 && systemctl --user show-environment >/dev/null 2>&1; then \
+		systemctl --user daemon-reload; \
+		systemctl --user disable noirpass.service 2>/dev/null || true; \
+		if systemctl --user cat gpg-agent.socket >/dev/null 2>&1; then \
+			systemctl --user enable --now gpg-agent.socket; \
+		fi; \
+	fi
+	@if command -v dbus-send >/dev/null 2>&1; then \
+		dbus-send --session --type=method_call --dest=org.freedesktop.DBus / org.freedesktop.DBus.ReloadConfig >/dev/null 2>&1 || true; \
+	fi
 
 system-status:
 	@if command -v doas >/dev/null 2>&1; then \
