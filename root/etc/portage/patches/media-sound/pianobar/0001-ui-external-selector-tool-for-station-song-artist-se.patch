@@ -1,0 +1,619 @@
+From 7a611d4e2f5f1a54bb41d9c79dd61f3f0c57909b Mon Sep 17 00:00:00 2001
+From: Josh Klar <josh@klar.sh>
+Date: Sun, 22 Mar 2026 21:19:04 -0700
+Subject: [PATCH] ui: external selector tool for station/song/artist selection
+
+Add optional `selection_command` config key. When set, selection lists
+(stations, and song/artist picking during station creation) are piped to
+this command and its first output line is matched back to an entry by
+the " N) " prefix, enabling tools like fzf or fuzzel -d. Unset or
+failing command falls back to the interactive numeric prompt.
+
+Also route password_command through the same external-command runner,
+replacing a bespoke fork/pipe block in main.c.
+---
+ contrib/config-example |   1 +
+ contrib/pianobar.1     |   7 +
+ src/main.c             |  49 +-----
+ src/settings.c         |   3 +
+ src/settings.h         |   1 +
+ src/ui.c               | 367 +++++++++++++++++++++++++++++++++--------
+ src/ui.h               |   2 +
+ 7 files changed, 317 insertions(+), 113 deletions(-)
+
+diff --git a/contrib/config-example b/contrib/config-example
+index 060fbcb..04a2ed9 100644
+--- a/contrib/config-example
++++ b/contrib/config-example
+@@ -50,6 +50,7 @@
+ #gain_mul = 1.0
+ #sample_rate = 44100
+ #audio_pipe = /tmp/mypipe
++#selection_command = fuzzel -d
+ 
+ # Format strings
+ #format_nowplaying_song = [32m%t[0m by [34m%a[0m on %l[31m%r[0m%@%s
+diff --git a/contrib/pianobar.1 b/contrib/pianobar.1
+index 887ae4a..3e7c675 100644
+--- a/contrib/pianobar.1
++++ b/contrib/pianobar.1
+@@ -411,6 +411,13 @@ Your pandora.com username.
+ .B volume = 0
+ Initial volume correction in dB. Usually between -30 and +5.
+ 
++.TP
++.B selection_command = fzf
++Use this external command to select stations, songs, or artists. The command
++receives newline-separated entries such as " 0) StationName" or " 0) Artist -
++Title" via stdin and should return the selected entry verbatim via stdout.
++Empty output aborts the selection. For example, `fzf`, `dmenu`, or `fuzzel -d`.
++
+ .SH REMOTE CONTROL
+ .B pianobar
+ can be controlled through a fifo. You have to create it yourself by executing
+diff --git a/src/main.c b/src/main.c
+index c726b28..1e5ba9a 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -111,53 +111,18 @@ static bool BarMainGetLoginCredentials (BarSettings_t *settings,
+ 			puts ("");
+ 			settings->password = strdup (passBuf);
+ 		} else {
+-			pid_t chld;
+-			int pipeFd[2];
+-
+ 			BarUiMsg (settings, MSG_INFO, "Requesting password from external helper... ");
+ 
+-			if (pipe (pipeFd) == -1) {
+-				BarUiMsg (settings, MSG_NONE, "Error: %s\n", strerror (errno));
++			char *result = BarUiRunExternalCmd (settings, settings->passwordCmd,
++					NULL, 0);
++
++			if (result == NULL) {
++				BarUiMsg (settings, MSG_NONE, "Error: Exit status non-zero.\n");
+ 				return false;
+ 			}
+ 
+-			chld = fork ();
+-			if (chld == 0) {
+-				/* child */
+-				close (pipeFd[0]);
+-				dup2 (pipeFd[1], fileno (stdout));
+-				execl ("/bin/sh", "/bin/sh", "-c", settings->passwordCmd, (char *) NULL);
+-				BarUiMsg (settings, MSG_NONE, "Error: %s\n", strerror (errno));
+-				close (pipeFd[1]);
+-				exit (1);
+-			} else if (chld == -1) {
+-				BarUiMsg (settings, MSG_NONE, "Error: %s\n", strerror (errno));
+-				return false;
+-			} else {
+-				/* parent */
+-				int status;
+-
+-				close (pipeFd[1]);
+-				memset (passBuf, 0, sizeof (passBuf));
+-				read (pipeFd[0], passBuf, sizeof (passBuf)-1);
+-				close (pipeFd[0]);
+-
+-				/* drop trailing newlines */
+-				ssize_t len = strlen (passBuf)-1;
+-				while (len >= 0 && passBuf[len] == '\n') {
+-					passBuf[len] = '\0';
+-					--len;
+-				}
+-
+-				waitpid (chld, &status, 0);
+-				if (WEXITSTATUS (status) == 0) {
+-					settings->password = strdup (passBuf);
+-					BarUiMsg (settings, MSG_NONE, "Ok.\n");
+-				} else {
+-					BarUiMsg (settings, MSG_NONE, "Error: Exit status %i.\n", WEXITSTATUS (status));
+-					return false;
+-				}
+-			}
++			settings->password = result;
++			BarUiMsg (settings, MSG_NONE, "Ok.\n");
+ 		} /* end else passwordCmd */
+ 	}
+ 
+diff --git a/src/settings.c b/src/settings.c
+index 5859b82..ba16255 100644
+--- a/src/settings.c
++++ b/src/settings.c
+@@ -115,6 +115,7 @@ void BarSettingsDestroy (BarSettings_t *settings) {
+ 	free (settings->username);
+ 	free (settings->password);
+ 	free (settings->passwordCmd);
++	free (settings->selectionCmd);
+ 	free (settings->autostartStation);
+ 	free (settings->eventCmd);
+ 	free (settings->loveIcon);
+@@ -293,6 +294,8 @@ void BarSettingsRead (BarSettings_t *settings) {
+ 				settings->password = strdup (val);
+ 			} else if (streq ("password_command", key)) {
+ 				settings->passwordCmd = strdup (val);
++			} else if (streq ("selection_command", key)) {
++				settings->selectionCmd = strdup (val);
+ 			} else if (streq ("rpc_host", key)) {
+ 				free (settings->rpcHost);
+ 				settings->rpcHost = strdup (val);
+diff --git a/src/settings.h b/src/settings.h
+index 2e5a378..c82ce0e 100644
+--- a/src/settings.h
++++ b/src/settings.h
+@@ -91,6 +91,7 @@ typedef struct {
+ 	PianoAudioQuality_t audioQuality;
+ 	char *username;
+ 	char *password, *passwordCmd;
++	char *selectionCmd;
+ 	char *controlProxy; /* non-american listeners need this */
+ 	char *proxy;
+ 	char *bindTo;
+diff --git a/src/ui.c b/src/ui.c
+index 0c7386a..798c0ba 100644
+--- a/src/ui.c
++++ b/src/ui.c
+@@ -45,6 +45,10 @@ THE SOFTWARE.
+ 
+ typedef int (*BarSortFunc_t) (const void *, const void *);
+ 
++#define BAR_UI_SELECTION_DELIM ") "
++
++#define BAR_UI_INDEX_FMT(spec) spec ") "
++
+ /*	is string a number?
+  */
+ static bool isnumeric (const char *s) {
+@@ -60,6 +64,33 @@ static bool isnumeric (const char *s) {
+ 	return true;
+ }
+ 
++/*	Extract selection index from external selector output. External tools
++ *	return the entire entry string (" 0) StationName"), so parse the numeric
++ *	prefix before BAR_UI_SELECTION_DELIM.
++ *	@param input full string returned by external selector
++ *	@param idx output: extracted index
++ *	@return true if index was extracted
++ */
++static bool BarExtractSelectionIndex (const char *input, unsigned long *idx) {
++	assert (input != NULL);
++	assert (idx != NULL);
++
++	char *end;
++	const long v = strtol (input, &end, 10);
++	if (end == input || v < 0 || strncmp (end, BAR_UI_SELECTION_DELIM,
++			strlen (BAR_UI_SELECTION_DELIM)) != 0) {
++		return false;
++	}
++
++	*idx = (unsigned long) v;
++	return true;
++}
++
++static void BarUiFormatSong (const BarSettings_t * const settings,
++		const PianoSong_t * const song, size_t index,
++		const char *atIcon, const char *stationName,
++		char *dest, size_t destSize);
++
+ /*	find needle in haystack, ignoring case, and return first position
+  */
+ static const char *BarStrCaseStr (const char *haystack, const char *needle) {
+@@ -475,50 +506,83 @@ PianoStation_t *BarUiSelectStation (BarApp_t *app, PianoStation_t *stations,
+ 
+ 	memset (buf, 0, sizeof (buf));
+ 
+-	/* sort and print stations */
+ 	sortedStations = BarSortedStations (stations, &stationCount,
+ 			app->settings.sortOrder);
+ 
+-	do {
+-		displayCount = 0;
++	if (app->settings.selectionCmd != NULL) {
++		char **entries = malloc (stationCount * sizeof (char *));
+ 		for (i = 0; i < stationCount; i++) {
+ 			const PianoStation_t *currStation = sortedStations[i];
+-			/* filter stations */
+-			if (BarStrCaseStr (currStation->name, buf) != NULL) {
+-				BarUiMsg (&app->settings, MSG_LIST, "%2zi) %c%c%c %s\n", i,
+-						currStation->useQuickMix ? 'q' : ' ',
+-						currStation->isQuickMix ? 'Q' : ' ',
+-						!currStation->isCreator ? 'S' : ' ',
+-						currStation->name);
+-				++displayCount;
+-				lastDisplayed = i;
+-			}
++			size_t len = strlen (currStation->name) + 32;
++			entries[i] = malloc (len);
++			snprintf (entries[i], len, BAR_UI_INDEX_FMT("%2zi") "%c%c%c %s", i,
++					currStation->useQuickMix ? 'q' : ' ',
++					currStation->isQuickMix ? 'Q' : ' ',
++					!currStation->isCreator ? 'S' : ' ',
++					currStation->name);
+ 		}
+-
+-		BarUiMsg (&app->settings, MSG_QUESTION, "%s", prompt);
+-		if (autoselect && displayCount == 1 && stationCount != 1) {
+-			/* auto-select last remaining station */
+-			BarUiMsg (&app->settings, MSG_NONE, "%zi\n", lastDisplayed);
+-			retStation = sortedStations[lastDisplayed];
+-		} else {
+-			if (BarReadlineStr (buf, sizeof (buf), &app->input,
+-					BAR_RL_DEFAULT) == 0) {
+-				break;
+-			}
+-
+-			if (isnumeric (buf)) {
+-				unsigned long selected = strtoul (buf, NULL, 0);
+-				if (selected < stationCount) {
+-					retStation = sortedStations[selected];
++		char *selected = BarUiRunExternalCmd (&app->settings,
++				app->settings.selectionCmd, entries, stationCount);
++		for (i = 0; i < stationCount; i++) {
++			free (entries[i]);
++		}
++		free (entries);
++		if (selected == NULL) {
++			free (sortedStations);
++			return NULL;
++		}
++		unsigned long selectedIdx;
++		if (BarExtractSelectionIndex (selected, &selectedIdx) &&
++				selectedIdx < stationCount) {
++			retStation = sortedStations[selectedIdx];
++		}
++		free (selected);
++		if (retStation == NULL && callback != NULL) {
++			callback (app, buf);
++		}
++	} else {
++		/* sort and print stations */
++		do {
++			displayCount = 0;
++			/* filter stations */
++			for (i = 0; i < stationCount; i++) {
++				const PianoStation_t *currStation = sortedStations[i];
++				if (BarStrCaseStr (currStation->name, buf) != NULL) {
++					BarUiMsg (&app->settings, MSG_LIST, BAR_UI_INDEX_FMT("%2zi") "%c%c%c %s\n", i,
++							currStation->useQuickMix ? 'q' : ' ',
++							currStation->isQuickMix ? 'Q' : ' ',
++							!currStation->isCreator ? 'S' : ' ',
++							currStation->name);
++					++displayCount;
++					lastDisplayed = i;
+ 				}
+ 			}
+ 
+-			/* hand over buffer to external function if it was not a station number */
+-			if (retStation == NULL && callback != NULL) {
+-				callback (app, buf);
++			BarUiMsg (&app->settings, MSG_QUESTION, "%s", prompt);
++			/* auto-select last remaining station */
++			if (autoselect && displayCount == 1 && stationCount != 1) {
++				BarUiMsg (&app->settings, MSG_NONE, "%zi\n", lastDisplayed);
++				retStation = sortedStations[lastDisplayed];
++			} else {
++				if (BarReadlineStr (buf, sizeof (buf), &app->input,
++						BAR_RL_DEFAULT) == 0) {
++					break;
++				}
++
++				if (isnumeric (buf)) {
++					unsigned long selected = strtoul (buf, NULL, 0);
++					if (selected < stationCount) {
++						retStation = sortedStations[selected];
++					}
++				}
++
++				/* hand over buffer to external function if it was not a station number */
++				if (retStation == NULL && callback != NULL) {
++					callback (app, buf);
++				}
+ 			}
+-		}
+-	} while (retStation == NULL);
++		} while (retStation == NULL);
++	}
+ 
+ 	free (sortedStations);
+ 	return retStation;
+@@ -538,19 +602,54 @@ PianoSong_t *BarUiSelectSong (const BarApp_t * const app,
+ 
+ 	memset (buf, 0, sizeof (buf));
+ 
+-	do {
+-		BarUiListSongs (app, startSong, buf);
++	if (settings->selectionCmd != NULL) {
++		const size_t songCount = PianoListCountP (startSong);
++		if (songCount == 0) {
++			return NULL;
++		}
++		char **entries = malloc (songCount * sizeof (char *));
++		size_t idx = 0;
++		PianoSong_t *curSong = startSong;
++		PianoListForeachP (curSong) {
++			char outstr[512];
++			BarUiFormatSong (settings, curSong, idx, "", "", outstr,
++					sizeof (outstr));
++			entries[idx] = strdup (outstr);
++			idx++;
++		}
+ 
+-		BarUiMsg (settings, MSG_QUESTION, "Select song: ");
+-		if (BarReadlineStr (buf, sizeof (buf), input, BAR_RL_DEFAULT) == 0) {
++		char *selected = BarUiRunExternalCmd (settings,
++				settings->selectionCmd, entries, songCount);
++		for (size_t i = 0; i < songCount; i++) {
++			free (entries[i]);
++		}
++		free (entries);
++
++		if (selected == NULL) {
+ 			return NULL;
+ 		}
+ 
+-		if (isnumeric (buf)) {
+-			unsigned long i = strtoul (buf, NULL, 0);
++		unsigned long i;
++		if (BarExtractSelectionIndex (selected, &i)) {
+ 			tmpSong = PianoListGetP (startSong, i);
+ 		}
+-	} while (tmpSong == NULL);
++		free (selected);
++	} else {
++		/* let user type a number */
++		do {
++			BarUiListSongs (app, startSong, buf);
++
++			BarUiMsg (settings, MSG_QUESTION, "Select song: ");
++			if (BarReadlineStr (buf, sizeof (buf), input, BAR_RL_DEFAULT) == 0) {
++				return NULL;
++			}
++
++			if (isnumeric (buf)) {
++				unsigned long i = strtoul (buf, NULL, 0);
++				tmpSong = PianoListGetP (startSong, i);
++			}
++		} while (tmpSong == NULL);
++	}
+ 
+ 	return tmpSong;
+ }
+@@ -567,29 +666,62 @@ PianoArtist_t *BarUiSelectArtist (BarApp_t *app, PianoArtist_t *startArtist) {
+ 
+ 	memset (buf, 0, sizeof (buf));
+ 
+-	do {
+-		/* print all artists */
++	if (app->settings.selectionCmd != NULL) {
++		const size_t artistCount = PianoListCountP (startArtist);
++		if (artistCount == 0) {
++			return NULL;
++		}
++		char **entries = malloc (artistCount * sizeof (char *));
+ 		i = 0;
+ 		tmpArtist = startArtist;
+ 		PianoListForeachP (tmpArtist) {
+-			if (BarStrCaseStr (tmpArtist->name, buf) != NULL) {
+-				BarUiMsg (&app->settings, MSG_LIST, "%2lu) %s\n", i,
+-						tmpArtist->name);
+-			}
++			size_t len = strlen (tmpArtist->name) + 32;
++			entries[i] = malloc (len);
++			snprintf (entries[i], len, BAR_UI_INDEX_FMT("%2lu") "%s", i, tmpArtist->name);
+ 			i++;
+ 		}
+ 
+-		BarUiMsg (&app->settings, MSG_QUESTION, "Select artist: ");
+-		if (BarReadlineStr (buf, sizeof (buf), &app->input,
+-				BAR_RL_DEFAULT) == 0) {
++		char *selected = BarUiRunExternalCmd (&app->settings,
++				app->settings.selectionCmd, entries, artistCount);
++		for (size_t j = 0; j < artistCount; j++) {
++			free (entries[j]);
++		}
++		free (entries);
++
++		if (selected == NULL) {
+ 			return NULL;
+ 		}
+ 
+-		if (isnumeric (buf)) {
+-			i = strtoul (buf, NULL, 0);
+-			tmpArtist = PianoListGetP (startArtist, i);
++		unsigned long artistIdx;
++		if (BarExtractSelectionIndex (selected, &artistIdx)) {
++			tmpArtist = PianoListGetP (startArtist, artistIdx);
+ 		}
+-	} while (tmpArtist == NULL);
++		free (selected);
++	} else {
++		do {
++			/* print all artists */
++			i = 0;
++			tmpArtist = startArtist;
++			PianoListForeachP (tmpArtist) {
++				if (BarStrCaseStr (tmpArtist->name, buf) != NULL) {
++					BarUiMsg (&app->settings, MSG_LIST, BAR_UI_INDEX_FMT("%2lu") "%s\n", i,
++							tmpArtist->name);
++				}
++				i++;
++			}
++
++			BarUiMsg (&app->settings, MSG_QUESTION, "Select artist: ");
++			if (BarReadlineStr (buf, sizeof (buf), &app->input,
++					BAR_RL_DEFAULT) == 0) {
++				return NULL;
++			}
++
++			if (isnumeric (buf)) {
++				i = strtoul (buf, NULL, 0);
++				tmpArtist = PianoListGetP (startArtist, i);
++			}
++		} while (tmpArtist == NULL);
++	}
+ 
+ 	return tmpArtist;
+ }
+@@ -771,6 +903,30 @@ static const char *ratingToIcon (const BarSettings_t * const settings,
+ 	}
+ }
+ 
++/*	Format a single song entry using listSongFormat, for external selection.
++ */
++static void BarUiFormatSong (const BarSettings_t * const settings,
++		const PianoSong_t * const song, const size_t index,
++		const char *atIcon, const char *stationName,
++		char *dest, const size_t destSize) {
++	char digits[8], duration[8] = "??:??";
++	const char *vals[] = {digits, song->artist, song->title,
++			ratingToIcon (settings, song),
++			duration,
++			atIcon,
++			stationName};
++
++	snprintf (digits, sizeof (digits), "%2zu", index);
++	const unsigned int length = song->length;
++	if (length > 0) {
++		snprintf (duration, sizeof (duration), "%02u:%02u",
++				length / 60, length % 60);
++	}
++
++	BarUiCustomFormat (dest, destSize, settings->listSongFormat,
++			"iatrd@s", vals);
++}
++
+ /*	Print song infos (artist, title, album, loved)
+  *	@param pianobar settings
+  *	@param the song
+@@ -817,24 +973,10 @@ size_t BarUiListSongs (const BarApp_t * const app,
+ 				stationName = deleted;
+ 			}
+ 
+-			char outstr[512], digits[8], duration[8] = "??:??";
+-			const char *vals[] = {digits, song->artist, song->title,
+-					ratingToIcon (settings, song),
+-					duration,
++			char outstr[512];
++			BarUiFormatSong (settings, song, i,
+ 					stationName != empty ? settings->atIcon : "",
+-					stationName,
+-					};
+-
+-			/* pre-format a few strings */
+-			snprintf (digits, sizeof (digits) / sizeof (*digits), "%2zu", i);
+-			const unsigned int length = song->length;
+-			if (length > 0) {
+-				snprintf (duration, sizeof (duration), "%02u:%02u",
+-						length / 60, length % 60);
+-			}
+-
+-			BarUiCustomFormat (outstr, sizeof (outstr), settings->listSongFormat,
+-					"iatrd@s", vals);
++					stationName, outstr, sizeof (outstr));
+ 			BarUiAppendNewline (outstr, sizeof (outstr));
+ 			BarUiMsg (settings, MSG_LIST, "%s", outstr);
+ 		}
+@@ -1002,6 +1144,89 @@ void BarUiStartEventCmd (const BarSettings_t *settings, const char *type,
+ 	}
+ }
+ 
++char *BarUiRunExternalCmd (const BarSettings_t * const settings,
++		const char * const cmd, char ** const inputLines,
++		const size_t inputLineCount) {
++	pid_t chld;
++	int pipeStdin[2], pipeStdout[2];
++
++	if (pipe (pipeStdin) == -1) {
++		BarUiMsg (settings, MSG_ERR, "Error creating pipe: %s\n",
++				strerror (errno));
++		return NULL;
++	}
++	if (pipe (pipeStdout) == -1) {
++		/* close already-opened pipeStdin fds to avoid leak */
++		close (pipeStdin[0]);
++		close (pipeStdin[1]);
++		BarUiMsg (settings, MSG_ERR, "Error creating pipe: %s\n",
++				strerror (errno));
++		return NULL;
++	}
++
++	chld = fork ();
++	if (chld == -1) {
++		BarUiMsg (settings, MSG_ERR, "Error forking: %s\n", strerror (errno));
++		close (pipeStdin[0]);
++		close (pipeStdin[1]);
++		close (pipeStdout[0]);
++		close (pipeStdout[1]);
++		return NULL;
++	}
++
++	if (chld == 0) {
++		close (pipeStdin[1]);
++		close (pipeStdout[0]);
++		/* Only redirect stdin to pipe when we have input to send;
++		 * leave as terminal for TUI tools like pinentry */
++		if (inputLines != NULL) {
++			dup2 (pipeStdin[0], fileno (stdin));
++		}
++		dup2 (pipeStdout[1], fileno (stdout));
++		execl ("/bin/sh", "/bin/sh", "-c", cmd, (char *) NULL);
++		BarUiMsg (settings, MSG_NONE, "Error: %s\n", strerror (errno));
++		close (pipeStdin[0]);
++		close (pipeStdout[1]);
++		exit (1);
++	}
++
++	close (pipeStdin[0]);
++	close (pipeStdout[1]);
++
++	FILE *stdinWrite = fdopen (pipeStdin[1], "w");
++	FILE *stdoutRead = fdopen (pipeStdout[0], "r");
++
++	if (inputLines != NULL) {
++		for (size_t i = 0; i < inputLineCount; i++) {
++			fprintf (stdinWrite, "%s\n", inputLines[i]);
++		}
++	}
++	fclose (stdinWrite);
++
++	char *result = NULL;
++	char buf[1024];
++	if (fgets (buf, sizeof (buf), stdoutRead) != NULL) {
++		size_t len = strlen (buf);
++		while (len > 0 && (buf[len-1] == '\n' || buf[len-1] == '\r')) {
++			buf[--len] = '\0';
++		}
++		if (len > 0) {
++			result = strdup (buf);
++		}
++	}
++	fclose (stdoutRead);
++
++	int status;
++	waitpid (chld, &status, 0);
++
++	if (result == NULL || WEXITSTATUS (status) != 0) {
++		free (result);
++		return NULL;
++	}
++
++	return result;
++}
++
+ /*	prepend song to history
+  */
+ void BarUiHistoryPrepend (BarApp_t *app, PianoSong_t *song) {
+diff --git a/src/ui.h b/src/ui.h
+index 33d2a76..a9306a1 100644
+--- a/src/ui.h
++++ b/src/ui.h
+@@ -55,4 +55,6 @@ bool BarUiPianoCall (BarApp_t * const, const PianoRequestType_t,
+ void BarUiHistoryPrepend (BarApp_t *app, PianoSong_t *song);
+ void BarUiCustomFormat (char *dest, size_t destSize, const char *format,
+ 		const char *formatChars, const char **formatVals);
++char *BarUiRunExternalCmd (const BarSettings_t *, const char *,
++		char **, size_t);
+ 
+-- 
+2.56.0
+
