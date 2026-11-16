@@ -1,0 +1,34 @@
+media-fonts/open-sans::4nykey
+media-fonts/roboto::4nykey
+
+{{- if eq .chezmoi.hostname "woods" }}
+
+# Lock the dist-kernel to the 7.2.x series as a whole; no per-release names.
+# ::gentoo dropped every 7.2.x ebuild, so an unlocked @world installs the 6.18.63
+# LTS downgrade and then fails in prepare: this machine carries out-of-tree amdgpu
+# patches under /etc/portage/patches/sys-kernel/gentoo-kernel/, and 0002 there
+# targets dc_dmub_srv_handle_failure(), which does not exist before 7.x. Verified
+# on a tree prepared exactly like the ebuild (base + patch-6.18.63 + gentoo
+# patchset): 0001, 0003 and 0004 apply, 0002 fails. On 7.3.4 it is 0001 that
+# fails, so no released series takes all four except the 7.2.x we run.
+# The next 7.2.x ebuild to land becomes selectable on its own. This also covers
+# 6.18.33 and 6.18.33_p1, whose upstream sources changed size without
+# regenerated manifests.
+# chihiro is Intel and has no such patches, so it tracks kernels normally.
+<sys-kernel/gentoo-kernel-7.2
+>=sys-kernel/gentoo-kernel-7.3
+<virtual/dist-kernel-7.2
+>=virtual/dist-kernel-7.3
+{{- end }}
+
+# upstream changed version number git tagging system to add a `v` prefix that the
+# ebuild does not reflect; sources can't pull
+>=app-editors/kakoune-lsp-21.0.0
+
+# The ::4nykey wx split is broken at this version only. wxGTK-3.2.12 became a
+# metadata wrapper that installs no /usr/lib64/wx/config script, so
+# setup-wxwidgets cannot find gtk3-unicode-3.2 (media-sound/tenacity,
+# media-video/mediainfo), and wxWidgets-3.2.12 fails to compile. Masking just
+# these two falls back to the stable, self-contained ::gentoo wxGTK.
+=x11-libs/wxGTK-3.2.12::4nykey
+=x11-libs/wxWidgets-3.2.12::4nykey
