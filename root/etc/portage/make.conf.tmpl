@@ -22,7 +22,10 @@ FONT_TYPES="otf"
 
 #FEATURES="ccache"
 MAKEOPTS="-j5"
-EMERGE_DEFAULT_OPTS="--jobs 5 --load-average 6.5"
+# --keep-going is not implied by --jobs. Without it, portage stops scheduling
+# new merges after the first failure, so one broken package aborts the rest of
+# the world update.
+EMERGE_DEFAULT_OPTS="--jobs 5 --load-average 6.5 --keep-going=y"
 
 # Extremely low priority
 PORTAGE_SCHEDULING_POLICY="idle"
@@ -73,7 +76,10 @@ FONT_TYPES="otf"
 
 FEATURES="ccache"
 MAKEOPTS="-j23"
-EMERGE_DEFAULT_OPTS="--jobs 23 --load-average 24"
+# --keep-going is not implied by --jobs. Without it, portage stops scheduling
+# new merges after the first failure, so one broken package aborts the rest of
+# the world update.
+EMERGE_DEFAULT_OPTS="--jobs 23 --load-average 24 --keep-going=y"
 
 # Extremely low priority
 PORTAGE_SCHEDULING_POLICY="idle"

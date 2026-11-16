@@ -6,6 +6,10 @@
 */*::guru ~amd64
 # */*::pf4public ~amd64
 # ^ just kidding pf4public does roll stable ungoogled-chromiums!
+# ...but it only keywords esbuild as ~amd64, and ungoogled-chromium 157 pins
+# =dev-util/esbuild-0.28.2, so the chromium upgrade aborts dependency
+# resolution without this line.
+dev-util/esbuild::pf4public ~amd64
 */*::qsx ~amd64
 */*::haskell ~amd64
 */*::nekochigura ~amd64
