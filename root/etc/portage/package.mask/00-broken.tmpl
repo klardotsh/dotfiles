@@ -25,10 +25,17 @@ media-fonts/roboto::4nykey
 # ebuild does not reflect; sources can't pull
 >=app-editors/kakoune-lsp-21.0.0
 
-# The ::4nykey wx split is broken at this version only. wxGTK-3.2.12 became a
-# metadata wrapper that installs no /usr/lib64/wx/config script, so
-# setup-wxwidgets cannot find gtk3-unicode-3.2 (media-sound/tenacity,
-# media-video/mediainfo), and wxWidgets-3.2.12 fails to compile. Masking just
-# these two falls back to the stable, self-contained ::gentoo wxGTK.
-=x11-libs/wxGTK-3.2.12::4nykey
-=x11-libs/wxWidgets-3.2.12::4nykey
+# All ::4nykey wx ebuilds are broken for eclass consumers, at every version.
+# wxGTK-3.2.12::4nykey is a metadata-only wrapper: its ebuild has no src_compile
+# or src_install, and it installs no /usr/lib64/wx/config script. eselect
+# wxwidgets list reports "(none found)", so setup-wxwidgets aborts for
+# media-sound/tenacity and media-video/mediainfo, both of which need
+# gtk3-unicode-3.2.
+# Masking only 3.2.12 does not help: wxWidgets has no 3.2 slot, so portage moves
+# to wxWidgets-3.3.4::4nykey and tenacity still fails. Masking both atoms falls
+# back to the stable, self-contained ::gentoo wxGTK-3.2.8.1-r2, which does
+# install the config script.
+# Cost: ::4nykey's dev-python/wxpython needs wxWidgets-3.3.4:3.3 and becomes
+# uninstallable. Nothing installed here uses it.
+x11-libs/wxGTK::4nykey
+x11-libs/wxWidgets::4nykey
