@@ -43,3 +43,6 @@ user_pref("javascript.options.wasm", true); // 5506
 // CUSTOM: Make the devtools zoom higher - my HiDPI screens turn the inspector
 // into an eyechart...
 user_pref("devtools.toolbox.zoomValue", 1.4);
+
+// OVERRIDE: allow PipeWire-backed cameras (IPU7 via libcamera)
+user_pref("media.webrtc.camera.allow-pipewire", true);

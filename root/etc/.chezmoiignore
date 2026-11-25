@@ -94,6 +94,7 @@ portage/package.use/*
 !portage/package.use/02-bluetooth
 !portage/package.use/02-pipewire
 !portage/package.use/03-gfx
+!portage/package.use/03-libcamera
 !portage/package.use/04-fonts
 !portage/package.use/05-gui
 !portage/package.use/06-av
