@@ -1,2 +1,3 @@
-# IPU7 is handled by libcamera's simple pipeline + SoftISP; cam helps testing.
-media-libs/libcamera tools gstreamer
+# IPU7 is handled by libcamera's simple pipeline + SoftISP; tools/gstreamer
+# for testing, v4l for the legacy libcamera-v4l2 API shim.
+media-libs/libcamera tools gstreamer v4l
