@@ -1,0 +1,2 @@
+# Upstream adds -Werror; Clang's C++ VLA warning trips it.
+CXXFLAGS="${CXXFLAGS} -Wno-error=vla-cxx-extension"

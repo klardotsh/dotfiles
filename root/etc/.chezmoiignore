@@ -60,6 +60,7 @@ portage/env/*
 {{ if eq .chezmoi.hostname "chihiro" }}!portage/env/notmpfs{{ end }}
 !portage/env/allow-network
 !portage/env/compiler-gcc
+!portage/env/icamerasrc-vla
 !portage/env/rust-no-linker-lto
 !portage/env/rust-no-target-native
 !portage/env/zig-search-prefix
@@ -70,6 +71,7 @@ portage/package.env/*
 {{ if eq .chezmoi.hostname "chihiro" }}!portage/package.env/notmpfs{{ end }}
 !portage/package.env/allow-network
 !portage/package.env/force-gcc
+!portage/package.env/icamerasrc-vla
 !portage/package.env/rust-no-linker-lto
 !portage/package.env/rust-no-target-native
 !portage/package.env/zig-search-prefix

@@ -1,0 +1,2 @@
+# Clang VLA warning + upstream -Werror (see env/icamerasrc-vla).
+media-plugins/gst-plugins-icamerasrc icamerasrc-vla

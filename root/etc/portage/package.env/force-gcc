@@ -2,6 +2,10 @@ app-misc/tmate compiler-gcc
 sys-kernel/gentoo-kernel compiler-gcc
 sys-fs/zfs compiler-gcc
 sys-fs/zfs-kmod compiler-gcc
+
+# linux-mod-r1 builds its helper with the kernel GCC, which rejects -flto=thin.
+media-video/v4l2loopback compiler-gcc
+
 sys-devel/binutils compiler-gcc
 sys-devel/gcc compiler-gcc
 dev-debug/systemtap compiler-gcc
