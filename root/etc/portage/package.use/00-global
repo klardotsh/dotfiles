@@ -2,6 +2,7 @@
 */* bluetooth brotli cups dbus dist-kernel fish-completion font_types_otf graphite heif jemalloc jpeg lm-sensors lto man pgo pipewire png policykit svg vaapi verify-sig verify-provenance vulkan wayland webp xdg zopfli zstd
 
 */* LLVM_TARGETS: WebAssembly
+*/* RUST_SYSROOTS: wasm
 
 # This is needed by enough packages still that it's worth just globally setting for now.
 # - 01 June 2026
