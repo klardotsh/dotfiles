@@ -23,8 +23,12 @@ user-status:
 user-diff:
 	$(CHEZMOI) --source "$(SOURCE_DIR)" diff
 
+# A verbose apply starts the diff pager and can prompt for a drifted target at
+# the same time. The pager and the prompt then fight for the terminal input.
+# Disable the pager for the preview. See
+# https://github.com/twpayne/chezmoi/issues/4874
 user-dry-run:
-	$(CHEZMOI) --source "$(SOURCE_DIR)" apply --dry-run --verbose
+	$(CHEZMOI) --source "$(SOURCE_DIR)" apply --dry-run --verbose --no-pager
 
 user-apply: user-dry-run
 	@printf 'Apply user changes? [y/N] '; read -r answer; \
@@ -87,9 +91,9 @@ system-diff:
 
 system-dry-run:
 	@if command -v doas >/dev/null 2>&1; then \
-		doas $(CHEZMOI) --source "$(ROOT_SOURCE_DIR)" --destination /etc --config "$(ROOT_CONFIG)" apply --dry-run --verbose; \
+		doas $(CHEZMOI) --source "$(ROOT_SOURCE_DIR)" --destination /etc --config "$(ROOT_CONFIG)" apply --dry-run --verbose --no-pager; \
 	elif command -v sudo >/dev/null 2>&1; then \
-		sudo -E $(CHEZMOI) --source "$(ROOT_SOURCE_DIR)" --destination /etc --config "$(ROOT_CONFIG)" apply --dry-run --verbose; \
+		sudo -E $(CHEZMOI) --source "$(ROOT_SOURCE_DIR)" --destination /etc --config "$(ROOT_CONFIG)" apply --dry-run --verbose --no-pager; \
 	else \
 		printf '%s\n' 'system-dry-run: neither doas nor sudo is available' >&2; exit 127; \
 	fi

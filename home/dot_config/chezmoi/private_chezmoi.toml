@@ -1,3 +1,14 @@
 # chezmoi configuration for this workstation (hostname: woods).
 # The dotfiles repository is the chezmoi source. .chezmoiroot selects home/.
 sourceDir = "~/src/mine/dotfiles"
+
+# Use difftastic for diffs. Write the output directly to the terminal so it
+# stays in scrollback and cannot compete with chezmoi's prompts.
+# "dirs" is excluded because difftastic cannot compare a directory with
+# /dev/null when a directory is added. Chezmoi still diffs the files inside.
+# Remove "--display=inline" to honor DFT_DISPLAY instead.
+[diff]
+command = "difft"
+pager = ""
+exclude = ["dirs"]
+args = ["--display=inline", "{{ .Destination }}", "{{ .Target }}"]
